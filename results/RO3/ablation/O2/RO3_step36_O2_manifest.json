@@ -1,0 +1,11 @@
+{
+  "controller": "O2",
+  "origins": 11,
+  "materials": 4,
+  "horizon": 12,
+  "lead_days": 49,
+  "holding_rate": 0.025,
+  "objective": "deterministic procurement + holding cost",
+  "solver": "HiGHS",
+  "status": "EXECUTION_COMPLETE"
+}

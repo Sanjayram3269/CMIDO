@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "controllers": [
+    "O1",
+    "O2",
+    "O3",
+    "O4"
+  ],
+  "origins": [
+    "2022-07-01",
+    "2022-08-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-11-01",
+    "2022-12-01",
+    "2023-01-01",
+    "2023-02-01",
+    "2023-03-01",
+    "2023-04-01",
+    "2023-05-01"
+  ],
+  "materials": [
+    "Cement",
+    "Granite",
+    "Ready Mixed Concrete",
+    "Steel Reinforcement Bars"
+  ],
+  "primary_inferential_unit": "forecast_origin",
+  "bootstrap_reps": 10000,
+  "notes": [
+    "O4 realized evaluation uses the selected O4 quantity vectors against the common realized demand/price paths.",
+    "O4 realized arrival uses the frozen 49-day deterministic duration for common-policy evaluation; this is distinct from O4 stochastic optimization objectives.",
+    "Monthly realized shortage CVaR95 is reported as a descriptive stress metric over the 12 realized months, not as an independent probabilistic forecast."
+  ]
+}

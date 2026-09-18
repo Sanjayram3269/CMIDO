@@ -1,0 +1,8 @@
+field,column,n_rows,n_numeric,missing_or_unparseable,zero_count,negative_count,min,q25,median,mean,q75,q95,max
+OBS_OR_SOURCE: Total Leadtime Internal,Total Leadtime Internal Kom Teknik,58,58,0,0,0,2.0,9.0,13.0,13.96551724137931,16.75,27.299999999999997,36.0
+OBS_OR_SOURCE: PO - GR 103/101 (DN),PO - GR 103/101 (DN),58,38,20,0,0,10.0,27.25,34.0,41.86842105263158,52.25,87.84999999999997,110.0
+OBS_OR_SOURCE: PO - GR 103/101 (LN),PO - GR 103/101 (LN),58,1,57,0,0,22.0,22.0,22.0,22.0,22.0,22.0,22.0
+OBS_OR_SOURCE: Total Hari Kerja All (DN),Total Hari Kerja All (DN),58,57,1,0,0,4.0,23.0,39.0,41.6140350877193,52.0,87.79999999999995,118.0
+OBS_OR_SOURCE: Total Hari Kerja All (LN),Total Hari Kerja All (LN),58,1,57,0,0,27.0,27.0,27.0,27.0,27.0,27.0,27.0
+OBS_OR_SOURCE: Total Bulan All (DN),Total Bulan All (DN),58,57,1,0,0,4.0,23.0,39.0,41.63157894736842,52.0,87.79999999999995,118.0
+OBS_OR_SOURCE: Total Bulan All (LN),Total Bulan All (LN),58,1,57,0,0,28.0,28.0,28.0,28.0,28.0,28.0,28.0

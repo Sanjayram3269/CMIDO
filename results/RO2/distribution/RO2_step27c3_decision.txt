@@ -1,0 +1,70 @@
+CMIDO RO2 STEP 27C.3 — JOINT EMPIRICAL COMPONENT PROPAGATION
+================================================================
+
+Input
+-----
+D:\CMIDO\results\RO2\data_audit\RO2_step27b4_admissible_modelling_view.csv
+
+Input/integrity audit
+---------------------
+Input rows: 57
+Admissible PR-PO rows before deduplication: 55
+Duplicate rows removed: 0
+Locked paired component rows: 37
+
+Resolved columns
+----------------
+Internal: Internal_num
+PO-GR/DN: PODN_num
+Total: TotalDN_num
+
+Reconstruction audit
+--------------------
+Exact reconstruction rate: 1.000000
+Maximum absolute reconstruction error: 0.000000 days
+
+Dependence diagnostics
+----------------------
+Pearson r = -0.274500, p = 0.100142
+Spearman rho = -0.306315, p = 0.065199
+Spearman bootstrap 95% CI =
+    [-0.593589,
+     0.028024]
+
+Important interpretation:
+A non-significant dependence test is NOT treated as proof of independence.
+The primary representation is chosen from the observed data structure and
+propagation consequences, not from a p-value alone.
+
+Upper-tail comparison
+---------------------
+q95 independent vs joint:
+    difference = -2.000 days
+    relative   = -1.754 %
+
+q99 independent vs joint:
+    difference = 7.000 days
+    relative   = 5.932 %
+
+Decision
+--------
+JOINT_EMPIRICAL_PRIMARY
+
+Rationale
+---------
+The locked 27B.4 component pairs reconstruct the observed total exactly, and independent marginal sampling materially changes at least one upper-tail quantile. Preserve the observed pairing.
+
+Scientific interpretation
+--------------------------
+The 37 paired component observations are retained as a joint empirical
+uncertainty representation when component-level propagation is required.
+This avoids inventing supplier-specific lead-time distributions and avoids
+an unsupported independence assumption between procurement-process stages.
+
+The separate 55-observation total-duration empirical distribution remains
+the primary direct representation when only total procurement-process
+duration is required.
+
+This step is diagnostic only. It does not establish supplier-specific
+construction-material lead time, disruption probability, or historical
+shortage labels.

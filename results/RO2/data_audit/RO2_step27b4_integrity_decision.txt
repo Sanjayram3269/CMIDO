@@ -1,0 +1,3 @@
+RO2 DATA INTEGRITY PATHWAY LOCKED WITH FLAGS — use a deduplicated PR–PO observation view for modelling; retain the 1900-date row as an explicit source-quality flag; use Closed + positive internal/total DN as the conservative total-duration sample; use PO-GR DN only where observed. The data remain procurement-process/service data, not supplier-specific construction-material lead-time data.
+
+Important flags: one pre-2000 PO date and one repeated PR-PO pair. The repeated pair is excluded from the modelling view as a duplicate observation based on identical PR, PO, Item, Status and Short Text in the audit. The suspicious date is retained and flagged; no imputation is performed.

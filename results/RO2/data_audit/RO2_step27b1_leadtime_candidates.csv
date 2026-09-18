@@ -1,0 +1,16 @@
+sheet,column,n_rows,n_numeric,missing_or_unparseable,min,q25,median,mean,q75,q95,max,zero_count,negative_count
+Rata-rata,Total SLA - Realisasi days,66,56,10,-6.0,4.0,5.0,4.875,6.0,8.25,11.0,1,4
+Rata-rata,Total SLA - Realisasi days.1,66,56,10,1.0,7.75,11.5,13.696428571428571,16.5,29.25,35.0,0,0
+Rata-rata,Realisasi SLA,66,56,10,1.0,6.0,8.5,9.464285714285714,11.0,18.5,27.0,0,0
+Rata-rata,Days SLA,66,56,10,1.0,6.0,8.5,9.464285714285714,11.0,18.5,27.0,0,0
+Rata-rata,DERIVED: Requisition Date -> Tanggal PO calendar_days,66,56,10,-221.0,12.25,25.5,19.785714285714285,51.0,115.0,358.0,0,11
+Rata-rata V1,Total SLA - Realisasi days,66,56,10,-4.0,3.0,4.0,4.75,5.0,13.0,17.0,0,3
+Rata-rata V1,Total SLA - Realisasi days.1,66,56,10,1.0,7.75,11.5,13.696428571428571,16.5,29.25,35.0,0,0
+Rata-rata V1,Realisasi SLA,66,56,10,1.0,6.0,8.5,9.464285714285714,11.0,18.5,27.0,0,0
+Rata-rata V1,Days SLA,66,56,10,1.0,6.0,8.5,9.464285714285714,11.0,18.5,27.0,0,0
+Rata-rata V1,DERIVED: Requisition Date -> Tanggal PO calendar_days,66,56,10,-221.0,12.25,25.5,19.785714285714285,51.0,115.0,358.0,0,11
+Rata-rataFuture V2,Total SLA - Realisasi days,66,56,10,-8.0,3.0,4.0,4.214285714285714,6.0,9.5,13.0,0,3
+Rata-rataFuture V2,Total SLA - Realisasi days.1,66,56,10,1.0,7.75,11.5,13.696428571428571,16.5,29.25,35.0,0,0
+Rata-rataFuture V2,Realisasi SLA,66,56,10,1.0,6.0,8.5,9.464285714285714,11.0,18.5,27.0,0,0
+Rata-rataFuture V2,Days SLA,66,56,10,1.0,6.0,8.5,9.464285714285714,11.0,18.5,27.0,0,0
+Rata-rataFuture V2,DERIVED: Requisition Date -> Tanggal PO calendar_days,66,56,10,-221.0,12.25,25.5,19.785714285714285,51.0,115.0,358.0,0,11

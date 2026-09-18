@@ -1,0 +1,16 @@
+feature,feature_group
+lag_1,lag
+lag_2,lag
+lag_3,lag
+lag_6,lag
+lag_12,lag
+rolling_mean_3,rolling
+rolling_std_3,rolling
+rolling_mean_6,rolling
+rolling_std_6,rolling
+rolling_mean_12,rolling
+rolling_std_12,rolling
+month,calendar
+quarter,calendar
+log_change_1,momentum
+log_change_3,momentum

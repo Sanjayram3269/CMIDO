@@ -1,0 +1,40 @@
+{
+  "origin": "2022-07-01",
+  "scenario_counts": [
+    1000,
+    2500,
+    5000
+  ],
+  "epsilon_levels": 3,
+  "optimizer": "D:\\CMIDO\\src\\optimization\\ro3_epsilon_pareto_optimizer.py",
+  "normalization_min": {
+    "Z1": 0.0,
+    "Z2": 4000.2925355198713,
+    "Z3": 7312.547041368771
+  },
+  "normalization_max": {
+    "Z1": 3739407.3888549274,
+    "Z2": 37223.0190474597,
+    "Z3": 38441.51040784651
+  },
+  "hypervolume_reference": [
+    1.05,
+    1.05,
+    1.05
+  ],
+  "comparison_pairs": [
+    [
+      1000,
+      2500
+    ],
+    [
+      2500,
+      5000
+    ],
+    [
+      1000,
+      5000
+    ]
+  ],
+  "note": "Same frozen optimizer procedure was applied to each N. The optimizer internally derives epsilon bounds from each scenario set's anchor objective ranges; therefore frontier comparison is normalized across attainable ranges and is not an identical numeric epsilon grid comparison."
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "check": "price_is_uncertainty_bearing_procurement_input",
+    "pass": true
+  },
+  {
+    "check": "demand_is_uncertainty_bearing_requirement_input",
+    "pass": true
+  },
+  {
+    "check": "duration_is_procurement_process_proxy",
+    "pass": true
+  },
+  {
+    "check": "supplier_disruption_probability_not_invented",
+    "pass": true
+  },
+  {
+    "check": "supplier_specific_allocation_not_claimed",
+    "pass": true
+  },
+  {
+    "check": "initial_inventory_explicit_status_required",
+    "pass": true
+  },
+  {
+    "check": "open_orders_explicit_status_required",
+    "pass": true
+  },
+  {
+    "check": "holding_cost_requires_evidence",
+    "pass": true
+  },
+  {
+    "check": "shortage_penalty_requires_evidence",
+    "pass": true
+  },
+  {
+    "check": "delay_cost_not_primary_without_evidence",
+    "pass": true
+  },
+  {
+    "check": "fixed_order_cost_not_primary_without_evidence",
+    "pass": true
+  },
+  {
+    "check": "budget_not_primary_without_observed_or_declared_scn_basis",
+    "pass": true
+  },
+  {
+    "check": "storage_capacity_not_primary_without_evidence",
+    "pass": true
+  },
+  {
+    "check": "moq_not_primary_without_evidence",
+    "pass": true
+  },
+  {
+    "check": "service_target_not_double_counted",
+    "pass": true
+  },
+  {
+    "check": "shortage_quantity_distinct_from_shortage_cost",
+    "pass": true
+  },
+  {
+    "check": "exposure_distinct_from_shortage_quantity",
+    "pass": true
+  },
+  {
+    "check": "price_uncertainty_not_double_penalized",
+    "pass": true
+  },
+  {
+    "check": "demand_uncertainty_not_double_penalized",
+    "pass": true
+  },
+  {
+    "check": "cvar_not_duplicated_in_primary_risk_objective",
+    "pass": true
+  },
+  {
+    "check": "parameter_registry_requires_status",
+    "pass": true
+  },
+  {
+    "check": "parameter_registry_requires_source",
+    "pass": true
+  },
+  {
+    "check": "parameter_registry_requires_sensitivity",
+    "pass": true
+  },
+  {
+    "check": "primary_output_is_pareto_frontier",
+    "pass": true
+  },
+  {
+    "check": "representative_solution_rule_must_be_predeclared",
+    "pass": true
+  }
+]

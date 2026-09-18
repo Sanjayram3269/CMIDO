@@ -1,0 +1,9 @@
+item,price_series,demand_series
+Targets,5,4
+Forecast horizons,"[1, 3, 6, 12]","[1, 3, 6, 12]"
+Primary horizon,3,3
+Quantiles,"[0.1, 0.25, 0.5, 0.75, 0.9]","[0.1, 0.25, 0.5, 0.75, 0.9]"
+Own lags,"[1, 2, 3, 6, 12]","[1, 2, 3, 6, 12]"
+Rolling windows,"[3, 6, 12]","[3, 6, 12]"
+Cross-material features,Excluded from primary,Excluded from primary
+Model training,Not performed,Not performed

@@ -1,0 +1,241 @@
+material,forecast_origin,representation,inventory_threshold,shortage_probability,service_level
+Cement,2022-06-01,joint_duration_primary,547.3265892964055,0.5,0.5
+Cement,2022-06-01,joint_duration_primary,768.1043586505164,0.25,0.75
+Cement,2022-06-01,joint_duration_primary,1002.7717617734073,0.1,0.9
+Cement,2022-06-01,joint_duration_primary,1190.1571139055054,0.05,0.95
+Cement,2022-06-01,joint_duration_primary,1436.7292187041094,0.01,0.99
+Cement,2022-07-01,joint_duration_primary,560.0026352104533,0.5,0.5
+Cement,2022-07-01,joint_duration_primary,796.918365344251,0.25,0.75
+Cement,2022-07-01,joint_duration_primary,1027.9433125825406,0.1,0.9
+Cement,2022-07-01,joint_duration_primary,1258.433984394868,0.05,0.95
+Cement,2022-07-01,joint_duration_primary,1473.8118196625035,0.01,0.99
+Cement,2022-08-01,joint_duration_primary,532.3671786245175,0.5,0.5
+Cement,2022-08-01,joint_duration_primary,764.9922667765967,0.25,0.75
+Cement,2022-08-01,joint_duration_primary,987.6068702494147,0.1,0.9
+Cement,2022-08-01,joint_duration_primary,1195.4469292426008,0.05,0.95
+Cement,2022-08-01,joint_duration_primary,1412.1100495838089,0.01,0.99
+Cement,2022-09-01,joint_duration_primary,536.9778098788397,0.5,0.5
+Cement,2022-09-01,joint_duration_primary,775.1520186601404,0.25,0.75
+Cement,2022-09-01,joint_duration_primary,1001.7401044035821,0.1,0.9
+Cement,2022-09-01,joint_duration_primary,1224.487065513938,0.05,0.95
+Cement,2022-09-01,joint_duration_primary,1424.4264803251842,0.01,0.99
+Cement,2022-10-01,joint_duration_primary,564.9762924323392,0.5,0.5
+Cement,2022-10-01,joint_duration_primary,796.1833092475752,0.25,0.75
+Cement,2022-10-01,joint_duration_primary,1011.5147232525442,0.1,0.9
+Cement,2022-10-01,joint_duration_primary,1243.9663818545803,0.05,0.95
+Cement,2022-10-01,joint_duration_primary,1471.3779257993688,0.01,0.99
+Cement,2022-11-01,joint_duration_primary,517.1180646273733,0.5,0.5
+Cement,2022-11-01,joint_duration_primary,738.9434264716126,0.25,0.75
+Cement,2022-11-01,joint_duration_primary,968.0971814263893,0.1,0.9
+Cement,2022-11-01,joint_duration_primary,1165.2504695894386,0.05,0.95
+Cement,2022-11-01,joint_duration_primary,1378.6293237012765,0.01,0.99
+Cement,2022-12-01,joint_duration_primary,534.8813766118251,0.5,0.5
+Cement,2022-12-01,joint_duration_primary,769.447157406007,0.25,0.75
+Cement,2022-12-01,joint_duration_primary,981.602926695533,0.1,0.9
+Cement,2022-12-01,joint_duration_primary,1194.572720347357,0.05,0.95
+Cement,2022-12-01,joint_duration_primary,1381.4823492937144,0.01,0.99
+Cement,2023-01-01,joint_duration_primary,556.0977378804134,0.5,0.5
+Cement,2023-01-01,joint_duration_primary,763.3713885295616,0.25,0.75
+Cement,2023-01-01,joint_duration_primary,1005.8011573663385,0.1,0.9
+Cement,2023-01-01,joint_duration_primary,1226.437375903897,0.05,0.95
+Cement,2023-01-01,joint_duration_primary,1424.5971158202076,0.01,0.99
+Cement,2023-02-01,joint_duration_primary,544.9773695523169,0.5,0.5
+Cement,2023-02-01,joint_duration_primary,768.5068853769903,0.25,0.75
+Cement,2023-02-01,joint_duration_primary,995.5465628138816,0.1,0.9
+Cement,2023-02-01,joint_duration_primary,1209.7875647561964,0.05,0.95
+Cement,2023-02-01,joint_duration_primary,1450.8721665139437,0.01,0.99
+Cement,2023-03-01,joint_duration_primary,581.7038816414231,0.5,0.5
+Cement,2023-03-01,joint_duration_primary,803.3797895875184,0.25,0.75
+Cement,2023-03-01,joint_duration_primary,1058.9753778932486,0.1,0.9
+Cement,2023-03-01,joint_duration_primary,1272.9631581887015,0.05,0.95
+Cement,2023-03-01,joint_duration_primary,1507.3266646266604,0.01,0.99
+Cement,2023-04-01,joint_duration_primary,557.3518870534577,0.5,0.5
+Cement,2023-04-01,joint_duration_primary,788.834682197498,0.25,0.75
+Cement,2023-04-01,joint_duration_primary,1021.8971412193313,0.1,0.9
+Cement,2023-04-01,joint_duration_primary,1213.4369342812356,0.05,0.95
+Cement,2023-04-01,joint_duration_primary,1458.061618840466,0.01,0.99
+Cement,2023-05-01,joint_duration_primary,567.3552151114128,0.5,0.5
+Cement,2023-05-01,joint_duration_primary,799.5736681150468,0.25,0.75
+Cement,2023-05-01,joint_duration_primary,1038.0680206422476,0.1,0.9
+Cement,2023-05-01,joint_duration_primary,1267.8484931239784,0.05,0.95
+Cement,2023-05-01,joint_duration_primary,1475.9742236640488,0.01,0.99
+Granite,2022-06-01,joint_duration_primary,2515.9161555495325,0.5,0.5
+Granite,2022-06-01,joint_duration_primary,3643.0339096986377,0.25,0.75
+Granite,2022-06-01,joint_duration_primary,4608.426899958431,0.1,0.9
+Granite,2022-06-01,joint_duration_primary,5701.965974758911,0.05,0.95
+Granite,2022-06-01,joint_duration_primary,6487.295622143604,0.01,0.99
+Granite,2022-07-01,joint_duration_primary,2515.600015507183,0.5,0.5
+Granite,2022-07-01,joint_duration_primary,3666.5099172378405,0.25,0.75
+Granite,2022-07-01,joint_duration_primary,4600.850853466718,0.1,0.9
+Granite,2022-07-01,joint_duration_primary,5793.231564493487,0.05,0.95
+Granite,2022-07-01,joint_duration_primary,6607.353974684058,0.01,0.99
+Granite,2022-08-01,joint_duration_primary,2557.203018476016,0.5,0.5
+Granite,2022-08-01,joint_duration_primary,3736.693199892195,0.25,0.75
+Granite,2022-08-01,joint_duration_primary,4644.777624437625,0.1,0.9
+Granite,2022-08-01,joint_duration_primary,5826.424027955549,0.05,0.95
+Granite,2022-08-01,joint_duration_primary,6453.256354197407,0.01,0.99
+Granite,2022-09-01,joint_duration_primary,2550.535349998783,0.5,0.5
+Granite,2022-09-01,joint_duration_primary,3708.6217681271564,0.25,0.75
+Granite,2022-09-01,joint_duration_primary,4702.15932947859,0.1,0.9
+Granite,2022-09-01,joint_duration_primary,5873.861731004578,0.05,0.95
+Granite,2022-09-01,joint_duration_primary,6594.064955487358,0.01,0.99
+Granite,2022-10-01,joint_duration_primary,2387.7909059130684,0.5,0.5
+Granite,2022-10-01,joint_duration_primary,3422.7996607877244,0.25,0.75
+Granite,2022-10-01,joint_duration_primary,4291.085550260348,0.1,0.9
+Granite,2022-10-01,joint_duration_primary,5504.966169287538,0.05,0.95
+Granite,2022-10-01,joint_duration_primary,6194.134951518017,0.01,0.99
+Granite,2022-11-01,joint_duration_primary,2356.184014510306,0.5,0.5
+Granite,2022-11-01,joint_duration_primary,3436.317938975247,0.25,0.75
+Granite,2022-11-01,joint_duration_primary,4327.584677396805,0.1,0.9
+Granite,2022-11-01,joint_duration_primary,5391.278366718349,0.05,0.95
+Granite,2022-11-01,joint_duration_primary,6088.497187880936,0.01,0.99
+Granite,2022-12-01,joint_duration_primary,2347.810524136359,0.5,0.5
+Granite,2022-12-01,joint_duration_primary,3506.7551862745095,0.25,0.75
+Granite,2022-12-01,joint_duration_primary,4328.402336538349,0.1,0.9
+Granite,2022-12-01,joint_duration_primary,5426.178930919782,0.05,0.95
+Granite,2022-12-01,joint_duration_primary,6124.8857962313205,0.01,0.99
+Granite,2023-01-01,joint_duration_primary,2387.1586995225066,0.5,0.5
+Granite,2023-01-01,joint_duration_primary,3477.8179458779296,0.25,0.75
+Granite,2023-01-01,joint_duration_primary,4310.94403458392,0.1,0.9
+Granite,2023-01-01,joint_duration_primary,5554.716510321134,0.05,0.95
+Granite,2023-01-01,joint_duration_primary,6154.07197761836,0.01,0.99
+Granite,2023-02-01,joint_duration_primary,2381.699081499004,0.5,0.5
+Granite,2023-02-01,joint_duration_primary,3370.2832765973358,0.25,0.75
+Granite,2023-02-01,joint_duration_primary,4248.943702804096,0.1,0.9
+Granite,2023-02-01,joint_duration_primary,5367.918505661957,0.05,0.95
+Granite,2023-02-01,joint_duration_primary,6012.744149857174,0.01,0.99
+Granite,2023-03-01,joint_duration_primary,2316.7218800439105,0.5,0.5
+Granite,2023-03-01,joint_duration_primary,3410.601017505017,0.25,0.75
+Granite,2023-03-01,joint_duration_primary,4259.604632618774,0.1,0.9
+Granite,2023-03-01,joint_duration_primary,5613.640021465805,0.05,0.95
+Granite,2023-03-01,joint_duration_primary,6109.429694649883,0.01,0.99
+Granite,2023-04-01,joint_duration_primary,2283.392110736707,0.5,0.5
+Granite,2023-04-01,joint_duration_primary,3464.6845075522288,0.25,0.75
+Granite,2023-04-01,joint_duration_primary,4241.17238924481,0.1,0.9
+Granite,2023-04-01,joint_duration_primary,5479.448240285812,0.05,0.95
+Granite,2023-04-01,joint_duration_primary,6070.220672755298,0.01,0.99
+Granite,2023-05-01,joint_duration_primary,2431.9506973642233,0.5,0.5
+Granite,2023-05-01,joint_duration_primary,3533.9957656657616,0.25,0.75
+Granite,2023-05-01,joint_duration_primary,4367.040431224979,0.1,0.9
+Granite,2023-05-01,joint_duration_primary,5530.322025747286,0.05,0.95
+Granite,2023-05-01,joint_duration_primary,6115.906269275139,0.01,0.99
+Ready Mixed Concrete,2022-06-01,joint_duration_primary,1526.793336500892,0.5,0.5
+Ready Mixed Concrete,2022-06-01,joint_duration_primary,2264.4232233373978,0.25,0.75
+Ready Mixed Concrete,2022-06-01,joint_duration_primary,2777.0547691016045,0.1,0.9
+Ready Mixed Concrete,2022-06-01,joint_duration_primary,3538.465368286422,0.05,0.95
+Ready Mixed Concrete,2022-06-01,joint_duration_primary,3991.3670102248066,0.01,0.99
+Ready Mixed Concrete,2022-07-01,joint_duration_primary,1513.6378047286885,0.5,0.5
+Ready Mixed Concrete,2022-07-01,joint_duration_primary,2232.33664648272,0.25,0.75
+Ready Mixed Concrete,2022-07-01,joint_duration_primary,2737.7506686321826,0.1,0.9
+Ready Mixed Concrete,2022-07-01,joint_duration_primary,3548.819564948992,0.05,0.95
+Ready Mixed Concrete,2022-07-01,joint_duration_primary,3939.011970293724,0.01,0.99
+Ready Mixed Concrete,2022-08-01,joint_duration_primary,1536.8320359457207,0.5,0.5
+Ready Mixed Concrete,2022-08-01,joint_duration_primary,2247.6126314089083,0.25,0.75
+Ready Mixed Concrete,2022-08-01,joint_duration_primary,2716.2596679415683,0.1,0.9
+Ready Mixed Concrete,2022-08-01,joint_duration_primary,3475.21850841648,0.05,0.95
+Ready Mixed Concrete,2022-08-01,joint_duration_primary,3830.5885921464032,0.01,0.99
+Ready Mixed Concrete,2022-09-01,joint_duration_primary,1538.8047201896934,0.5,0.5
+Ready Mixed Concrete,2022-09-01,joint_duration_primary,2212.187358443821,0.25,0.75
+Ready Mixed Concrete,2022-09-01,joint_duration_primary,2817.4901502600364,0.1,0.9
+Ready Mixed Concrete,2022-09-01,joint_duration_primary,3584.2461991219684,0.05,0.95
+Ready Mixed Concrete,2022-09-01,joint_duration_primary,4017.447774563665,0.01,0.99
+Ready Mixed Concrete,2022-10-01,joint_duration_primary,1538.4946636325285,0.5,0.5
+Ready Mixed Concrete,2022-10-01,joint_duration_primary,2226.203896015694,0.25,0.75
+Ready Mixed Concrete,2022-10-01,joint_duration_primary,2745.628038246255,0.1,0.9
+Ready Mixed Concrete,2022-10-01,joint_duration_primary,3422.8183117928875,0.05,0.95
+Ready Mixed Concrete,2022-10-01,joint_duration_primary,3955.100064444633,0.01,0.99
+Ready Mixed Concrete,2022-11-01,joint_duration_primary,1462.605398166125,0.5,0.5
+Ready Mixed Concrete,2022-11-01,joint_duration_primary,2173.1189485789964,0.25,0.75
+Ready Mixed Concrete,2022-11-01,joint_duration_primary,2671.340648786018,0.1,0.9
+Ready Mixed Concrete,2022-11-01,joint_duration_primary,3381.2344519625476,0.05,0.95
+Ready Mixed Concrete,2022-11-01,joint_duration_primary,3782.3009145259693,0.01,0.99
+Ready Mixed Concrete,2022-12-01,joint_duration_primary,1497.6435552622168,0.5,0.5
+Ready Mixed Concrete,2022-12-01,joint_duration_primary,2166.1942783886952,0.25,0.75
+Ready Mixed Concrete,2022-12-01,joint_duration_primary,2713.681906828758,0.1,0.9
+Ready Mixed Concrete,2022-12-01,joint_duration_primary,3409.918724062645,0.05,0.95
+Ready Mixed Concrete,2022-12-01,joint_duration_primary,3877.931662226141,0.01,0.99
+Ready Mixed Concrete,2023-01-01,joint_duration_primary,1462.64195991823,0.5,0.5
+Ready Mixed Concrete,2023-01-01,joint_duration_primary,2093.605920013846,0.25,0.75
+Ready Mixed Concrete,2023-01-01,joint_duration_primary,2661.194948516046,0.1,0.9
+Ready Mixed Concrete,2023-01-01,joint_duration_primary,3309.509381537998,0.05,0.95
+Ready Mixed Concrete,2023-01-01,joint_duration_primary,3800.936711861787,0.01,0.99
+Ready Mixed Concrete,2023-02-01,joint_duration_primary,1433.1502721678057,0.5,0.5
+Ready Mixed Concrete,2023-02-01,joint_duration_primary,2085.9250170423065,0.25,0.75
+Ready Mixed Concrete,2023-02-01,joint_duration_primary,2577.1422651160024,0.1,0.9
+Ready Mixed Concrete,2023-02-01,joint_duration_primary,3316.235469690972,0.05,0.95
+Ready Mixed Concrete,2023-02-01,joint_duration_primary,3692.7556045020356,0.01,0.99
+Ready Mixed Concrete,2023-03-01,joint_duration_primary,1452.997023254019,0.5,0.5
+Ready Mixed Concrete,2023-03-01,joint_duration_primary,2149.2598449007864,0.25,0.75
+Ready Mixed Concrete,2023-03-01,joint_duration_primary,2650.5710635256623,0.1,0.9
+Ready Mixed Concrete,2023-03-01,joint_duration_primary,3347.369867348387,0.05,0.95
+Ready Mixed Concrete,2023-03-01,joint_duration_primary,3778.9912924319206,0.01,0.99
+Ready Mixed Concrete,2023-04-01,joint_duration_primary,1435.7452956747725,0.5,0.5
+Ready Mixed Concrete,2023-04-01,joint_duration_primary,2113.362002021524,0.25,0.75
+Ready Mixed Concrete,2023-04-01,joint_duration_primary,2607.1155930224786,0.1,0.9
+Ready Mixed Concrete,2023-04-01,joint_duration_primary,3306.004042817027,0.05,0.95
+Ready Mixed Concrete,2023-04-01,joint_duration_primary,3687.4927722325488,0.01,0.99
+Ready Mixed Concrete,2023-05-01,joint_duration_primary,1510.8599548634897,0.5,0.5
+Ready Mixed Concrete,2023-05-01,joint_duration_primary,2171.8711263252453,0.25,0.75
+Ready Mixed Concrete,2023-05-01,joint_duration_primary,2641.4050375838033,0.1,0.9
+Ready Mixed Concrete,2023-05-01,joint_duration_primary,3132.9984412451586,0.05,0.95
+Ready Mixed Concrete,2023-05-01,joint_duration_primary,3770.319161763305,0.01,0.99
+Steel Reinforcement Bars,2022-06-01,joint_duration_primary,115.9558291161839,0.5,0.5
+Steel Reinforcement Bars,2022-06-01,joint_duration_primary,169.3740785639604,0.25,0.75
+Steel Reinforcement Bars,2022-06-01,joint_duration_primary,225.8823684430195,0.1,0.9
+Steel Reinforcement Bars,2022-06-01,joint_duration_primary,267.54449807348175,0.05,0.95
+Steel Reinforcement Bars,2022-06-01,joint_duration_primary,339.88894536204873,0.01,0.99
+Steel Reinforcement Bars,2022-07-01,joint_duration_primary,129.40693904612857,0.5,0.5
+Steel Reinforcement Bars,2022-07-01,joint_duration_primary,177.18487977705843,0.25,0.75
+Steel Reinforcement Bars,2022-07-01,joint_duration_primary,244.31376129797485,0.1,0.9
+Steel Reinforcement Bars,2022-07-01,joint_duration_primary,285.91014053239905,0.05,0.95
+Steel Reinforcement Bars,2022-07-01,joint_duration_primary,364.67323343118767,0.01,0.99
+Steel Reinforcement Bars,2022-08-01,joint_duration_primary,132.50918655602405,0.5,0.5
+Steel Reinforcement Bars,2022-08-01,joint_duration_primary,182.79428046817395,0.25,0.75
+Steel Reinforcement Bars,2022-08-01,joint_duration_primary,246.7693079765265,0.1,0.9
+Steel Reinforcement Bars,2022-08-01,joint_duration_primary,286.3373695915852,0.05,0.95
+Steel Reinforcement Bars,2022-08-01,joint_duration_primary,358.80565201337237,0.01,0.99
+Steel Reinforcement Bars,2022-09-01,joint_duration_primary,157.91143084355275,0.5,0.5
+Steel Reinforcement Bars,2022-09-01,joint_duration_primary,218.23488924709645,0.25,0.75
+Steel Reinforcement Bars,2022-09-01,joint_duration_primary,296.5921111154322,0.1,0.9
+Steel Reinforcement Bars,2022-09-01,joint_duration_primary,342.34585420782565,0.05,0.95
+Steel Reinforcement Bars,2022-09-01,joint_duration_primary,429.29911668114045,0.01,0.99
+Steel Reinforcement Bars,2022-10-01,joint_duration_primary,158.0887939649885,0.5,0.5
+Steel Reinforcement Bars,2022-10-01,joint_duration_primary,215.64030952992917,0.25,0.75
+Steel Reinforcement Bars,2022-10-01,joint_duration_primary,287.9671712387953,0.1,0.9
+Steel Reinforcement Bars,2022-10-01,joint_duration_primary,345.86647230765914,0.05,0.95
+Steel Reinforcement Bars,2022-10-01,joint_duration_primary,426.4068062839703,0.01,0.99
+Steel Reinforcement Bars,2022-11-01,joint_duration_primary,143.72913837212874,0.5,0.5
+Steel Reinforcement Bars,2022-11-01,joint_duration_primary,203.79791160059654,0.25,0.75
+Steel Reinforcement Bars,2022-11-01,joint_duration_primary,279.9153402046053,0.1,0.9
+Steel Reinforcement Bars,2022-11-01,joint_duration_primary,330.2923780991189,0.05,0.95
+Steel Reinforcement Bars,2022-11-01,joint_duration_primary,417.8560288700826,0.01,0.99
+Steel Reinforcement Bars,2022-12-01,joint_duration_primary,141.8012778903896,0.5,0.5
+Steel Reinforcement Bars,2022-12-01,joint_duration_primary,212.46138138769598,0.25,0.75
+Steel Reinforcement Bars,2022-12-01,joint_duration_primary,287.38742794044276,0.1,0.9
+Steel Reinforcement Bars,2022-12-01,joint_duration_primary,333.30041448929376,0.05,0.95
+Steel Reinforcement Bars,2022-12-01,joint_duration_primary,427.02835804103245,0.01,0.99
+Steel Reinforcement Bars,2023-01-01,joint_duration_primary,139.60840647591655,0.5,0.5
+Steel Reinforcement Bars,2023-01-01,joint_duration_primary,209.27847772102746,0.25,0.75
+Steel Reinforcement Bars,2023-01-01,joint_duration_primary,275.8545778009445,0.1,0.9
+Steel Reinforcement Bars,2023-01-01,joint_duration_primary,320.00241670693146,0.05,0.95
+Steel Reinforcement Bars,2023-01-01,joint_duration_primary,416.75563412061484,0.01,0.99
+Steel Reinforcement Bars,2023-02-01,joint_duration_primary,148.06849615653618,0.5,0.5
+Steel Reinforcement Bars,2023-02-01,joint_duration_primary,203.8519047502332,0.25,0.75
+Steel Reinforcement Bars,2023-02-01,joint_duration_primary,264.2708354022699,0.1,0.9
+Steel Reinforcement Bars,2023-02-01,joint_duration_primary,309.4662831593349,0.05,0.95
+Steel Reinforcement Bars,2023-02-01,joint_duration_primary,388.3658245098165,0.01,0.99
+Steel Reinforcement Bars,2023-03-01,joint_duration_primary,153.33067192654227,0.5,0.5
+Steel Reinforcement Bars,2023-03-01,joint_duration_primary,211.4643144968825,0.25,0.75
+Steel Reinforcement Bars,2023-03-01,joint_duration_primary,288.0850129341481,0.1,0.9
+Steel Reinforcement Bars,2023-03-01,joint_duration_primary,338.8079524236145,0.05,0.95
+Steel Reinforcement Bars,2023-03-01,joint_duration_primary,420.86569924716457,0.01,0.99
+Steel Reinforcement Bars,2023-04-01,joint_duration_primary,143.49004388597686,0.5,0.5
+Steel Reinforcement Bars,2023-04-01,joint_duration_primary,205.2998472450114,0.25,0.75
+Steel Reinforcement Bars,2023-04-01,joint_duration_primary,283.26672442849633,0.1,0.9
+Steel Reinforcement Bars,2023-04-01,joint_duration_primary,334.40733202796133,0.05,0.95
+Steel Reinforcement Bars,2023-04-01,joint_duration_primary,413.02055049001825,0.01,0.99
+Steel Reinforcement Bars,2023-05-01,joint_duration_primary,138.08704636664635,0.5,0.5
+Steel Reinforcement Bars,2023-05-01,joint_duration_primary,196.45157134782502,0.25,0.75
+Steel Reinforcement Bars,2023-05-01,joint_duration_primary,261.50344657586476,0.1,0.9
+Steel Reinforcement Bars,2023-05-01,joint_duration_primary,302.79349678527274,0.05,0.95
+Steel Reinforcement Bars,2023-05-01,joint_duration_primary,381.86547987778994,0.01,0.99

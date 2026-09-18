@@ -1,0 +1,26 @@
+sheet,column,roles,rows,nonmissing,missing,unique_nonmissing
+Rata-rata,PR,PR_ID,66,56,10,55
+Rata-rata,Material Number,MATERIAL_ID,66,56,10,23
+Rata-rata,Requisition Date,REQUISITION_DATE,66,56,10,41
+Rata-rata,Release Date,RELEASE_DATE,66,55,11,34
+Rata-rata,Tanggal PO,PO_DATE,66,56,10,45
+Rata-rata,Standard SLA,STANDARD_SLA,66,56,10,3
+Rata-rata,Realisasi SLA,REALIZED_SLA,66,56,10,17
+Rata-rata,Days SLA,REALIZED_SLA,66,56,10,17
+Rata-rata V1,PR,PR_ID,66,56,10,55
+Rata-rata V1,Material Number,MATERIAL_ID,66,56,10,23
+Rata-rata V1,Requisition Date,REQUISITION_DATE,66,56,10,41
+Rata-rata V1,Release Date,RELEASE_DATE,66,55,11,34
+Rata-rata V1,Tanggal PO,PO_DATE,66,56,10,45
+Rata-rata V1,Standard SLA,STANDARD_SLA,66,56,10,3
+Rata-rata V1,Realisasi SLA,REALIZED_SLA,66,56,10,17
+Rata-rata V1,Days SLA,REALIZED_SLA,66,56,10,17
+Rata-rataFuture V2,PR,PR_ID,66,56,10,55
+Rata-rataFuture V2,Material Number,MATERIAL_ID,66,56,10,23
+Rata-rataFuture V2,Requisition Date,REQUISITION_DATE,66,56,10,41
+Rata-rataFuture V2,Release Date,RELEASE_DATE,66,55,11,34
+Rata-rataFuture V2,Tanggal PO,PO_DATE,66,56,10,45
+Rata-rataFuture V2,Standard SLA,STANDARD_SLA,66,56,10,3
+Rata-rataFuture V2,Realisasi SLA,REALIZED_SLA,66,56,10,17
+Rata-rataFuture V2,Days SLA,REALIZED_SLA,66,56,10,17
+Std SLA,PR,PR_ID,6,6,0,5

@@ -1,0 +1,39 @@
+CMIDO — RO1 STEP 26C.3-E
+FROZEN CQR TEST-RESULT ANALYSIS
+
+Status: COMPLETED
+Test set: UNTOUCHED BEFORE FROZEN CQR APPLICATION
+Primary horizon: h=3
+Result type: DESCRIPTIVE ONLY
+
+Series evaluated: 9
+Improved 50% calibration: 3/9
+Improved 80% calibration: 4/9
+Better Winkler-80: 6/9
+
+Mean 50% coverage error
+Raw: 0.214286
+CQR: 0.161376
+
+Mean 80% coverage error
+Raw: 0.228571
+CQR: 0.161905
+
+Mean width change (CQR - Raw)
+50%: 15.844666
+80%: 18.874411
+
+Mean Winkler-80 change (CQR - Raw)
+-17.151054
+
+Calibration verdict:
+MIXED DESCRIPTIVE EVIDENCE
+
+Winkler verdict:
+Mean Winkler-80 improves with CQR.
+
+Scientific caution:
+This analysis is descriptive and does not establish statistical significance
+or overall model superiority. Frozen CQR parameters and forecasts were not
+modified. The next inferential step should compare paired test losses and
+the frozen conventional probabilistic statistical baselines.

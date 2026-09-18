@@ -1,0 +1,11 @@
+{
+  "origin": "2022-07-01",
+  "scenario_counts": [
+    1000,
+    2500,
+    5000
+  ],
+  "optimizer_rerun": false,
+  "primary_quantity_metric": "sum_abs_quantity_difference / max(total_procurement_A,total_procurement_B,1.0)",
+  "frontier_matching": "nearest normalized objective-space matching"
+}

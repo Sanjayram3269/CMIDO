@@ -1,0 +1,3 @@
+dataset,model,candidate_id,det_order,k_ar_diff,rank,selection_horizon,validation_MAE,validation_RMSE,coverage,lag
+RO1_PRICE,VECM,VECM_A,0.0,1.0,3.0,3,9.425602267834925,16.731492951403197,1.0,
+RO1_DEMAND,VAR_DIFF,VAR_D3,,,,3,81.72255570927378,102.60417189774422,1.0,3.0

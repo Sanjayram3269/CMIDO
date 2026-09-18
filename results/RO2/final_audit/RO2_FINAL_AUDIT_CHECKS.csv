@@ -1,0 +1,49 @@
+check,pass,detail
+27B4_modelling_view_exists,True,D:\CMIDO\results\RO2\data_audit\RO2_step27b4_admissible_modelling_view.csv
+27C3_decision_exists,True,D:\CMIDO\results\RO2\distribution\RO2_step27c3_decision.txt
+27D_summary_exists,True,D:\CMIDO\results\RO2\propagation\RO2_step27d_propagation_summary.csv
+27D_service_risk_exists,True,D:\CMIDO\results\RO2\propagation\RO2_step27d_service_risk_curve.csv
+27D_joint_independent_sensitivity_exists,True,D:\CMIDO\results\RO2\propagation\RO2_step27d_joint_vs_independent_sensitivity.csv
+27D_audit_exists,True,D:\CMIDO\results\RO2\propagation\RO2_step27d_audit.csv
+27D_config_exists,True,D:\CMIDO\results\RO2\propagation\RO2_step27d_run_config.json
+27D1_decision_exists,True,D:\CMIDO\results\RO2\propagation_audit\RO2_step27d1_decision.txt
+27D1_summary_exists,True,D:\CMIDO\results\RO2\propagation_audit\RO2_step27d1_summary.json
+27D4_estimates_exists,True,D:\CMIDO\results\RO2\propagation_convergence_nested\RO2_step27d4_nested_estimates.csv
+27D4_changes_exists,True,D:\CMIDO\results\RO2\propagation_convergence_nested\RO2_step27d4_nested_convergence_changes.csv
+27D4_cases_exists,True,D:\CMIDO\results\RO2\propagation_convergence_nested\RO2_step27d4_case_decisions.csv
+27D4_summary_exists,True,D:\CMIDO\results\RO2\propagation_convergence_nested\RO2_step27d4_summary.json
+27D4_decision_exists,True,D:\CMIDO\results\RO2\propagation_convergence_nested\RO2_step27d4_decision.txt
+27B4_row_count,True,rows=57; expected=57
+27B4_required_columns,True,missing=[]
+27B4_paired_component_n,True,n=37; expected=37
+27B4_exact_duration_reconstruction,True,max_abs_error=0.000000000000
+27B4_nonnegative_durations,True,all paired duration components non-negative
+27C3_joint_representation_declared,True,27C.3 decision contains joint representation language
+27C3_supplier_leadtime_boundary,True,supplier-specific lead-time boundary is present
+27D_summary_expected_rows,True,rows=96; expected=96
+27D_exact_four_common_materials,True,"observed=['Cement', 'Granite', 'Ready Mixed Concrete', 'Steel Reinforcement Bars']"
+27D_primary_uses_CQR_validation,True,RO1 validation CQR quantiles + joint empirical RO2 duration pairs
+27D_test_data_unused,True,test_data_used=False
+27D_procurement_duration_terminology,True,procurement-process duration
+27D_primary_joint_duration,True,RO1 validation CQR quantiles + joint empirical RO2 duration pairs
+27D_duration_pair_n_37,True,duration_n=37
+27D_finite_exposure_outputs,True,"columns=['q50', 'q75', 'q90', 'q95', 'q99']"
+27D_nonnegative_exposure_outputs,True,all exposure statistics non-negative
+27D1_distribution_checks,True,True
+27D1_service_risk_checks,True,True
+27D1_structural_checks,True,True
+27D1_test_data_unused,True,False
+27D1_primary_joint_duration,True,joint_duration_primary
+27D4_48_cases,True,cases=48; expected=48
+27D4_all_cases_stable_10000,True,48/48
+27D4_all_cases_stable_25000,True,48/48
+27D4_5k_to_10k_threshold,True,max=0.668805%; threshold=1%
+27D4_10k_to_25k_secondary_stability,True,max=0.312457%; largest criterion=5%
+27D4_nested_prefix,True,True
+27D4_test_data_unused,True,False
+27D4_recommended_lock_10000,True,10000
+27D_mc_n_10000,True,authoritative_27D4_mc_lock=10000; stable_at_10000=48/48; max_5k_to_10k=0.668805%
+scientific_duration_boundary_present,True,procurement-process duration terminology retained
+supplier_specific_boundary_present,True,supplier-specific limitation retained
+joint_pairing_language_present,True,observed pairing language retained
+test_separation_boundary_present,True,test-data separation language retained

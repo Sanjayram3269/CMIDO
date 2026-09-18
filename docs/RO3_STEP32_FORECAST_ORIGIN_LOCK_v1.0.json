@@ -1,0 +1,40 @@
+{
+  "artifact": "RO3_STEP32_FORECAST_ORIGIN_LOCK",
+  "version": "1.0",
+  "status": "FROZEN",
+  "reason": "Primary RO3 scenarios require the common admissible intersection of complete probabilistic demand and price forecasts for all four common materials at horizons 1, 3, 6, and 12 months.",
+  "excluded_non_overlapping_origins": {
+    "demand_only": [
+      "2022-06-01"
+    ],
+    "price_only": [
+      "2023-06-01"
+    ]
+  },
+  "forecast_origins": [
+    "2022-07-01",
+    "2022-08-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-11-01",
+    "2022-12-01",
+    "2023-01-01",
+    "2023-02-01",
+    "2023-03-01",
+    "2023-04-01",
+    "2023-05-01"
+  ],
+  "count": 11,
+  "common_materials": [
+    "Cement",
+    "Granite",
+    "Ready Mixed Concrete",
+    "Steel Reinforcement Bars"
+  ],
+  "required_source_horizons": [
+    1,
+    3,
+    6,
+    12
+  ]
+}

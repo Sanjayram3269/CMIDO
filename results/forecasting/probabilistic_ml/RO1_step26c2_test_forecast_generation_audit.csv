@@ -1,0 +1,11 @@
+audit,status,detail
+forecast_row_count,PASS,666 test forecasts generated.
+nine_frozen_series,PASS,Exactly nine frozen series present.
+horizon_coverage,PASS,"h=1,3,6,12 present."
+split_label,PASS,All rows are test forecasts.
+chronology,PASS,Every target occurs after its forecast origin.
+test_window,PASS,All origins and targets lie within the frozen test windows.
+duplicate_check,PASS,No duplicate test forecast keys.
+quantile_repair,PASS,All repaired quantiles monotone; raw crossing rows=180.
+frozen_model_identity,PASS,Every test forecast uses the exact 26C.2 frozen winner.
+validation_target_isolation,PASS,No validation-period target is present in test output.

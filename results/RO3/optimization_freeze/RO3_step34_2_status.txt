@@ -1,0 +1,6 @@
+RO3.4.2 structural evidence audit: PASS
+Holding-rate primary value: 30% annual EST
+Holding-rate sensitivity: 20%, 30%, 40% annual
+Shortage monetary penalty: EXCLUDED FROM PRIMARY
+Terminal treatment: FROZEN AS DOCUMENTED
+STATUS: PARAMETER_EVIDENCE_AUDITED_PENDING_FINAL_CONFIG

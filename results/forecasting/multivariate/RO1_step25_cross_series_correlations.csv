@@ -1,0 +1,33 @@
+dataset,transformation,series_1,series_2,correlation
+RO1_PRICE,level,Cement In Bulk (Ordinary Portland Cement),Concreting Sand,0.7382928748582139
+RO1_PRICE,level,Cement In Bulk (Ordinary Portland Cement),Granite (20mm Aggregate),0.6320423180592144
+RO1_PRICE,level,Cement In Bulk (Ordinary Portland Cement),Ready Mixed Concrete,0.8282475398610932
+RO1_PRICE,level,Cement In Bulk (Ordinary Portland Cement),Steel Reinforcement Bars (16-32mm High Tensile),0.7357412566448612
+RO1_PRICE,level,Concreting Sand,Granite (20mm Aggregate),0.8453961918648233
+RO1_PRICE,level,Concreting Sand,Ready Mixed Concrete,0.926173136692375
+RO1_PRICE,level,Concreting Sand,Steel Reinforcement Bars (16-32mm High Tensile),0.5737238412133157
+RO1_PRICE,level,Granite (20mm Aggregate),Ready Mixed Concrete,0.8838770428112881
+RO1_PRICE,level,Granite (20mm Aggregate),Steel Reinforcement Bars (16-32mm High Tensile),0.47633670551903673
+RO1_PRICE,level,Ready Mixed Concrete,Steel Reinforcement Bars (16-32mm High Tensile),0.5937791935531321
+RO1_PRICE,first_difference,Cement In Bulk (Ordinary Portland Cement),Concreting Sand,0.0077806323927173
+RO1_PRICE,first_difference,Cement In Bulk (Ordinary Portland Cement),Granite (20mm Aggregate),0.019393671707557267
+RO1_PRICE,first_difference,Cement In Bulk (Ordinary Portland Cement),Ready Mixed Concrete,0.06617860674713524
+RO1_PRICE,first_difference,Cement In Bulk (Ordinary Portland Cement),Steel Reinforcement Bars (16-32mm High Tensile),0.20885961317378612
+RO1_PRICE,first_difference,Concreting Sand,Granite (20mm Aggregate),0.83490971030665
+RO1_PRICE,first_difference,Concreting Sand,Ready Mixed Concrete,0.9187595867657206
+RO1_PRICE,first_difference,Concreting Sand,Steel Reinforcement Bars (16-32mm High Tensile),0.02882390011860914
+RO1_PRICE,first_difference,Granite (20mm Aggregate),Ready Mixed Concrete,0.9099337233615297
+RO1_PRICE,first_difference,Granite (20mm Aggregate),Steel Reinforcement Bars (16-32mm High Tensile),0.00967055397887177
+RO1_PRICE,first_difference,Ready Mixed Concrete,Steel Reinforcement Bars (16-32mm High Tensile),0.06133133768499456
+RO1_DEMAND,level,Cement,Granite,0.7370812258536942
+RO1_DEMAND,level,Cement,Ready-Mixed Concrete,0.7770314809562768
+RO1_DEMAND,level,Cement,Steel Reinforcement Bars,0.465339982567579
+RO1_DEMAND,level,Granite,Ready-Mixed Concrete,0.8609419710329805
+RO1_DEMAND,level,Granite,Steel Reinforcement Bars,0.4964822215209303
+RO1_DEMAND,level,Ready-Mixed Concrete,Steel Reinforcement Bars,0.5632164223613012
+RO1_DEMAND,first_difference,Cement,Granite,0.38268764822077334
+RO1_DEMAND,first_difference,Cement,Ready-Mixed Concrete,0.4980919363312811
+RO1_DEMAND,first_difference,Cement,Steel Reinforcement Bars,0.2144529562302753
+RO1_DEMAND,first_difference,Granite,Ready-Mixed Concrete,0.669325666449586
+RO1_DEMAND,first_difference,Granite,Steel Reinforcement Bars,0.23529667684329664
+RO1_DEMAND,first_difference,Ready-Mixed Concrete,Steel Reinforcement Bars,0.20901618849388443

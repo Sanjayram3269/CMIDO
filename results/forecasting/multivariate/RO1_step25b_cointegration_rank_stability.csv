@@ -1,0 +1,3 @@
+dataset,successful_specifications,trace_rank_mode,max_eigen_rank_mode,trace_rank_min,trace_rank_max,max_eigen_rank_min,max_eigen_rank_max,stable_positive_cointegration
+RO1_PRICE,9,2,1,1,3,1,3,True
+RO1_DEMAND,9,4,4,3,4,3,4,True

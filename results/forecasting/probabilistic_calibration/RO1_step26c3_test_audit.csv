@@ -1,0 +1,11 @@
+audit,status,detail
+test_forecast_count,PASS,666 frozen test forecasts.
+frozen_parameter_count,PASS,72 validation-derived CQR parameter cells.
+calibration_source,PASS,All test intervals use validation-only parameters.
+test_recalibration,PASS,No test recalibration performed.
+parameter_immutability,PASS,All CQR parameters remain frozen from validation.
+interval_validity,PASS,All calibrated intervals have lower ≤ upper.
+physical_domain,PASS,All calibrated lower bounds are non-negative.
+paired_target_set,PASS,Raw and CQR use identical test targets.
+metric_cell_count,PASS,36 series × horizon metric cells.
+test_isolation,PASS,Test observations were evaluated only after loading frozen validation-derived parameters.

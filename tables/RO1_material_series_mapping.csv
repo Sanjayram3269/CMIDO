@@ -1,0 +1,6 @@
+canonical_material,price_series,demand_series,joint_forecasting
+Cement,Cement In Bulk (Ordinary Portland Cement),Cement,True
+Steel Reinforcement Bars,Steel Reinforcement Bars (16-32mm High Tensile),Steel Reinforcement Bars,True
+Granite,Granite (20mm Aggregate),Granite,True
+Ready-Mixed Concrete,Ready Mixed Concrete,Ready-Mixed Concrete,True
+Concreting Sand,Concreting Sand,,False

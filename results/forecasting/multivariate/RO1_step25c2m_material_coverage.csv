@@ -1,0 +1,37 @@
+dataset,material,horizon,n_forecasts
+RO1_DEMAND,Cement,1,23
+RO1_DEMAND,Cement,3,21
+RO1_DEMAND,Cement,6,18
+RO1_DEMAND,Cement,12,12
+RO1_DEMAND,Granite,1,23
+RO1_DEMAND,Granite,3,21
+RO1_DEMAND,Granite,6,18
+RO1_DEMAND,Granite,12,12
+RO1_DEMAND,Ready-Mixed Concrete,1,23
+RO1_DEMAND,Ready-Mixed Concrete,3,21
+RO1_DEMAND,Ready-Mixed Concrete,6,18
+RO1_DEMAND,Ready-Mixed Concrete,12,12
+RO1_DEMAND,Steel Reinforcement Bars,1,23
+RO1_DEMAND,Steel Reinforcement Bars,3,21
+RO1_DEMAND,Steel Reinforcement Bars,6,18
+RO1_DEMAND,Steel Reinforcement Bars,12,12
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),1,23
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),3,21
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),6,18
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),12,12
+RO1_PRICE,Concreting Sand,1,23
+RO1_PRICE,Concreting Sand,3,21
+RO1_PRICE,Concreting Sand,6,18
+RO1_PRICE,Concreting Sand,12,12
+RO1_PRICE,Granite (20mm Aggregate),1,23
+RO1_PRICE,Granite (20mm Aggregate),3,21
+RO1_PRICE,Granite (20mm Aggregate),6,18
+RO1_PRICE,Granite (20mm Aggregate),12,12
+RO1_PRICE,Ready Mixed Concrete,1,23
+RO1_PRICE,Ready Mixed Concrete,3,21
+RO1_PRICE,Ready Mixed Concrete,6,18
+RO1_PRICE,Ready Mixed Concrete,12,12
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),1,23
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),3,21
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),6,18
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),12,12

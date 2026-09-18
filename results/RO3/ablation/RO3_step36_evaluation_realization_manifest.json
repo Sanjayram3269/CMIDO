@@ -1,0 +1,40 @@
+{
+  "origins": [
+    "2022-07-01",
+    "2022-08-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-11-01",
+    "2022-12-01",
+    "2023-01-01",
+    "2023-02-01",
+    "2023-03-01",
+    "2023-04-01",
+    "2023-05-01"
+  ],
+  "materials": [
+    "Cement",
+    "Granite",
+    "Ready Mixed Concrete",
+    "Steel Reinforcement Bars"
+  ],
+  "price_mapping": {
+    "Cement": "Cement In Bulk (Ordinary Portland Cement)",
+    "Steel Reinforcement Bars": "Steel Reinforcement Bars (16-32mm High Tensile)",
+    "Granite": "Granite (20mm Aggregate)",
+    "Ready Mixed Concrete": "Ready Mixed Concrete"
+  },
+  "demand_mapping": {
+    "Cement": "Cement",
+    "Steel Reinforcement Bars": "Steel Reinforcement Bars",
+    "Granite": "Granite",
+    "Ready Mixed Concrete": "Ready-Mixed Concrete"
+  },
+  "horizon_months": 12,
+  "evaluation_rule": "first calendar month after forecast origin through the next 12 monthly observations",
+  "realized_demand_source": "D:\\CMIDO\\data\\raw\\DemandForConstructionMaterialsMonthly.csv",
+  "realized_price_source": "D:\\CMIDO\\data\\raw\\ConstructionMaterialMarketPricesMonthly.csv",
+  "checks_passed": 15,
+  "checks_total": 15,
+  "decision": "PASS"
+}

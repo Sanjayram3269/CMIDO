@@ -1,0 +1,3 @@
+dataset,status,det_order,k_ar_diff,cointegration_rank,selection_reason
+RO1_PRICE,VECM_CANDIDATE,0,2,2,Positive cointegration rank is supported across the sensitivity grid; candidate uses the modal trace rank with a parsimonious lag structure.
+RO1_DEMAND,VECM_CANDIDATE,0,1,4,Positive cointegration rank is supported across the sensitivity grid; candidate uses the modal trace rank with a parsimonious lag structure.

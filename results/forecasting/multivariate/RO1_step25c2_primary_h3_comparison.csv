@@ -1,0 +1,3 @@
+dataset,horizon,multivariate_MAE,best_existing_model,best_existing_source,best_existing_MAE,multivariate_improvement_percent,multivariate_wins
+RO1_PRICE,3,10.408433617285969,Naive,STEP23_BASELINE,0.5333333333333337,-1851.5813032411181,False
+RO1_DEMAND,3,95.34633850290147,ETS,STEP24_CLASSICAL,40.99298866045839,-132.59182025650165,False

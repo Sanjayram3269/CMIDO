@@ -1,0 +1,42 @@
+CMIDO — RO1 STEP 26C.3-F
+PAIRED STATISTICAL EVALUATION OF FROZEN CQR
+
+STATUS: COMPLETED
+
+Primary horizon: h=3
+Primary metric: 80% Winkler interval score
+Lower Winkler score = better.
+
+Test set: untouched before frozen CQR application.
+CQR parameters: frozen from validation.
+Bootstrap: chronological block bootstrap.
+Bootstrap repetitions: 10000
+Bootstrap seed: 26306
+
+PRIMARY h=3 AGGREGATE DESCRIPTIVE RESULT
+Mean series-level raw Winkler-80: 337.099655
+Mean series-level CQR Winkler-80: 319.948602
+Mean series-level difference (CQR-Raw): -17.151054
+Median series-level difference: -4.698794
+CQR better: 6/9
+CQR worse: 1/9
+
+SIGNIFICANCE COUNTS
+Raw p<0.05: 2/9
+BH-adjusted p<0.05: 2/9
+
+INTERPRETATION RULE
+A negative CQR-Raw Winkler difference favors CQR.
+A bootstrap confidence interval excluding zero indicates evidence
+of a difference for that individual series.
+BH-adjusted significance controls false-discovery rate across the
+nine series for the primary metric/horizon family.
+
+CAUTION
+The nine series are not independent replications of one population.
+Therefore the primary scientific claim should emphasize consistency
+of paired time-series evidence and effect direction rather than treating
+the nine material series as a conventional independent sample.
+
+This analysis does not compare CQR against conventional statistical
+probabilistic forecasting. That is a separate RO1 comparison.

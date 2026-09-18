@@ -1,0 +1,11 @@
+check,passed,detail
+44 selected O4 policies,True,44
+11 origins,True,
+4 materials,True,
+37 duration observations,True,
+All four duration cases,True,
+48? actually 44 origin-material policies per case,False,
+12 monthly rows per policy-case,True,
+Finite outputs,True,
+Nonnegative shortage/inventory/order,True,
+"Service in [0,1]",True,

@@ -1,0 +1,14 @@
+check,passed,detail
+O1/O3 ledger rows,True,1056
+O2 ledger rows,True,528
+O4 selected policies,True,44
+Common controllers,True,
+11 origins/controller,True,
+12 months/material-origin,True,
+Realized demand common O1/O2,True,
+Realized price common O1/O2,True,
+Finite primary metrics,True,
+"Service in [0,1]",True,
+Nonnegative orders,True,
+Nonnegative shortage,True,
+Nonnegative inventory,True,

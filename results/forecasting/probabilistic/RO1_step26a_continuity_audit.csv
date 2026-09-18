@@ -1,0 +1,10 @@
+dataset,series,start,end,n_months,expected_months,missing_months,continuous
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),1999-01-01,2026-06-01,330,330,0,True
+RO1_PRICE,Concreting Sand,1999-01-01,2026-06-01,330,330,0,True
+RO1_PRICE,Granite (20mm Aggregate),1999-01-01,2026-06-01,330,330,0,True
+RO1_PRICE,Ready Mixed Concrete,1999-01-01,2026-06-01,330,330,0,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),1999-01-01,2026-06-01,330,330,0,True
+RO1_DEMAND,Cement,1999-01-01,2026-05-01,329,329,0,True
+RO1_DEMAND,Granite,1999-01-01,2026-05-01,329,329,0,True
+RO1_DEMAND,Ready-Mixed Concrete,1999-01-01,2026-05-01,329,329,0,True
+RO1_DEMAND,Steel Reinforcement Bars,1999-01-01,2026-05-01,329,329,0,True

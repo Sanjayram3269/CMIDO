@@ -1,0 +1,66 @@
+{
+  "step": "26C.3-D-A",
+  "status": "PASSED",
+  "purpose": "Generate frozen 26C.2 winner forecasts on untouched test data",
+  "model_selection": false,
+  "hyperparameter_tuning": false,
+  "conformal_calibration": false,
+  "test_based_calibration": false,
+  "random_split": false,
+  "quantile_repair": "monotone_rearrangement_sort",
+  "horizons": [
+    1,
+    3,
+    6,
+    12
+  ],
+  "expected_origins_by_horizon": {
+    "1": 23,
+    "3": 21,
+    "6": 18,
+    "12": 12
+  },
+  "expected_forecast_rows": 666,
+  "actual_forecast_rows": 666,
+  "frozen_winners": {
+    "RO1_PRICE::Cement": {
+      "model_family": "LightGBM",
+      "config_id": "LGB_C1"
+    },
+    "RO1_PRICE::Concreting Sand": {
+      "model_family": "XGBoost",
+      "config_id": "XGB_C2"
+    },
+    "RO1_PRICE::Granite": {
+      "model_family": "XGBoost",
+      "config_id": "XGB_C3"
+    },
+    "RO1_PRICE::Ready Mixed Concrete": {
+      "model_family": "XGBoost",
+      "config_id": "XGB_C2"
+    },
+    "RO1_PRICE::Steel Reinforcement Bars": {
+      "model_family": "XGBoost",
+      "config_id": "XGB_C2"
+    },
+    "RO1_DEMAND::Cement": {
+      "model_family": "XGBoost",
+      "config_id": "XGB_C3"
+    },
+    "RO1_DEMAND::Granite": {
+      "model_family": "LightGBM",
+      "config_id": "LGB_C3"
+    },
+    "RO1_DEMAND::Ready Mixed Concrete": {
+      "model_family": "XGBoost",
+      "config_id": "XGB_C2"
+    },
+    "RO1_DEMAND::Steel Reinforcement Bars": {
+      "model_family": "XGBoost",
+      "config_id": "XGB_C3"
+    }
+  },
+  "output": "D:\\CMIDO\\results\\forecasting\\probabilistic_ml\\RO1_step26c2_test_forecasts.csv",
+  "audit": "D:\\CMIDO\\results\\forecasting\\probabilistic_ml\\RO1_step26c2_test_forecast_generation_audit.csv",
+  "elapsed_seconds": 2787.53
+}

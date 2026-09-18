@@ -1,0 +1,19 @@
+dataset,series,model_family,selected_model,order,seasonal_order,selection_method
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),ETS,ETS_AAd_N,,,Development AIC
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),SARIMA,SARIMA,"(1, 1, 1)","(0, 1, 1, 12)",Development AIC
+RO1_PRICE,Concreting Sand,ETS,ETS_A_N_N,,,Development AIC
+RO1_PRICE,Concreting Sand,SARIMA,SARIMA,"(0, 1, 1)","(0, 1, 1, 12)",Development AIC
+RO1_PRICE,Granite (20mm Aggregate),ETS,ETS_A_N_N,,,Development AIC
+RO1_PRICE,Granite (20mm Aggregate),SARIMA,SARIMA,"(1, 1, 1)","(0, 1, 1, 12)",Development AIC
+RO1_PRICE,Ready Mixed Concrete,ETS,ETS_A_N_N,,,Development AIC
+RO1_PRICE,Ready Mixed Concrete,SARIMA,SARIMA,"(0, 1, 1)","(0, 1, 1, 12)",Development AIC
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),ETS,ETS_AAd_N,,,Development AIC
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),SARIMA,SARIMA,"(1, 1, 1)","(0, 1, 1, 12)",Development AIC
+RO1_DEMAND,Cement,ETS,ETS_AAd_A,,,Development AIC
+RO1_DEMAND,Cement,SARIMA,SARIMA,"(0, 1, 1)","(0, 1, 1, 12)",Development AIC
+RO1_DEMAND,Granite,ETS,ETS_AAd_A,,,Development AIC
+RO1_DEMAND,Granite,SARIMA,SARIMA,"(1, 1, 1)","(0, 1, 1, 12)",Development AIC
+RO1_DEMAND,Ready-Mixed Concrete,ETS,ETS_AAd_A,,,Development AIC
+RO1_DEMAND,Ready-Mixed Concrete,SARIMA,SARIMA,"(0, 1, 1)","(0, 1, 1, 12)",Development AIC
+RO1_DEMAND,Steel Reinforcement Bars,ETS,ETS_AAd_A,,,Development AIC
+RO1_DEMAND,Steel Reinforcement Bars,SARIMA,SARIMA,"(1, 1, 1)","(0, 1, 1, 12)",Development AIC

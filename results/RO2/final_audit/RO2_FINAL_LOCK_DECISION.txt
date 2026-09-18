@@ -1,0 +1,47 @@
+CMIDO — RO2 FINAL LOCK DECISION
+======================================================================
+
+FINAL DECISION: RO2_FINAL_LOCK
+
+RO2 scientific chain:
+27B.4 Data integrity
+    -> 27C.3 Joint empirical duration representation
+    -> 27D Demand-duration propagation
+    -> 27D.1 Propagation result audit
+    -> 27D.4 Nested MC convergence
+
+LOCKED PRIMARY REPRESENTATION
+--------------------------------
+CQR-calibrated RO1 demand forecasts
++
+37-row joint empirical procurement-process-duration representation
++
+exact calendar-month overlap
++
+10,000 Monte Carlo draws
+
+MONTE CARLO RESULT
+------------------
+Stable at 10,000: 48/48
+Stable at 25,000: 48/48
+Maximum 5k -> 10k change: 0.668805%
+Maximum 10k -> 25k change: 0.312457%
+Locked MC size: 10,000
+
+SCIENTIFIC BOUNDARIES
+---------------------
+- RO2 uses procurement-process duration / procurement-duration proxy, not supplier-specific material lead time.
+- The 37 paired observations preserve observed component pairing but do not prove statistical dependence.
+- RO2 does not establish supplier disruption probabilities.
+- RO2 does not establish historical shortage labels.
+- RO1 supplies marginal predictive quantiles rather than a fully joint future demand-path distribution.
+- 27D is therefore a marginal-demand / joint-duration propagation model.
+- Service-risk curves are conditional exposure-risk curves and are not empirically calibrated operational service levels.
+- The 27D safety-stock quantity is a benchmark/interpretability quantity; RO3 will define safety stock as a decision variable.
+- 10,000 Monte Carlo draws are locked based on nested common-random-number convergence.
+
+RO2 STATUS
+----------
+RO2 is ready for scientific freeze and transition to RO3.
+
+No RO2 methodology should be changed retrospectively after this lock.

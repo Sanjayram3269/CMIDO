@@ -1,0 +1,16 @@
+quantile,representation,quantile_days,difference_vs_observed,relative_difference_pct
+0.5,Observed paired total,47.0,0.0,0.0
+0.5,Joint empirical components,49.0,2.0,4.25531914893617
+0.5,Independent marginal components,47.0,0.0,0.0
+0.75,Observed paired total,70.0,0.0,0.0
+0.75,Joint empirical components,71.0,1.0,1.4285714285714286
+0.75,Independent marginal components,67.0,-3.0,-4.285714285714286
+0.9,Observed paired total,82.39999999999999,0.0,0.0
+0.9,Joint empirical components,86.0,3.6000000000000085,4.368932038834962
+0.9,Independent marginal components,90.0,7.6000000000000085,9.2233009708738
+0.95,Observed paired total,98.79999999999993,0.0,0.0
+0.95,Joint empirical components,114.0,15.200000000000074,15.38461538461547
+0.95,Independent marginal components,112.0,13.200000000000074,13.36032388663976
+0.99,Observed paired total,116.56,0.0,0.0
+0.99,Joint empirical components,118.0,1.4399999999999977,1.2354152367879183
+0.99,Independent marginal components,125.0,8.439999999999998,7.2409059711736425

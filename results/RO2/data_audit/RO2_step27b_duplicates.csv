@@ -1,0 +1,19 @@
+sheet,key_type,key_columns,duplicate_rows
+Days Sesion,full_row,<all columns>,0
+VANVA (Current),full_row,<all columns>,2
+VANVA (Future),full_row,<all columns>,0
+VANVA (Future) Versi 2,full_row,<all columns>,3
+Rata-rata,full_row,<all columns>,2
+Rata-rata,PR,PR,1
+Rata-rata,Material,Material Number,33
+Rata-rata V1,full_row,<all columns>,2
+Rata-rata V1,PR,PR,1
+Rata-rata V1,Material,Material Number,33
+Rata-rataFuture V2,full_row,<all columns>,2
+Rata-rataFuture V2,PR,PR,1
+Rata-rataFuture V2,Material,Material Number,33
+Conclusion,full_row,<all columns>,0
+Raw data,full_row,<all columns>,2
+Sheet6,full_row,<all columns>,0
+Std SLA,full_row,<all columns>,0
+Std SLA,PR,PR,1

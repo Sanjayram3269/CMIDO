@@ -1,0 +1,3 @@
+dataset,level_nonstationary_series,stationary_first_difference_series,significant_granger_tests_5pct,cointegration_evidence_at_r0,BIC_selected_lag,recommendation
+RO1_PRICE,4,5,46,True,3,VECM_CANDIDATE
+RO1_DEMAND,4,4,32,True,2,VECM_CANDIDATE

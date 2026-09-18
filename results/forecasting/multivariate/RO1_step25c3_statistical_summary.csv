@@ -1,0 +1,3 @@
+dataset,total_comparisons,significant_multivariate_better,significant_baseline_better,no_significant_difference
+RO1_DEMAND,64,11,6,47
+RO1_PRICE,80,11,30,39

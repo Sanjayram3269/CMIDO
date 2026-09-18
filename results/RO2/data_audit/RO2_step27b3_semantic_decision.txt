@@ -1,0 +1,5 @@
+CMIDO RO2 STEP 27B.3
+
+RO2 DATA PATHWAY B CONFIRMED — EMPIRICAL PROCUREMENT-PROCESS DURATION WITH INTERNAL + PO-GR/DN COMPONENTS; SUPPLIER-SPECIFIC LEAD TIME NOT IDENTIFIED.
+
+The audit establishes empirical consistency between internal lead-time, PO-GR/DN duration, and total DN duration where all three are present. It does not establish supplier-specific lead time because no supplier identifier or explicit receipt/delivery date is present in Raw data. The transactions are overwhelmingly/entirely classified as Jasa (services), so they must not be presented as observed construction-material supplier events.

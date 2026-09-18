@@ -1,0 +1,1651 @@
+date,DataSeries,rolling_12m_std
+1999-01-01,Cement In Bulk (Ordinary Portland Cement),
+1999-02-01,Cement In Bulk (Ordinary Portland Cement),
+1999-03-01,Cement In Bulk (Ordinary Portland Cement),
+1999-04-01,Cement In Bulk (Ordinary Portland Cement),
+1999-05-01,Cement In Bulk (Ordinary Portland Cement),
+1999-06-01,Cement In Bulk (Ordinary Portland Cement),
+1999-07-01,Cement In Bulk (Ordinary Portland Cement),
+1999-08-01,Cement In Bulk (Ordinary Portland Cement),
+1999-09-01,Cement In Bulk (Ordinary Portland Cement),
+1999-10-01,Cement In Bulk (Ordinary Portland Cement),
+1999-11-01,Cement In Bulk (Ordinary Portland Cement),
+1999-12-01,Cement In Bulk (Ordinary Portland Cement),
+2000-01-01,Cement In Bulk (Ordinary Portland Cement),0.026082675056540605
+2000-02-01,Cement In Bulk (Ordinary Portland Cement),0.025600579910434205
+2000-03-01,Cement In Bulk (Ordinary Portland Cement),0.025500884982981944
+2000-04-01,Cement In Bulk (Ordinary Portland Cement),0.023674477033768772
+2000-05-01,Cement In Bulk (Ordinary Portland Cement),0.0220575716220122
+2000-06-01,Cement In Bulk (Ordinary Portland Cement),0.02235825976380657
+2000-07-01,Cement In Bulk (Ordinary Portland Cement),0.012613624260322302
+2000-08-01,Cement In Bulk (Ordinary Portland Cement),0.015609868086272214
+2000-09-01,Cement In Bulk (Ordinary Portland Cement),0.016464986095565178
+2000-10-01,Cement In Bulk (Ordinary Portland Cement),0.015970433704096083
+2000-11-01,Cement In Bulk (Ordinary Portland Cement),0.014998126538503256
+2000-12-01,Cement In Bulk (Ordinary Portland Cement),0.014835937434370356
+2001-01-01,Cement In Bulk (Ordinary Portland Cement),0.014326069022919075
+2001-02-01,Cement In Bulk (Ordinary Portland Cement),0.014326069022919075
+2001-03-01,Cement In Bulk (Ordinary Portland Cement),0.014454544884316389
+2001-04-01,Cement In Bulk (Ordinary Portland Cement),0.014081786585725077
+2001-05-01,Cement In Bulk (Ordinary Portland Cement),0.014059567908835755
+2001-06-01,Cement In Bulk (Ordinary Portland Cement),0.015588555121562106
+2001-07-01,Cement In Bulk (Ordinary Portland Cement),0.015701180960632655
+2001-08-01,Cement In Bulk (Ordinary Portland Cement),0.012709337138663604
+2001-09-01,Cement In Bulk (Ordinary Portland Cement),0.010574961675191601
+2001-10-01,Cement In Bulk (Ordinary Portland Cement),0.009863044465285522
+2001-11-01,Cement In Bulk (Ordinary Portland Cement),0.009719358290979377
+2001-12-01,Cement In Bulk (Ordinary Portland Cement),0.009719358290979377
+2002-01-01,Cement In Bulk (Ordinary Portland Cement),0.010181114101594875
+2002-02-01,Cement In Bulk (Ordinary Portland Cement),0.012293811094527618
+2002-03-01,Cement In Bulk (Ordinary Portland Cement),0.011710440492509274
+2002-04-01,Cement In Bulk (Ordinary Portland Cement),0.012263820609971299
+2002-05-01,Cement In Bulk (Ordinary Portland Cement),0.011680647794272131
+2002-06-01,Cement In Bulk (Ordinary Portland Cement),0.011306259793112792
+2002-07-01,Cement In Bulk (Ordinary Portland Cement),0.012374685431793354
+2002-08-01,Cement In Bulk (Ordinary Portland Cement),0.01266518651813799
+2002-09-01,Cement In Bulk (Ordinary Portland Cement),0.013869955240652553
+2002-10-01,Cement In Bulk (Ordinary Portland Cement),0.014011867443632227
+2002-11-01,Cement In Bulk (Ordinary Portland Cement),0.01343685116399123
+2002-12-01,Cement In Bulk (Ordinary Portland Cement),0.013436134106391466
+2003-01-01,Cement In Bulk (Ordinary Portland Cement),0.014066729615455716
+2003-02-01,Cement In Bulk (Ordinary Portland Cement),0.011089964726233064
+2003-03-01,Cement In Bulk (Ordinary Portland Cement),0.011090571123599902
+2003-04-01,Cement In Bulk (Ordinary Portland Cement),0.011130889909197868
+2003-05-01,Cement In Bulk (Ordinary Portland Cement),0.011505875479717364
+2003-06-01,Cement In Bulk (Ordinary Portland Cement),0.012149076141150964
+2003-07-01,Cement In Bulk (Ordinary Portland Cement),0.008592367729578892
+2003-08-01,Cement In Bulk (Ordinary Portland Cement),0.008708680880067432
+2003-09-01,Cement In Bulk (Ordinary Portland Cement),0.008303371384122666
+2003-10-01,Cement In Bulk (Ordinary Portland Cement),0.007594210669874961
+2003-11-01,Cement In Bulk (Ordinary Portland Cement),0.007672130358484817
+2003-12-01,Cement In Bulk (Ordinary Portland Cement),0.007659503044612637
+2004-01-01,Cement In Bulk (Ordinary Portland Cement),0.007321699354477875
+2004-02-01,Cement In Bulk (Ordinary Portland Cement),0.0073221828705781755
+2004-03-01,Cement In Bulk (Ordinary Portland Cement),0.007395960384743002
+2004-04-01,Cement In Bulk (Ordinary Portland Cement),0.00746931384328652
+2004-05-01,Cement In Bulk (Ordinary Portland Cement),0.006929979572126602
+2004-06-01,Cement In Bulk (Ordinary Portland Cement),0.0056789993921150155
+2004-07-01,Cement In Bulk (Ordinary Portland Cement),0.005966075896598728
+2004-08-01,Cement In Bulk (Ordinary Portland Cement),0.005721460944071086
+2004-09-01,Cement In Bulk (Ordinary Portland Cement),0.005505971434491227
+2004-10-01,Cement In Bulk (Ordinary Portland Cement),0.004827097326105501
+2004-11-01,Cement In Bulk (Ordinary Portland Cement),0.0045465493026618205
+2004-12-01,Cement In Bulk (Ordinary Portland Cement),0.0040566711356299235
+2005-01-01,Cement In Bulk (Ordinary Portland Cement),0.00932035182144307
+2005-02-01,Cement In Bulk (Ordinary Portland Cement),0.009340329784139395
+2005-03-01,Cement In Bulk (Ordinary Portland Cement),0.010990536359381235
+2005-04-01,Cement In Bulk (Ordinary Portland Cement),0.011005306874867199
+2005-05-01,Cement In Bulk (Ordinary Portland Cement),0.011652257767910835
+2005-06-01,Cement In Bulk (Ordinary Portland Cement),0.011831580567093115
+2005-07-01,Cement In Bulk (Ordinary Portland Cement),0.01205838221469331
+2005-08-01,Cement In Bulk (Ordinary Portland Cement),0.012031708731891048
+2005-09-01,Cement In Bulk (Ordinary Portland Cement),0.011993164858090936
+2005-10-01,Cement In Bulk (Ordinary Portland Cement),0.01218689912680691
+2005-11-01,Cement In Bulk (Ordinary Portland Cement),0.012310467752378824
+2005-12-01,Cement In Bulk (Ordinary Portland Cement),0.012487505273062546
+2006-01-01,Cement In Bulk (Ordinary Portland Cement),0.008673504624147147
+2006-02-01,Cement In Bulk (Ordinary Portland Cement),0.008691681650432609
+2006-03-01,Cement In Bulk (Ordinary Portland Cement),0.003968087504543296
+2006-04-01,Cement In Bulk (Ordinary Portland Cement),0.004016901684658355
+2006-05-01,Cement In Bulk (Ordinary Portland Cement),0.0037502753966153907
+2006-06-01,Cement In Bulk (Ordinary Portland Cement),0.0037502753966153907
+2006-07-01,Cement In Bulk (Ordinary Portland Cement),0.0037502753966153907
+2006-08-01,Cement In Bulk (Ordinary Portland Cement),0.0037142117376398973
+2006-09-01,Cement In Bulk (Ordinary Portland Cement),0.003885413426471948
+2006-10-01,Cement In Bulk (Ordinary Portland Cement),0.003885413426471948
+2006-11-01,Cement In Bulk (Ordinary Portland Cement),0.003885413426471948
+2006-12-01,Cement In Bulk (Ordinary Portland Cement),0.003885413426471948
+2007-01-01,Cement In Bulk (Ordinary Portland Cement),0.004326075869201876
+2007-02-01,Cement In Bulk (Ordinary Portland Cement),0.004384986145597175
+2007-03-01,Cement In Bulk (Ordinary Portland Cement),0.005569414646078278
+2007-04-01,Cement In Bulk (Ordinary Portland Cement),0.006061844195499642
+2007-05-01,Cement In Bulk (Ordinary Portland Cement),0.00611371561291454
+2007-06-01,Cement In Bulk (Ordinary Portland Cement),0.00981080321309276
+2007-07-01,Cement In Bulk (Ordinary Portland Cement),0.02098410716739996
+2007-08-01,Cement In Bulk (Ordinary Portland Cement),0.02267455799758848
+2007-09-01,Cement In Bulk (Ordinary Portland Cement),0.022443237848974545
+2007-10-01,Cement In Bulk (Ordinary Portland Cement),0.02177944565654973
+2007-11-01,Cement In Bulk (Ordinary Portland Cement),0.02134357955048965
+2007-12-01,Cement In Bulk (Ordinary Portland Cement),0.020975913581512115
+2008-01-01,Cement In Bulk (Ordinary Portland Cement),0.0211074422498652
+2008-02-01,Cement In Bulk (Ordinary Portland Cement),0.02001586412262997
+2008-03-01,Cement In Bulk (Ordinary Portland Cement),0.02043712796756446
+2008-04-01,Cement In Bulk (Ordinary Portland Cement),0.021086474761808374
+2008-05-01,Cement In Bulk (Ordinary Portland Cement),0.021147255896801657
+2008-06-01,Cement In Bulk (Ordinary Portland Cement),0.021076466075263662
+2008-07-01,Cement In Bulk (Ordinary Portland Cement),0.013923870751620004
+2008-08-01,Cement In Bulk (Ordinary Portland Cement),0.010630457874959278
+2008-09-01,Cement In Bulk (Ordinary Portland Cement),0.010977560167844663
+2008-10-01,Cement In Bulk (Ordinary Portland Cement),0.012012534881787636
+2008-11-01,Cement In Bulk (Ordinary Portland Cement),0.01189028011447597
+2008-12-01,Cement In Bulk (Ordinary Portland Cement),0.014821916916377286
+2009-01-01,Cement In Bulk (Ordinary Portland Cement),0.01660111311154084
+2009-02-01,Cement In Bulk (Ordinary Portland Cement),0.020811879027306916
+2009-03-01,Cement In Bulk (Ordinary Portland Cement),0.02102417516364358
+2009-04-01,Cement In Bulk (Ordinary Portland Cement),0.02152795406252332
+2009-05-01,Cement In Bulk (Ordinary Portland Cement),0.021254935694508578
+2009-06-01,Cement In Bulk (Ordinary Portland Cement),0.01701576229100232
+2009-07-01,Cement In Bulk (Ordinary Portland Cement),0.01440007292204546
+2009-08-01,Cement In Bulk (Ordinary Portland Cement),0.012563105829491645
+2009-09-01,Cement In Bulk (Ordinary Portland Cement),0.01204832474856319
+2009-10-01,Cement In Bulk (Ordinary Portland Cement),0.011294442793912078
+2009-11-01,Cement In Bulk (Ordinary Portland Cement),0.011377638735085738
+2009-12-01,Cement In Bulk (Ordinary Portland Cement),0.011383414998261501
+2010-01-01,Cement In Bulk (Ordinary Portland Cement),0.011837057876627935
+2010-02-01,Cement In Bulk (Ordinary Portland Cement),0.009303931229918372
+2010-03-01,Cement In Bulk (Ordinary Portland Cement),0.010231245860057164
+2010-04-01,Cement In Bulk (Ordinary Portland Cement),0.009833705637083929
+2010-05-01,Cement In Bulk (Ordinary Portland Cement),0.010701708944587305
+2010-06-01,Cement In Bulk (Ordinary Portland Cement),0.011192413631095195
+2010-07-01,Cement In Bulk (Ordinary Portland Cement),0.011231050551392929
+2010-08-01,Cement In Bulk (Ordinary Portland Cement),0.011488599763486098
+2010-09-01,Cement In Bulk (Ordinary Portland Cement),0.011352386185607733
+2010-10-01,Cement In Bulk (Ordinary Portland Cement),0.010082471513698187
+2010-11-01,Cement In Bulk (Ordinary Portland Cement),0.009799761103868303
+2010-12-01,Cement In Bulk (Ordinary Portland Cement),0.009664939417693827
+2011-01-01,Cement In Bulk (Ordinary Portland Cement),0.005767579214605454
+2011-02-01,Cement In Bulk (Ordinary Portland Cement),0.006558130671989745
+2011-03-01,Cement In Bulk (Ordinary Portland Cement),0.007258731004112537
+2011-04-01,Cement In Bulk (Ordinary Portland Cement),0.006720629686328915
+2011-05-01,Cement In Bulk (Ordinary Portland Cement),0.006632254087221598
+2011-06-01,Cement In Bulk (Ordinary Portland Cement),0.006628251308457921
+2011-07-01,Cement In Bulk (Ordinary Portland Cement),0.006311220068084652
+2011-08-01,Cement In Bulk (Ordinary Portland Cement),0.006265562099120236
+2011-09-01,Cement In Bulk (Ordinary Portland Cement),0.005854455800622422
+2011-10-01,Cement In Bulk (Ordinary Portland Cement),0.0059710822748277655
+2011-11-01,Cement In Bulk (Ordinary Portland Cement),0.005340485223708003
+2011-12-01,Cement In Bulk (Ordinary Portland Cement),0.005608459778834465
+2012-01-01,Cement In Bulk (Ordinary Portland Cement),0.006781566800054525
+2012-02-01,Cement In Bulk (Ordinary Portland Cement),0.006607657971703544
+2012-03-01,Cement In Bulk (Ordinary Portland Cement),0.006475992972366153
+2012-04-01,Cement In Bulk (Ordinary Portland Cement),0.008126732530429904
+2012-05-01,Cement In Bulk (Ordinary Portland Cement),0.00862179107220042
+2012-06-01,Cement In Bulk (Ordinary Portland Cement),0.008696699959726176
+2012-07-01,Cement In Bulk (Ordinary Portland Cement),0.008684204974255077
+2012-08-01,Cement In Bulk (Ordinary Portland Cement),0.008950627991004762
+2012-09-01,Cement In Bulk (Ordinary Portland Cement),0.009076486190151034
+2012-10-01,Cement In Bulk (Ordinary Portland Cement),0.008864939171548219
+2012-11-01,Cement In Bulk (Ordinary Portland Cement),0.008906664099418284
+2012-12-01,Cement In Bulk (Ordinary Portland Cement),0.008874450905473114
+2013-01-01,Cement In Bulk (Ordinary Portland Cement),0.007995369607878385
+2013-02-01,Cement In Bulk (Ordinary Portland Cement),0.007841216882659088
+2013-03-01,Cement In Bulk (Ordinary Portland Cement),0.008468578451369944
+2013-04-01,Cement In Bulk (Ordinary Portland Cement),0.005105733593164414
+2013-05-01,Cement In Bulk (Ordinary Portland Cement),0.00517749119754075
+2013-06-01,Cement In Bulk (Ordinary Portland Cement),0.005326501409358068
+2013-07-01,Cement In Bulk (Ordinary Portland Cement),0.004580374562007563
+2013-08-01,Cement In Bulk (Ordinary Portland Cement),0.004600075017938715
+2013-09-01,Cement In Bulk (Ordinary Portland Cement),0.0046009984087103445
+2013-10-01,Cement In Bulk (Ordinary Portland Cement),0.004461965296593986
+2013-11-01,Cement In Bulk (Ordinary Portland Cement),0.004353744946720791
+2013-12-01,Cement In Bulk (Ordinary Portland Cement),0.00422002207774583
+2014-01-01,Cement In Bulk (Ordinary Portland Cement),0.003717317076927653
+2014-02-01,Cement In Bulk (Ordinary Portland Cement),0.003111099590477012
+2014-03-01,Cement In Bulk (Ordinary Portland Cement),0.0025050631163324975
+2014-04-01,Cement In Bulk (Ordinary Portland Cement),0.002511643507089101
+2014-05-01,Cement In Bulk (Ordinary Portland Cement),0.002369572525599887
+2014-06-01,Cement In Bulk (Ordinary Portland Cement),0.0021012855874701047
+2014-07-01,Cement In Bulk (Ordinary Portland Cement),0.002381252282476681
+2014-08-01,Cement In Bulk (Ordinary Portland Cement),0.002342260482274067
+2014-09-01,Cement In Bulk (Ordinary Portland Cement),0.002844887786339257
+2014-10-01,Cement In Bulk (Ordinary Portland Cement),0.0026803650410224685
+2014-11-01,Cement In Bulk (Ordinary Portland Cement),0.0028757863145011243
+2014-12-01,Cement In Bulk (Ordinary Portland Cement),0.003069757841249068
+2015-01-01,Cement In Bulk (Ordinary Portland Cement),0.003033284118958975
+2015-02-01,Cement In Bulk (Ordinary Portland Cement),0.003214024895606364
+2015-03-01,Cement In Bulk (Ordinary Portland Cement),0.0032963688236198967
+2015-04-01,Cement In Bulk (Ordinary Portland Cement),0.002793475307852701
+2015-05-01,Cement In Bulk (Ordinary Portland Cement),0.002556636049462636
+2015-06-01,Cement In Bulk (Ordinary Portland Cement),0.0023718482557815303
+2015-07-01,Cement In Bulk (Ordinary Portland Cement),0.002376092907746431
+2015-08-01,Cement In Bulk (Ordinary Portland Cement),0.0026494808056414876
+2015-09-01,Cement In Bulk (Ordinary Portland Cement),0.002607904284582674
+2015-10-01,Cement In Bulk (Ordinary Portland Cement),0.002517682298687479
+2015-11-01,Cement In Bulk (Ordinary Portland Cement),0.0031209150589722153
+2015-12-01,Cement In Bulk (Ordinary Portland Cement),0.0030982834026238395
+2016-01-01,Cement In Bulk (Ordinary Portland Cement),0.0057579252513595665
+2016-02-01,Cement In Bulk (Ordinary Portland Cement),0.006803927672471815
+2016-03-01,Cement In Bulk (Ordinary Portland Cement),0.00658349048582018
+2016-04-01,Cement In Bulk (Ordinary Portland Cement),0.008469108099349894
+2016-05-01,Cement In Bulk (Ordinary Portland Cement),0.0083783286019932
+2016-06-01,Cement In Bulk (Ordinary Portland Cement),0.008843817495713845
+2016-07-01,Cement In Bulk (Ordinary Portland Cement),0.008881483978402941
+2016-08-01,Cement In Bulk (Ordinary Portland Cement),0.008749538253965303
+2016-09-01,Cement In Bulk (Ordinary Portland Cement),0.008387901134768411
+2016-10-01,Cement In Bulk (Ordinary Portland Cement),0.00833999023314215
+2016-11-01,Cement In Bulk (Ordinary Portland Cement),0.008349915923764144
+2016-12-01,Cement In Bulk (Ordinary Portland Cement),0.008200751929629551
+2017-01-01,Cement In Bulk (Ordinary Portland Cement),0.009152319747530684
+2017-02-01,Cement In Bulk (Ordinary Portland Cement),0.009078204905513356
+2017-03-01,Cement In Bulk (Ordinary Portland Cement),0.009161243379986011
+2017-04-01,Cement In Bulk (Ordinary Portland Cement),0.009415361863722573
+2017-05-01,Cement In Bulk (Ordinary Portland Cement),0.009398936074565477
+2017-06-01,Cement In Bulk (Ordinary Portland Cement),0.009338009989067012
+2017-07-01,Cement In Bulk (Ordinary Portland Cement),0.008714887098897298
+2017-08-01,Cement In Bulk (Ordinary Portland Cement),0.009081943652454162
+2017-09-01,Cement In Bulk (Ordinary Portland Cement),0.009862114381047046
+2017-10-01,Cement In Bulk (Ordinary Portland Cement),0.010473971712549403
+2017-11-01,Cement In Bulk (Ordinary Portland Cement),0.01033862225214963
+2017-12-01,Cement In Bulk (Ordinary Portland Cement),0.010410015479089268
+2018-01-01,Cement In Bulk (Ordinary Portland Cement),0.007711040008380966
+2018-02-01,Cement In Bulk (Ordinary Portland Cement),0.007633449300514732
+2018-03-01,Cement In Bulk (Ordinary Portland Cement),0.008798835626308926
+2018-04-01,Cement In Bulk (Ordinary Portland Cement),0.00855756585191309
+2018-05-01,Cement In Bulk (Ordinary Portland Cement),0.008577783764354805
+2018-06-01,Cement In Bulk (Ordinary Portland Cement),0.008552020860315042
+2018-07-01,Cement In Bulk (Ordinary Portland Cement),0.008869888698734866
+2018-08-01,Cement In Bulk (Ordinary Portland Cement),0.006618747792560812
+2018-09-01,Cement In Bulk (Ordinary Portland Cement),0.006645675123793707
+2018-10-01,Cement In Bulk (Ordinary Portland Cement),0.006609772570944591
+2018-11-01,Cement In Bulk (Ordinary Portland Cement),0.005964761122075378
+2018-12-01,Cement In Bulk (Ordinary Portland Cement),0.005886907990821931
+2019-01-01,Cement In Bulk (Ordinary Portland Cement),0.006176780580541725
+2019-02-01,Cement In Bulk (Ordinary Portland Cement),0.005263958483541285
+2019-03-01,Cement In Bulk (Ordinary Portland Cement),0.004511630799513058
+2019-04-01,Cement In Bulk (Ordinary Portland Cement),0.00467761472440257
+2019-05-01,Cement In Bulk (Ordinary Portland Cement),0.005028983506412125
+2019-06-01,Cement In Bulk (Ordinary Portland Cement),0.004995343009458889
+2019-07-01,Cement In Bulk (Ordinary Portland Cement),0.004120196394189145
+2019-08-01,Cement In Bulk (Ordinary Portland Cement),0.004217847057332425
+2019-09-01,Cement In Bulk (Ordinary Portland Cement),0.004310376027113899
+2019-10-01,Cement In Bulk (Ordinary Portland Cement),0.005402048215446192
+2019-11-01,Cement In Bulk (Ordinary Portland Cement),0.005407101062930389
+2019-12-01,Cement In Bulk (Ordinary Portland Cement),0.005735780769255046
+2020-01-01,Cement In Bulk (Ordinary Portland Cement),0.005280889439214345
+2020-02-01,Cement In Bulk (Ordinary Portland Cement),0.005327087400249204
+2020-03-01,Cement In Bulk (Ordinary Portland Cement),0.0052911938435365345
+2020-04-01,Cement In Bulk (Ordinary Portland Cement),0.005207657219369146
+2020-05-01,Cement In Bulk (Ordinary Portland Cement),0.004975091576718834
+2020-06-01,Cement In Bulk (Ordinary Portland Cement),0.005099324078335626
+2020-07-01,Cement In Bulk (Ordinary Portland Cement),0.005130075963865664
+2020-08-01,Cement In Bulk (Ordinary Portland Cement),0.005297210531498806
+2020-09-01,Cement In Bulk (Ordinary Portland Cement),0.005452171986755886
+2020-10-01,Cement In Bulk (Ordinary Portland Cement),0.003690884670956571
+2020-11-01,Cement In Bulk (Ordinary Portland Cement),0.0034593907809715423
+2020-12-01,Cement In Bulk (Ordinary Portland Cement),0.0035780113101425595
+2021-01-01,Cement In Bulk (Ordinary Portland Cement),0.003044117428905464
+2021-02-01,Cement In Bulk (Ordinary Portland Cement),0.0030389364932204856
+2021-03-01,Cement In Bulk (Ordinary Portland Cement),0.0018469460261916757
+2021-04-01,Cement In Bulk (Ordinary Portland Cement),0.008892839685902081
+2021-05-01,Cement In Bulk (Ordinary Portland Cement),0.009936353403190597
+2021-06-01,Cement In Bulk (Ordinary Portland Cement),0.010220586067271789
+2021-07-01,Cement In Bulk (Ordinary Portland Cement),0.014413092402866319
+2021-08-01,Cement In Bulk (Ordinary Portland Cement),0.014220606219049659
+2021-09-01,Cement In Bulk (Ordinary Portland Cement),0.014074695650584354
+2021-10-01,Cement In Bulk (Ordinary Portland Cement),0.014086577798078157
+2021-11-01,Cement In Bulk (Ordinary Portland Cement),0.013834572508312467
+2021-12-01,Cement In Bulk (Ordinary Portland Cement),0.013290821627405821
+2022-01-01,Cement In Bulk (Ordinary Portland Cement),0.021236679271519458
+2022-02-01,Cement In Bulk (Ordinary Portland Cement),0.020590659359879627
+2022-03-01,Cement In Bulk (Ordinary Portland Cement),0.020350332279226998
+2022-04-01,Cement In Bulk (Ordinary Portland Cement),0.02018495309982404
+2022-05-01,Cement In Bulk (Ordinary Portland Cement),0.021828194253086394
+2022-06-01,Cement In Bulk (Ordinary Portland Cement),0.022751551420820252
+2022-07-01,Cement In Bulk (Ordinary Portland Cement),0.02256228497089565
+2022-08-01,Cement In Bulk (Ordinary Portland Cement),0.02235876629625112
+2022-09-01,Cement In Bulk (Ordinary Portland Cement),0.02263396778912078
+2022-10-01,Cement In Bulk (Ordinary Portland Cement),0.02284420519918058
+2022-11-01,Cement In Bulk (Ordinary Portland Cement),0.023373550002635645
+2022-12-01,Cement In Bulk (Ordinary Portland Cement),0.023958236905832733
+2023-01-01,Cement In Bulk (Ordinary Portland Cement),0.01704200708814136
+2023-02-01,Cement In Bulk (Ordinary Portland Cement),0.017226700200893192
+2023-03-01,Cement In Bulk (Ordinary Portland Cement),0.015474991559836683
+2023-04-01,Cement In Bulk (Ordinary Portland Cement),0.014472117010981249
+2023-05-01,Cement In Bulk (Ordinary Portland Cement),0.0027488343865536805
+2023-06-01,Cement In Bulk (Ordinary Portland Cement),0.002921344661607428
+2023-07-01,Cement In Bulk (Ordinary Portland Cement),0.004341796493985722
+2023-08-01,Cement In Bulk (Ordinary Portland Cement),0.003990438851132872
+2023-09-01,Cement In Bulk (Ordinary Portland Cement),0.004207375237356257
+2023-10-01,Cement In Bulk (Ordinary Portland Cement),0.004064868591732615
+2023-11-01,Cement In Bulk (Ordinary Portland Cement),0.004432482335665747
+2023-12-01,Cement In Bulk (Ordinary Portland Cement),0.0043201332908778785
+2024-01-01,Cement In Bulk (Ordinary Portland Cement),0.004026634431132757
+2024-02-01,Cement In Bulk (Ordinary Portland Cement),0.004126270997897018
+2024-03-01,Cement In Bulk (Ordinary Portland Cement),0.004536685139788868
+2024-04-01,Cement In Bulk (Ordinary Portland Cement),0.0043858080133477
+2024-05-01,Cement In Bulk (Ordinary Portland Cement),0.004661174430664759
+2024-06-01,Cement In Bulk (Ordinary Portland Cement),0.004653916897177032
+2024-07-01,Cement In Bulk (Ordinary Portland Cement),0.003980755937673544
+2024-08-01,Cement In Bulk (Ordinary Portland Cement),0.003924289313033844
+2024-09-01,Cement In Bulk (Ordinary Portland Cement),0.003777175378057727
+2024-10-01,Cement In Bulk (Ordinary Portland Cement),0.003766441253538384
+2024-11-01,Cement In Bulk (Ordinary Portland Cement),0.003583491739439652
+2024-12-01,Cement In Bulk (Ordinary Portland Cement),0.0035661259177890803
+2025-01-01,Cement In Bulk (Ordinary Portland Cement),0.004128003957721891
+2025-02-01,Cement In Bulk (Ordinary Portland Cement),0.003958624796692636
+2025-03-01,Cement In Bulk (Ordinary Portland Cement),0.003424524595220789
+2025-04-01,Cement In Bulk (Ordinary Portland Cement),0.003497311313547043
+2025-05-01,Cement In Bulk (Ordinary Portland Cement),0.0031966173942392672
+2025-06-01,Cement In Bulk (Ordinary Portland Cement),0.003200195279361063
+2025-07-01,Cement In Bulk (Ordinary Portland Cement),0.004580037806907778
+2025-08-01,Cement In Bulk (Ordinary Portland Cement),0.005453340412808345
+2025-09-01,Cement In Bulk (Ordinary Portland Cement),0.00651744928791116
+2025-10-01,Cement In Bulk (Ordinary Portland Cement),0.009089023128658238
+2025-11-01,Cement In Bulk (Ordinary Portland Cement),0.018976550887767788
+2025-12-01,Cement In Bulk (Ordinary Portland Cement),0.023468562172993045
+2026-01-01,Cement In Bulk (Ordinary Portland Cement),0.022861046623271996
+2026-02-01,Cement In Bulk (Ordinary Portland Cement),0.02260055595208367
+2026-03-01,Cement In Bulk (Ordinary Portland Cement),0.022344524999077162
+2026-04-01,Cement In Bulk (Ordinary Portland Cement),0.021873769662844027
+2026-05-01,Cement In Bulk (Ordinary Portland Cement),0.02123353462335805
+2026-06-01,Cement In Bulk (Ordinary Portland Cement),0.022112762739684697
+1999-01-01,Concreting Sand,
+1999-02-01,Concreting Sand,
+1999-03-01,Concreting Sand,
+1999-04-01,Concreting Sand,
+1999-05-01,Concreting Sand,
+1999-06-01,Concreting Sand,
+1999-07-01,Concreting Sand,
+1999-08-01,Concreting Sand,
+1999-09-01,Concreting Sand,
+1999-10-01,Concreting Sand,
+1999-11-01,Concreting Sand,
+1999-12-01,Concreting Sand,
+2000-01-01,Concreting Sand,0.025120503029924097
+2000-02-01,Concreting Sand,0.010722445815793362
+2000-03-01,Concreting Sand,0.010722445815793362
+2000-04-01,Concreting Sand,0.011079976415992147
+2000-05-01,Concreting Sand,0.01096396080264668
+2000-06-01,Concreting Sand,0.01096396080264668
+2000-07-01,Concreting Sand,0.010939183463899086
+2000-08-01,Concreting Sand,0.01132558039425316
+2000-09-01,Concreting Sand,0.01132558039425316
+2000-10-01,Concreting Sand,0.007425135373371841
+2000-11-01,Concreting Sand,0.010087798289630537
+2000-12-01,Concreting Sand,0.009986172521216525
+2001-01-01,Concreting Sand,0.009746528127049778
+2001-02-01,Concreting Sand,0.009746528127049778
+2001-03-01,Concreting Sand,0.009746528127049778
+2001-04-01,Concreting Sand,0.009295627669751717
+2001-05-01,Concreting Sand,0.009295627669751717
+2001-06-01,Concreting Sand,0.009295627669751717
+2001-07-01,Concreting Sand,0.008756253670615914
+2001-08-01,Concreting Sand,0.0075436184223750076
+2001-09-01,Concreting Sand,0.020597117974979054
+2001-10-01,Concreting Sand,0.021680177164813668
+2001-11-01,Concreting Sand,0.0227404413053415
+2001-12-01,Concreting Sand,0.02225799915561206
+2002-01-01,Concreting Sand,0.0225574070755216
+2002-02-01,Concreting Sand,0.0225574070755216
+2002-03-01,Concreting Sand,0.022587891330233575
+2002-04-01,Concreting Sand,0.02299414695445206
+2002-05-01,Concreting Sand,0.02299414695445206
+2002-06-01,Concreting Sand,0.02299414695445206
+2002-07-01,Concreting Sand,0.02299414695445206
+2002-08-01,Concreting Sand,0.02299414695445206
+2002-09-01,Concreting Sand,0.012499143459661206
+2002-10-01,Concreting Sand,0.008648593116377112
+2002-11-01,Concreting Sand,0.005002144966172643
+2002-12-01,Concreting Sand,0.004770783793545889
+2003-01-01,Concreting Sand,0.004404947535163619
+2003-02-01,Concreting Sand,0.004404947535163619
+2003-03-01,Concreting Sand,0.004808007510514213
+2003-04-01,Concreting Sand,0.003557533951438836
+2003-05-01,Concreting Sand,0.003557533951438836
+2003-06-01,Concreting Sand,0.003557533951438836
+2003-07-01,Concreting Sand,0.003557533951438836
+2003-08-01,Concreting Sand,0.003557533951438836
+2003-09-01,Concreting Sand,0.003557533951438836
+2003-10-01,Concreting Sand,0.003557533951438836
+2003-11-01,Concreting Sand,0.003557533951438836
+2003-12-01,Concreting Sand,0.0013296897512384742
+2004-01-01,Concreting Sand,0.003082021180042685
+2004-02-01,Concreting Sand,0.004893133451499116
+2004-03-01,Concreting Sand,0.0048921026693175655
+2004-04-01,Concreting Sand,0.009833006834045989
+2004-05-01,Concreting Sand,0.009801763106682633
+2004-06-01,Concreting Sand,0.010054079276230412
+2004-07-01,Concreting Sand,0.010147093824164677
+2004-08-01,Concreting Sand,0.010147093824164677
+2004-09-01,Concreting Sand,0.010147093824164677
+2004-10-01,Concreting Sand,0.010147093824164677
+2004-11-01,Concreting Sand,0.010147093824164677
+2004-12-01,Concreting Sand,0.010147093824164677
+2005-01-01,Concreting Sand,0.010078540740497336
+2005-02-01,Concreting Sand,0.008904870327316532
+2005-03-01,Concreting Sand,0.009014677768760228
+2005-04-01,Concreting Sand,0.0069808235017313315
+2005-05-01,Concreting Sand,0.007045482284524401
+2005-06-01,Concreting Sand,0.0066906288063044266
+2005-07-01,Concreting Sand,0.008217921705970774
+2005-08-01,Concreting Sand,0.010991167774315325
+2005-09-01,Concreting Sand,0.010831031514202954
+2005-10-01,Concreting Sand,0.010831031514202954
+2005-11-01,Concreting Sand,0.010641164065062108
+2005-12-01,Concreting Sand,0.010641164065062108
+2006-01-01,Concreting Sand,0.02265992571890953
+2006-02-01,Concreting Sand,0.02265992571890953
+2006-03-01,Concreting Sand,0.02265992571890953
+2006-04-01,Concreting Sand,0.02344394655948012
+2006-05-01,Concreting Sand,0.02344394655948012
+2006-06-01,Concreting Sand,0.023753772564231654
+2006-07-01,Concreting Sand,0.023809858356771813
+2006-08-01,Concreting Sand,0.023472086727747782
+2006-09-01,Concreting Sand,0.024157220679047336
+2006-10-01,Concreting Sand,0.025876081841536922
+2006-11-01,Concreting Sand,0.02554206077880357
+2006-12-01,Concreting Sand,0.02762262381917202
+2007-01-01,Concreting Sand,0.02526735936696823
+2007-02-01,Concreting Sand,0.1427120488703304
+2007-03-01,Concreting Sand,0.25596268131863986
+2007-04-01,Concreting Sand,0.2572836720996679
+2007-05-01,Concreting Sand,0.2587601487086256
+2007-06-01,Concreting Sand,0.2624498264207361
+2007-07-01,Concreting Sand,0.26297010235665574
+2007-08-01,Concreting Sand,0.2671171259997287
+2007-09-01,Concreting Sand,0.27044142615597305
+2007-10-01,Concreting Sand,0.2784047582818317
+2007-11-01,Concreting Sand,0.27960082136721043
+2007-12-01,Concreting Sand,0.28110576725628317
+2008-01-01,Concreting Sand,0.2813153962368682
+2008-02-01,Concreting Sand,0.24640824893467583
+2008-03-01,Concreting Sand,0.041203889448931615
+2008-04-01,Concreting Sand,0.041438576395320025
+2008-05-01,Concreting Sand,0.043592303271339464
+2008-06-01,Concreting Sand,0.04222935927358475
+2008-07-01,Concreting Sand,0.04116889652861094
+2008-08-01,Concreting Sand,0.04020765366923281
+2008-09-01,Concreting Sand,0.03781191457826783
+2008-10-01,Concreting Sand,0.01372048766796518
+2008-11-01,Concreting Sand,0.012988028643582164
+2008-12-01,Concreting Sand,0.017529676440235176
+2009-01-01,Concreting Sand,0.01628514180447026
+2009-02-01,Concreting Sand,0.01660506918437614
+2009-03-01,Concreting Sand,0.022173946470513916
+2009-04-01,Concreting Sand,0.021584792833200552
+2009-05-01,Concreting Sand,0.02337682719199713
+2009-06-01,Concreting Sand,0.023608691906511624
+2009-07-01,Concreting Sand,0.02588440283251672
+2009-08-01,Concreting Sand,0.027965619550737793
+2009-09-01,Concreting Sand,0.027552944094346554
+2009-10-01,Concreting Sand,0.026729595605997306
+2009-11-01,Concreting Sand,0.026745133784682188
+2009-12-01,Concreting Sand,0.02583460025049474
+2010-01-01,Concreting Sand,0.03092693289046489
+2010-02-01,Concreting Sand,0.03400461970662953
+2010-03-01,Concreting Sand,0.03165839505362377
+2010-04-01,Concreting Sand,0.03250160777336861
+2010-05-01,Concreting Sand,0.028497563209299265
+2010-06-01,Concreting Sand,0.0304576632961535
+2010-07-01,Concreting Sand,0.03170755269824612
+2010-08-01,Concreting Sand,0.0309719138320241
+2010-09-01,Concreting Sand,0.030308754883768243
+2010-10-01,Concreting Sand,0.02932574088642664
+2010-11-01,Concreting Sand,0.029068371237401244
+2010-12-01,Concreting Sand,0.02681517533497901
+2011-01-01,Concreting Sand,0.026914090913529087
+2011-02-01,Concreting Sand,0.025702707720934092
+2011-03-01,Concreting Sand,0.02291531373511599
+2011-04-01,Concreting Sand,0.022321514619014004
+2011-05-01,Concreting Sand,0.031059592483493808
+2011-06-01,Concreting Sand,0.029515198465605002
+2011-07-01,Concreting Sand,0.02805470839721859
+2011-08-01,Concreting Sand,0.028349778471587702
+2011-09-01,Concreting Sand,0.028462224727658643
+2011-10-01,Concreting Sand,0.02849380226134264
+2011-11-01,Concreting Sand,0.02755603782214144
+2011-12-01,Concreting Sand,0.02563791834203253
+2012-01-01,Concreting Sand,0.0253457771345863
+2012-02-01,Concreting Sand,0.027739357918388313
+2012-03-01,Concreting Sand,0.0273784559056255
+2012-04-01,Concreting Sand,0.027149182233544938
+2012-05-01,Concreting Sand,0.01798959905840493
+2012-06-01,Concreting Sand,0.018005313642434965
+2012-07-01,Concreting Sand,0.01626029453437272
+2012-08-01,Concreting Sand,0.015262089578469404
+2012-09-01,Concreting Sand,0.013085331889224968
+2012-10-01,Concreting Sand,0.01360536811399918
+2012-11-01,Concreting Sand,0.01360536811399918
+2012-12-01,Concreting Sand,0.013195569695712207
+2013-01-01,Concreting Sand,0.011516958517461907
+2013-02-01,Concreting Sand,0.011723095031404472
+2013-03-01,Concreting Sand,0.012603009730111806
+2013-04-01,Concreting Sand,0.012593740850958693
+2013-05-01,Concreting Sand,0.012610311515341806
+2013-06-01,Concreting Sand,0.01248612453811457
+2013-07-01,Concreting Sand,0.015507030035027812
+2013-08-01,Concreting Sand,0.016617041362342422
+2013-09-01,Concreting Sand,0.01756617686326283
+2013-10-01,Concreting Sand,0.01671008662198361
+2013-11-01,Concreting Sand,0.01671008662198361
+2013-12-01,Concreting Sand,0.016052782716104996
+2014-01-01,Concreting Sand,0.01605670434036924
+2014-02-01,Concreting Sand,0.024315939764538316
+2014-03-01,Concreting Sand,0.02463825474250476
+2014-04-01,Concreting Sand,0.024638558850115264
+2014-05-01,Concreting Sand,0.02460830510260042
+2014-06-01,Concreting Sand,0.025084743489814022
+2014-07-01,Concreting Sand,0.022758831680738605
+2014-08-01,Concreting Sand,0.020897538849322526
+2014-09-01,Concreting Sand,0.020825786829576455
+2014-10-01,Concreting Sand,0.020820840442264843
+2014-11-01,Concreting Sand,0.020913935736875628
+2014-12-01,Concreting Sand,0.020996278311219953
+2015-01-01,Concreting Sand,0.021069019561135622
+2015-02-01,Concreting Sand,0.007753212613260627
+2015-03-01,Concreting Sand,0.008500860089410148
+2015-04-01,Concreting Sand,0.008674541127298518
+2015-05-01,Concreting Sand,0.008674541127298518
+2015-06-01,Concreting Sand,0.007134145086336361
+2015-07-01,Concreting Sand,0.007895732461154135
+2015-08-01,Concreting Sand,0.007895732461154135
+2015-09-01,Concreting Sand,0.008005661382386217
+2015-10-01,Concreting Sand,0.014985356407767537
+2015-11-01,Concreting Sand,0.016462321600309547
+2015-12-01,Concreting Sand,0.016480520634944627
+2016-01-01,Concreting Sand,0.018860934857889224
+2016-02-01,Concreting Sand,0.01895174918483508
+2016-03-01,Concreting Sand,0.017352285729670493
+2016-04-01,Concreting Sand,0.01778993105848351
+2016-05-01,Concreting Sand,0.017506251173741733
+2016-06-01,Concreting Sand,0.016972616839114725
+2016-07-01,Concreting Sand,0.02537868523217941
+2016-08-01,Concreting Sand,0.030914830076357983
+2016-09-01,Concreting Sand,0.029689808756323877
+2016-10-01,Concreting Sand,0.029417358630342727
+2016-11-01,Concreting Sand,0.03223936968844749
+2016-12-01,Concreting Sand,0.032715417822744376
+2017-01-01,Concreting Sand,0.033256552949539664
+2017-02-01,Concreting Sand,0.03461846317492168
+2017-03-01,Concreting Sand,0.035797686928925376
+2017-04-01,Concreting Sand,0.036525933804155225
+2017-05-01,Concreting Sand,0.039633704181034235
+2017-06-01,Concreting Sand,0.03965574007105695
+2017-07-01,Concreting Sand,0.034630992344283386
+2017-08-01,Concreting Sand,0.0274680373402047
+2017-09-01,Concreting Sand,0.02739707059891553
+2017-10-01,Concreting Sand,0.027774698663844424
+2017-11-01,Concreting Sand,0.02755154816848612
+2017-12-01,Concreting Sand,0.027842756683418884
+2018-01-01,Concreting Sand,0.027847378687009598
+2018-02-01,Concreting Sand,0.027877003398080965
+2018-03-01,Concreting Sand,0.028267206442631067
+2018-04-01,Concreting Sand,0.024626014962423788
+2018-05-01,Concreting Sand,0.022730059568544056
+2018-06-01,Concreting Sand,0.02176559850774794
+2018-07-01,Concreting Sand,0.020952544344932766
+2018-08-01,Concreting Sand,0.020508621828718078
+2018-09-01,Concreting Sand,0.020647315915811808
+2018-10-01,Concreting Sand,0.022446685069135417
+2018-11-01,Concreting Sand,0.024189116590863084
+2018-12-01,Concreting Sand,0.024099954605893335
+2019-01-01,Concreting Sand,0.024848406223212566
+2019-02-01,Concreting Sand,0.026406746123959456
+2019-03-01,Concreting Sand,0.02375750785881543
+2019-04-01,Concreting Sand,0.02890005944335062
+2019-05-01,Concreting Sand,0.02890005944335062
+2019-06-01,Concreting Sand,0.030829871566111222
+2019-07-01,Concreting Sand,0.030829871566111222
+2019-08-01,Concreting Sand,0.030082986386915568
+2019-09-01,Concreting Sand,0.03294139626490119
+2019-10-01,Concreting Sand,0.03325433554483866
+2019-11-01,Concreting Sand,0.038811313140686025
+2019-12-01,Concreting Sand,0.04065360987409208
+2020-01-01,Concreting Sand,0.04482392052895174
+2020-02-01,Concreting Sand,0.04391204081304144
+2020-03-01,Concreting Sand,0.0435281017917388
+2020-04-01,Concreting Sand,0.03553411077477769
+2020-05-01,Concreting Sand,0.03553411077477769
+2020-06-01,Concreting Sand,0.035515654343121886
+2020-07-01,Concreting Sand,0.035515654343121886
+2020-08-01,Concreting Sand,0.036372007388219774
+2020-09-01,Concreting Sand,0.02879884480168014
+2020-10-01,Concreting Sand,0.027550368940052146
+2020-11-01,Concreting Sand,0.026936271823069704
+2020-12-01,Concreting Sand,0.02763961091310506
+2021-01-01,Concreting Sand,0.02648329960595183
+2021-02-01,Concreting Sand,0.02778148511966807
+2021-03-01,Concreting Sand,0.030380800304427722
+2021-04-01,Concreting Sand,0.02836613874748027
+2021-05-01,Concreting Sand,0.029577888362073358
+2021-06-01,Concreting Sand,0.03027551273816852
+2021-07-01,Concreting Sand,0.031677929433844544
+2021-08-01,Concreting Sand,0.02677423768643465
+2021-09-01,Concreting Sand,0.024511075311120345
+2021-10-01,Concreting Sand,0.02374606191581167
+2021-11-01,Concreting Sand,0.02317960636230052
+2021-12-01,Concreting Sand,0.02387813780450731
+2022-01-01,Concreting Sand,0.022726234170201344
+2022-02-01,Concreting Sand,0.02826510208236856
+2022-03-01,Concreting Sand,0.02980879611531971
+2022-04-01,Concreting Sand,0.03497421921630058
+2022-05-01,Concreting Sand,0.03485379916927878
+2022-06-01,Concreting Sand,0.03446277160122938
+2022-07-01,Concreting Sand,0.033306841863558166
+2022-08-01,Concreting Sand,0.03355940210942531
+2022-09-01,Concreting Sand,0.033281161983762145
+2022-10-01,Concreting Sand,0.03358205294754909
+2022-11-01,Concreting Sand,0.03449940998744631
+2022-12-01,Concreting Sand,0.07437335956255443
+2023-01-01,Concreting Sand,0.07420473071258947
+2023-02-01,Concreting Sand,0.07312137709200744
+2023-03-01,Concreting Sand,0.07091592799441579
+2023-04-01,Concreting Sand,0.06978915682342461
+2023-05-01,Concreting Sand,0.06906473480528502
+2023-06-01,Concreting Sand,0.0685211647945747
+2023-07-01,Concreting Sand,0.06846970009655567
+2023-08-01,Concreting Sand,0.06764078251242342
+2023-09-01,Concreting Sand,0.06603100245833304
+2023-10-01,Concreting Sand,0.0665750231227354
+2023-11-01,Concreting Sand,0.06506660404586233
+2023-12-01,Concreting Sand,0.021618848739155764
+2024-01-01,Concreting Sand,0.0217061411938452
+2024-02-01,Concreting Sand,0.02181123429294103
+2024-03-01,Concreting Sand,0.01894298651722424
+2024-04-01,Concreting Sand,0.018977377462071975
+2024-05-01,Concreting Sand,0.018888964154992364
+2024-06-01,Concreting Sand,0.018982320904084714
+2024-07-01,Concreting Sand,0.01942991761840211
+2024-08-01,Concreting Sand,0.01896649358391512
+2024-09-01,Concreting Sand,0.018792765558000458
+2024-10-01,Concreting Sand,0.018969389368868713
+2024-11-01,Concreting Sand,0.018464843836410928
+2024-12-01,Concreting Sand,0.00747399074672762
+2025-01-01,Concreting Sand,0.007587703034864287
+2025-02-01,Concreting Sand,0.007607742767795547
+2025-03-01,Concreting Sand,0.007911769551978174
+2025-04-01,Concreting Sand,0.009114956498274734
+2025-05-01,Concreting Sand,0.010009665678552599
+2025-06-01,Concreting Sand,0.010412565176471425
+2025-07-01,Concreting Sand,0.009456522645474861
+2025-08-01,Concreting Sand,0.009000719385013262
+2025-09-01,Concreting Sand,0.009311485505771249
+2025-10-01,Concreting Sand,0.010092040811800268
+2025-11-01,Concreting Sand,0.01088473836678721
+2025-12-01,Concreting Sand,0.010963609620469257
+2026-01-01,Concreting Sand,0.010671584766654125
+2026-02-01,Concreting Sand,0.010525491750422823
+2026-03-01,Concreting Sand,0.018844848069170562
+2026-04-01,Concreting Sand,0.02101812283140682
+2026-05-01,Concreting Sand,0.021753151329295534
+2026-06-01,Concreting Sand,0.020959116678814678
+1999-01-01,Granite (20mm Aggregate),
+1999-02-01,Granite (20mm Aggregate),
+1999-03-01,Granite (20mm Aggregate),
+1999-04-01,Granite (20mm Aggregate),
+1999-05-01,Granite (20mm Aggregate),
+1999-06-01,Granite (20mm Aggregate),
+1999-07-01,Granite (20mm Aggregate),
+1999-08-01,Granite (20mm Aggregate),
+1999-09-01,Granite (20mm Aggregate),
+1999-10-01,Granite (20mm Aggregate),
+1999-11-01,Granite (20mm Aggregate),
+1999-12-01,Granite (20mm Aggregate),
+2000-01-01,Granite (20mm Aggregate),0.023075313416338512
+2000-02-01,Granite (20mm Aggregate),0.023007567289906827
+2000-03-01,Granite (20mm Aggregate),0.0231930314922281
+2000-04-01,Granite (20mm Aggregate),0.02298341060586401
+2000-05-01,Granite (20mm Aggregate),0.022189436882666877
+2000-06-01,Granite (20mm Aggregate),0.02264782281213964
+2000-07-01,Granite (20mm Aggregate),0.022363085276282644
+2000-08-01,Granite (20mm Aggregate),0.007289739357933358
+2000-09-01,Granite (20mm Aggregate),0.007400157858570997
+2000-10-01,Granite (20mm Aggregate),0.007263779747834671
+2000-11-01,Granite (20mm Aggregate),0.0071518846674578475
+2000-12-01,Granite (20mm Aggregate),0.006975814045230353
+2001-01-01,Granite (20mm Aggregate),0.007892819679375248
+2001-02-01,Granite (20mm Aggregate),0.007922631416078126
+2001-03-01,Granite (20mm Aggregate),0.005767462218061313
+2001-04-01,Granite (20mm Aggregate),0.0057163107471605076
+2001-05-01,Granite (20mm Aggregate),0.0055288419314981525
+2001-06-01,Granite (20mm Aggregate),0.009398021682590055
+2001-07-01,Granite (20mm Aggregate),0.009191018928055386
+2001-08-01,Granite (20mm Aggregate),0.014384239896181447
+2001-09-01,Granite (20mm Aggregate),0.01448465552422289
+2001-10-01,Granite (20mm Aggregate),0.014462090502801181
+2001-11-01,Granite (20mm Aggregate),0.014465577422643813
+2001-12-01,Granite (20mm Aggregate),0.014299059192028566
+2002-01-01,Granite (20mm Aggregate),0.014186222662522053
+2002-02-01,Granite (20mm Aggregate),0.014186222662522053
+2002-03-01,Granite (20mm Aggregate),0.014289088799919442
+2002-04-01,Granite (20mm Aggregate),0.014359258905905097
+2002-05-01,Granite (20mm Aggregate),0.014354445473691977
+2002-06-01,Granite (20mm Aggregate),0.011216931553888311
+2002-07-01,Granite (20mm Aggregate),0.010843609351849373
+2002-08-01,Granite (20mm Aggregate),0.003765663605727881
+2002-09-01,Granite (20mm Aggregate),0.00330887043997182
+2002-10-01,Granite (20mm Aggregate),0.0031487765771764297
+2002-11-01,Granite (20mm Aggregate),0.0023265846292171858
+2002-12-01,Granite (20mm Aggregate),0.0023410441316178286
+2003-01-01,Granite (20mm Aggregate),0.012955180581697949
+2003-02-01,Granite (20mm Aggregate),0.012955180581697949
+2003-03-01,Granite (20mm Aggregate),0.012799311428765588
+2003-04-01,Granite (20mm Aggregate),0.012811027073700972
+2003-05-01,Granite (20mm Aggregate),0.012782982481826554
+2003-06-01,Granite (20mm Aggregate),0.012762480277209578
+2003-07-01,Granite (20mm Aggregate),0.012745452253301263
+2003-08-01,Granite (20mm Aggregate),0.01275805269460583
+2003-09-01,Granite (20mm Aggregate),0.01275805269460583
+2003-10-01,Granite (20mm Aggregate),0.012583104784743138
+2003-11-01,Granite (20mm Aggregate),0.012564353264649794
+2003-12-01,Granite (20mm Aggregate),0.012587953875469472
+2004-01-01,Granite (20mm Aggregate),0.002827884173979825
+2004-02-01,Granite (20mm Aggregate),0.002827884173979825
+2004-03-01,Granite (20mm Aggregate),0.002827884173979825
+2004-04-01,Granite (20mm Aggregate),0.004174783980768649
+2004-05-01,Granite (20mm Aggregate),0.004404054255141607
+2004-06-01,Granite (20mm Aggregate),0.005817855776887885
+2004-07-01,Granite (20mm Aggregate),0.006050620183939003
+2004-08-01,Granite (20mm Aggregate),0.006233381685304676
+2004-09-01,Granite (20mm Aggregate),0.006248001908304342
+2004-10-01,Granite (20mm Aggregate),0.010673141769712466
+2004-11-01,Granite (20mm Aggregate),0.011393950471236374
+2004-12-01,Granite (20mm Aggregate),0.022528473377074577
+2005-01-01,Granite (20mm Aggregate),0.03125231703976014
+2005-02-01,Granite (20mm Aggregate),0.030944187288078264
+2005-03-01,Granite (20mm Aggregate),0.030944187288078264
+2005-04-01,Granite (20mm Aggregate),0.031116797590251034
+2005-05-01,Granite (20mm Aggregate),0.031383512340234565
+2005-06-01,Granite (20mm Aggregate),0.03093898721564433
+2005-07-01,Granite (20mm Aggregate),0.03152575667549426
+2005-08-01,Granite (20mm Aggregate),0.03193103588647147
+2005-09-01,Granite (20mm Aggregate),0.03433410085531327
+2005-10-01,Granite (20mm Aggregate),0.03589589614391103
+2005-11-01,Granite (20mm Aggregate),0.036457523639608955
+2005-12-01,Granite (20mm Aggregate),0.03267446924122436
+2006-01-01,Granite (20mm Aggregate),0.026916106370682792
+2006-02-01,Granite (20mm Aggregate),0.027068663616309933
+2006-03-01,Granite (20mm Aggregate),0.027068663616309933
+2006-04-01,Granite (20mm Aggregate),0.027039195091369192
+2006-05-01,Granite (20mm Aggregate),0.027086260032562193
+2006-06-01,Granite (20mm Aggregate),0.022515721256803695
+2006-07-01,Granite (20mm Aggregate),0.01427865612414727
+2006-08-01,Granite (20mm Aggregate),0.01729215131385126
+2006-09-01,Granite (20mm Aggregate),0.01618351602773437
+2006-10-01,Granite (20mm Aggregate),0.023484618025616962
+2006-11-01,Granite (20mm Aggregate),0.025348021020963257
+2006-12-01,Granite (20mm Aggregate),0.025869525804726554
+2007-01-01,Granite (20mm Aggregate),0.02173160774121171
+2007-02-01,Granite (20mm Aggregate),0.025079770664911124
+2007-03-01,Granite (20mm Aggregate),0.33830093252734844
+2007-04-01,Granite (20mm Aggregate),0.34680986747023523
+2007-05-01,Granite (20mm Aggregate),0.3794948787364393
+2007-06-01,Granite (20mm Aggregate),0.39349955297148265
+2007-07-01,Granite (20mm Aggregate),0.3976344626868603
+2007-08-01,Granite (20mm Aggregate),0.39791755027259323
+2007-09-01,Granite (20mm Aggregate),0.39786462652292337
+2007-10-01,Granite (20mm Aggregate),0.3978503069972745
+2007-11-01,Granite (20mm Aggregate),0.39796998302270753
+2007-12-01,Granite (20mm Aggregate),0.3980776249947678
+2008-01-01,Granite (20mm Aggregate),0.3980734855237057
+2008-02-01,Granite (20mm Aggregate),0.3977820454550462
+2008-03-01,Granite (20mm Aggregate),0.14187797004204497
+2008-04-01,Granite (20mm Aggregate),0.14157781022227803
+2008-05-01,Granite (20mm Aggregate),0.08936644648952012
+2008-06-01,Granite (20mm Aggregate),0.04315345557637986
+2008-07-01,Granite (20mm Aggregate),0.01416912884570796
+2008-08-01,Granite (20mm Aggregate),0.02301741608309438
+2008-09-01,Granite (20mm Aggregate),0.023014841160863005
+2008-10-01,Granite (20mm Aggregate),0.023109373563527397
+2008-11-01,Granite (20mm Aggregate),0.025264135015382983
+2008-12-01,Granite (20mm Aggregate),0.037082824024870266
+2009-01-01,Granite (20mm Aggregate),0.03754824647165663
+2009-02-01,Granite (20mm Aggregate),0.03776942774670691
+2009-03-01,Granite (20mm Aggregate),0.03892717318587416
+2009-04-01,Granite (20mm Aggregate),0.039965619164971516
+2009-05-01,Granite (20mm Aggregate),0.04003467002123726
+2009-06-01,Granite (20mm Aggregate),0.048081812180188394
+2009-07-01,Granite (20mm Aggregate),0.04478298733889941
+2009-08-01,Granite (20mm Aggregate),0.03481765792118419
+2009-09-01,Granite (20mm Aggregate),0.032764025372820686
+2009-10-01,Granite (20mm Aggregate),0.02993167557792809
+2009-11-01,Granite (20mm Aggregate),0.03170840338650992
+2009-12-01,Granite (20mm Aggregate),0.026912919018755053
+2010-01-01,Granite (20mm Aggregate),0.03536308536929131
+2010-02-01,Granite (20mm Aggregate),0.035660984232619146
+2010-03-01,Granite (20mm Aggregate),0.03789278345171496
+2010-04-01,Granite (20mm Aggregate),0.03731684832669843
+2010-05-01,Granite (20mm Aggregate),0.03791357901124755
+2010-06-01,Granite (20mm Aggregate),0.026201397027719262
+2010-07-01,Granite (20mm Aggregate),0.026450585905248458
+2010-08-01,Granite (20mm Aggregate),0.024794137502431937
+2010-09-01,Granite (20mm Aggregate),0.02357807691789614
+2010-10-01,Granite (20mm Aggregate),0.02494770459507308
+2010-11-01,Granite (20mm Aggregate),0.03522498552317867
+2010-12-01,Granite (20mm Aggregate),0.03319135906079748
+2011-01-01,Granite (20mm Aggregate),0.03224162744799096
+2011-02-01,Granite (20mm Aggregate),0.031554714405268254
+2011-03-01,Granite (20mm Aggregate),0.032907223253625634
+2011-04-01,Granite (20mm Aggregate),0.03306779212478234
+2011-05-01,Granite (20mm Aggregate),0.04888667046464298
+2011-06-01,Granite (20mm Aggregate),0.04870518948094699
+2011-07-01,Granite (20mm Aggregate),0.04816792552765439
+2011-08-01,Granite (20mm Aggregate),0.049476982318571096
+2011-09-01,Granite (20mm Aggregate),0.04904727407770691
+2011-10-01,Granite (20mm Aggregate),0.04676882848551839
+2011-11-01,Granite (20mm Aggregate),0.03284038953321678
+2011-12-01,Granite (20mm Aggregate),0.03226496601215881
+2012-01-01,Granite (20mm Aggregate),0.030983398411006693
+2012-02-01,Granite (20mm Aggregate),0.030767951043504098
+2012-03-01,Granite (20mm Aggregate),0.03129230545225899
+2012-04-01,Granite (20mm Aggregate),0.033790982059322065
+2012-05-01,Granite (20mm Aggregate),0.01848651234588412
+2012-06-01,Granite (20mm Aggregate),0.01803692960040459
+2012-07-01,Granite (20mm Aggregate),0.018180028007123452
+2012-08-01,Granite (20mm Aggregate),0.013102045490390488
+2012-09-01,Granite (20mm Aggregate),0.017646987746549308
+2012-10-01,Granite (20mm Aggregate),0.018225944400261145
+2012-11-01,Granite (20mm Aggregate),0.0185106667181157
+2012-12-01,Granite (20mm Aggregate),0.019273501052969638
+2013-01-01,Granite (20mm Aggregate),0.019967153023669557
+2013-02-01,Granite (20mm Aggregate),0.020846010267197915
+2013-03-01,Granite (20mm Aggregate),0.02170063653903076
+2013-04-01,Granite (20mm Aggregate),0.020621986547199662
+2013-05-01,Granite (20mm Aggregate),0.020681730163639746
+2013-06-01,Granite (20mm Aggregate),0.021614958179090107
+2013-07-01,Granite (20mm Aggregate),0.02142070185534418
+2013-08-01,Granite (20mm Aggregate),0.021195319180094076
+2013-09-01,Granite (20mm Aggregate),0.014090446726501775
+2013-10-01,Granite (20mm Aggregate),0.010561457704071422
+2013-11-01,Granite (20mm Aggregate),0.011137460591154193
+2013-12-01,Granite (20mm Aggregate),0.016442899587543806
+2014-01-01,Granite (20mm Aggregate),0.02682062678609483
+2014-02-01,Granite (20mm Aggregate),0.04227363027173678
+2014-03-01,Granite (20mm Aggregate),0.04363535224738416
+2014-04-01,Granite (20mm Aggregate),0.05033850562022122
+2014-05-01,Granite (20mm Aggregate),0.04985491331839206
+2014-06-01,Granite (20mm Aggregate),0.049516287155941946
+2014-07-01,Granite (20mm Aggregate),0.049085976080343735
+2014-08-01,Granite (20mm Aggregate),0.05025665137818148
+2014-09-01,Granite (20mm Aggregate),0.050258116429936106
+2014-10-01,Granite (20mm Aggregate),0.05029205725664994
+2014-11-01,Granite (20mm Aggregate),0.05032427347745151
+2014-12-01,Granite (20mm Aggregate),0.049704626261132694
+2015-01-01,Granite (20mm Aggregate),0.045100985599199735
+2015-02-01,Granite (20mm Aggregate),0.023883564496781997
+2015-03-01,Granite (20mm Aggregate),0.023231620361490884
+2015-04-01,Granite (20mm Aggregate),0.011697131094169274
+2015-05-01,Granite (20mm Aggregate),0.011688577243771005
+2015-06-01,Granite (20mm Aggregate),0.013845346101474197
+2015-07-01,Granite (20mm Aggregate),0.014871418619727943
+2015-08-01,Granite (20mm Aggregate),0.01360872226392995
+2015-09-01,Granite (20mm Aggregate),0.015135141511971099
+2015-10-01,Granite (20mm Aggregate),0.013007548051756608
+2015-11-01,Granite (20mm Aggregate),0.012280521588407515
+2015-12-01,Granite (20mm Aggregate),0.012293730429920133
+2016-01-01,Granite (20mm Aggregate),0.018192191018785973
+2016-02-01,Granite (20mm Aggregate),0.017857509306869062
+2016-03-01,Granite (20mm Aggregate),0.01747102505563108
+2016-04-01,Granite (20mm Aggregate),0.018550779469688427
+2016-05-01,Granite (20mm Aggregate),0.01783542848542313
+2016-06-01,Granite (20mm Aggregate),0.017478125988180652
+2016-07-01,Granite (20mm Aggregate),0.017413710276588244
+2016-08-01,Granite (20mm Aggregate),0.016191918781659483
+2016-09-01,Granite (20mm Aggregate),0.015642243441872317
+2016-10-01,Granite (20mm Aggregate),0.016173916395406274
+2016-11-01,Granite (20mm Aggregate),0.021096345176010934
+2016-12-01,Granite (20mm Aggregate),0.02148320684074426
+2017-01-01,Granite (20mm Aggregate),0.016197595613642382
+2017-02-01,Granite (20mm Aggregate),0.015480491523160412
+2017-03-01,Granite (20mm Aggregate),0.015467074191399692
+2017-04-01,Granite (20mm Aggregate),0.019998487502933086
+2017-05-01,Granite (20mm Aggregate),0.02056282566834163
+2017-06-01,Granite (20mm Aggregate),0.018723368032289377
+2017-07-01,Granite (20mm Aggregate),0.01780230058563266
+2017-08-01,Granite (20mm Aggregate),0.015669759867312512
+2017-09-01,Granite (20mm Aggregate),0.014270596755786433
+2017-10-01,Granite (20mm Aggregate),0.013867467080952026
+2017-11-01,Granite (20mm Aggregate),0.013822450574429667
+2017-12-01,Granite (20mm Aggregate),0.016717513645812768
+2018-01-01,Granite (20mm Aggregate),0.01694957195195984
+2018-02-01,Granite (20mm Aggregate),0.01621756070836416
+2018-03-01,Granite (20mm Aggregate),0.016470032179824887
+2018-04-01,Granite (20mm Aggregate),0.014202540970562226
+2018-05-01,Granite (20mm Aggregate),0.014726529698719118
+2018-06-01,Granite (20mm Aggregate),0.014710026760429713
+2018-07-01,Granite (20mm Aggregate),0.01479028645947997
+2018-08-01,Granite (20mm Aggregate),0.014668091284106507
+2018-09-01,Granite (20mm Aggregate),0.015314540545931541
+2018-10-01,Granite (20mm Aggregate),0.015061623638408645
+2018-11-01,Granite (20mm Aggregate),0.015968125581052123
+2018-12-01,Granite (20mm Aggregate),0.014212219606015701
+2019-01-01,Granite (20mm Aggregate),0.013635456355722855
+2019-02-01,Granite (20mm Aggregate),0.012212200697117894
+2019-03-01,Granite (20mm Aggregate),0.01287435009756666
+2019-04-01,Granite (20mm Aggregate),0.012974964200675749
+2019-05-01,Granite (20mm Aggregate),0.012669872615801107
+2019-06-01,Granite (20mm Aggregate),0.01489560264236904
+2019-07-01,Granite (20mm Aggregate),0.014979622962042818
+2019-08-01,Granite (20mm Aggregate),0.014907990148381012
+2019-09-01,Granite (20mm Aggregate),0.01458988252360371
+2019-10-01,Granite (20mm Aggregate),0.01646652070216384
+2019-11-01,Granite (20mm Aggregate),0.016266336528177244
+2019-12-01,Granite (20mm Aggregate),0.017484789899079946
+2020-01-01,Granite (20mm Aggregate),0.018299650780098115
+2020-02-01,Granite (20mm Aggregate),0.01854112214934843
+2020-03-01,Granite (20mm Aggregate),0.018306820493866463
+2020-04-01,Granite (20mm Aggregate),0.020007169103649608
+2020-05-01,Granite (20mm Aggregate),0.018274153652458474
+2020-06-01,Granite (20mm Aggregate),0.017057524422302902
+2020-07-01,Granite (20mm Aggregate),0.01676321640356232
+2020-08-01,Granite (20mm Aggregate),0.016676696970939767
+2020-09-01,Granite (20mm Aggregate),0.01536035256431618
+2020-10-01,Granite (20mm Aggregate),0.011509892482504612
+2020-11-01,Granite (20mm Aggregate),0.011509892482504613
+2020-12-01,Granite (20mm Aggregate),0.010826391032563646
+2021-01-01,Granite (20mm Aggregate),0.010708597867383995
+2021-02-01,Granite (20mm Aggregate),0.010802774186277815
+2021-03-01,Granite (20mm Aggregate),0.010802774186277815
+2021-04-01,Granite (20mm Aggregate),0.010858879688919442
+2021-05-01,Granite (20mm Aggregate),0.011342776951486668
+2021-06-01,Granite (20mm Aggregate),0.0447032302126908
+2021-07-01,Granite (20mm Aggregate),0.046985714664784
+2021-08-01,Granite (20mm Aggregate),0.046914735268793355
+2021-09-01,Granite (20mm Aggregate),0.04692087966975543
+2021-10-01,Granite (20mm Aggregate),0.046697571773112484
+2021-11-01,Granite (20mm Aggregate),0.04719162286742546
+2021-12-01,Granite (20mm Aggregate),0.04719162286742546
+2022-01-01,Granite (20mm Aggregate),0.0471753221294472
+2022-02-01,Granite (20mm Aggregate),0.047286676793298524
+2022-03-01,Granite (20mm Aggregate),0.047205029440157274
+2022-04-01,Granite (20mm Aggregate),0.0470438432296432
+2022-05-01,Granite (20mm Aggregate),0.04707297806816969
+2022-06-01,Granite (20mm Aggregate),0.0162241129072583
+2022-07-01,Granite (20mm Aggregate),0.012123559163816197
+2022-08-01,Granite (20mm Aggregate),0.012322316399538603
+2022-09-01,Granite (20mm Aggregate),0.013052232840459931
+2022-10-01,Granite (20mm Aggregate),0.012308966814304524
+2022-11-01,Granite (20mm Aggregate),0.011436325729996451
+2022-12-01,Granite (20mm Aggregate),0.02126041271421624
+2023-01-01,Granite (20mm Aggregate),0.02155504804897293
+2023-02-01,Granite (20mm Aggregate),0.022507933979358064
+2023-03-01,Granite (20mm Aggregate),0.021951998452439943
+2023-04-01,Granite (20mm Aggregate),0.022488855807565194
+2023-05-01,Granite (20mm Aggregate),0.021493838962947147
+2023-06-01,Granite (20mm Aggregate),0.02114682752192104
+2023-07-01,Granite (20mm Aggregate),0.02135072792276556
+2023-08-01,Granite (20mm Aggregate),0.021519740998147054
+2023-09-01,Granite (20mm Aggregate),0.020777611194296112
+2023-10-01,Granite (20mm Aggregate),0.026070467784928424
+2023-11-01,Granite (20mm Aggregate),0.028968087601894767
+2023-12-01,Granite (20mm Aggregate),0.024766780669783252
+2024-01-01,Granite (20mm Aggregate),0.026385645870318056
+2024-02-01,Granite (20mm Aggregate),0.023996983680145908
+2024-03-01,Granite (20mm Aggregate),0.022685742135188498
+2024-04-01,Granite (20mm Aggregate),0.023509153074128535
+2024-05-01,Granite (20mm Aggregate),0.022708816941619657
+2024-06-01,Granite (20mm Aggregate),0.022905538755189726
+2024-07-01,Granite (20mm Aggregate),0.02305014314507084
+2024-08-01,Granite (20mm Aggregate),0.023800767805290647
+2024-09-01,Granite (20mm Aggregate),0.02522228420638221
+2024-10-01,Granite (20mm Aggregate),0.023745711429409795
+2024-11-01,Granite (20mm Aggregate),0.022115929108651046
+2024-12-01,Granite (20mm Aggregate),0.01917425256116216
+2025-01-01,Granite (20mm Aggregate),0.012831723409164232
+2025-02-01,Granite (20mm Aggregate),0.013898203497520129
+2025-03-01,Granite (20mm Aggregate),0.01369424197553605
+2025-04-01,Granite (20mm Aggregate),0.013694790713166883
+2025-05-01,Granite (20mm Aggregate),0.013697132170350016
+2025-06-01,Granite (20mm Aggregate),0.013612268520541504
+2025-07-01,Granite (20mm Aggregate),0.00796688668895121
+2025-08-01,Granite (20mm Aggregate),0.007978613186013535
+2025-09-01,Granite (20mm Aggregate),0.007503600274275439
+2025-10-01,Granite (20mm Aggregate),0.008259579510604567
+2025-11-01,Granite (20mm Aggregate),0.010085259723747877
+2025-12-01,Granite (20mm Aggregate),0.011780966942539375
+2026-01-01,Granite (20mm Aggregate),0.011873840501488219
+2026-02-01,Granite (20mm Aggregate),0.01055942784807723
+2026-03-01,Granite (20mm Aggregate),0.017980585746209247
+2026-04-01,Granite (20mm Aggregate),0.021602100573847243
+2026-05-01,Granite (20mm Aggregate),0.022703301348971514
+2026-06-01,Granite (20mm Aggregate),0.023117219359071763
+1999-01-01,Ready Mixed Concrete,
+1999-02-01,Ready Mixed Concrete,
+1999-03-01,Ready Mixed Concrete,
+1999-04-01,Ready Mixed Concrete,
+1999-05-01,Ready Mixed Concrete,
+1999-06-01,Ready Mixed Concrete,
+1999-07-01,Ready Mixed Concrete,
+1999-08-01,Ready Mixed Concrete,
+1999-09-01,Ready Mixed Concrete,
+1999-10-01,Ready Mixed Concrete,
+1999-11-01,Ready Mixed Concrete,
+1999-12-01,Ready Mixed Concrete,
+2000-01-01,Ready Mixed Concrete,0.01437985712330536
+2000-02-01,Ready Mixed Concrete,0.015599306810980809
+2000-03-01,Ready Mixed Concrete,0.016655923853890118
+2000-04-01,Ready Mixed Concrete,0.01429925220667455
+2000-05-01,Ready Mixed Concrete,0.015288903173322392
+2000-06-01,Ready Mixed Concrete,0.01557322504182125
+2000-07-01,Ready Mixed Concrete,0.015427657859136643
+2000-08-01,Ready Mixed Concrete,0.017113450717118176
+2000-09-01,Ready Mixed Concrete,0.017220608031346247
+2000-10-01,Ready Mixed Concrete,0.01721977298903932
+2000-11-01,Ready Mixed Concrete,0.017511026747206507
+2000-12-01,Ready Mixed Concrete,0.017542917368609662
+2001-01-01,Ready Mixed Concrete,0.017181159247780638
+2001-02-01,Ready Mixed Concrete,0.013792043991814343
+2001-03-01,Ready Mixed Concrete,0.015359479610039998
+2001-04-01,Ready Mixed Concrete,0.027641079157667694
+2001-05-01,Ready Mixed Concrete,0.030524746350869082
+2001-06-01,Ready Mixed Concrete,0.030637470744922412
+2001-07-01,Ready Mixed Concrete,0.030476579661685748
+2001-08-01,Ready Mixed Concrete,0.028440576598425815
+2001-09-01,Ready Mixed Concrete,0.026999420252255435
+2001-10-01,Ready Mixed Concrete,0.026928985363186258
+2001-11-01,Ready Mixed Concrete,0.027006099185811053
+2001-12-01,Ready Mixed Concrete,0.026884113566234352
+2002-01-01,Ready Mixed Concrete,0.026204554333351497
+2002-02-01,Ready Mixed Concrete,0.025254768223853228
+2002-03-01,Ready Mixed Concrete,0.02586522594517326
+2002-04-01,Ready Mixed Concrete,0.01788060195828309
+2002-05-01,Ready Mixed Concrete,0.013320336904586587
+2002-06-01,Ready Mixed Concrete,0.013725985060343582
+2002-07-01,Ready Mixed Concrete,0.0144673804556434
+2002-08-01,Ready Mixed Concrete,0.008032566604729945
+2002-09-01,Ready Mixed Concrete,0.007204465234644369
+2002-10-01,Ready Mixed Concrete,0.007222729782384914
+2002-11-01,Ready Mixed Concrete,0.007285774495458959
+2002-12-01,Ready Mixed Concrete,0.0070602985379443085
+2003-01-01,Ready Mixed Concrete,0.006651842801619182
+2003-02-01,Ready Mixed Concrete,0.007204276052041244
+2003-03-01,Ready Mixed Concrete,0.0070785880581161606
+2003-04-01,Ready Mixed Concrete,0.008585846385839726
+2003-05-01,Ready Mixed Concrete,0.00965500738003405
+2003-06-01,Ready Mixed Concrete,0.009660964048585076
+2003-07-01,Ready Mixed Concrete,0.009148583774909168
+2003-08-01,Ready Mixed Concrete,0.009159267306473816
+2003-09-01,Ready Mixed Concrete,0.008843842134612867
+2003-10-01,Ready Mixed Concrete,0.008836970561320417
+2003-11-01,Ready Mixed Concrete,0.008571661668549809
+2003-12-01,Ready Mixed Concrete,0.009692784125292408
+2004-01-01,Ready Mixed Concrete,0.01038756519517854
+2004-02-01,Ready Mixed Concrete,0.010138629521184153
+2004-03-01,Ready Mixed Concrete,0.012493688052570895
+2004-04-01,Ready Mixed Concrete,0.011012487264228958
+2004-05-01,Ready Mixed Concrete,0.01047955320824472
+2004-06-01,Ready Mixed Concrete,0.010746825689758542
+2004-07-01,Ready Mixed Concrete,0.009590879075521282
+2004-08-01,Ready Mixed Concrete,0.009515254099981644
+2004-09-01,Ready Mixed Concrete,0.00847968031469147
+2004-10-01,Ready Mixed Concrete,0.007101770877405561
+2004-11-01,Ready Mixed Concrete,0.0060734192632706544
+2004-12-01,Ready Mixed Concrete,0.006046131097271361
+2005-01-01,Ready Mixed Concrete,0.009991654065110595
+2005-02-01,Ready Mixed Concrete,0.009836694670129676
+2005-03-01,Ready Mixed Concrete,0.009279118351733803
+2005-04-01,Ready Mixed Concrete,0.009358213235304776
+2005-05-01,Ready Mixed Concrete,0.009693455759805346
+2005-06-01,Ready Mixed Concrete,0.010250135647141938
+2005-07-01,Ready Mixed Concrete,0.0102925558750942
+2005-08-01,Ready Mixed Concrete,0.010264524591874397
+2005-09-01,Ready Mixed Concrete,0.010739512238327845
+2005-10-01,Ready Mixed Concrete,0.011126667720837289
+2005-11-01,Ready Mixed Concrete,0.011335941984074812
+2005-12-01,Ready Mixed Concrete,0.011538593956833432
+2006-01-01,Ready Mixed Concrete,0.005452061796597322
+2006-02-01,Ready Mixed Concrete,0.0034787756817474666
+2006-03-01,Ready Mixed Concrete,0.0032353784406495274
+2006-04-01,Ready Mixed Concrete,0.002889146652210304
+2006-05-01,Ready Mixed Concrete,0.00274782464172477
+2006-06-01,Ready Mixed Concrete,0.002770962373622356
+2006-07-01,Ready Mixed Concrete,0.0029555250744222063
+2006-08-01,Ready Mixed Concrete,0.002407011737966065
+2006-09-01,Ready Mixed Concrete,0.0029092947988225643
+2006-10-01,Ready Mixed Concrete,0.002872671328636715
+2006-11-01,Ready Mixed Concrete,0.0077645472329439915
+2006-12-01,Ready Mixed Concrete,0.007732489293776518
+2007-01-01,Ready Mixed Concrete,0.00785636390945161
+2007-02-01,Ready Mixed Concrete,0.06820218295266516
+2007-03-01,Ready Mixed Concrete,0.19143997734018328
+2007-04-01,Ready Mixed Concrete,0.19333414576990823
+2007-05-01,Ready Mixed Concrete,0.19662506949335712
+2007-06-01,Ready Mixed Concrete,0.20249416481050836
+2007-07-01,Ready Mixed Concrete,0.20646670850289095
+2007-08-01,Ready Mixed Concrete,0.20773221967287436
+2007-09-01,Ready Mixed Concrete,0.20862927650622604
+2007-10-01,Ready Mixed Concrete,0.20906235726264488
+2007-11-01,Ready Mixed Concrete,0.20950777641956023
+2007-12-01,Ready Mixed Concrete,0.20991960416333638
+2008-01-01,Ready Mixed Concrete,0.21014362183249408
+2008-02-01,Ready Mixed Concrete,0.2005763107465991
+2008-03-01,Ready Mixed Concrete,0.03544774876525075
+2008-04-01,Ready Mixed Concrete,0.0363369646657015
+2008-05-01,Ready Mixed Concrete,0.03552806404121737
+2008-06-01,Ready Mixed Concrete,0.02597412053317476
+2008-07-01,Ready Mixed Concrete,0.015176477857916246
+2008-08-01,Ready Mixed Concrete,0.012439359911787287
+2008-09-01,Ready Mixed Concrete,0.010314777511882669
+2008-10-01,Ready Mixed Concrete,0.01004298035423999
+2008-11-01,Ready Mixed Concrete,0.010561014289377795
+2008-12-01,Ready Mixed Concrete,0.010207120324765444
+2009-01-01,Ready Mixed Concrete,0.010198408992163876
+2009-02-01,Ready Mixed Concrete,0.018131508266886122
+2009-03-01,Ready Mixed Concrete,0.01952421778951404
+2009-04-01,Ready Mixed Concrete,0.01951678664888709
+2009-05-01,Ready Mixed Concrete,0.01916151047491185
+2009-06-01,Ready Mixed Concrete,0.017869356302039736
+2009-07-01,Ready Mixed Concrete,0.015037469663382014
+2009-08-01,Ready Mixed Concrete,0.015563101309383043
+2009-09-01,Ready Mixed Concrete,0.015658089163396317
+2009-10-01,Ready Mixed Concrete,0.015700621721133193
+2009-11-01,Ready Mixed Concrete,0.015592275128488235
+2009-12-01,Ready Mixed Concrete,0.014910727639843026
+2010-01-01,Ready Mixed Concrete,0.014590613003463697
+2010-02-01,Ready Mixed Concrete,0.02750095158095611
+2010-03-01,Ready Mixed Concrete,0.02687630043643345
+2010-04-01,Ready Mixed Concrete,0.028018869912678535
+2010-05-01,Ready Mixed Concrete,0.02835279964774549
+2010-06-01,Ready Mixed Concrete,0.02772539685159629
+2010-07-01,Ready Mixed Concrete,0.030522131525384088
+2010-08-01,Ready Mixed Concrete,0.0306642609441252
+2010-09-01,Ready Mixed Concrete,0.029963891720804416
+2010-10-01,Ready Mixed Concrete,0.032022657090051025
+2010-11-01,Ready Mixed Concrete,0.03565278281691432
+2010-12-01,Ready Mixed Concrete,0.036863554426321526
+2011-01-01,Ready Mixed Concrete,0.03364219957392415
+2011-02-01,Ready Mixed Concrete,0.030158014088376747
+2011-03-01,Ready Mixed Concrete,0.02869736496327969
+2011-04-01,Ready Mixed Concrete,0.029176738616027535
+2011-05-01,Ready Mixed Concrete,0.02921680032747736
+2011-06-01,Ready Mixed Concrete,0.029451913337793553
+2011-07-01,Ready Mixed Concrete,0.022278871935386833
+2011-08-01,Ready Mixed Concrete,0.022677762965766495
+2011-09-01,Ready Mixed Concrete,0.023340012739085723
+2011-10-01,Ready Mixed Concrete,0.02297808226970081
+2011-11-01,Ready Mixed Concrete,0.017750266465880436
+2011-12-01,Ready Mixed Concrete,0.010444137926406161
+2012-01-01,Ready Mixed Concrete,0.010282425387728025
+2012-02-01,Ready Mixed Concrete,0.009877544922890932
+2012-03-01,Ready Mixed Concrete,0.009873815224164776
+2012-04-01,Ready Mixed Concrete,0.006269219471914111
+2012-05-01,Ready Mixed Concrete,0.006510453968394408
+2012-06-01,Ready Mixed Concrete,0.0064192372728346546
+2012-07-01,Ready Mixed Concrete,0.006419213845843648
+2012-08-01,Ready Mixed Concrete,0.006304233273827333
+2012-09-01,Ready Mixed Concrete,0.006260525948232497
+2012-10-01,Ready Mixed Concrete,0.005919384518725443
+2012-11-01,Ready Mixed Concrete,0.005460004183317613
+2012-12-01,Ready Mixed Concrete,0.0059483349174454785
+2013-01-01,Ready Mixed Concrete,0.006788103367909283
+2013-02-01,Ready Mixed Concrete,0.006780559935607579
+2013-03-01,Ready Mixed Concrete,0.00686938961971616
+2013-04-01,Ready Mixed Concrete,0.005227935991838062
+2013-05-01,Ready Mixed Concrete,0.004691399134472255
+2013-06-01,Ready Mixed Concrete,0.004495230007844277
+2013-07-01,Ready Mixed Concrete,0.004878010290272097
+2013-08-01,Ready Mixed Concrete,0.006426607604523355
+2013-09-01,Ready Mixed Concrete,0.006100314387474371
+2013-10-01,Ready Mixed Concrete,0.0060133120114456646
+2013-11-01,Ready Mixed Concrete,0.0060365135614988095
+2013-12-01,Ready Mixed Concrete,0.00610496350894263
+2014-01-01,Ready Mixed Concrete,0.01791500487167324
+2014-02-01,Ready Mixed Concrete,0.02733600177693784
+2014-03-01,Ready Mixed Concrete,0.028378413720755225
+2014-04-01,Ready Mixed Concrete,0.028733183868773375
+2014-05-01,Ready Mixed Concrete,0.029275404818249744
+2014-06-01,Ready Mixed Concrete,0.029270552207628513
+2014-07-01,Ready Mixed Concrete,0.029082601733954057
+2014-08-01,Ready Mixed Concrete,0.02839285368938802
+2014-09-01,Ready Mixed Concrete,0.028469750751938323
+2014-10-01,Ready Mixed Concrete,0.028608350126992817
+2014-11-01,Ready Mixed Concrete,0.030098298635063636
+2014-12-01,Ready Mixed Concrete,0.03143268121689951
+2015-01-01,Ready Mixed Concrete,0.02730982486391374
+2015-02-01,Ready Mixed Concrete,0.012052908523760135
+2015-03-01,Ready Mixed Concrete,0.012270873748898445
+2015-04-01,Ready Mixed Concrete,0.013065787800816466
+2015-05-01,Ready Mixed Concrete,0.012962450094948452
+2015-06-01,Ready Mixed Concrete,0.013369359881183991
+2015-07-01,Ready Mixed Concrete,0.013522134119693753
+2015-08-01,Ready Mixed Concrete,0.013553347957360618
+2015-09-01,Ready Mixed Concrete,0.01381891563984076
+2015-10-01,Ready Mixed Concrete,0.013808654378307432
+2015-11-01,Ready Mixed Concrete,0.012264730078288743
+2015-12-01,Ready Mixed Concrete,0.011217261386703554
+2016-01-01,Ready Mixed Concrete,0.011281890563231735
+2016-02-01,Ready Mixed Concrete,0.01172723158960258
+2016-03-01,Ready Mixed Concrete,0.014549835476105817
+2016-04-01,Ready Mixed Concrete,0.013963178044427454
+2016-05-01,Ready Mixed Concrete,0.01396253083796743
+2016-06-01,Ready Mixed Concrete,0.01319316672527708
+2016-07-01,Ready Mixed Concrete,0.012619020359838239
+2016-08-01,Ready Mixed Concrete,0.012059905775674574
+2016-09-01,Ready Mixed Concrete,0.011102270107544877
+2016-10-01,Ready Mixed Concrete,0.011266349693529062
+2016-11-01,Ready Mixed Concrete,0.011097547576196798
+2016-12-01,Ready Mixed Concrete,0.011796762378059806
+2017-01-01,Ready Mixed Concrete,0.011932719141142818
+2017-02-01,Ready Mixed Concrete,0.011476340846409862
+2017-03-01,Ready Mixed Concrete,0.0060315297834778675
+2017-04-01,Ready Mixed Concrete,0.0059782503322408755
+2017-05-01,Ready Mixed Concrete,0.005820795226634715
+2017-06-01,Ready Mixed Concrete,0.006277687127760673
+2017-07-01,Ready Mixed Concrete,0.006345213446669778
+2017-08-01,Ready Mixed Concrete,0.005848796132959283
+2017-09-01,Ready Mixed Concrete,0.006553671289091424
+2017-10-01,Ready Mixed Concrete,0.006137168770079633
+2017-11-01,Ready Mixed Concrete,0.005178635162054812
+2017-12-01,Ready Mixed Concrete,0.0059672164807677355
+2018-01-01,Ready Mixed Concrete,0.006284876199267362
+2018-02-01,Ready Mixed Concrete,0.006527345689796617
+2018-03-01,Ready Mixed Concrete,0.006175437679144255
+2018-04-01,Ready Mixed Concrete,0.005693734203375838
+2018-05-01,Ready Mixed Concrete,0.005598916454345894
+2018-06-01,Ready Mixed Concrete,0.005580510572261618
+2018-07-01,Ready Mixed Concrete,0.005636010523673464
+2018-08-01,Ready Mixed Concrete,0.005598555031124489
+2018-09-01,Ready Mixed Concrete,0.005132579710948766
+2018-10-01,Ready Mixed Concrete,0.005538614619425046
+2018-11-01,Ready Mixed Concrete,0.00546423580042356
+2018-12-01,Ready Mixed Concrete,0.004906575860602515
+2019-01-01,Ready Mixed Concrete,0.004384739788650582
+2019-02-01,Ready Mixed Concrete,0.007803001265032299
+2019-03-01,Ready Mixed Concrete,0.009100274386413173
+2019-04-01,Ready Mixed Concrete,0.009948390779099264
+2019-05-01,Ready Mixed Concrete,0.009529563943518834
+2019-06-01,Ready Mixed Concrete,0.00992906613171554
+2019-07-01,Ready Mixed Concrete,0.009938323003882284
+2019-08-01,Ready Mixed Concrete,0.01010875388138246
+2019-09-01,Ready Mixed Concrete,0.010001053740384278
+2019-10-01,Ready Mixed Concrete,0.010036849104562715
+2019-11-01,Ready Mixed Concrete,0.010176686402958761
+2019-12-01,Ready Mixed Concrete,0.010643468997564815
+2020-01-01,Ready Mixed Concrete,0.010929102698826436
+2020-02-01,Ready Mixed Concrete,0.008957401207121112
+2020-03-01,Ready Mixed Concrete,0.007441161815441488
+2020-04-01,Ready Mixed Concrete,0.004904695008485224
+2020-05-01,Ready Mixed Concrete,0.0040040232358918675
+2020-06-01,Ready Mixed Concrete,0.0040040232358918675
+2020-07-01,Ready Mixed Concrete,0.003984022832917093
+2020-08-01,Ready Mixed Concrete,0.0040632633661811125
+2020-09-01,Ready Mixed Concrete,0.003565720756603403
+2020-10-01,Ready Mixed Concrete,0.0029906167521545975
+2020-11-01,Ready Mixed Concrete,0.0028889948573855824
+2020-12-01,Ready Mixed Concrete,0.0030403439345769744
+2021-01-01,Ready Mixed Concrete,0.003274569012189607
+2021-02-01,Ready Mixed Concrete,0.003311550836203602
+2021-03-01,Ready Mixed Concrete,0.0034544135629581306
+2021-04-01,Ready Mixed Concrete,0.001885323142551667
+2021-05-01,Ready Mixed Concrete,0.0034135953542092164
+2021-06-01,Ready Mixed Concrete,0.010440069458751465
+2021-07-01,Ready Mixed Concrete,0.012757941262430864
+2021-08-01,Ready Mixed Concrete,0.012656285542048847
+2021-09-01,Ready Mixed Concrete,0.013128306633620386
+2021-10-01,Ready Mixed Concrete,0.013994178532869344
+2021-11-01,Ready Mixed Concrete,0.01378475057823061
+2021-12-01,Ready Mixed Concrete,0.013884593076953179
+2022-01-01,Ready Mixed Concrete,0.01380695730438637
+2022-02-01,Ready Mixed Concrete,0.01369031335065186
+2022-03-01,Ready Mixed Concrete,0.020799252377039702
+2022-04-01,Ready Mixed Concrete,0.02115780104385556
+2022-05-01,Ready Mixed Concrete,0.021190516573721542
+2022-06-01,Ready Mixed Concrete,0.02046707799180528
+2022-07-01,Ready Mixed Concrete,0.020293135574018174
+2022-08-01,Ready Mixed Concrete,0.02061780528125069
+2022-09-01,Ready Mixed Concrete,0.020236717189030678
+2022-10-01,Ready Mixed Concrete,0.01947520137467031
+2022-11-01,Ready Mixed Concrete,0.019903443010266517
+2022-12-01,Ready Mixed Concrete,0.01999051611248491
+2023-01-01,Ready Mixed Concrete,0.020380588643176042
+2023-02-01,Ready Mixed Concrete,0.020370103904047126
+2023-03-01,Ready Mixed Concrete,0.011653721313364455
+2023-04-01,Ready Mixed Concrete,0.005511391152469311
+2023-05-01,Ready Mixed Concrete,0.004845847593514738
+2023-06-01,Ready Mixed Concrete,0.004200487573602649
+2023-07-01,Ready Mixed Concrete,0.0047294477492478065
+2023-08-01,Ready Mixed Concrete,0.004771900342502462
+2023-09-01,Ready Mixed Concrete,0.0047170529532439675
+2023-10-01,Ready Mixed Concrete,0.004714131904594321
+2023-11-01,Ready Mixed Concrete,0.005145349713178167
+2023-12-01,Ready Mixed Concrete,0.005177578477265999
+2024-01-01,Ready Mixed Concrete,0.008832240475938306
+2024-02-01,Ready Mixed Concrete,0.008750327798241267
+2024-03-01,Ready Mixed Concrete,0.008040175510969852
+2024-04-01,Ready Mixed Concrete,0.008456433641352224
+2024-05-01,Ready Mixed Concrete,0.008806353095852837
+2024-06-01,Ready Mixed Concrete,0.008845152235211505
+2024-07-01,Ready Mixed Concrete,0.00821785213248559
+2024-08-01,Ready Mixed Concrete,0.00852155540387702
+2024-09-01,Ready Mixed Concrete,0.008547682395232195
+2024-10-01,Ready Mixed Concrete,0.008545060220282586
+2024-11-01,Ready Mixed Concrete,0.00783440803899132
+2024-12-01,Ready Mixed Concrete,0.007782112571118573
+2025-01-01,Ready Mixed Concrete,0.005161004819868003
+2025-02-01,Ready Mixed Concrete,0.005535821562776605
+2025-03-01,Ready Mixed Concrete,0.005573777187999268
+2025-04-01,Ready Mixed Concrete,0.004842008465938364
+2025-05-01,Ready Mixed Concrete,0.0038161008919649995
+2025-06-01,Ready Mixed Concrete,0.003816100891965001
+2025-07-01,Ready Mixed Concrete,0.003884147122789906
+2025-08-01,Ready Mixed Concrete,0.0039008103325380273
+2025-09-01,Ready Mixed Concrete,0.003691139651958942
+2025-10-01,Ready Mixed Concrete,0.003661960417846182
+2025-11-01,Ready Mixed Concrete,0.010694409727734758
+2025-12-01,Ready Mixed Concrete,0.014296755477931038
+2026-01-01,Ready Mixed Concrete,0.014446016735677305
+2026-02-01,Ready Mixed Concrete,0.014014768895453092
+2026-03-01,Ready Mixed Concrete,0.02891889570904651
+2026-04-01,Ready Mixed Concrete,0.028660468427356735
+2026-05-01,Ready Mixed Concrete,0.029219205994591487
+2026-06-01,Ready Mixed Concrete,0.029798270928064034
+1999-01-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-02-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-03-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-04-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-05-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-06-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-07-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-08-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-09-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-10-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-11-01,Steel Reinforcement Bars (16-32mm High Tensile),
+1999-12-01,Steel Reinforcement Bars (16-32mm High Tensile),
+2000-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008637062183141532
+2000-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008723074349906467
+2000-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008392787833765205
+2000-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.007431471267730463
+2000-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008337617468961432
+2000-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008427306205814049
+2000-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008300082285687276
+2000-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008312565508124894
+2000-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008332629077346927
+2000-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.007998926136712766
+2000-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.00470183193583928
+2000-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.005007710248250804
+2001-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.006237053563745185
+2001-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0074247978439400605
+2001-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008274499331574408
+2001-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.009999243100959931
+2001-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01765498576942827
+2001-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.017958524437798648
+2001-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02002051478635087
+2001-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.020429537810571944
+2001-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.021870911481810824
+2001-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.021845514259739674
+2001-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03062440734699995
+2001-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.030904504350377338
+2002-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.030328767567034162
+2002-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.030630360001779787
+2002-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03017649832431453
+2002-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.030983092247269115
+2002-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02896544992586668
+2002-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.033211058579032976
+2002-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03181807920135379
+2002-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03194313316006813
+2002-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03174971392611237
+2002-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0316821351425873
+2002-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014429016985596607
+2002-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014164207190875829
+2003-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.016163077143854378
+2003-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02456170740894389
+2003-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02401303249148406
+2003-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.024422025037515886
+2003-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.026569320792485498
+2003-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.027396476241748725
+2003-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.029631746653564144
+2003-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.030148614744769826
+2003-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.030173868575358052
+2003-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.030206109244511933
+2003-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03026424240974343
+2003-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07100253413700094
+2004-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07760646471807728
+2004-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07790346346164914
+2004-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07864694357350133
+2004-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07926593366446956
+2004-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.08348348922398789
+2004-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.09340122175985752
+2004-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.09235175317662409
+2004-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.09182273772693314
+2004-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.09241499223532534
+2004-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.09389864647884012
+2004-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.09515690734183734
+2004-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.06748157299119271
+2005-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.051092442860420216
+2005-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.039007914164791976
+2005-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0386825884643067
+2005-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03855141966520575
+2005-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03657081587919308
+2005-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.020339146116636724
+2005-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.019311436806687732
+2005-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01211183843733826
+2005-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012939097265218774
+2005-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012342416257150397
+2005-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.011761022123940612
+2005-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.011464158450034274
+2006-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01121524754783867
+2006-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.010983465931875325
+2006-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014180823407191005
+2006-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01927038608011721
+2006-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.021118929581370804
+2006-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.019740363497619578
+2006-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018642779778118672
+2006-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.019256833346815563
+2006-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.019273463931398706
+2006-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.019106370881029438
+2006-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018291161789348462
+2006-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.017255194841191868
+2007-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015997498112423666
+2007-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01504514624937765
+2007-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01532503678183909
+2007-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015369748271239271
+2007-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.016214467439385465
+2007-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018251969707916305
+2007-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.019429715178027215
+2007-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018734734476544578
+2007-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01839721225575349
+2007-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.021133394763923966
+2007-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.027030861556585035
+2007-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.029007614290319582
+2008-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04634442974445221
+2008-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04583542347766786
+2008-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04703138448700084
+2008-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04724983766083641
+2008-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0470489098921888
+2008-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.046927954648206704
+2008-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.042725336095941154
+2008-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.042210673186753686
+2008-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07272514600483089
+2008-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.08737718172314242
+2008-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.10613061992077284
+2008-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.11385757967843857
+2009-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.1008200036315738
+2009-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.09831645508055356
+2009-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.09122135177514097
+2009-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.08324602660560684
+2009-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07917426064126355
+2009-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0719393311022006
+2009-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0716709550981768
+2009-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07958771244215354
+2009-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0766475187303166
+2009-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07314315068494304
+2009-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.056463276770475974
+2009-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04046454262517275
+2010-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04056116337997706
+2010-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.042378875310283545
+2010-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.034914990210980865
+2010-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04984327510704275
+2010-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05031794150124442
+2010-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05869740285746661
+2010-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.058527063225505424
+2010-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.056007635327482604
+2010-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05601603822410396
+2010-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.054925317908342444
+2010-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.052743226555062646
+2010-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05181892776152807
+2011-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0561767388774497
+2011-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05635532797074348
+2011-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.057317586044165515
+2011-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03989821774717468
+2011-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03969132306011814
+2011-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.028116639792738467
+2011-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02791661250308531
+2011-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.027914567669528875
+2011-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02810540626707385
+2011-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.028277470704609065
+2011-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02991588866991867
+2011-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.029889401366517045
+2012-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012566724426960444
+2012-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012995598093868745
+2012-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.011112398937414062
+2012-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.011091374620777868
+2012-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.011104186272405274
+2012-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01174751246226467
+2012-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.010399862998820567
+2012-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008177436863845585
+2012-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.010576854963054293
+2012-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.010751061869236533
+2012-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.009947254472159961
+2012-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.009986365442415528
+2013-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.009996313579437461
+2013-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008591301933658224
+2013-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008211625125822457
+2013-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008060945909847173
+2013-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.009028019615474859
+2013-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01089015885595871
+2013-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.010567600159662752
+2013-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013738478560686003
+2013-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013099449074255245
+2013-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013892770702815695
+2013-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01384619709274022
+2013-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014101460276317007
+2014-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014799346988070056
+2014-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014768456864077703
+2014-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014778808366898984
+2014-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015023558536095973
+2014-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014512582490209102
+2014-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013574593467785287
+2014-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015905392223140687
+2014-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012910179005203266
+2014-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012379294126904266
+2014-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.011844020715288362
+2014-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013637260994294813
+2014-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015206071906152498
+2015-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013988112455635797
+2015-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013918599222632761
+2015-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015703670739768947
+2015-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.016978907383673993
+2015-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018425533343157448
+2015-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018369096288940505
+2015-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018433733493578155
+2015-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01832344676825214
+2015-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018191945656766108
+2015-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018092990450548976
+2015-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01741141620580612
+2015-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015334063489566035
+2016-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.016092633516286335
+2016-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02859410044243101
+2016-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.043314669151721906
+2016-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07127283410535286
+2016-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07021751808379714
+2016-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07688902382922114
+2016-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07597639211022582
+2016-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07572674997791362
+2016-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07527669845772876
+2016-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07465647653046915
+2016-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07739574559049506
+2016-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0814132946087777
+2017-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.08097440853359893
+2017-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.08169798177019696
+2017-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.08125474237239046
+2017-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.06678565455288715
+2017-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.06845715999782628
+2017-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05852044457357989
+2017-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05897527067445282
+2017-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.07020098827388718
+2017-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.06893155232700961
+2017-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.06984220266042744
+2017-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.066016381694061
+2017-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.050877412015074765
+2018-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.050479221627202454
+2018-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.050800245913112343
+2018-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05036713201341723
+2018-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.05038328842600047
+2018-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04744637673957722
+2018-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04688885243735754
+2018-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04567541984629431
+2018-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015208817554691174
+2018-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013112205639359794
+2018-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.011369990997352863
+2018-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014117369728816416
+2018-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014100663201885143
+2019-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01361763990474834
+2019-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013702433876767095
+2019-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013771239852112399
+2019-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.013529199842689797
+2019-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.014053517586999655
+2019-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012795728099915927
+2019-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012272446012046932
+2019-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012104627641425125
+2019-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012115492035198908
+2019-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01274539702249225
+2019-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.011509007117332345
+2019-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008514997686357568
+2020-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008630171281935238
+2020-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008498099931594442
+2020-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008532121776475811
+2020-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008532678220119267
+2020-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.007429308772386849
+2020-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.007546171209747053
+2020-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.00774121015322874
+2020-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.007697313886105213
+2020-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008119621817117175
+2020-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.005619444729421754
+2020-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.007805454282441622
+2020-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02813346178636027
+2021-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.041815498134054524
+2021-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04148882256558755
+2021-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04130591999131035
+2021-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04063666271841397
+2021-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04817269584350038
+2021-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.047413225141056704
+2021-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.047414385386005904
+2021-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04636522942926874
+2021-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.047254476997753196
+2021-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04704048944156959
+2021-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04794301109187061
+2021-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04497487401254598
+2022-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.034548190661289724
+2022-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03469368502138643
+2022-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03889712215398665
+2022-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03884117580965911
+2022-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.025813190199088502
+2022-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.026018777306318873
+2022-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.030909426661404227
+2022-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03808353904379941
+2022-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03908389712165059
+2022-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.03974814835795141
+2022-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04057742144724489
+2022-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.042573553405751176
+2023-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04268790906556973
+2023-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.04129843137290109
+2023-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02940915346004098
+2023-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02627675558729387
+2023-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.026292856886485756
+2023-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02546118824518949
+2023-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.0247670951440197
+2023-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02065513547195015
+2023-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02132646444014128
+2023-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.021716799466231652
+2023-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02166445411213048
+2023-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.018280964435404088
+2024-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.019014496526803024
+2024-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.016710856034100517
+2024-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01601054023663618
+2024-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01616700736440799
+2024-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.016024982590027412
+2024-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.012792585708272922
+2024-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.01069685604725607
+2024-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008311492416382809
+2024-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.009152611726276355
+2024-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.010442458808874868
+2024-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.010316563464699974
+2024-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.010928154952154028
+2025-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.007397345423032499
+2025-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.007948969063264878
+2025-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008087798876122054
+2025-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008388914237784447
+2025-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008517574484679479
+2025-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008416945965805465
+2025-07-01,Steel Reinforcement Bars (16-32mm High Tensile),0.009137869334342894
+2025-08-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008916997071666117
+2025-09-01,Steel Reinforcement Bars (16-32mm High Tensile),0.009738663509213716
+2025-10-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008693121028629574
+2025-11-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008846213884134048
+2025-12-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008211566663693829
+2026-01-01,Steel Reinforcement Bars (16-32mm High Tensile),0.008451727425580403
+2026-02-01,Steel Reinforcement Bars (16-32mm High Tensile),0.00735762294637877
+2026-03-01,Steel Reinforcement Bars (16-32mm High Tensile),0.015867489551510607
+2026-04-01,Steel Reinforcement Bars (16-32mm High Tensile),0.023863816305279294
+2026-05-01,Steel Reinforcement Bars (16-32mm High Tensile),0.023786606925367843
+2026-06-01,Steel Reinforcement Bars (16-32mm High Tensile),0.02348862043959998

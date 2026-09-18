@@ -1,0 +1,11 @@
+check,pass,detail
+material_set,True,"found=['Cement', 'Granite', 'Ready Mixed Concrete', 'Steel Reinforcement Bars']"
+finite_outputs,True,all numeric outputs finite
+nonnegative_demand_price,True,demand and price non-negative
+positive_duration,True,duration values positive
+duration_reconstruction,True,internal + PO/GR = total for every scenario
+future_periods,True,all generated periods after forecast origins
+month_ahead_range,True,months 1..12 present
+scenario_id_range,True,1..250
+row_count,True,rows=132000
+no_test_dataset_input,True,generator explicitly filters to RO1_DEMAND/RO1_PRICE validation artifact

@@ -1,0 +1,12 @@
+{
+  "controller_contract": "v1.0",
+  "O1": "q50 demand heuristic replenishment",
+  "O2": "deterministic q50 optimization",
+  "O3": "q90 demand heuristic replenishment",
+  "O4": "probabilistic CMIDO optimization",
+  "primary_scenario_count": 2500,
+  "sensitivity_scenario_count": 5000,
+  "checks_passed": 12,
+  "checks_total": 12,
+  "decision": "PASS"
+}

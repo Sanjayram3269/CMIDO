@@ -1,0 +1,11 @@
+dataset,test,rank,specification_count
+RO1_PRICE,trace,1,1
+RO1_PRICE,trace,2,5
+RO1_PRICE,trace,3,3
+RO1_PRICE,max_eigen,1,4
+RO1_PRICE,max_eigen,2,2
+RO1_PRICE,max_eigen,3,3
+RO1_DEMAND,trace,3,3
+RO1_DEMAND,trace,4,6
+RO1_DEMAND,max_eigen,3,3
+RO1_DEMAND,max_eigen,4,6

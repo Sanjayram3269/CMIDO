@@ -1,0 +1,42 @@
+CMIDO — RO1 STEP 26C.3-C
+Actual Time-Aware CQR Calibration
+
+STATUS: PASS
+
+Calibration method: CQR
+Calibration mode: PREQUENTIAL_TIME_AWARE
+Minimum calibration n: 10
+Horizons: [1, 3, 6, 12]
+Primary horizon: 3
+Quantiles: [0.1, 0.25, 0.5, 0.75, 0.9]
+
+50% interval: q25–q75
+80% interval: q10–q90
+
+Model retraining: DISABLED
+Model reselection: DISABLED
+Random split: DISABLED
+Synthetic calibration: DISABLED
+Test-data calibration: DISABLED
+
+Validation source rows: 666
+Prequential calibrated rows: 666
+Final calibration parameter rows: 72
+
+Final calibration parameters:
+FROZEN FROM VALIDATION
+
+Test forecasts were NOT loaded or modified in 26C.3-C.
+
+26C.3-A specification SHA256: df15acc96093fb0c09b7db708682aa05e8b7e23e3f4f9009aa10badb0bc924c4
+26C.2 validation SHA256: 1027b657f7781c65fc7238c4dd5ccc267ddcf68f3d93e44f099810edc4f927d6
+
+Output files:
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_calibration_scores.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_calibration_parameters.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_validation_forecasts.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_validation_metrics.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_audit.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_run_summary.txt
+
+ALL STEP 26C.3-C ASSERTIONS: PASS

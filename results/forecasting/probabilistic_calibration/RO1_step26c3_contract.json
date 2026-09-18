@@ -1,0 +1,109 @@
+{
+  "step": "26C.3-B",
+  "parent_step": "26C.2",
+  "specification_version": "RO1_26C3A_v1.0",
+  "run_timestamp_utc": "2026-09-09T05:18:26.860132+00:00",
+  "calibration": {
+    "method": "CQR",
+    "mode": "PREQUENTIAL_TIME_AWARE",
+    "minimum_n": 10,
+    "test_calibration_allowed": false,
+    "synthetic_calibration_allowed": false
+  },
+  "horizons": [
+    1,
+    3,
+    6,
+    12
+  ],
+  "primary_horizon": 3,
+  "quantiles": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "intervals": {
+    "50": {
+      "name": "50",
+      "lower_quantile": 0.25,
+      "upper_quantile": 0.75,
+      "nominal_coverage": 0.5,
+      "alpha": 0.5
+    },
+    "80": {
+      "name": "80",
+      "lower_quantile": 0.1,
+      "upper_quantile": 0.9,
+      "nominal_coverage": 0.8,
+      "alpha": 0.2
+    }
+  },
+  "expected_series_count": 9,
+  "expected_calibration_cells": 72,
+  "expected_validation_origins": {
+    "1": 23,
+    "3": 21,
+    "6": 18,
+    "12": 12
+  },
+  "expected_test_origins": {
+    "1": 23,
+    "3": 21,
+    "6": 18,
+    "12": 12
+  },
+  "expected_validation_forecasts": 666,
+  "expected_test_forecasts": 666,
+  "frozen_winners": {
+    "RO1_PRICE::Cement": {
+      "model_family": "LightGBM",
+      "config": "LGB_C1"
+    },
+    "RO1_PRICE::Concreting Sand": {
+      "model_family": "XGBoost",
+      "config": "XGB_C2"
+    },
+    "RO1_PRICE::Granite": {
+      "model_family": "XGBoost",
+      "config": "XGB_C3"
+    },
+    "RO1_PRICE::Ready Mixed Concrete": {
+      "model_family": "XGBoost",
+      "config": "XGB_C2"
+    },
+    "RO1_PRICE::Steel Reinforcement Bars": {
+      "model_family": "XGBoost",
+      "config": "XGB_C2"
+    },
+    "RO1_DEMAND::Cement": {
+      "model_family": "XGBoost",
+      "config": "XGB_C3"
+    },
+    "RO1_DEMAND::Granite": {
+      "model_family": "LightGBM",
+      "config": "LGB_C3"
+    },
+    "RO1_DEMAND::Ready Mixed Concrete": {
+      "model_family": "XGBoost",
+      "config": "XGB_C2"
+    },
+    "RO1_DEMAND::Steel Reinforcement Bars": {
+      "model_family": "XGBoost",
+      "config": "XGB_C3"
+    }
+  },
+  "random_split_allowed": false,
+  "test_calibration_allowed": false,
+  "model_retraining_allowed": false,
+  "model_reselection_allowed": false,
+  "synthetic_calibration_allowed": false,
+  "source_hashes": {
+    "26c3a_specification": "df15acc96093fb0c09b7db708682aa05e8b7e23e3f4f9009aa10badb0bc924c4",
+    "26c2_selection": "f81038f14d101e442b5d65843786c9cefc2d0e921651df9d0c20f04a6263248d",
+    "26c2_validation_forecasts": "1027b657f7781c65fc7238c4dd5ccc267ddcf68f3d93e44f099810edc4f927d6"
+  },
+  "validation_rows_loaded": 666,
+  "status": "PASS"
+}

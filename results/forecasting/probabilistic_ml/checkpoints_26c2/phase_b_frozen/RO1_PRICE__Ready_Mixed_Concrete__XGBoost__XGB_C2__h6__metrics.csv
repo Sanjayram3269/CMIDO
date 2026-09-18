@@ -1,0 +1,2 @@
+dataset,series,model_family,config_id,horizon,split,n_origins,MAE,RMSE,Pinball_q10,Pinball_q25,Pinball_q50,Pinball_q75,Pinball_q90,Mean_Pinball,Coverage_50,Coverage_80,Coverage_Error_50,Coverage_Error_80,Width_50,Width_80,Winkler_80,Raw_Crossing_Rate,Raw_Crossing_Count
+RO1_PRICE,Ready Mixed Concrete,XGBoost,XGB_C2,6,validation,18,8.059656609429254,8.209545838661708,1.378443128797743,2.763642692565918,4.029828304714627,4.1948860804239905,2.2598509216308593,2.925330225626628,0.0,0.0,0.5,0.8,5.461389329698351,11.273485819498697,36.382940504286026,0.6111111111111112,11

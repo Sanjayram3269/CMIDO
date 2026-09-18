@@ -1,0 +1,11 @@
+{
+  "step": "27D.1",
+  "decision": "PASS_WITH_RECORDED_CAVEATS",
+  "distribution_checks_pass": true,
+  "service_risk_checks_pass": true,
+  "structural_checks_pass": true,
+  "mc_stability_status": "NOT_RECOMPUTABLE_FROM_SUMMARY_OUTPUTS",
+  "interpretation": "Joint duration sampling preserves observed pairing in the 37-row procurement-process-duration sample; it does not prove statistical dependence or supplier-specific lead-time behavior.",
+  "test_data_used": false,
+  "primary_representation": "joint_duration_primary"
+}

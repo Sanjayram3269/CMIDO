@@ -1,0 +1,3 @@
+dataset,K,successful_specs,restricted_status_specs,full_rank_specs,no_cointegration_specs,trace_positive_specs,max_eigen_positive_specs,trace_restricted_specs,max_eigen_restricted_specs,trace_rank_min,trace_rank_max,max_eigen_rank_min,max_eigen_rank_max
+RO1_PRICE,5,9,9,0,0,9,9,9,9,1,3,1,3
+RO1_DEMAND,4,9,3,6,0,9,9,3,3,3,4,3,4

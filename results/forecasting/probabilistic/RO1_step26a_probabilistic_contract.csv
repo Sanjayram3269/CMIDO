@@ -1,0 +1,181 @@
+dataset,material,horizon,quantile,primary_horizon,primary_point_quantile
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),1,0.1,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),1,0.25,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),1,0.5,False,True
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),1,0.75,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),1,0.9,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),3,0.1,True,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),3,0.25,True,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),3,0.5,True,True
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),3,0.75,True,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),3,0.9,True,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),6,0.1,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),6,0.25,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),6,0.5,False,True
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),6,0.75,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),6,0.9,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),12,0.1,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),12,0.25,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),12,0.5,False,True
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),12,0.75,False,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),12,0.9,False,False
+RO1_PRICE,Concreting Sand,1,0.1,False,False
+RO1_PRICE,Concreting Sand,1,0.25,False,False
+RO1_PRICE,Concreting Sand,1,0.5,False,True
+RO1_PRICE,Concreting Sand,1,0.75,False,False
+RO1_PRICE,Concreting Sand,1,0.9,False,False
+RO1_PRICE,Concreting Sand,3,0.1,True,False
+RO1_PRICE,Concreting Sand,3,0.25,True,False
+RO1_PRICE,Concreting Sand,3,0.5,True,True
+RO1_PRICE,Concreting Sand,3,0.75,True,False
+RO1_PRICE,Concreting Sand,3,0.9,True,False
+RO1_PRICE,Concreting Sand,6,0.1,False,False
+RO1_PRICE,Concreting Sand,6,0.25,False,False
+RO1_PRICE,Concreting Sand,6,0.5,False,True
+RO1_PRICE,Concreting Sand,6,0.75,False,False
+RO1_PRICE,Concreting Sand,6,0.9,False,False
+RO1_PRICE,Concreting Sand,12,0.1,False,False
+RO1_PRICE,Concreting Sand,12,0.25,False,False
+RO1_PRICE,Concreting Sand,12,0.5,False,True
+RO1_PRICE,Concreting Sand,12,0.75,False,False
+RO1_PRICE,Concreting Sand,12,0.9,False,False
+RO1_PRICE,Granite (20mm Aggregate),1,0.1,False,False
+RO1_PRICE,Granite (20mm Aggregate),1,0.25,False,False
+RO1_PRICE,Granite (20mm Aggregate),1,0.5,False,True
+RO1_PRICE,Granite (20mm Aggregate),1,0.75,False,False
+RO1_PRICE,Granite (20mm Aggregate),1,0.9,False,False
+RO1_PRICE,Granite (20mm Aggregate),3,0.1,True,False
+RO1_PRICE,Granite (20mm Aggregate),3,0.25,True,False
+RO1_PRICE,Granite (20mm Aggregate),3,0.5,True,True
+RO1_PRICE,Granite (20mm Aggregate),3,0.75,True,False
+RO1_PRICE,Granite (20mm Aggregate),3,0.9,True,False
+RO1_PRICE,Granite (20mm Aggregate),6,0.1,False,False
+RO1_PRICE,Granite (20mm Aggregate),6,0.25,False,False
+RO1_PRICE,Granite (20mm Aggregate),6,0.5,False,True
+RO1_PRICE,Granite (20mm Aggregate),6,0.75,False,False
+RO1_PRICE,Granite (20mm Aggregate),6,0.9,False,False
+RO1_PRICE,Granite (20mm Aggregate),12,0.1,False,False
+RO1_PRICE,Granite (20mm Aggregate),12,0.25,False,False
+RO1_PRICE,Granite (20mm Aggregate),12,0.5,False,True
+RO1_PRICE,Granite (20mm Aggregate),12,0.75,False,False
+RO1_PRICE,Granite (20mm Aggregate),12,0.9,False,False
+RO1_PRICE,Ready Mixed Concrete,1,0.1,False,False
+RO1_PRICE,Ready Mixed Concrete,1,0.25,False,False
+RO1_PRICE,Ready Mixed Concrete,1,0.5,False,True
+RO1_PRICE,Ready Mixed Concrete,1,0.75,False,False
+RO1_PRICE,Ready Mixed Concrete,1,0.9,False,False
+RO1_PRICE,Ready Mixed Concrete,3,0.1,True,False
+RO1_PRICE,Ready Mixed Concrete,3,0.25,True,False
+RO1_PRICE,Ready Mixed Concrete,3,0.5,True,True
+RO1_PRICE,Ready Mixed Concrete,3,0.75,True,False
+RO1_PRICE,Ready Mixed Concrete,3,0.9,True,False
+RO1_PRICE,Ready Mixed Concrete,6,0.1,False,False
+RO1_PRICE,Ready Mixed Concrete,6,0.25,False,False
+RO1_PRICE,Ready Mixed Concrete,6,0.5,False,True
+RO1_PRICE,Ready Mixed Concrete,6,0.75,False,False
+RO1_PRICE,Ready Mixed Concrete,6,0.9,False,False
+RO1_PRICE,Ready Mixed Concrete,12,0.1,False,False
+RO1_PRICE,Ready Mixed Concrete,12,0.25,False,False
+RO1_PRICE,Ready Mixed Concrete,12,0.5,False,True
+RO1_PRICE,Ready Mixed Concrete,12,0.75,False,False
+RO1_PRICE,Ready Mixed Concrete,12,0.9,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),1,0.1,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),1,0.25,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),1,0.5,False,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),1,0.75,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),1,0.9,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),3,0.1,True,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),3,0.25,True,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),3,0.5,True,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),3,0.75,True,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),3,0.9,True,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),6,0.1,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),6,0.25,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),6,0.5,False,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),6,0.75,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),6,0.9,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),12,0.1,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),12,0.25,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),12,0.5,False,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),12,0.75,False,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),12,0.9,False,False
+RO1_DEMAND,Cement,1,0.1,False,False
+RO1_DEMAND,Cement,1,0.25,False,False
+RO1_DEMAND,Cement,1,0.5,False,True
+RO1_DEMAND,Cement,1,0.75,False,False
+RO1_DEMAND,Cement,1,0.9,False,False
+RO1_DEMAND,Cement,3,0.1,True,False
+RO1_DEMAND,Cement,3,0.25,True,False
+RO1_DEMAND,Cement,3,0.5,True,True
+RO1_DEMAND,Cement,3,0.75,True,False
+RO1_DEMAND,Cement,3,0.9,True,False
+RO1_DEMAND,Cement,6,0.1,False,False
+RO1_DEMAND,Cement,6,0.25,False,False
+RO1_DEMAND,Cement,6,0.5,False,True
+RO1_DEMAND,Cement,6,0.75,False,False
+RO1_DEMAND,Cement,6,0.9,False,False
+RO1_DEMAND,Cement,12,0.1,False,False
+RO1_DEMAND,Cement,12,0.25,False,False
+RO1_DEMAND,Cement,12,0.5,False,True
+RO1_DEMAND,Cement,12,0.75,False,False
+RO1_DEMAND,Cement,12,0.9,False,False
+RO1_DEMAND,Granite,1,0.1,False,False
+RO1_DEMAND,Granite,1,0.25,False,False
+RO1_DEMAND,Granite,1,0.5,False,True
+RO1_DEMAND,Granite,1,0.75,False,False
+RO1_DEMAND,Granite,1,0.9,False,False
+RO1_DEMAND,Granite,3,0.1,True,False
+RO1_DEMAND,Granite,3,0.25,True,False
+RO1_DEMAND,Granite,3,0.5,True,True
+RO1_DEMAND,Granite,3,0.75,True,False
+RO1_DEMAND,Granite,3,0.9,True,False
+RO1_DEMAND,Granite,6,0.1,False,False
+RO1_DEMAND,Granite,6,0.25,False,False
+RO1_DEMAND,Granite,6,0.5,False,True
+RO1_DEMAND,Granite,6,0.75,False,False
+RO1_DEMAND,Granite,6,0.9,False,False
+RO1_DEMAND,Granite,12,0.1,False,False
+RO1_DEMAND,Granite,12,0.25,False,False
+RO1_DEMAND,Granite,12,0.5,False,True
+RO1_DEMAND,Granite,12,0.75,False,False
+RO1_DEMAND,Granite,12,0.9,False,False
+RO1_DEMAND,Ready-Mixed Concrete,1,0.1,False,False
+RO1_DEMAND,Ready-Mixed Concrete,1,0.25,False,False
+RO1_DEMAND,Ready-Mixed Concrete,1,0.5,False,True
+RO1_DEMAND,Ready-Mixed Concrete,1,0.75,False,False
+RO1_DEMAND,Ready-Mixed Concrete,1,0.9,False,False
+RO1_DEMAND,Ready-Mixed Concrete,3,0.1,True,False
+RO1_DEMAND,Ready-Mixed Concrete,3,0.25,True,False
+RO1_DEMAND,Ready-Mixed Concrete,3,0.5,True,True
+RO1_DEMAND,Ready-Mixed Concrete,3,0.75,True,False
+RO1_DEMAND,Ready-Mixed Concrete,3,0.9,True,False
+RO1_DEMAND,Ready-Mixed Concrete,6,0.1,False,False
+RO1_DEMAND,Ready-Mixed Concrete,6,0.25,False,False
+RO1_DEMAND,Ready-Mixed Concrete,6,0.5,False,True
+RO1_DEMAND,Ready-Mixed Concrete,6,0.75,False,False
+RO1_DEMAND,Ready-Mixed Concrete,6,0.9,False,False
+RO1_DEMAND,Ready-Mixed Concrete,12,0.1,False,False
+RO1_DEMAND,Ready-Mixed Concrete,12,0.25,False,False
+RO1_DEMAND,Ready-Mixed Concrete,12,0.5,False,True
+RO1_DEMAND,Ready-Mixed Concrete,12,0.75,False,False
+RO1_DEMAND,Ready-Mixed Concrete,12,0.9,False,False
+RO1_DEMAND,Steel Reinforcement Bars,1,0.1,False,False
+RO1_DEMAND,Steel Reinforcement Bars,1,0.25,False,False
+RO1_DEMAND,Steel Reinforcement Bars,1,0.5,False,True
+RO1_DEMAND,Steel Reinforcement Bars,1,0.75,False,False
+RO1_DEMAND,Steel Reinforcement Bars,1,0.9,False,False
+RO1_DEMAND,Steel Reinforcement Bars,3,0.1,True,False
+RO1_DEMAND,Steel Reinforcement Bars,3,0.25,True,False
+RO1_DEMAND,Steel Reinforcement Bars,3,0.5,True,True
+RO1_DEMAND,Steel Reinforcement Bars,3,0.75,True,False
+RO1_DEMAND,Steel Reinforcement Bars,3,0.9,True,False
+RO1_DEMAND,Steel Reinforcement Bars,6,0.1,False,False
+RO1_DEMAND,Steel Reinforcement Bars,6,0.25,False,False
+RO1_DEMAND,Steel Reinforcement Bars,6,0.5,False,True
+RO1_DEMAND,Steel Reinforcement Bars,6,0.75,False,False
+RO1_DEMAND,Steel Reinforcement Bars,6,0.9,False,False
+RO1_DEMAND,Steel Reinforcement Bars,12,0.1,False,False
+RO1_DEMAND,Steel Reinforcement Bars,12,0.25,False,False
+RO1_DEMAND,Steel Reinforcement Bars,12,0.5,False,True
+RO1_DEMAND,Steel Reinforcement Bars,12,0.75,False,False
+RO1_DEMAND,Steel Reinforcement Bars,12,0.9,False,False

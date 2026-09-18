@@ -1,0 +1,9 @@
+check,passed,detail
+11 origins per controller,True,
+Primary metrics finite,True,
+Secondary metrics finite,True,
+All five contrasts represented,True,
+All primary contrast rows,True,20
+Bootstrap CIs finite,True,
+No undefined relative baseline in primary,True,
+BH correction complete,True,

@@ -1,0 +1,20 @@
+{
+  "step": "27D.3",
+  "decision": "DIAGNOSTIC_COMPLETE_HOLD_FOR_MC_LOCK",
+  "n_material_origin_cases": 48,
+  "n_stable_at_10000": 24,
+  "n_failed_at_10000": 24,
+  "stable_rate_pct": 50.0,
+  "failure_counts_by_statistic": {
+    "mean": 10,
+    "q90": 7,
+    "q95": 17,
+    "q99": 0
+  },
+  "dominant_failure_statistic": "q95",
+  "max_5k_to_10k_relative_change_pct": 10.616477795388755,
+  "max_10k_to_25k_relative_change_pct": 8.339420258045996,
+  "note": "This step diagnoses aggregate convergence patterns only. Raw Monte Carlo exposure vectors were not persisted by 27D, so exact individual simulated-draw causes cannot be identified.",
+  "test_data_used": false,
+  "primary_representation": "joint_duration_primary"
+}

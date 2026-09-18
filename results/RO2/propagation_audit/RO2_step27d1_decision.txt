@@ -1,0 +1,9 @@
+DECISION: PASS_WITH_RECORDED_CAVEATS
+
+- 27D.1 is an audit/sensitivity stage; it does not create new observations.
+- The duration variable remains procurement-process duration, not supplier-specific lead time.
+- Joint resampling preserves observed component pairing but does not prove dependence.
+- Independent duration sampling is sensitivity analysis.
+- Direct Monte Carlo stability cannot be recomputed from the saved summary CSVs because raw 10,000-draw exposure vectors were not persisted.
+- RO2 does not establish supplier-specific disruption probabilities or historical shortage labels.
+- Do not proceed to final RO3 optimization lock until this decision and caveats are reviewed.

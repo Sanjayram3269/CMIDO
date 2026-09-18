@@ -1,0 +1,193 @@
+dataset,causing,caused,lag,test_statistic,p_value,significant_5pct
+RO1_PRICE,Concreting Sand,Cement In Bulk (Ordinary Portland Cement),1,0.5465005814260917,0.46006419517342306,False
+RO1_PRICE,Concreting Sand,Cement In Bulk (Ordinary Portland Cement),2,0.8684325214423501,0.42018541927673664,False
+RO1_PRICE,Concreting Sand,Cement In Bulk (Ordinary Portland Cement),3,2.6071506793182193,0.05095038065132601,False
+RO1_PRICE,Concreting Sand,Cement In Bulk (Ordinary Portland Cement),4,9.970865152983604,8.667072421634963e-08,True
+RO1_PRICE,Concreting Sand,Cement In Bulk (Ordinary Portland Cement),5,8.268537425021103,1.5489497914853389e-07,True
+RO1_PRICE,Concreting Sand,Cement In Bulk (Ordinary Portland Cement),6,8.245540361055308,1.5189137587790604e-08,True
+RO1_PRICE,Granite (20mm Aggregate),Cement In Bulk (Ordinary Portland Cement),1,0.8884583894073168,0.34630626063159425,False
+RO1_PRICE,Granite (20mm Aggregate),Cement In Bulk (Ordinary Portland Cement),2,4.331634644756292,0.013599093855803402,True
+RO1_PRICE,Granite (20mm Aggregate),Cement In Bulk (Ordinary Portland Cement),3,3.054010867830611,0.028069163458821683,True
+RO1_PRICE,Granite (20mm Aggregate),Cement In Bulk (Ordinary Portland Cement),4,7.729521323354365,4.637549335440627e-06,True
+RO1_PRICE,Granite (20mm Aggregate),Cement In Bulk (Ordinary Portland Cement),5,7.550519894108194,7.299945646245738e-07,True
+RO1_PRICE,Granite (20mm Aggregate),Cement In Bulk (Ordinary Portland Cement),6,7.541650789859244,9.01097285399074e-08,True
+RO1_PRICE,Ready Mixed Concrete,Cement In Bulk (Ordinary Portland Cement),1,0.004977336871070826,0.9437811707936501,False
+RO1_PRICE,Ready Mixed Concrete,Cement In Bulk (Ordinary Portland Cement),2,0.34639960139094766,0.7073845655478282,False
+RO1_PRICE,Ready Mixed Concrete,Cement In Bulk (Ordinary Portland Cement),3,1.2184727870675909,0.3022522885552953,False
+RO1_PRICE,Ready Mixed Concrete,Cement In Bulk (Ordinary Portland Cement),4,9.865366485393029,1.0449898025276711e-07,True
+RO1_PRICE,Ready Mixed Concrete,Cement In Bulk (Ordinary Portland Cement),5,8.832391965781415,4.585100021605127e-08,True
+RO1_PRICE,Ready Mixed Concrete,Cement In Bulk (Ordinary Portland Cement),6,8.477963772701889,8.438240216769025e-09,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Cement In Bulk (Ordinary Portland Cement),1,15.547681608163092,9.076452619428267e-05,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Cement In Bulk (Ordinary Portland Cement),2,9.125320315282998,0.00012632446900880172,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Cement In Bulk (Ordinary Portland Cement),3,6.479664661363606,0.000258698479360483,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Cement In Bulk (Ordinary Portland Cement),4,5.298808201973181,0.0003429153727384709,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Cement In Bulk (Ordinary Portland Cement),5,4.255984316369757,0.0008377883795775462,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Cement In Bulk (Ordinary Portland Cement),6,3.8154678234916517,0.0009857788405746046,True
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Concreting Sand,1,0.09695049702497882,0.7556374411717275,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Concreting Sand,2,0.05615220116642354,0.9454006735480263,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Concreting Sand,3,0.17597867222709687,0.9126614192670874,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Concreting Sand,4,0.14443166798507764,0.9654234974942506,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Concreting Sand,5,0.18019411717542108,0.9700222096540441,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Concreting Sand,6,0.20470665482076747,0.9753013621628182,False
+RO1_PRICE,Granite (20mm Aggregate),Concreting Sand,1,28.279081014225454,1.5259509873748529e-07,True
+RO1_PRICE,Granite (20mm Aggregate),Concreting Sand,2,28.970597251180187,1.0962809217908167e-12,True
+RO1_PRICE,Granite (20mm Aggregate),Concreting Sand,3,32.576523488125964,2.263037959164491e-19,True
+RO1_PRICE,Granite (20mm Aggregate),Concreting Sand,4,25.559742220364647,2.1057299974943574e-19,True
+RO1_PRICE,Granite (20mm Aggregate),Concreting Sand,5,22.860070467275985,8.389373127194971e-21,True
+RO1_PRICE,Granite (20mm Aggregate),Concreting Sand,6,18.598861969656053,1.1934134026618463e-19,True
+RO1_PRICE,Ready Mixed Concrete,Concreting Sand,1,1.7769944617725573,0.18306674253990649,False
+RO1_PRICE,Ready Mixed Concrete,Concreting Sand,2,2.50821122220697,0.08234803763301464,False
+RO1_PRICE,Ready Mixed Concrete,Concreting Sand,3,1.7430586834710187,0.15712382488351528,False
+RO1_PRICE,Ready Mixed Concrete,Concreting Sand,4,1.6836422223637986,0.15231906392015634,False
+RO1_PRICE,Ready Mixed Concrete,Concreting Sand,5,1.7829168529003083,0.11455481157641965,False
+RO1_PRICE,Ready Mixed Concrete,Concreting Sand,6,1.47534931738482,0.1844557334294122,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Concreting Sand,1,0.27297423363054873,0.6015524314499682,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Concreting Sand,2,0.18836869191275232,0.8283628698374105,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Concreting Sand,3,0.18094059624641834,0.9093366294314383,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Concreting Sand,4,0.2492031215026461,0.9101380743163668,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Concreting Sand,5,0.23035223287759005,0.9492354690649923,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Concreting Sand,6,0.1896093224826776,0.9797098974640056,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Granite (20mm Aggregate),1,0.06669968012946813,0.7962999997364865,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Granite (20mm Aggregate),2,1.0819868162480621,0.33964439083756887,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Granite (20mm Aggregate),3,1.0238244697547727,0.38161731736479176,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Granite (20mm Aggregate),4,0.5816331609748558,0.6760715143725593,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Granite (20mm Aggregate),5,0.35773339393884274,0.8772804853219143,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Granite (20mm Aggregate),6,0.46921573734621697,0.8312631720556287,False
+RO1_PRICE,Concreting Sand,Granite (20mm Aggregate),1,8.861149232485097,0.003040324919149479,True
+RO1_PRICE,Concreting Sand,Granite (20mm Aggregate),2,61.25315700548821,9.805870066837454e-25,True
+RO1_PRICE,Concreting Sand,Granite (20mm Aggregate),3,61.119776294119475,4.754939329974475e-34,True
+RO1_PRICE,Concreting Sand,Granite (20mm Aggregate),4,44.21463142915022,4.370255971838233e-32,True
+RO1_PRICE,Concreting Sand,Granite (20mm Aggregate),5,42.635745364978746,6.313015847100378e-37,True
+RO1_PRICE,Concreting Sand,Granite (20mm Aggregate),6,34.51085253927421,3.643321519713694e-35,True
+RO1_PRICE,Ready Mixed Concrete,Granite (20mm Aggregate),1,9.90465242763755,0.0017372500197119763,True
+RO1_PRICE,Ready Mixed Concrete,Granite (20mm Aggregate),2,42.01459616776668,1.0565673771025116e-17,True
+RO1_PRICE,Ready Mixed Concrete,Granite (20mm Aggregate),3,58.78047027830294,6.533062667959846e-33,True
+RO1_PRICE,Ready Mixed Concrete,Granite (20mm Aggregate),4,42.3463347031655,7.131180121474415e-31,True
+RO1_PRICE,Ready Mixed Concrete,Granite (20mm Aggregate),5,35.05210656329943,5.434388355106612e-31,True
+RO1_PRICE,Ready Mixed Concrete,Granite (20mm Aggregate),6,28.91320545280691,6.331958050934235e-30,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Granite (20mm Aggregate),1,0.12890497407041085,0.7197069043173235,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Granite (20mm Aggregate),2,0.08905467925118968,0.9148087881535669,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Granite (20mm Aggregate),3,0.12926472856256638,0.942707476811449,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Granite (20mm Aggregate),4,0.12440052448937612,0.9736664319083973,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Granite (20mm Aggregate),5,0.13633945552169496,0.9838787592123304,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Granite (20mm Aggregate),6,0.15465617467601459,0.9881051035433059,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Ready Mixed Concrete,1,0.07380229734235254,0.7859802182311737,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Ready Mixed Concrete,2,1.4708447184239506,0.23063682118214876,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Ready Mixed Concrete,3,1.1814810205238617,0.31610265688585054,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Ready Mixed Concrete,4,0.808370331771796,0.5201355485162478,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Ready Mixed Concrete,5,0.7217002252552921,0.6073475786145257,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Ready Mixed Concrete,6,0.8521993566993095,0.5300644199869848,False
+RO1_PRICE,Concreting Sand,Ready Mixed Concrete,1,2.5775007021116947,0.10896252290838869,False
+RO1_PRICE,Concreting Sand,Ready Mixed Concrete,2,7.836839383262127,0.0004408268190326276,True
+RO1_PRICE,Concreting Sand,Ready Mixed Concrete,3,5.245466480243155,0.0014177366044048295,True
+RO1_PRICE,Concreting Sand,Ready Mixed Concrete,4,4.207480941137232,0.002309234276546505,True
+RO1_PRICE,Concreting Sand,Ready Mixed Concrete,5,3.6447211423883994,0.002987011258717729,True
+RO1_PRICE,Concreting Sand,Ready Mixed Concrete,6,3.3142111573567585,0.003273127566638315,True
+RO1_PRICE,Granite (20mm Aggregate),Ready Mixed Concrete,1,22.058859719172194,3.3383265648792063e-06,True
+RO1_PRICE,Granite (20mm Aggregate),Ready Mixed Concrete,2,30.857543821513243,2.0002806408291883e-13,True
+RO1_PRICE,Granite (20mm Aggregate),Ready Mixed Concrete,3,44.691117862707905,8.07027021358142e-26,True
+RO1_PRICE,Granite (20mm Aggregate),Ready Mixed Concrete,4,33.71245480470792,4.1680118632650015e-25,True
+RO1_PRICE,Granite (20mm Aggregate),Ready Mixed Concrete,5,28.128159084351154,2.625362878409013e-25,True
+RO1_PRICE,Granite (20mm Aggregate),Ready Mixed Concrete,6,23.55265690491002,1.0928981136003422e-24,True
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Ready Mixed Concrete,1,0.5259783098061298,0.4686088075197715,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Ready Mixed Concrete,2,0.3336093063725819,0.7164789739103783,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Ready Mixed Concrete,3,0.3091483530468444,0.8187852844097531,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Ready Mixed Concrete,4,0.24792505003126047,0.9109113972871026,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Ready Mixed Concrete,5,0.25594049615362413,0.9367960254783905,False
+RO1_PRICE,Steel Reinforcement Bars (16-32mm High Tensile),Ready Mixed Concrete,6,0.2559346730463919,0.9568478286726295,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Steel Reinforcement Bars (16-32mm High Tensile),1,0.9643871929113211,0.32651265978535104,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Steel Reinforcement Bars (16-32mm High Tensile),2,0.7959413717583012,0.4516771869537676,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Steel Reinforcement Bars (16-32mm High Tensile),3,2.0581929696238226,0.10474989363535492,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Steel Reinforcement Bars (16-32mm High Tensile),4,1.981819461750718,0.09592570111246013,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Steel Reinforcement Bars (16-32mm High Tensile),5,1.7334103047962763,0.1251601159429742,False
+RO1_PRICE,Cement In Bulk (Ordinary Portland Cement),Steel Reinforcement Bars (16-32mm High Tensile),6,1.4552264826792916,0.19163201211663553,False
+RO1_PRICE,Concreting Sand,Steel Reinforcement Bars (16-32mm High Tensile),1,0.007721491960940631,0.9300101481740085,False
+RO1_PRICE,Concreting Sand,Steel Reinforcement Bars (16-32mm High Tensile),2,0.011153875917753703,0.9889083224254794,False
+RO1_PRICE,Concreting Sand,Steel Reinforcement Bars (16-32mm High Tensile),3,0.026933450627113404,0.994029943296129,False
+RO1_PRICE,Concreting Sand,Steel Reinforcement Bars (16-32mm High Tensile),4,0.7651248737164665,0.5482526500436169,False
+RO1_PRICE,Concreting Sand,Steel Reinforcement Bars (16-32mm High Tensile),5,0.7415556303619733,0.592574176819237,False
+RO1_PRICE,Concreting Sand,Steel Reinforcement Bars (16-32mm High Tensile),6,0.6540849768673808,0.6868549199468614,False
+RO1_PRICE,Granite (20mm Aggregate),Steel Reinforcement Bars (16-32mm High Tensile),1,0.017990640604417667,0.8933491264625679,False
+RO1_PRICE,Granite (20mm Aggregate),Steel Reinforcement Bars (16-32mm High Tensile),2,0.048779297427639604,0.9523954365230645,False
+RO1_PRICE,Granite (20mm Aggregate),Steel Reinforcement Bars (16-32mm High Tensile),3,0.10704928577041863,0.9559646160641465,False
+RO1_PRICE,Granite (20mm Aggregate),Steel Reinforcement Bars (16-32mm High Tensile),4,0.5576497664515827,0.6935192180263532,False
+RO1_PRICE,Granite (20mm Aggregate),Steel Reinforcement Bars (16-32mm High Tensile),5,0.5853067829037807,0.711280811334261,False
+RO1_PRICE,Granite (20mm Aggregate),Steel Reinforcement Bars (16-32mm High Tensile),6,0.7553810139854722,0.6053424035401695,False
+RO1_PRICE,Ready Mixed Concrete,Steel Reinforcement Bars (16-32mm High Tensile),1,0.30416691881170116,0.581504226175789,False
+RO1_PRICE,Ready Mixed Concrete,Steel Reinforcement Bars (16-32mm High Tensile),2,0.17206817333086943,0.8419672443154977,False
+RO1_PRICE,Ready Mixed Concrete,Steel Reinforcement Bars (16-32mm High Tensile),3,0.1241423061348453,0.945834147949622,False
+RO1_PRICE,Ready Mixed Concrete,Steel Reinforcement Bars (16-32mm High Tensile),4,0.7669885430365864,0.5470227719331493,False
+RO1_PRICE,Ready Mixed Concrete,Steel Reinforcement Bars (16-32mm High Tensile),5,0.675025460723566,0.642543050960699,False
+RO1_PRICE,Ready Mixed Concrete,Steel Reinforcement Bars (16-32mm High Tensile),6,0.6147692807047033,0.7185838623763403,False
+RO1_DEMAND,Granite,Cement,1,5.065059979677706,0.024805670091728498,True
+RO1_DEMAND,Granite,Cement,2,6.29100443283789,0.001990012758550037,True
+RO1_DEMAND,Granite,Cement,3,9.321497942945426,5.119154936291859e-06,True
+RO1_DEMAND,Granite,Cement,4,8.455132350810745,1.2797340872535213e-06,True
+RO1_DEMAND,Granite,Cement,5,6.874112056583978,3.1453892534298225e-06,True
+RO1_DEMAND,Granite,Cement,6,6.1745670740950755,2.846906170589862e-06,True
+RO1_DEMAND,Ready-Mixed Concrete,Cement,1,7.812495432392332,0.005369140844698652,True
+RO1_DEMAND,Ready-Mixed Concrete,Cement,2,11.425489716504503,1.3772036949632108e-05,True
+RO1_DEMAND,Ready-Mixed Concrete,Cement,3,13.976198860612913,8.6902348510301e-09,True
+RO1_DEMAND,Ready-Mixed Concrete,Cement,4,15.161059274520584,9.4961236671404e-12,True
+RO1_DEMAND,Ready-Mixed Concrete,Cement,5,12.319244092431502,2.5713327846881915e-11,True
+RO1_DEMAND,Ready-Mixed Concrete,Cement,6,11.06581707932345,1.2491752980464242e-11,True
+RO1_DEMAND,Steel Reinforcement Bars,Cement,1,2.2006159460209793,0.13852632673829152,False
+RO1_DEMAND,Steel Reinforcement Bars,Cement,2,0.7456513035365607,0.4749076824768402,False
+RO1_DEMAND,Steel Reinforcement Bars,Cement,3,0.8261514045536095,0.47981319645261367,False
+RO1_DEMAND,Steel Reinforcement Bars,Cement,4,0.5834496928933006,0.6747550058164791,False
+RO1_DEMAND,Steel Reinforcement Bars,Cement,5,0.5770279080760873,0.7176411054543984,False
+RO1_DEMAND,Steel Reinforcement Bars,Cement,6,0.3727760832228206,0.8963133152084406,False
+RO1_DEMAND,Cement,Granite,1,2.255413843113481,0.13371966064696197,False
+RO1_DEMAND,Cement,Granite,2,1.1403874225534392,0.32045539130985784,False
+RO1_DEMAND,Cement,Granite,3,1.3531723025696898,0.25631963066117236,False
+RO1_DEMAND,Cement,Granite,4,2.1628278822542715,0.07197131631134651,False
+RO1_DEMAND,Cement,Granite,5,2.0438279623344107,0.07109005454024094,False
+RO1_DEMAND,Cement,Granite,6,1.9811137540838777,0.06662382983726603,False
+RO1_DEMAND,Ready-Mixed Concrete,Granite,1,6.119761608750717,0.013667576401606915,True
+RO1_DEMAND,Ready-Mixed Concrete,Granite,2,4.207417431351417,0.01537019798889187,True
+RO1_DEMAND,Ready-Mixed Concrete,Granite,3,7.843338786086538,3.936829345762439e-05,True
+RO1_DEMAND,Ready-Mixed Concrete,Granite,4,10.583901298141615,2.9329807917529865e-08,True
+RO1_DEMAND,Ready-Mixed Concrete,Granite,5,8.345315924845652,1.3154911256883442e-07,True
+RO1_DEMAND,Ready-Mixed Concrete,Granite,6,7.117239900966453,2.6414571851565854e-07,True
+RO1_DEMAND,Steel Reinforcement Bars,Granite,1,1.3890581019140622,0.2390720204881665,False
+RO1_DEMAND,Steel Reinforcement Bars,Granite,2,0.95379228787133,0.38591813977679745,False
+RO1_DEMAND,Steel Reinforcement Bars,Granite,3,2.03057462721191,0.10857465823523899,False
+RO1_DEMAND,Steel Reinforcement Bars,Granite,4,1.8797662197584162,0.11256899694489586,False
+RO1_DEMAND,Steel Reinforcement Bars,Granite,5,1.8399809214609821,0.1033607984587872,False
+RO1_DEMAND,Steel Reinforcement Bars,Granite,6,1.5715156503341186,0.15327502342796545,False
+RO1_DEMAND,Cement,Ready-Mixed Concrete,1,5.555216224961305,0.018773960734372187,True
+RO1_DEMAND,Cement,Ready-Mixed Concrete,2,2.703174078982565,0.06788917294939674,False
+RO1_DEMAND,Cement,Ready-Mixed Concrete,3,2.067377405105113,0.1035134210444899,False
+RO1_DEMAND,Cement,Ready-Mixed Concrete,4,1.6536121310504748,0.15944529377575056,False
+RO1_DEMAND,Cement,Ready-Mixed Concrete,5,1.1528383671106723,0.33139179710759,False
+RO1_DEMAND,Cement,Ready-Mixed Concrete,6,1.1172938061102815,0.3508104133002332,False
+RO1_DEMAND,Granite,Ready-Mixed Concrete,1,0.0006572110838740048,0.9795568339949966,False
+RO1_DEMAND,Granite,Ready-Mixed Concrete,2,0.20450196703215842,0.8151155391800543,False
+RO1_DEMAND,Granite,Ready-Mixed Concrete,3,1.0225430169418088,0.3821980352178714,False
+RO1_DEMAND,Granite,Ready-Mixed Concrete,4,2.1637602888473237,0.07186404326870217,False
+RO1_DEMAND,Granite,Ready-Mixed Concrete,5,1.0670812515584527,0.3776672366706712,False
+RO1_DEMAND,Granite,Ready-Mixed Concrete,6,0.9252033143187011,0.476272311234618,False
+RO1_DEMAND,Steel Reinforcement Bars,Ready-Mixed Concrete,1,7.7891422219114785,0.005437986597682103,True
+RO1_DEMAND,Steel Reinforcement Bars,Ready-Mixed Concrete,2,3.7311273598365826,0.024579060195535612,True
+RO1_DEMAND,Steel Reinforcement Bars,Ready-Mixed Concrete,3,2.840324353328482,0.03736457271736534,True
+RO1_DEMAND,Steel Reinforcement Bars,Ready-Mixed Concrete,4,1.9842835268387335,0.09556026035968841,False
+RO1_DEMAND,Steel Reinforcement Bars,Ready-Mixed Concrete,5,1.9949434861301854,0.07783563064709038,False
+RO1_DEMAND,Steel Reinforcement Bars,Ready-Mixed Concrete,6,1.5793394333414899,0.1509527753545932,False
+RO1_DEMAND,Cement,Steel Reinforcement Bars,1,0.33348788912513105,0.563847937617367,False
+RO1_DEMAND,Cement,Steel Reinforcement Bars,2,1.7371115694693635,0.1769995228865537,False
+RO1_DEMAND,Cement,Steel Reinforcement Bars,3,1.8019110285141788,0.14575451357171912,False
+RO1_DEMAND,Cement,Steel Reinforcement Bars,4,1.909336638537973,0.10748953313647358,False
+RO1_DEMAND,Cement,Steel Reinforcement Bars,5,2.653532612373588,0.022094300601406148,True
+RO1_DEMAND,Cement,Steel Reinforcement Bars,6,2.9282971973878684,0.008090682004038521,True
+RO1_DEMAND,Granite,Steel Reinforcement Bars,1,0.034365062430389205,0.8530005310451017,False
+RO1_DEMAND,Granite,Steel Reinforcement Bars,2,1.3290767598512974,0.26557659813516854,False
+RO1_DEMAND,Granite,Steel Reinforcement Bars,3,2.1720263311853443,0.09033277857108353,False
+RO1_DEMAND,Granite,Steel Reinforcement Bars,4,2.8202553425475125,0.024568314152863303,True
+RO1_DEMAND,Granite,Steel Reinforcement Bars,5,3.5664443925179077,0.0035106279926252477,True
+RO1_DEMAND,Granite,Steel Reinforcement Bars,6,3.6667399405542387,0.0014117225094961616,True
+RO1_DEMAND,Ready-Mixed Concrete,Steel Reinforcement Bars,1,3.5081459670511257,0.06159603204208937,False
+RO1_DEMAND,Ready-Mixed Concrete,Steel Reinforcement Bars,2,3.134367362982239,0.044311512409829446,True
+RO1_DEMAND,Ready-Mixed Concrete,Steel Reinforcement Bars,3,5.066751638740436,0.0018131566047820042,True
+RO1_DEMAND,Ready-Mixed Concrete,Steel Reinforcement Bars,4,4.2759251297363825,0.002051476484600393,True
+RO1_DEMAND,Ready-Mixed Concrete,Steel Reinforcement Bars,5,4.578585332761817,0.0004253912927008749,True
+RO1_DEMAND,Ready-Mixed Concrete,Steel Reinforcement Bars,6,4.153978808843065,0.000433353774794599,True

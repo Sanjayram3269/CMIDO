@@ -1,0 +1,118 @@
+[
+  {
+    "check": "materials_frozen",
+    "pass": true
+  },
+  {
+    "check": "forecast_origin_count_frozen_at_11",
+    "pass": true
+  },
+  {
+    "check": "planning_horizon_frozen_at_12_months",
+    "pass": true
+  },
+  {
+    "check": "scenario_sizes_frozen_for_sensitivity",
+    "pass": true
+  },
+  {
+    "check": "scenario_probabilities_equal",
+    "pass": true
+  },
+  {
+    "check": "first_stage_procurement_decision_defined",
+    "pass": true
+  },
+  {
+    "check": "scenario_recourse_variables_defined",
+    "pass": true
+  },
+  {
+    "check": "availability_depends_on_procurement_and_duration",
+    "pass": true
+  },
+  {
+    "check": "inventory_balance_defined",
+    "pass": true
+  },
+  {
+    "check": "demand_fulfillment_balance_defined",
+    "pass": true
+  },
+  {
+    "check": "shortage_nonnegative",
+    "pass": true
+  },
+  {
+    "check": "economic_objective_is_decision_dependent",
+    "pass": true
+  },
+  {
+    "check": "expected_shortage_is_decision_dependent",
+    "pass": true
+  },
+  {
+    "check": "cvar95_shortage_is_decision_dependent",
+    "pass": true
+  },
+  {
+    "check": "cvar_linear_auxiliary_formulation_defined",
+    "pass": true
+  },
+  {
+    "check": "duration_exposure_demoted_from_primary_objective",
+    "pass": true
+  },
+  {
+    "check": "duration_exposure_retained_as_diagnostic",
+    "pass": true
+  },
+  {
+    "check": "three_primary_objectives_are_distinct",
+    "pass": true
+  },
+  {
+    "check": "no_shortage_monetary_penalty_in_primary",
+    "pass": true
+  },
+  {
+    "check": "no_supplier_disruption_probability",
+    "pass": true
+  },
+  {
+    "check": "no_supplier_specific_allocation_claim",
+    "pass": true
+  },
+  {
+    "check": "pareto_frontier_primary",
+    "pass": true
+  },
+  {
+    "check": "epsilon_constraint_method_predeclared",
+    "pass": true
+  },
+  {
+    "check": "representative_solution_rule_predeclared",
+    "pass": true
+  },
+  {
+    "check": "solver_predeclared",
+    "pass": true
+  },
+  {
+    "check": "tolerances_predeclared",
+    "pass": true
+  },
+  {
+    "check": "reproducibility_manifest_required",
+    "pass": true
+  },
+  {
+    "check": "baseline_architecture_defined",
+    "pass": true
+  },
+  {
+    "check": "decision_level_metrics_defined",
+    "pass": true
+  }
+]

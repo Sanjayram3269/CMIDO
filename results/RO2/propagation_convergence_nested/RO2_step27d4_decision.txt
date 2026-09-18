@@ -1,0 +1,25 @@
+DECISION: LOCK_10000
+Recommended MC lock: 10000
+
+Cases: 48
+Stable at 10,000: 48/48 (100.00%)
+Stable at 25,000: 48/48 (100.00%)
+
+Convergence thresholds:
+- mean <= 1%
+- q90 <= 2%
+- q95 <= 2%
+- q99 <= 5%
+
+Primary comparison: 5,000 -> 10,000
+Secondary comparison: 10,000 -> 25,000
+
+Nested common-random-number sampling: PASS
+RO1 dataset used: RO1_DEMAND
+RO1 test forecasts used: NO
+RO2 paired duration n=37: PASS
+
+Maximum 5k -> 10k relative change: 0.668805%
+Maximum 10k -> 25k relative change: 0.312457%
+
+No change to frozen propagation methodology.

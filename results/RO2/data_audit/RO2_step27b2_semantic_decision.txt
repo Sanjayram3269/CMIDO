@@ -1,0 +1,30 @@
+CMIDO — RO2 STEP 27B.2
+RAW TRANSACTION SCHEMA & LEAD-TIME SEMANTICS
+============================================================
+
+Parsed Raw data rows: 58
+Parsed Raw data columns: 38
+
+Supplier identifier columns: NONE
+Explicit receipt/delivery DATE columns: NONE
+
+Internal lead-time field: Total Leadtime Internal Kom Teknik
+PO-GR DN field: PO - GR 103/101 (DN)
+PO-GR LN field: PO - GR 103/101 (LN)
+Total All DN field: Total Hari Kerja All (DN)
+Total All LN field: Total Hari Kerja All (LN)
+
+DECISION
+--------
+RO2 DATA PATHWAY B — EMPIRICAL INTERNAL PROCUREMENT + PO-to-GR/DN/LN DURATION CANDIDATE; SUPPLIER-SPECIFIC LEAD TIME NOT IDENTIFIED.
+
+CRITICAL RULE
+-------------
+PO-GR DN/LN fields are NOT automatically labelled supplier lead time.
+Their exact business definition must be established from the source
+documentation/process meaning before they enter F_L.
+
+Likewise, 'Total Leadtime Internal' is retained as internal procurement
+processing time unless documentation proves otherwise.
+
+No source workbook changes were made.

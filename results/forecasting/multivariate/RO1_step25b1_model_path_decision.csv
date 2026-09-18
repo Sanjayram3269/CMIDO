@@ -1,0 +1,3 @@
+dataset,K,level_nonstationary,first_difference_stationary,trace_restricted_share,max_eigen_restricted_share,decision,reason
+RO1_PRICE,5,4,5,1.0,1.0,VECM_CANDIDATE,"The system behaves as predominantly I(1), and both Johansen trace and maximum-eigenvalue tests provide restricted positive-rank evidence across at least half of the tested specifications."
+RO1_DEMAND,4,4,4,0.3333333333333333,0.3333333333333333,VAR_DIFFERENCED_CANDIDATE,"The system behaves as predominantly I(1), but restricted cointegration evidence is not sufficiently robust across Johansen specifications. A VAR in stationary first differences is therefore the conservative multivariate candidate."

@@ -1,0 +1,131 @@
+{
+  "step": "26C.2",
+  "status": "PASSED",
+  "purpose": "Probabilistic ML forecasting development and validation",
+  "datasets": {
+    "RO1_PRICE": {
+      "rows": 1650,
+      "series": [
+        "Cement",
+        "Concreting Sand",
+        "Granite",
+        "Ready Mixed Concrete",
+        "Steel Reinforcement Bars"
+      ],
+      "unit": "$ per tonne",
+      "source_series_normalization": "official source names mapped to CMIDO canonical material names"
+    },
+    "RO1_DEMAND": {
+      "rows": 1316,
+      "series": [
+        "Cement",
+        "Granite",
+        "Ready Mixed Concrete",
+        "Steel Reinforcement Bars"
+      ],
+      "unit": "thousand tonnes",
+      "source_series_normalization": "official source names mapped to CMIDO canonical material names"
+    }
+  },
+  "horizons": [
+    1,
+    3,
+    6,
+    12
+  ],
+  "primary_horizon": 3,
+  "quantiles": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "features": [
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_6",
+    "lag_12",
+    "rolling_mean_3",
+    "rolling_mean_6",
+    "rolling_mean_12",
+    "rolling_std_3",
+    "rolling_std_6",
+    "rolling_std_12",
+    "change_1",
+    "change_3",
+    "change_12",
+    "month",
+    "quarter"
+  ],
+  "cross_material_features": false,
+  "external_features": false,
+  "target_transformation": "level",
+  "conformal_calibration": false,
+  "candidate_models": [
+    {
+      "family": "XGBoost",
+      "config": "XGB_C1"
+    },
+    {
+      "family": "XGBoost",
+      "config": "XGB_C2"
+    },
+    {
+      "family": "XGBoost",
+      "config": "XGB_C3"
+    },
+    {
+      "family": "LightGBM",
+      "config": "LGB_C1"
+    },
+    {
+      "family": "LightGBM",
+      "config": "LGB_C2"
+    },
+    {
+      "family": "LightGBM",
+      "config": "LGB_C3"
+    }
+  ],
+  "selection": {
+    "split": "validation_only",
+    "horizon": 3,
+    "primary_metric": "Mean_Pinball",
+    "tie_breakers": [
+      "Winkler_80",
+      "MAE",
+      "Coverage_Error_80"
+    ]
+  },
+  "validation_origins_by_horizon": {
+    "h1": 23,
+    "h3": 21,
+    "h6": 18,
+    "h12": 12
+  },
+  "quantile_crossing": {
+    "raw_audit": true,
+    "repair": "monotone_rearrangement_sort",
+    "applied_to_validation": true,
+    "test_rule": "freeze_identical_rule_for_26c4"
+  },
+  "checkpointing": {
+    "enabled": true,
+    "phase_a_per_candidate": true,
+    "phase_b_per_series_horizon": true,
+    "resume_supported": true
+  },
+  "expected_phase_a_metric_rows": 54,
+  "actual_phase_a_metric_rows": 54,
+  "expected_phase_a_forecast_rows": 1134,
+  "actual_phase_a_forecast_rows": 1134,
+  "expected_validation_forecast_rows": 666,
+  "actual_validation_forecast_rows": 666,
+  "expected_frozen_metric_rows": 36,
+  "actual_frozen_metric_rows": 36,
+  "test_used": false,
+  "conformal_used": false,
+  "elapsed_seconds": 4727.88
+}

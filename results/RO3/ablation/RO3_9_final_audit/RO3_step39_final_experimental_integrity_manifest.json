@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": 29,
+  "total": 29,
+  "origins": 11,
+  "materials": 4,
+  "scenario_size": 2500,
+  "ro2_paired_n": 37,
+  "ro2_p50_days": 47
+}

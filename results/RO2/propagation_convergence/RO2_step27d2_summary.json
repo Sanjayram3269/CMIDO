@@ -1,0 +1,25 @@
+{
+  "step": "27D.2",
+  "decision": "HOLD_FOR_REVIEW",
+  "recommended_mc_lock": null,
+  "reference_n": 10000,
+  "mc_sizes_evaluated": [
+    1000,
+    2500,
+    5000,
+    10000,
+    25000
+  ],
+  "all_48_material_origin_cases_stable_at_10000": false,
+  "max_10000_to_25000_relative_change_pct": 8.339420258045996,
+  "criteria_pct": {
+    "mean": 1.0,
+    "q90": 2.0,
+    "q95": 2.0,
+    "q99": 5.0
+  },
+  "test_data_used": false,
+  "primary_representation": "joint_duration_primary",
+  "duration_terminology": "procurement-process duration",
+  "duration_pair_n": 37
+}

@@ -1,0 +1,19 @@
+CMIDO — RO1 STEP 26C.3-H
+FINAL INTEGRITY AUDIT
+
+STATUS: PASS
+Model training: NO
+Model selection: NO
+Test recalibration: NO
+Primary horizon: 3
+Primary interval: 80%
+Expected series: 9
+Expected horizons: 1,3,6,12
+Target-valid origins per series: h1=23, h3=21, h6=18, h12=12
+Selected 26B.1 statistical test rows: 864
+Final paired test rows: 666
+Comparison rule: exact common origin-target-series-horizon intersection
+CQR parameter cells: 72
+CQR validation rows: 666
+CQR test rows: 666
+Final paired observations: 666

@@ -1,0 +1,13 @@
+check,passed,detail
+44 policies/controller,True,
+3 holding-rate cases,True,
+11 origins/controller/case,True,
+12 months/material-origin/case,True,
+Finite primary metrics,True,
+"Service in [0,1]",True,
+Nonnegative quantities,True,
+Same realized demand,True,
+Same realized price,True,
+Orders unchanged across holding rates,True,
+Shortage unchanged across holding rates,True,
+Inventory unchanged across holding rates,True,

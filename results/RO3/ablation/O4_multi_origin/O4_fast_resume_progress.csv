@@ -1,0 +1,45 @@
+origin,material,status,pareto,selected,minutes
+2022-07-01,Cement,EXISTING,10,,
+2022-07-01,Granite,EXISTING,10,,
+2022-07-01,Ready Mixed Concrete,EXISTING,10,,
+2022-07-01,Steel Reinforcement Bars,EXISTING,14,,
+2022-08-01,Cement,EXISTING,11,,
+2022-08-01,Granite,EXISTING,11,,
+2022-08-01,Ready Mixed Concrete,EXISTING,10,,
+2022-08-01,Steel Reinforcement Bars,EXISTING,11,,
+2022-09-01,Cement,EXISTING,11,,
+2022-09-01,Granite,EXISTING,11,,
+2022-09-01,Ready Mixed Concrete,EXISTING,10,,
+2022-09-01,Steel Reinforcement Bars,EXISTING,10,,
+2022-10-01,Cement,EXISTING,10,,
+2022-10-01,Granite,EXISTING,10,,
+2022-10-01,Ready Mixed Concrete,EXISTING,10,,
+2022-10-01,Steel Reinforcement Bars,EXISTING,10,,
+2022-11-01,Cement,EXISTING,10,,
+2022-11-01,Granite,EXISTING,11,,
+2022-11-01,Ready Mixed Concrete,EXISTING,11,,
+2022-11-01,Steel Reinforcement Bars,EXISTING,11,,
+2022-12-01,Cement,EXISTING,10,,
+2022-12-01,Granite,EXISTING,10,,
+2022-12-01,Ready Mixed Concrete,EXISTING,11,,
+2022-12-01,Steel Reinforcement Bars,EXISTING,10,,
+2023-01-01,Cement,EXISTING,11,,
+2023-01-01,Granite,EXISTING,10,,
+2023-01-01,Ready Mixed Concrete,EXISTING,11,,
+2023-01-01,Steel Reinforcement Bars,EXISTING,11,,
+2023-02-01,Cement,EXISTING,10,,
+2023-02-01,Granite,EXISTING,10,,
+2023-02-01,Ready Mixed Concrete,EXISTING,10,,
+2023-02-01,Steel Reinforcement Bars,EXISTING,11,,
+2023-03-01,Cement,EXISTING,11,,
+2023-03-01,Granite,EXISTING,11,,
+2023-03-01,Ready Mixed Concrete,EXISTING,10,,
+2023-03-01,Steel Reinforcement Bars,PASS,10,eps_02_05,28.29
+2023-04-01,Cement,PASS,10,eps_02_05,18.93
+2023-04-01,Granite,PASS,11,eps_02_05,19.15
+2023-04-01,Ready Mixed Concrete,PASS,10,eps_02_05,20.15
+2023-04-01,Steel Reinforcement Bars,PASS,10,eps_02_05,22.6
+2023-05-01,Cement,PASS,10,eps_02_05,20.76
+2023-05-01,Granite,PASS,11,eps_02_05,15.03
+2023-05-01,Ready Mixed Concrete,PASS,10,eps_02_05,19.07
+2023-05-01,Steel Reinforcement Bars,PASS,10,eps_05_02,22.54

@@ -1,0 +1,226 @@
+dataset,series,transformation,lag,pacf
+price,Cement In Bulk (Ordinary Portland Cement),log_level,0,1.0
+price,Cement In Bulk (Ordinary Portland Cement),log_level,1,0.9901935735646383
+price,Cement In Bulk (Ordinary Portland Cement),log_level,2,-0.22790567609646584
+price,Cement In Bulk (Ordinary Portland Cement),log_level,3,-0.10418838947745483
+price,Cement In Bulk (Ordinary Portland Cement),log_level,4,-0.035393355419883164
+price,Cement In Bulk (Ordinary Portland Cement),log_level,5,-0.05048608668278805
+price,Cement In Bulk (Ordinary Portland Cement),log_level,6,-0.07406410615622644
+price,Cement In Bulk (Ordinary Portland Cement),log_level,7,-0.05343654121825604
+price,Cement In Bulk (Ordinary Portland Cement),log_level,8,0.044025526348960974
+price,Cement In Bulk (Ordinary Portland Cement),log_level,9,0.008605748833312997
+price,Cement In Bulk (Ordinary Portland Cement),log_level,10,-0.06390251595321973
+price,Cement In Bulk (Ordinary Portland Cement),log_level,11,-0.045179362000756534
+price,Cement In Bulk (Ordinary Portland Cement),log_level,12,-0.0063408624948634315
+price,Cement In Bulk (Ordinary Portland Cement),log_level,13,-0.039200643891305544
+price,Cement In Bulk (Ordinary Portland Cement),log_level,14,-0.017000845526406395
+price,Cement In Bulk (Ordinary Portland Cement),log_level,15,-0.012616807340296575
+price,Cement In Bulk (Ordinary Portland Cement),log_level,16,0.014200957291616157
+price,Cement In Bulk (Ordinary Portland Cement),log_level,17,0.017090383772678106
+price,Cement In Bulk (Ordinary Portland Cement),log_level,18,0.011606657658099033
+price,Cement In Bulk (Ordinary Portland Cement),log_level,19,-0.007324838975428239
+price,Cement In Bulk (Ordinary Portland Cement),log_level,20,0.028780279703750723
+price,Cement In Bulk (Ordinary Portland Cement),log_level,21,-0.027000943302975193
+price,Cement In Bulk (Ordinary Portland Cement),log_level,22,0.0015642734471939977
+price,Cement In Bulk (Ordinary Portland Cement),log_level,23,-0.009069377790117758
+price,Cement In Bulk (Ordinary Portland Cement),log_level,24,0.004880520095674177
+price,Concreting Sand,log_level,0,1.0
+price,Concreting Sand,log_level,1,0.986036018114205
+price,Concreting Sand,log_level,2,-0.3056569191168099
+price,Concreting Sand,log_level,3,0.05474207606810322
+price,Concreting Sand,log_level,4,-0.03808826365693617
+price,Concreting Sand,log_level,5,-0.009626818128483608
+price,Concreting Sand,log_level,6,-0.02678000379664798
+price,Concreting Sand,log_level,7,0.03498184434209987
+price,Concreting Sand,log_level,8,0.046358356150552636
+price,Concreting Sand,log_level,9,-0.030126700763534763
+price,Concreting Sand,log_level,10,0.0072572653914719475
+price,Concreting Sand,log_level,11,-0.01014849204650095
+price,Concreting Sand,log_level,12,-0.019157699993479327
+price,Concreting Sand,log_level,13,0.018136440569289418
+price,Concreting Sand,log_level,14,-0.05457927729559727
+price,Concreting Sand,log_level,15,-0.02558361726564446
+price,Concreting Sand,log_level,16,0.014608715927474066
+price,Concreting Sand,log_level,17,-0.005660935191424103
+price,Concreting Sand,log_level,18,-0.015498033120759288
+price,Concreting Sand,log_level,19,-0.027128071521673482
+price,Concreting Sand,log_level,20,-0.031163515945777143
+price,Concreting Sand,log_level,21,-0.009999980755684553
+price,Concreting Sand,log_level,22,0.00541143951898399
+price,Concreting Sand,log_level,23,-0.01902901776032372
+price,Concreting Sand,log_level,24,-0.014084456686079395
+price,Granite (20mm Aggregate),log_level,0,1.0
+price,Granite (20mm Aggregate),log_level,1,0.9452184178996929
+price,Granite (20mm Aggregate),log_level,2,-0.1166726738973083
+price,Granite (20mm Aggregate),log_level,3,0.11250261322359711
+price,Granite (20mm Aggregate),log_level,4,0.08894054815997225
+price,Granite (20mm Aggregate),log_level,5,0.055681426964627974
+price,Granite (20mm Aggregate),log_level,6,-0.009346002125046694
+price,Granite (20mm Aggregate),log_level,7,0.02611143609944559
+price,Granite (20mm Aggregate),log_level,8,0.02230701316407552
+price,Granite (20mm Aggregate),log_level,9,0.01057182597340946
+price,Granite (20mm Aggregate),log_level,10,0.019259584942309737
+price,Granite (20mm Aggregate),log_level,11,0.0075330407794102616
+price,Granite (20mm Aggregate),log_level,12,0.01856981855480455
+price,Granite (20mm Aggregate),log_level,13,0.01534757619461785
+price,Granite (20mm Aggregate),log_level,14,0.03507056468227126
+price,Granite (20mm Aggregate),log_level,15,0.05943321440943311
+price,Granite (20mm Aggregate),log_level,16,0.018817099638504257
+price,Granite (20mm Aggregate),log_level,17,0.008355449163030073
+price,Granite (20mm Aggregate),log_level,18,-0.020648105688533834
+price,Granite (20mm Aggregate),log_level,19,0.007329058295990519
+price,Granite (20mm Aggregate),log_level,20,-0.04526773060450149
+price,Granite (20mm Aggregate),log_level,21,-0.04406566693598724
+price,Granite (20mm Aggregate),log_level,22,-0.01153615101318323
+price,Granite (20mm Aggregate),log_level,23,-0.025248607834806213
+price,Granite (20mm Aggregate),log_level,24,-0.01755645922405659
+price,Ready Mixed Concrete,log_level,0,1.0
+price,Ready Mixed Concrete,log_level,1,0.9810765374000979
+price,Ready Mixed Concrete,log_level,2,-0.2516822434051453
+price,Ready Mixed Concrete,log_level,3,0.047133031001224096
+price,Ready Mixed Concrete,log_level,4,0.04909155275312986
+price,Ready Mixed Concrete,log_level,5,0.04980872106051254
+price,Ready Mixed Concrete,log_level,6,0.0031906262101437073
+price,Ready Mixed Concrete,log_level,7,-0.007378094170531691
+price,Ready Mixed Concrete,log_level,8,0.018471431316561246
+price,Ready Mixed Concrete,log_level,9,0.003103803360190296
+price,Ready Mixed Concrete,log_level,10,-0.004673301010534245
+price,Ready Mixed Concrete,log_level,11,-0.008927506891262265
+price,Ready Mixed Concrete,log_level,12,0.005283500082408061
+price,Ready Mixed Concrete,log_level,13,-0.004146586088608668
+price,Ready Mixed Concrete,log_level,14,0.005626704209271358
+price,Ready Mixed Concrete,log_level,15,-0.017456106562466937
+price,Ready Mixed Concrete,log_level,16,-0.016110524112766915
+price,Ready Mixed Concrete,log_level,17,-0.030521335296928097
+price,Ready Mixed Concrete,log_level,18,-0.003996482689727097
+price,Ready Mixed Concrete,log_level,19,-0.010895765237236047
+price,Ready Mixed Concrete,log_level,20,-0.011604453128218227
+price,Ready Mixed Concrete,log_level,21,-0.01428283024827081
+price,Ready Mixed Concrete,log_level,22,-0.014225080296379169
+price,Ready Mixed Concrete,log_level,23,-0.02267104760791744
+price,Ready Mixed Concrete,log_level,24,0.01759170457644243
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,0,1.0
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,1,0.9866031767166082
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,2,-0.46300951757149433
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,3,-0.0013033509900355327
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,4,-0.05814260782643916
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,5,0.012717556837089306
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,6,0.04281526026819558
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,7,-0.0335452688990999
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,8,-0.11390858071172363
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,9,-0.041138827610631507
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,10,0.005087638220207181
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,11,0.02835172603314415
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,12,0.020177857954887878
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,13,-0.0283986802868369
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,14,0.005203038685326328
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,15,0.005245075556772662
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,16,0.010656894416602964
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,17,0.0005968141605526305
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,18,-0.0069924052521056655
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,19,-0.03700209751218893
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,20,0.027680488604396442
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,21,-0.03416072010232352
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,22,0.018724859930107585
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,23,0.009517654320586951
+price,Steel Reinforcement Bars (16-32mm High Tensile),log_level,24,0.017047751962172147
+demand,Cement,log_level,0,1.0
+demand,Cement,log_level,1,0.47041207734313956
+demand,Cement,log_level,2,0.3410136626567984
+demand,Cement,log_level,3,-0.012574642840712769
+demand,Cement,log_level,4,-0.18405218219221184
+demand,Cement,log_level,5,0.004544904923459105
+demand,Cement,log_level,6,0.10724705567983275
+demand,Cement,log_level,7,0.0777206043978879
+demand,Cement,log_level,8,-0.008641526767847423
+demand,Cement,log_level,9,0.018641870232356212
+demand,Cement,log_level,10,-0.00966912371634147
+demand,Cement,log_level,11,0.025250338501086655
+demand,Cement,log_level,12,0.08535053288201873
+demand,Cement,log_level,13,0.02226716838382843
+demand,Cement,log_level,14,-0.04325589047872961
+demand,Cement,log_level,15,0.038527631570780305
+demand,Cement,log_level,16,0.05064058931545328
+demand,Cement,log_level,17,0.0027358967817939866
+demand,Cement,log_level,18,0.007586797251111743
+demand,Cement,log_level,19,-0.007571393471679653
+demand,Cement,log_level,20,0.02309571620069786
+demand,Cement,log_level,21,0.030537139171876927
+demand,Cement,log_level,22,-0.022799434849482617
+demand,Cement,log_level,23,-0.007227983974560821
+demand,Cement,log_level,24,0.06454545443650873
+demand,Granite,log_level,0,1.0
+demand,Granite,log_level,1,0.8244548213948764
+demand,Granite,log_level,2,-0.14012249112380257
+demand,Granite,log_level,3,-0.09245106386169778
+demand,Granite,log_level,4,0.04935015493643724
+demand,Granite,log_level,5,0.14515390220065083
+demand,Granite,log_level,6,0.03760884133860707
+demand,Granite,log_level,7,-0.03004858660696234
+demand,Granite,log_level,8,0.1021571882800559
+demand,Granite,log_level,9,0.05399595590171123
+demand,Granite,log_level,10,0.015119218319948797
+demand,Granite,log_level,11,0.06723738771514062
+demand,Granite,log_level,12,0.03639267700865672
+demand,Granite,log_level,13,-0.1094961280999314
+demand,Granite,log_level,14,0.10786759633993526
+demand,Granite,log_level,15,0.08163939140424686
+demand,Granite,log_level,16,-0.0640114501088732
+demand,Granite,log_level,17,-0.017320248876844815
+demand,Granite,log_level,18,0.05029098422519144
+demand,Granite,log_level,19,0.013144214241713853
+demand,Granite,log_level,20,0.009908789085131136
+demand,Granite,log_level,21,-0.018698308879806745
+demand,Granite,log_level,22,-0.05145940668795553
+demand,Granite,log_level,23,0.05471070292870839
+demand,Granite,log_level,24,0.16038525208204576
+demand,Ready-Mixed Concrete,log_level,0,1.0
+demand,Ready-Mixed Concrete,log_level,1,0.8432871191319573
+demand,Ready-Mixed Concrete,log_level,2,-0.27267687099091353
+demand,Ready-Mixed Concrete,log_level,3,0.09380808602725399
+demand,Ready-Mixed Concrete,log_level,4,0.06062987091330513
+demand,Ready-Mixed Concrete,log_level,5,0.07864412820943772
+demand,Ready-Mixed Concrete,log_level,6,0.03719333243034433
+demand,Ready-Mixed Concrete,log_level,7,0.03600315529862973
+demand,Ready-Mixed Concrete,log_level,8,0.06160351311599139
+demand,Ready-Mixed Concrete,log_level,9,0.03667890854451152
+demand,Ready-Mixed Concrete,log_level,10,-0.008136567720230884
+demand,Ready-Mixed Concrete,log_level,11,0.12160590044182439
+demand,Ready-Mixed Concrete,log_level,12,0.034310342485728396
+demand,Ready-Mixed Concrete,log_level,13,-0.10575873708012827
+demand,Ready-Mixed Concrete,log_level,14,0.16962541588278382
+demand,Ready-Mixed Concrete,log_level,15,0.006603214330544055
+demand,Ready-Mixed Concrete,log_level,16,-0.06755474592626713
+demand,Ready-Mixed Concrete,log_level,17,0.07616261124892457
+demand,Ready-Mixed Concrete,log_level,18,0.020288935750427717
+demand,Ready-Mixed Concrete,log_level,19,0.021560645887343192
+demand,Ready-Mixed Concrete,log_level,20,0.035890428654305896
+demand,Ready-Mixed Concrete,log_level,21,0.02297557775160306
+demand,Ready-Mixed Concrete,log_level,22,-0.04093462252051119
+demand,Ready-Mixed Concrete,log_level,23,0.0746978847263968
+demand,Ready-Mixed Concrete,log_level,24,0.08332879228128616
+demand,Steel Reinforcement Bars,log_level,0,1.0
+demand,Steel Reinforcement Bars,log_level,1,0.45710810399640983
+demand,Steel Reinforcement Bars,log_level,2,0.30253191008341773
+demand,Steel Reinforcement Bars,log_level,3,0.12272624592671884
+demand,Steel Reinforcement Bars,log_level,4,0.1034061486374495
+demand,Steel Reinforcement Bars,log_level,5,-0.022313276367878016
+demand,Steel Reinforcement Bars,log_level,6,0.13935304356006914
+demand,Steel Reinforcement Bars,log_level,7,-0.12336177867680981
+demand,Steel Reinforcement Bars,log_level,8,0.034398376946186054
+demand,Steel Reinforcement Bars,log_level,9,0.05596492692096724
+demand,Steel Reinforcement Bars,log_level,10,0.06753445571015884
+demand,Steel Reinforcement Bars,log_level,11,0.1235486152870402
+demand,Steel Reinforcement Bars,log_level,12,0.10502279675348247
+demand,Steel Reinforcement Bars,log_level,13,0.05964390634742606
+demand,Steel Reinforcement Bars,log_level,14,-0.03846023269536213
+demand,Steel Reinforcement Bars,log_level,15,0.07986974286433858
+demand,Steel Reinforcement Bars,log_level,16,-0.014105441747240688
+demand,Steel Reinforcement Bars,log_level,17,-0.0695883517539578
+demand,Steel Reinforcement Bars,log_level,18,-0.01360736161499132
+demand,Steel Reinforcement Bars,log_level,19,0.023370326517885186
+demand,Steel Reinforcement Bars,log_level,20,-0.014401469828760068
+demand,Steel Reinforcement Bars,log_level,21,-0.03675996966276274
+demand,Steel Reinforcement Bars,log_level,22,-0.14479998175816158
+demand,Steel Reinforcement Bars,log_level,23,0.021454544391493833
+demand,Steel Reinforcement Bars,log_level,24,0.09426409490676686
