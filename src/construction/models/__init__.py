@@ -5,6 +5,7 @@ from .material import ActivityMaterial, Material
 from .progress import ActivityProgress
 from .project import Project
 from .supplier import Supplier, SupplierMaterial
+from .resource import Resource, ResourceType
 
 __all__ = [
     "Activity",
