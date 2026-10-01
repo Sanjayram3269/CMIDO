@@ -14,7 +14,7 @@
     },
     "activities": {
       "file": "activities.csv",
-      "duration_unit": "day",
+      "duration_unit_column": "unit",
       "mapping": {
         "activity_id": "task_id",
         "activity_code": "task_code",
