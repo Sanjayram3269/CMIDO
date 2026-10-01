@@ -59,11 +59,7 @@ def _fingerprint(dataset: dict[str, Any]) -> str:
 
 
 def ingest_csv_bundle(root: str | Path, mapping_path: str | Path, *, dataset_id: str = "CMIDO_REAL_DATASET") -> dict[str, Any]:
-    """Ingest an external civil-project CSV bundle using explicit mappings.
-
-    No semantic fields are guessed. Every source-to-CMIDO mapping is declared
-    in the mapping file; invalid rows are reported rather than silently dropped.
-    """
+    """Ingest an external civil-project CSV bundle using explicit mappings."""
     root_path = Path(root).resolve()
     mapping_file = Path(mapping_path).resolve()
     if not mapping_file.exists():
@@ -114,6 +110,10 @@ def ingest_csv_bundle(root: str | Path, mapping_path: str | Path, *, dataset_id:
         raise ValueError("exactly one project record is required")
 
     canonical = normalize_dataset(raw, source=str(root_path), dataset_id=dataset_id, aliases=DEFAULT_ALIASES)
+    for activity in canonical["activities"]:
+        duration = activity.get("duration_days")
+        if isinstance(duration, float) and duration.is_integer():
+            activity["duration_days"] = int(duration)
     canonical["schema_version"] = "8I-1.0"
     canonical["metadata"].update({
         "ingestion_schema_version": INGESTION_SCHEMA_VERSION,
