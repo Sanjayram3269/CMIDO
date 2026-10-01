@@ -6,6 +6,7 @@ from src.construction.experiments import (
     build_delay_scenarios,
     run_real_dataset_experiment,
     run_real_dataset_report,
+    run_real_dataset_statistical_analysis,
 )
 
 
@@ -55,6 +56,24 @@ def test_real_dataset_report_preserves_dataset_provenance(tmp_path):
     assert report["scenario_summary"]["total_scenarios"] == 2
     assert report["dataset"]["schema_version"] == "8H-1.0"
     assert report["dataset"]["dataset_fingerprint"]
+
+
+def test_real_dataset_statistical_analysis_is_end_to_end(tmp_path):
+    dataset_path = canonical_fixture(tmp_path)
+    result = run_real_dataset_statistical_analysis(
+        str(dataset_path),
+        make_config(),
+        build_delay_scenarios("A006", [0, 1, 3]),
+        seed=42,
+        bootstrap_resamples=100,
+    )
+
+    assert result["experiment"]["dataset"]["dataset_id"] == "CMIDO_DATASET"
+    assert result["statistical_analysis"]["scenario_count"] == 3
+    assert result["statistical_analysis"]["analysis_fingerprint"]
+    assert "No statistical significance claim" in " ".join(
+        result["statistical_analysis"]["limitations"]
+    )
 
 
 def test_real_dataset_runner_rejects_missing_dataset(tmp_path):
