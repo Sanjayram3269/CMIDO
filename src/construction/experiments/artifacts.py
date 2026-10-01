@@ -26,6 +26,13 @@ def build_experiment_artifact(
     results = report["results"]
 
     payload = {
+        "experiment_id": experiment.get("experiment_id"),
+        "configuration_fingerprint": metadata.get(
+            "configuration_fingerprint"
+        ),
+        "scenario_count": scenario_summary["total_scenarios"],
+        "benchmark_count": benchmarks["total"],
+        "benchmark_all_passed": benchmarks["all_passed"],
         "experiment": experiment,
         "metadata": metadata,
         "scenario_summary": scenario_summary,
@@ -96,7 +103,26 @@ def validate_experiment_artifact(
     if not isinstance(artifact["benchmark_all_passed"], bool):
         raise ValueError("benchmark_all_passed must be a boolean")
 
+    # Identity checks are intentionally performed before fingerprint
+    # validation so identity mutations produce a precise diagnostic.
+    if artifact["experiment_id"] != artifact["experiment"].get("experiment_id"):
+        raise ValueError("artifact experiment_id mismatch")
+
+    if artifact["configuration_fingerprint"] != artifact[
+        "metadata"
+    ].get("configuration_fingerprint"):
+        raise ValueError("artifact configuration fingerprint mismatch")
+
     payload = {
+        "experiment_id": artifact["experiment_id"],
+        "configuration_fingerprint": artifact[
+            "configuration_fingerprint"
+        ],
+        "scenario_count": artifact["scenario_count"],
+        "benchmark_count": artifact["benchmark_count"],
+        "benchmark_all_passed": artifact[
+            "benchmark_all_passed"
+        ],
         "experiment": artifact["experiment"],
         "metadata": artifact["metadata"],
         "scenario_summary": artifact["scenario_summary"],
@@ -104,33 +130,33 @@ def validate_experiment_artifact(
         "results": artifact["results"],
     }
 
-    # Fingerprint verification must happen before derived-field consistency
-    # checks so that any mutation of an artifact is reported as an integrity
-    # failure rather than as a secondary structural mismatch.
     expected_fingerprint = stable_hash(payload)
+
     if artifact["result_fingerprint"] != expected_fingerprint:
-        raise ValueError("artifact result fingerprint mismatch")
+        raise ValueError(
+            "artifact result fingerprint mismatch"
+        )
 
-    if artifact["experiment_id"] != artifact["experiment"].get("experiment_id"):
-        raise ValueError("artifact experiment_id mismatch")
+    if artifact["scenario_count"] != artifact[
+        "scenario_summary"
+    ].get("total_scenarios"):
+        raise ValueError(
+            "artifact scenario count mismatch"
+        )
 
-    if artifact["configuration_fingerprint"] != artifact["metadata"].get(
-        "configuration_fingerprint"
-    ):
-        raise ValueError("artifact configuration fingerprint mismatch")
+    if artifact["benchmark_count"] != artifact[
+        "benchmarks"
+    ].get("total"):
+        raise ValueError(
+            "artifact benchmark count mismatch"
+        )
 
-    if artifact["scenario_count"] != artifact["scenario_summary"].get(
-        "total_scenarios"
-    ):
-        raise ValueError("artifact scenario count mismatch")
-
-    if artifact["benchmark_count"] != artifact["benchmarks"].get("total"):
-        raise ValueError("artifact benchmark count mismatch")
-
-    if artifact["benchmark_all_passed"] != artifact["benchmarks"].get(
-        "all_passed"
-    ):
-        raise ValueError("artifact benchmark status mismatch")
+    if artifact["benchmark_all_passed"] != artifact[
+        "benchmarks"
+    ].get("all_passed"):
+        raise ValueError(
+            "artifact benchmark status mismatch"
+        )
 
     return True
 
