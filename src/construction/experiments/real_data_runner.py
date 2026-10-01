@@ -7,6 +7,7 @@ from .dataset_loader import load_json_dataset
 from .evaluator import evaluate_schedule_scenario
 from .report import build_experiment_report
 from .runner import run_experiment
+from .statistical import build_statistical_analysis
 
 
 def run_real_dataset_experiment(
@@ -46,3 +47,24 @@ def run_real_dataset_report(
         experiment,
         benchmarks or [],
     )
+
+
+def run_real_dataset_statistical_analysis(
+    dataset_path: str,
+    config: Any,
+    scenarios: list[dict[str, Any]],
+    *,
+    seed: int = 42,
+    bootstrap_resamples: int = 2000,
+) -> dict[str, Any]:
+    """Run a real-data experiment and generate reproducible statistical evidence."""
+    experiment = run_real_dataset_experiment(dataset_path, config, scenarios)
+    analysis = build_statistical_analysis(
+        experiment["results"],
+        seed=seed,
+        bootstrap_resamples=bootstrap_resamples,
+    )
+    return {
+        "experiment": experiment,
+        "statistical_analysis": analysis,
+    }
