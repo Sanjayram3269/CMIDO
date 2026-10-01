@@ -4,15 +4,6 @@ CMIDO 8Q — Publication artifact generator.
 Generates publication-ready CSV tables directly from frozen result sources.
 No scientific values are hard-coded. The script also emits a manifest and
 reconciliation audit so every generated table has an auditable source path.
-
-Current scope:
-- T5: RO3 controlled baseline comparison
-- T6: RO3 controlled ablation
-- T7: RO3 stress/robustness summary where source artifacts exist
-
-RO1/RO2 publication tables are intentionally source-mapped for the same
-pipeline but are not fabricated when their final table schema has not yet
-been frozen.
 """
 from __future__ import annotations
 
@@ -61,75 +52,57 @@ def generate(root: Path | None = None) -> dict:
     if pairwise.exists():
         df = pd.read_csv(pairwise)
         required = {
-            "comparison",
-            "contrast",
-            "metric",
-            "n_origins",
-            "newer_mean",
-            "base_mean",
-            "mean_difference_newer_minus_base",
-            "bootstrap_ci95_lower",
-            "bootstrap_ci95_upper",
-            "wilcoxon_q_bh",
+            "comparison", "contrast", "metric", "n_origins", "newer_mean",
+            "base_mean", "mean_difference_newer_minus_base",
+            "bootstrap_ci95_lower", "bootstrap_ci95_upper", "wilcoxon_q_bh",
         }
         ck("T5_required_columns", required <= set(df.columns))
-        t5 = df.copy()
-        t5["n_origins"] = pd.to_numeric(t5["n_origins"], errors="coerce").astype("Int64")
-        t5 = t5[
-            [
-                "comparison",
-                "contrast",
-                "metric",
-                "n_origins",
-                "newer_mean",
-                "base_mean",
-                "mean_difference_newer_minus_base",
-                "bootstrap_ci95_lower",
-                "bootstrap_ci95_upper",
-                "wilcoxon_p_raw",
-                "wilcoxon_q_bh",
-                "significant_bh_0_05",
+        if required <= set(df.columns):
+            t5 = df.copy()
+            t5["n_origins"] = pd.to_numeric(t5["n_origins"], errors="coerce").astype("Int64")
+            columns = [
+                "comparison", "contrast", "metric", "n_origins", "newer_mean",
+                "base_mean", "mean_difference_newer_minus_base",
+                "bootstrap_ci95_lower", "bootstrap_ci95_upper", "wilcoxon_p_raw",
+                "wilcoxon_q_bh", "significant_bh_0_05",
             ]
-        ]
-        t5.to_csv(out / "T5_RO3_baseline_comparison.csv", index=False)
-        ck("T5_exactly_five_planned_contrasts", set(t5["comparison"]) == {
-            "O2_vs_O1", "O3_vs_O1", "O4_vs_O2", "O4_vs_O3", "O4_vs_O1"
-        })
-        ck("T5_all_origins_equal_eleven", set(t5["n_origins"].dropna()) == {11})
-        artifacts.append(("T5_RO3_baseline_comparison.csv", pairwise, "RO3_step36_statistical_pairwise_comparisons.csv"))
+            missing_optional = [col for col in columns if col not in t5.columns]
+            ck("T5_output_columns_available", not missing_optional, ", ".join(missing_optional))
+            if not missing_optional:
+                t5 = t5[columns]
+                t5.to_csv(out / "T5_RO3_baseline_comparison.csv", index=False)
+                ck("T5_exactly_five_planned_contrasts", set(t5["comparison"]) == {
+                    "O2_vs_O1", "O3_vs_O1", "O4_vs_O2", "O4_vs_O3", "O4_vs_O1"
+                })
+                ck("T5_all_origins_equal_eleven", set(t5["n_origins"].dropna()) == {11})
+                artifacts.append(("T5_RO3_baseline_comparison.csv", pairwise, "RO3_step36_statistical_pairwise_comparisons.csv"))
 
     if primary.exists():
         df = pd.read_csv(primary)
         required = {
-            "comparison",
-            "contrast",
-            "metric",
-            "n_origins",
-            "newer_mean",
-            "base_mean",
-            "mean_difference_newer_minus_base",
-            "bootstrap_ci95_lower",
-            "bootstrap_ci95_upper",
-            "wilcoxon_q_bh",
+            "comparison", "contrast", "metric", "n_origins", "newer_mean",
+            "base_mean", "mean_difference_newer_minus_base",
+            "bootstrap_ci95_lower", "bootstrap_ci95_upper", "wilcoxon_q_bh",
         }
         ck("T6_required_columns", required <= set(df.columns))
-        t6 = df.copy()
-        t6.to_csv(out / "T6_RO3_ablation.csv", index=False)
-        ck("T6_expected_primary_rows", len(t6) == 20, str(len(t6)))
-        ck("T6_no_nan_primary_values", not t6[
-            ["newer_mean","base_mean","mean_difference_newer_minus_base",
-             "bootstrap_ci95_lower","bootstrap_ci95_upper","wilcoxon_q_bh"]
-        ].isna().any().any())
-        artifacts.append(("T6_RO3_ablation.csv", primary, "RO3_step36_primary_ablation_results.csv"))
+        if required <= set(df.columns):
+            t6 = df.copy()
+            t6.to_csv(out / "T6_RO3_ablation.csv", index=False)
+            ck("T6_expected_primary_rows", len(t6) == 20, str(len(t6)))
+            numeric = [
+                "newer_mean", "base_mean", "mean_difference_newer_minus_base",
+                "bootstrap_ci95_lower", "bootstrap_ci95_upper", "wilcoxon_q_bh",
+            ]
+            ck("T6_no_nan_primary_values", not t6[numeric].isna().any().any())
+            artifacts.append(("T6_RO3_ablation.csv", primary, "RO3_step36_primary_ablation_results.csv"))
 
     if desc.exists():
         df = pd.read_csv(desc)
         ck("T5_T6_four_controllers", set(df["controller"]) == {"O1", "O2", "O3", "O4"})
         ck("T5_T6_descriptive_rows", len(df) == 4, str(len(df)))
-        desc.to_csv(out / "T5_T6_controller_descriptives.csv", index=False)
+        df.to_csv(out / "T5_T6_controller_descriptives.csv", index=False)
         artifacts.append(("T5_T6_controller_descriptives.csv", desc, "RO3_step36_controller_descriptive_statistics.csv"))
 
-    # Source hashes create a traceable artifact manifest.
     manifest = {
         "stage": "8Q",
         "status": "PASS" if checks and all(x["passed"] for x in checks) else "HOLD",
@@ -147,7 +120,6 @@ def generate(root: Path | None = None) -> dict:
         "checks_passed": sum(x["passed"] for x in checks),
         "checks_total": len(checks),
     }
-
     (out / "CMIDO_8Q_PUBLICATION_ARTIFACT_MANIFEST.json").write_text(
         json.dumps(manifest, indent=2), encoding="utf-8"
     )
