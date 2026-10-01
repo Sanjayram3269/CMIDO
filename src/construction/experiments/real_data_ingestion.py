@@ -20,10 +20,7 @@ def _read_csv(path: Path) -> list[dict[str, Any]]:
         reader = csv.DictReader(handle)
         if not reader.fieldnames:
             raise ValueError(f"source table has no header: {path}")
-        rows: list[dict[str, Any]] = []
-        for row in reader:
-            rows.append(dict(row))
-    return rows
+        return [dict(row) for row in reader]
 
 
 def _map_row(row: dict[str, Any], mapping: dict[str, str]) -> dict[str, Any]:
@@ -44,15 +41,16 @@ def _coerce_number(value: Any, field: str) -> float:
         raise ValueError(f"invalid numeric value for {field}: {value}") from exc
 
 
-def _convert_duration(value: Any, unit: str) -> float:
+def _convert_duration(value: Any, unit: str) -> int:
     number = _coerce_number(value, "duration_days")
     factors = {"day": 1.0, "days": 1.0, "hour": 1.0 / 24.0, "hours": 1.0 / 24.0, "week": 7.0, "weeks": 7.0}
+    unit = unit.strip().lower()
     if unit not in factors:
         raise ValueError(f"unsupported duration unit: {unit}")
     converted = number * factors[unit]
-    if converted < 0:
-        raise ValueError("duration cannot be negative")
-    return converted
+    if converted < 0 or not converted.is_integer():
+        raise ValueError(f"duration does not convert to an integer CMIDO day value: {value} {unit}")
+    return int(converted)
 
 
 def _fingerprint(dataset: dict[str, Any]) -> str:
@@ -60,12 +58,7 @@ def _fingerprint(dataset: dict[str, Any]) -> str:
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
-def ingest_csv_bundle(
-    root: str | Path,
-    mapping_path: str | Path,
-    *,
-    dataset_id: str = "CMIDO_REAL_DATASET",
-) -> dict[str, Any]:
+def ingest_csv_bundle(root: str | Path, mapping_path: str | Path, *, dataset_id: str = "CMIDO_REAL_DATASET") -> dict[str, Any]:
     """Ingest an external civil-project CSV bundle using explicit mappings.
 
     No semantic fields are guessed. Every source-to-CMIDO mapping is declared
@@ -100,8 +93,9 @@ def ingest_csv_bundle(
             try:
                 item = _map_row(row, spec["mapping"])
                 if table_name == "activities":
-                    unit = str(spec.get("duration_unit", "day")).lower()
-                    item["duration_days"] = _convert_duration(item.get("duration_days"), unit)
+                    unit_column = spec.get("duration_unit_column")
+                    unit = row.get(unit_column) if unit_column else spec.get("duration_unit", "day")
+                    item["duration_days"] = _convert_duration(item.get("duration_days"), str(unit or "day"))
                 mapped_rows.append(item)
             except ValueError as exc:
                 rejected.append({"table": table_name, "source_row": index, "reason": str(exc)})
@@ -119,23 +113,16 @@ def ingest_csv_bundle(
     if not raw["project"]:
         raise ValueError("exactly one project record is required")
 
-    canonical = normalize_dataset(
-        raw,
-        source=str(root_path),
-        dataset_id=dataset_id,
-        aliases=DEFAULT_ALIASES,
-    )
+    canonical = normalize_dataset(raw, source=str(root_path), dataset_id=dataset_id, aliases=DEFAULT_ALIASES)
     canonical["schema_version"] = "8I-1.0"
-    canonical["metadata"].update(
-        {
-            "ingestion_schema_version": INGESTION_SCHEMA_VERSION,
-            "source_format": SUPPORTED_FORMAT,
-            "mapping_file": str(mapping_file),
-            "source_row_counts": row_counts,
-            "rejected_record_count": len(rejected),
-            "source_traceability": "table + 1-based CSV row validated during ingestion",
-        }
-    )
+    canonical["metadata"].update({
+        "ingestion_schema_version": INGESTION_SCHEMA_VERSION,
+        "source_format": SUPPORTED_FORMAT,
+        "mapping_file": str(mapping_file),
+        "source_row_counts": row_counts,
+        "rejected_record_count": len(rejected),
+        "source_traceability": "table + 1-based CSV row validated during ingestion",
+    })
     canonical["fingerprint_sha256"] = _fingerprint(canonical)
     return canonical
 
