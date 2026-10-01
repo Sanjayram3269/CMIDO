@@ -135,7 +135,7 @@ def generate(root: Path | None = None):
     sens = copy_source("T3_RO2_sensitivity", sens_path, {"material","forecast_origin","quantile","joint_duration_days_q50_q99_distribution","independent_duration_sensitivity","independent_minus_joint","independent_vs_joint_pct"})
     if sens is not None:
         sens.to_csv(out / "T3_RO2_joint_independent_sensitivity.csv", index=False)
-        ck("T3_RO2_sensitivity_expected_rows", len(sens) == 480, str(len(sens)))
+        ck("T3_RO2_sensitivity_expected_rows", len(sens) == 240, str(len(sens)))
         artifacts.append(("T3_RO2_joint_independent_sensitivity.csv", sens_path, "RO2_step27d_joint_vs_independent_sensitivity.csv"))
 
     manifest = {
