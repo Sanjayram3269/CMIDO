@@ -12,8 +12,25 @@ import os
 from pathlib import Path
 import tempfile
 
-from src.construction.experiments.real_data_ingestion import build_ingestion_audit, ingest_csv_bundle
+from src.construction.experiments.real_data_ingestion import (
+    INGESTION_SCHEMA_VERSION,
+    build_ingestion_audit,
+    ingest_csv_bundle,
+)
 from src.construction.experiments.dataset import validate_dataset_structure
+
+CONTRACT_MARKERS = (
+    "CMIDO 9A",
+    "INGESTION_SCHEMA_VERSION",
+    "explicit_mapping_ingestion",
+    "duration_unit_normalization",
+    "dependency_integrity",
+    "provenance_present",
+    "source_row_counts_present",
+    "rejected_record_reporting",
+    "deterministic_fingerprint",
+    "CMIDO_9A_REAL_DATA_GENERALIZATION_MANIFEST.json",
+)
 
 
 def project_root() -> Path:
@@ -46,7 +63,7 @@ def run_gate(root: Path | None = None) -> dict:
         try:
             dataset = ingest_csv_bundle(fixture, mapping, dataset_id="CMIDO_9A_FIXTURE")
             ck("explicit_mapping_ingestion", True)
-        except Exception as exc:  # pragma: no cover - reported as a gate failure
+        except Exception as exc:
             ck("explicit_mapping_ingestion", False, str(exc))
 
     if dataset is not None:
@@ -73,7 +90,6 @@ def run_gate(root: Path | None = None) -> dict:
 
         ck("no_source_semantic_guessing", dataset["metadata"].get("source_format") == "csv_bundle")
 
-    # Negative-path proof: invalid source data must be surfaced, not silently dropped.
     with tempfile.TemporaryDirectory() as temp:
         temp_root = Path(temp)
         for source_name in ("project.csv", "activities.csv", "dependencies.csv", "mapping.json"):
@@ -105,18 +121,27 @@ def main() -> int:
     result = run_gate(root)
     out = root / "results/9A_real_data_generalization"
     out.mkdir(parents=True, exist_ok=True)
-    (out / "CMIDO_9A_REAL_DATA_GENERALIZATION_MANIFEST.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
+    (out / "CMIDO_9A_REAL_DATA_GENERALIZATION_MANIFEST.json").write_text(
+        json.dumps(result, indent=2), encoding="utf-8"
+    )
     (out / "CMIDO_9A_REAL_DATA_GENERALIZATION_AUDIT.csv").write_text(
-        "check,passed,detail\n" + "\n".join(
-            f"{row['check']},{row['passed']},{json.dumps(row['detail'])}" for row in result["checks"]
-        ) + "\n",
+        "check,passed,detail\n"
+        + "\n".join(
+            f"{row['check']},{row['passed']},{json.dumps(row['detail'])}"
+            for row in result["checks"]
+        )
+        + "\n",
         encoding="utf-8",
     )
     if result["status"] == "PASS":
         fixture = root / "examples/9A_real_data"
         dataset = ingest_csv_bundle(fixture, fixture / "mapping.json", dataset_id="CMIDO_9A_FIXTURE")
-        (out / "CMIDO_9A_CANONICAL_DATASET.json").write_text(json.dumps(dataset, indent=2), encoding="utf-8")
-        (out / "CMIDO_9A_INGESTION_AUDIT.json").write_text(json.dumps(build_ingestion_audit(dataset), indent=2), encoding="utf-8")
+        (out / "CMIDO_9A_CANONICAL_DATASET.json").write_text(
+            json.dumps(dataset, indent=2), encoding="utf-8"
+        )
+        (out / "CMIDO_9A_INGESTION_AUDIT.json").write_text(
+            json.dumps(build_ingestion_audit(dataset), indent=2), encoding="utf-8"
+        )
 
     print("=" * 78)
     print("CMIDO 9A — REAL-DATA INGESTION / GENERALIZATION GATE")
