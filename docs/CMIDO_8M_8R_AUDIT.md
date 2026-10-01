@@ -113,9 +113,9 @@ The package must identify the exact result artifacts and configurations used by 
 
 ## 8P
 
-**Status: IN IMPLEMENTATION.**
+**Status: DONE / GATE VERIFIED; INTERACTIVE SMOKE PENDING.**
 
-The dashboard exists, but that is not equivalent to an 8P real-data demonstration.
+The dashboard exists and its repository-level 8P gate has now been executed successfully: **20/20 checks PASS**. The full regression suite immediately afterward reported **352 passed in 2.30s**. A live Streamlit interactive smoke remains the final evidence step for 8P.
 
 ### Required 8P work
 
@@ -136,7 +136,7 @@ The run must be reproducible from a documented configuration and seed.
 
 ## 8Q
 
-**Status: NOT IMPLEMENTED AS A DISTINCT REPOSITORY STAGE YET.**
+**Status: NEXT — IMPLEMENTATION REQUIRED.**
 
 ### Required 8Q work
 
