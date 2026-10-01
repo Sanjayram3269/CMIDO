@@ -1,7 +1,7 @@
 """CMIDO 8S — full numerical/source reconciliation gate.
 
 Reconciles frozen 8Q publication tables and 8R figure concordance against
- authoritative upstream artifacts using the exact deterministic transformations
+authoritative upstream artifacts using the exact deterministic transformations
 used by the 8Q publication generator. No scientific results are recomputed or
 altered.
 """
@@ -10,21 +10,37 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+
 import pandas as pd
 from pandas.testing import assert_frame_equal
 
 ROOT = Path(__file__).resolve().parents[2]
 
 SPECS = {
+    "T5_RO3_baseline_comparison.csv": ("results/RO3/ablation/final_comparison/RO3_step36_statistical_pairwise_comparisons.csv", 5),
+    "T6_RO3_ablation.csv": ("results/RO3/ablation/final_comparison/RO3_step36_primary_ablation_results.csv", 20),
+    "T5_T6_controller_descriptives.csv": ("results/RO3/ablation/final_comparison/RO3_step36_controller_descriptive_statistics.csv", 4),
     "T1_RO1_validation_metrics.csv": ("results/forecasting/probabilistic_calibration/RO1_step26c3_validation_metrics.csv", 36),
     "T2_RO2_joint_propagation_summary.csv": ("results/RO2/distribution/RO2_step27c3_joint_propagation_summary.csv", 1),
     "T2_RO2_tail_comparison.csv": ("results/RO2/distribution/RO2_step27c3_tail_comparison.csv", 15),
     "T3_RO2_propagation_summary.csv": ("results/RO2/propagation/RO2_step27d_propagation_summary.csv", 96),
     "T3_RO2_service_risk_curve.csv": ("results/RO2/propagation/RO2_step27d_service_risk_curve.csv", 240),
     "T3_RO2_joint_independent_sensitivity.csv": ("results/RO2/propagation/RO2_step27d_joint_vs_independent_sensitivity.csv", 240),
-    "T5_T6_controller_descriptives.csv": ("results/RO3/ablation/final_comparison/RO3_step36_controller_descriptive_statistics.csv", 4),
-    "T6_RO3_ablation.csv": ("results/RO3/ablation/final_comparison/RO3_step36_primary_ablation_results.csv", 20),
 }
+
+T1_COLS = [
+    "dataset", "series", "horizon", "n_raw", "n_calibrated_50", "n_calibrated_80",
+    "mae_q50", "rmse_q50", "prequential_coverage_50", "prequential_coverage_80",
+    "prequential_coverage_error_50", "prequential_coverage_error_80",
+    "prequential_mean_width_50", "prequential_mean_width_80",
+    "prequential_winkler_50", "prequential_winkler_80",
+]
+
+T5_COLS = [
+    "comparison", "contrast", "metric", "n_origins", "newer_mean", "base_mean",
+    "mean_difference_newer_minus_base", "bootstrap_ci95_lower", "bootstrap_ci95_upper",
+    "wilcoxon_p_raw", "wilcoxon_q_bh", "significant_bh_0_05",
+]
 
 
 def sha256(path: Path) -> str:
@@ -35,26 +51,25 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def reconcile(pub: pd.DataFrame, upstream: pd.DataFrame, filename: str) -> tuple[bool, str]:
-    """Apply the exact 8Q transformation and compare the resulting values."""
+def expected_publication_frame(upstream: pd.DataFrame, filename: str) -> pd.DataFrame:
+    """Reproduce the exact deterministic transformation performed by 8Q."""
     if filename == "T1_RO1_validation_metrics.csv":
-        cols = [
-            "dataset","series","horizon","n_raw","n_calibrated_50","n_calibrated_80",
-            "mae_q50","rmse_q50","prequential_coverage_50","prequential_coverage_80",
-            "prequential_coverage_error_50","prequential_coverage_error_80",
-            "prequential_mean_width_50","prequential_mean_width_80",
-            "prequential_winkler_50","prequential_winkler_80",
-        ]
-        expected = upstream[cols].copy()
-    elif filename == "T3_RO2_propagation_summary.csv":
-        expected = upstream[upstream["representation"].isin([
-            "joint_duration_primary", "independent_duration_sensitivity"
-        ])].copy()
-    elif filename == "T6_RO3_ablation.csv":
-        expected = upstream.copy()
-    else:
-        expected = upstream.copy()
+        return upstream[T1_COLS].copy()
+    if filename == "T5_RO3_baseline_comparison.csv":
+        out = upstream[T5_COLS].copy()
+        out["n_origins"] = pd.to_numeric(out["n_origins"], errors="coerce").astype("Int64")
+        return out
+    if filename == "T3_RO2_propagation_summary.csv":
+        return upstream[
+            upstream["representation"].isin([
+                "joint_duration_primary", "independent_duration_sensitivity"
+            ])
+        ].copy()
+    return upstream.copy()
 
+
+def reconcile(pub: pd.DataFrame, upstream: pd.DataFrame, filename: str) -> tuple[bool, str]:
+    expected = expected_publication_frame(upstream, filename)
     if list(pub.columns) != list(expected.columns) or pub.shape != expected.shape:
         return False, f"expected transformed shape {expected.shape}, got {pub.shape}"
     try:
@@ -89,6 +104,7 @@ def generate(root: Path | None = None):
         ck("8Q_manifest_status_pass", qm.get("status") == "PASS", str(qm.get("status")))
         q_entries = {x["artifact"]: x for x in qm.get("artifacts", [])}
         ck("8Q_manifest_artifact_count", len(q_entries) == len(SPECS), f"{len(q_entries)} expected {len(SPECS)}")
+        ck("8Q_manifest_artifact_names_exact", set(q_entries) == set(SPECS), ", ".join(sorted(set(q_entries) ^ set(SPECS))))
 
     for filename, (upstream_rel, expected_rows) in SPECS.items():
         pub = q / filename
@@ -98,22 +114,16 @@ def generate(root: Path | None = None):
         if pub.exists() and upstream.exists():
             a = pd.read_csv(pub)
             b = pd.read_csv(upstream)
+            expected = expected_publication_frame(b, filename)
             ck(f"{filename}_row_count", len(a) == expected_rows, f"{len(a)} expected {expected_rows}")
-            if filename == "T1_RO1_validation_metrics.csv":
-                expected_schema = list(b[[
-                    "dataset","series","horizon","n_raw","n_calibrated_50","n_calibrated_80",
-                    "mae_q50","rmse_q50","prequential_coverage_50","prequential_coverage_80",
-                    "prequential_coverage_error_50","prequential_coverage_error_80",
-                    "prequential_mean_width_50","prequential_mean_width_80",
-                    "prequential_winkler_50","prequential_winkler_80",
-                ]].columns)
-            else:
-                expected_schema = list(b.columns)
-            ck(f"{filename}_schema_exact", list(a.columns) == expected_schema)
+            ck(f"{filename}_schema_exact", list(a.columns) == list(expected.columns))
             ok, detail = reconcile(a, b, filename)
             ck(f"{filename}_values_exact", ok, detail)
             entry = q_entries.get(filename)
-            ck(f"{filename}_manifest_hash_match", bool(entry) and entry.get("source_sha256") == sha256(upstream))
+            ck(
+                f"{filename}_manifest_hash_match",
+                bool(entry) and entry.get("source_sha256") == sha256(upstream),
+            )
 
     desc = q / "T5_T6_controller_descriptives.csv"
     if desc.exists():
@@ -138,7 +148,7 @@ def generate(root: Path | None = None):
         expected_sources = {
             "T1_RO1_validation_metrics.csv", "T2_RO2_tail_comparison.csv",
             "T3_RO2_propagation_summary.csv", "T3_RO2_joint_independent_sensitivity.csv",
-            "T5_T6_controller_descriptives.csv", "T6_RO3_ablation.csv"
+            "T5_T6_controller_descriptives.csv", "T6_RO3_ablation.csv",
         }
         actual_sources = {Path(x["source"]).name for x in figs}
         ck("8R_sources_match_8Q", actual_sources == expected_sources)
@@ -152,7 +162,7 @@ def generate(root: Path | None = None):
         "status": "PASS" if checks and all(x["passed"] for x in checks) else "HOLD",
         "checks_passed": sum(x["passed"] for x in checks),
         "checks_total": len(checks),
-        "purpose": "Full numerical/source reconciliation for frozen 8Q publication tables and 8R figures using declared deterministic transformations.",
+        "purpose": "Full numerical/source reconciliation for all nine frozen 8Q publication tables and six 8R figures using declared deterministic transformations.",
     }
     (out / "CMIDO_8S_RECONCILIATION_MANIFEST.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     pd.DataFrame(checks).to_csv(out / "CMIDO_8S_RECONCILIATION_AUDIT.csv", index=False)
