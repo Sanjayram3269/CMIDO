@@ -73,17 +73,22 @@ def calculate_forward_pass(
                 relationship_type = dependency["relationship_type"]
                 lag_days = dependency["lag_days"]
 
-                if relationship_type != "FS":
+                if relationship_type == "FS":
+                    constraint = predecessor_result["ef"] + lag_days
+                elif relationship_type == "SS":
+                    constraint = predecessor_result["es"] + lag_days
+                elif relationship_type == "FF":
+                    constraint = predecessor_result["ef"] + lag_days - duration
+                elif relationship_type == "SF":
+                    constraint = predecessor_result["es"] + lag_days - duration
+                else:
                     raise ValueError(
                         f"Unsupported relationship type "
                         f"{relationship_type!r} for dependency "
-                        f"{dependency['dependency_id']}. "
-                        f"3A currently supports FS only."
+                        f"{dependency['dependency_id']}."
                     )
 
-                predecessor_finish_times.append(
-                    predecessor_result["ef"] + lag_days
-                )
+                predecessor_finish_times.append(constraint)
 
             es = max(predecessor_finish_times)
 
