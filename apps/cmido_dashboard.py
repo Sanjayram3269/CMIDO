@@ -217,6 +217,7 @@ elif page == "Risk & Scenarios":
 
 elif page == "Experiment Lab":
     st.subheader("🧪 Controlled Experiment Lab")
+    st.caption("Deterministic CMIDO scenarios are executed through the real schedule-impact engine; experiment evidence is kept traceable to the selected configuration and seed.")
     st.caption("Every selected scenario is executed through the real CMIDO schedule-impact evaluator.")
     ids = [a["activity_id"] for a in project.get("activities", [])]
     selected = st.multiselect("Activities", ids, default=ids[:1])
