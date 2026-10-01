@@ -1,0 +1,6 @@
+Truck_id;Vehicle;Capacity (kg);Capacity (m3);FlagFirstEchelon;FlagSecondEchelon
+1;Van / Light Truck;1500;10;X;X
+2;2 Axes Truck 7.5T;4900;19;X;X
+3;2 Axes Truck 14T;10000;25;X;X
+4;3 Axes Truck;16000;32;X;X
+5;Articulated Truck;25000;75;X;

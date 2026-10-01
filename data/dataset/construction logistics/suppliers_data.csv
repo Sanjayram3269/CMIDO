@@ -1,0 +1,408 @@
+supplier_id;Material delivered;Truck
+A_001;Fences;5
+A_001;Metal;5
+A_001;Store Equipment;5
+A_002;Tiles;5
+A_003;Steel;5
+A_004;Bricks;5
+A_004;Garden Equipment;5
+A_004;Geotexil;5
+A_004;Hydraulic;5
+A_004;Lift;5
+A_004;Plaster;5
+A_004;Polystyrene;5
+A_005;Metal;5
+A_005;Tar;5
+A_006;Accessories;5
+A_006;Metal;5
+A_006;Tiles;5
+A_007;Bricks;5
+A_007;Epoxi;5
+A_007;Roof;5
+A_007;Signals;5
+A_007;Wood;5
+A_008;Bricks;5
+A_009;Internal Doors;5
+A_010;;
+A_011;Scaffolding;5
+A_011;Plants;5
+A_011;External Doors;4
+A_012;Pipes;5
+A_013;Gabions;5
+A_013;Precasted Concrete;5
+A_014;Parquet;5
+A_015;Fire Doors;5
+A_016;Stone;5
+A_017;Polystyrene;5
+A_018;Polystyrene;5
+A_019;Polystyrene;5
+A_020;Accessories;5
+A_020;Electrical;5
+A_020;Polystyrene;5
+A_020;Tar;5
+A_021;Cement;5
+A_021;Polystyrene;5
+A_022;Accessories;5
+A_022;Plants;5
+A_023;Plants;5
+A_024;Coating;5
+A_025;External Doors;5
+A_025;Glass wool;5
+A_025;Windows;5
+A_026;Paint;5
+A_027;Accessories;5
+A_028;Pipes;5
+A_029;Coating;5
+A_029;Paint;5
+A_030;Store Equipment;5
+A_030;Windows;5
+B_001;Electrical;4
+B_002;Coating;5
+B_002;Polystyrene;5
+B_003;Glass wool;5
+B_004;Bricks;5
+B_004;Epoxi;5
+B_004;Garden Equipment;5
+B_004;Geotexil;5
+B_004;Paint;4
+B_005;Hydraulic;5
+B_005;Pipes;5
+B_006;Internal Doors;5
+B_007;Metal;5
+B_008;Accessories;5
+B_008;Metal;5
+B_008;Pipes;5
+B_008;Precasted Concrete;5
+B_008;Steel;5
+B_009;Scaffolding;5
+B_010;Steel;5
+B_010;Tiles;5
+B_011;Hydraulic;5
+B_011;Pipes;5
+B_012;Parquet;5
+B_013;Accessories;5
+B_014;Cement;5
+B_014;Polystyrene;5
+B_015;Cement;5
+B_015;Metal;5
+B_016;Polystyrene;5
+B_017;Steel;5
+B_017;Stone;5
+B_018;Tiles;5
+B_019;Parquet;5
+B_020;Epoxi;5
+B_020;Steel;5
+B_021;Hydraulic;5
+B_021;Pipes;5
+B_022;Scaffolding;5
+B_023;Internal Doors;5
+B_024;Cement;5
+B_024;Hydraulic;5
+B_024;Internal Doors;5
+B_024;Plaster;5
+B_024;Precasted Concrete;5
+B_025;Coating;5
+B_026;;
+B_027;Wood;5
+B_028;Accessories;5
+B_028;Coating;5
+B_028;Electrical;5
+B_028;Pipes;5
+B_028;Polystyrene;5
+B_029;Coating;5
+B_029;Pipes;5
+B_029;Polystyrene;5
+B_030;Glass wool;5
+B_030;Hydraulic;5
+B_030;Pipes;5
+B_030;Polystyrene;5
+B_031;Accessories;5
+B_031;Coating;5
+B_031;Electrical;5
+B_031;Hydraulic;5
+B_031;Pipes;5
+B_031;Polystyrene;5
+B_032;Pipes;5
+B_033;Electrical;5
+B_033;Polystyrene;5
+B_034;Accessories;5
+B_034;Electrical;5
+B_034;Hydraulic;5
+B_034;Pipes;5
+B_034;Steel;5
+B_035;Wood;5
+B_036;Tiles;5
+B_037;Bricks;5
+B_037;Epoxi;5
+B_037;Garden Equipment;5
+B_037;Geotexil;5
+B_037;Paint;4
+B_038;Electrical;4
+B_038;Stone;5
+B_038;Tiles;5
+B_039;Hydraulic;5
+B_040;Metal;5
+B_041;Hydraulic;5
+B_041;Pipes;5
+B_042;Tiles;5
+B_043;Tiles;5
+B_044;Metal;5
+B_044;Plaster;5
+B_045;Plaster;5
+B_046;Hydraulic;5
+B_046;Pipes;5
+B_047;External Doors;5
+B_047;Fire Doors;5
+B_048;;
+B_049;;
+B_050;Bitumen;5
+B_050;Gabions;4
+B_051;Accessories;5
+B_051;Internal Doors;5
+B_052;Internal Doors;5
+B_052;Polystyrene;5
+B_053;External Doors;5
+B_053;Fire Doors;5
+B_054;External Doors;5
+B_055;Tiles;5
+B_056;Tiles;5
+B_057;Tiles;5
+B_058;Tiles;5
+B_059;Tiles;5
+B_060;Gabions;5
+B_061;Glass wool;5
+B_062;Internal Doors;5
+B_063;Metal;5
+B_063;Steel;5
+B_064;Metal;5
+B_064;Plaster;5
+B_065;Polystyrene;5
+B_065;Scaffolding;5
+B_066;Scaffolding;5
+B_067;Metal;5
+B_067;Polystyrene;5
+B_067;Steel;5
+B_068;Gabions;5
+B_068;Metal;5
+B_068;Stone;5
+B_069;Parquet;5
+B_070;Windows;4
+B_071;Windows;4
+B_072;Internal Doors;5
+B_073;Coating;5
+B_074;Plaster;5
+B_075;Electrical;4
+B_076;Glass wool;5
+B_076;Pipes;5
+B_077;Metal;5
+B_078;Plaster;5
+B_078;Polystyrene;5
+B_079;Plaster;5
+B_079;Polystyrene;5
+B_079;Tiles;5
+B_080;Bricks;5
+B_080;Epoxi;5
+B_080;Garden Equipment;5
+B_080;Geotexil;5
+B_080;Paint;4
+B_081;Hydraulic;5
+B_081;Pipes;5
+B_082;Parquet;5
+B_083;Signals;5
+B_084;Internal Doors;5
+B_085;Pipes;5
+B_086;Windows;4
+B_087;Electrical;4
+B_088;Stone;5
+B_089;Bricks;5
+B_089;Epoxi;5
+B_089;Garden Equipment;5
+B_089;Geotexil;5
+B_089;Paint;4
+B_090;Cement;5
+B_090;Coating;5
+B_090;Metal;5
+B_090;Precasted Concrete;5
+B_091;Precasted Concrete;5
+B_092;Windows;4
+B_093;Electrical;4
+B_093;Internal Doors;5
+B_093;Lift;5
+B_094;Fences;5
+B_095;Scaffolding;5
+B_096;Tiles;5
+B_097;Hydraulic;5
+B_097;Pipes;5
+B_098;Accessories;5
+B_098;Electrical;5
+B_098;Metal;5
+B_098;Steel;5
+B_099;Coating;5
+B_099;Paint;5
+B_100;Internal Doors;5
+B_100;Plaster;5
+B_100;Windows;4
+B_100;Wood;5
+B_101;Electrical;4
+B_102;Electrical;4
+B_103;Electrical;4
+B_104;Electrical;4
+B_105;Electrical;4
+B_106;Electrical;4
+B_107;Electrical;4
+B_108;Electrical;4
+B_109;Electrical;4
+B_110;Tiles;5
+B_111;Roof;5
+B_112;Roof;5
+B_113;Accessories;5
+B_113;Pipes;5
+B_114;Accessories;5
+B_114;Electrical;4
+B_114;Hydraulic;5
+B_114;Pipes;5
+B_115;Tiles;5
+B_116;Plaster;5
+B_117;Tiles;5
+B_118;Internal Doors;5
+B_119;Paint;4
+B_120;Metal;5
+B_120;Steel;5
+B_120;Stone;5
+B_120;Windows;5
+B_121;Ceiling;5
+B_121;Glass wool;5
+B_121;Plaster;5
+B_122;Ceiling;5
+B_122;Glass wool;5
+B_122;Plaster;5
+B_123;Ceiling;5
+B_123;Glass wool;5
+B_123;Plaster;5
+B_124;Accessories;5
+B_124;Tiles;5
+B_125;Store Equipment;5
+B_126;Hydraulic;5
+B_126;Pipes;5
+B_127;Store Equipment;5
+B_128;Metal;5
+B_129;Hydraulic;5
+B_129;Pipes;5
+C_001;Accessories;4
+C_001;Garden Equipment;4
+C_002;Accessories;5
+C_002;Precasted Concrete;4
+C_003;Accessories;5
+C_003;Electrical;1
+C_003;Pipes;4
+C_004;Accessories;5
+C_004;Polystyrene;5
+C_005;Bricks;5
+C_005;Tiles;4
+C_006;Cement;5
+C_007;Electrical;1
+C_007;Precasted Concrete;5
+C_008;Electrical;1
+C_008;Fire Doors;1
+C_008;Hydraulic;1
+C_008;Lift;4
+C_008;Pipes;1
+C_009;Epoxi;1
+C_010;Bitumen;5
+C_010;Epoxi;5
+C_011;Fences;4
+C_011;Internal Doors;4
+C_011;Steel;4
+C_011;Windows;4
+C_012;Fences;4
+C_012;Plants;4
+C_013;Fences;5
+C_013;Signals;1
+C_014;Garden Equipment;5
+C_015;Garden Equipment;1
+C_015;Glass wool;5
+C_015;Plaster;5
+C_015;Roof;4
+C_015;Tiles;5
+C_015;Windows;4
+C_016;Garden Equipment;5
+C_017;Geotexil;4
+C_018;Glass wool;1
+C_018;Steel;5
+C_019;Hydraulic;5
+C_019;Plants;5
+C_019;Precasted Concrete;5
+C_020;Hydraulic;5
+C_020;Precasted Concrete;5
+C_020;Stone;5
+C_020;Tiles;5
+C_021;Paint;1
+C_022;Roof;5
+C_023;Steel;5
+C_023;Tiles;4
+C_024;Steel;1
+C_025;Steel;4
+C_025;Wood;4
+C_026;Stone;5
+C_027;Stone;5
+C_028;Tar;5
+C_028;Coating;3
+C_029;;
+C_030;;
+C_031;Metal;4
+C_032;Parquet;2
+C_033;Tar;3
+C_034;Bitumen;5
+C_034;Scaffolding;4
+C_035;Bitumen;5
+D_001;Stone;4
+D_002;Windows;3
+D_003;Plaster;4
+D_004;Glass wool;4
+D_005;Polystyrene;3
+D_006;Plaster;4
+D_007;Metal;4
+D_008;Plaster;4
+D_009;Metal;4
+D_009;Plaster;4
+D_010;Steel;4
+D_011;Plaster;4
+D_012;Glass wool;4
+D_013;Metal;4
+D_013;Plaster;4
+D_014;Metal;4
+D_014;Plaster;4
+D_015;Metal;4
+D_016;Steel;4
+D_017;Internal Doors;4
+D_018;Polystyrene;3
+D_018;Tar;3
+D_019;Cement;3
+D_020;Fire Doors;4
+D_021;Lift;3
+D_022;Lift;3
+D_023;Epoxi;3
+D_024;Tiles;3
+D_025;Tiles;3
+D_026;Tiles;3
+D_027;Tiles;3
+D_028;Accessories;2
+D_029;Bricks;4
+D_030;Coating;2
+D_031;Electrical;2
+D_032;External Doors;4
+D_033;Fences;3
+D_034;Gabions;4
+D_035;Paint;1
+D_036;Parquet;1
+D_037;Pipes;3
+D_038;Precasted Concrete;4
+D_039;Tar;2
+D_040;Garden Equipment;4
+D_041;Geotexil;3
+D_042;Hydraulic;4
+D_043;Roof;4
+D_044;Scaffolding;1
+D_044;Signals;1
+D_045;Wood;3
+D_046;Plants;3
