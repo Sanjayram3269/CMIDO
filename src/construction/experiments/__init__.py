@@ -19,6 +19,10 @@ from .artifacts import (
     build_experiment_artifact,
     validate_experiment_artifact,
 )
+from .validation import (
+    VALIDATION_SCHEMA_VERSION,
+    validate_experiment_evidence,
+)
 
 __all__ = [
     "ExperimentConfig",
@@ -39,4 +43,6 @@ __all__ = [
     "ARTIFACT_SCHEMA_VERSION",
     "build_experiment_artifact",
     "validate_experiment_artifact",
+    "VALIDATION_SCHEMA_VERSION",
+    "validate_experiment_evidence",
 ]
