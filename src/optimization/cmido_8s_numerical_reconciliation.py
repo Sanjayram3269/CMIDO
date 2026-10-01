@@ -51,11 +51,8 @@ def reconcile(pub: pd.DataFrame, upstream: pd.DataFrame, filename: str) -> tuple
             "joint_duration_primary", "independent_duration_sensitivity"
         ])].copy()
     elif filename == "T6_RO3_ablation.csv":
-        # 8Q currently preserves the complete primary ablation source.
         expected = upstream.copy()
     else:
-        # T2, service-risk, sensitivity and controller-descriptive artifacts are
-        # direct source copies in the 8Q generator.
         expected = upstream.copy()
 
     if list(pub.columns) != list(expected.columns) or pub.shape != expected.shape:
@@ -91,7 +88,7 @@ def generate(root: Path | None = None):
         qm = json.loads(q_manifest.read_text(encoding="utf-8"))
         ck("8Q_manifest_status_pass", qm.get("status") == "PASS", str(qm.get("status")))
         q_entries = {x["artifact"]: x for x in qm.get("artifacts", [])}
-        ck("8Q_manifest_artifact_count", len(q_entries) == 8, str(len(q_entries)))
+        ck("8Q_manifest_artifact_count", len(q_entries) == len(SPECS), f"{len(q_entries)} expected {len(SPECS)}")
 
     for filename, (upstream_rel, expected_rows) in SPECS.items():
         pub = q / filename
@@ -102,8 +99,6 @@ def generate(root: Path | None = None):
             a = pd.read_csv(pub)
             b = pd.read_csv(upstream)
             ck(f"{filename}_row_count", len(a) == expected_rows, f"{len(a)} expected {expected_rows}")
-            # Schema is checked against the deterministic 8Q output, not blindly
-            # against the full upstream source when 8Q intentionally projects columns.
             if filename == "T1_RO1_validation_metrics.csv":
                 expected_schema = list(b[[
                     "dataset","series","horizon","n_raw","n_calibrated_50","n_calibrated_80",
@@ -112,8 +107,6 @@ def generate(root: Path | None = None):
                     "prequential_mean_width_50","prequential_mean_width_80",
                     "prequential_winkler_50","prequential_winkler_80",
                 ]].columns)
-            elif filename == "T3_RO2_propagation_summary.csv":
-                expected_schema = list(b.columns)
             else:
                 expected_schema = list(b.columns)
             ck(f"{filename}_schema_exact", list(a.columns) == expected_schema)
@@ -177,7 +170,7 @@ def main() -> int:
         print(f"[{marker}] {row['check']}{suffix}")
     print("=" * 78)
     print(f"STATUS: {report['status']} ({report['checks_passed']}/{report['checks_total']})")
-    print(f"OUTPUT: {out if 'out' in locals() else ROOT / 'results/8S_numerical_reconciliation'}")
+    print(f"OUTPUT: {ROOT / 'results/8S_numerical_reconciliation'}")
     print("=" * 78)
     return 0 if report["status"] == "PASS" else 1
 
