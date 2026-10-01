@@ -104,6 +104,9 @@ def validate_experiment_artifact(
         "results": artifact["results"],
     }
 
+    # Fingerprint verification must happen before derived-field consistency
+    # checks so that any mutation of an artifact is reported as an integrity
+    # failure rather than as a secondary structural mismatch.
     expected_fingerprint = stable_hash(payload)
     if artifact["result_fingerprint"] != expected_fingerprint:
         raise ValueError("artifact result fingerprint mismatch")
