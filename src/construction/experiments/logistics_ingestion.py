@@ -55,8 +55,9 @@ def _audit_table(path: Path, expected_headers: list[str]) -> dict[str, Any]:
             raise ValueError(f"{path.name}: missing expected headers {missing}")
         row_count = 0
         invalid_rows = 0
+        invalid_records: list[dict[str, Any]] = []
         sample: list[dict[str, Any]] = []
-        for row in reader:
+        for source_row, row in enumerate(reader, start=2):
             row_count += 1
             try:
                 if path.name == "construction sites_data.csv":
@@ -74,8 +75,14 @@ def _audit_table(path: Path, expected_headers: list[str]) -> dict[str, Any]:
                 elif path.name == "origin_destination.csv":
                     int(row["meters"])
                     int(row["seconds"])
-            except (TypeError, ValueError):
+            except (TypeError, ValueError) as exc:
                 invalid_rows += 1
+                if len(invalid_records) < 20:
+                    invalid_records.append({
+                        "source_row": source_row,
+                        "reason": str(exc),
+                        "row": dict(row),
+                    })
             if len(sample) < 3:
                 sample.append(dict(row))
     return {
@@ -84,6 +91,7 @@ def _audit_table(path: Path, expected_headers: list[str]) -> dict[str, Any]:
         "headers": headers,
         "row_count": row_count,
         "invalid_numeric_or_date_rows": invalid_rows,
+        "invalid_records": invalid_records,
         "sample_rows": sample,
         "provenance": "OBS",
     }
