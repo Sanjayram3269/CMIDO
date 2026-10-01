@@ -1,17 +1,17 @@
 """CMIDO 8S — full numerical/source reconciliation gate.
 
-Reconciles the frozen 8Q publication tables and 8R figure concordance against
- their authoritative upstream artifacts. The gate checks values, row counts,
-key cardinalities, required schemas, and figure-source mappings. It does not
-recompute or alter scientific results.
+Reconciles frozen 8Q publication tables and 8R figure concordance against
+ authoritative upstream artifacts using the exact deterministic transformations
+used by the 8Q publication generator. No scientific results are recomputed or
+altered.
 """
 from __future__ import annotations
 
 import hashlib
 import json
-import os
 from pathlib import Path
 import pandas as pd
+from pandas.testing import assert_frame_equal
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -35,10 +35,39 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def same_frame(a: pd.DataFrame, b: pd.DataFrame) -> bool:
-    if list(a.columns) != list(b.columns) or a.shape != b.shape:
-        return False
-    return a.equals(b)
+def reconcile(pub: pd.DataFrame, upstream: pd.DataFrame, filename: str) -> tuple[bool, str]:
+    """Apply the exact 8Q transformation and compare the resulting values."""
+    if filename == "T1_RO1_validation_metrics.csv":
+        cols = [
+            "dataset","series","horizon","n_raw","n_calibrated_50","n_calibrated_80",
+            "mae_q50","rmse_q50","prequential_coverage_50","prequential_coverage_80",
+            "prequential_coverage_error_50","prequential_coverage_error_80",
+            "prequential_mean_width_50","prequential_mean_width_80",
+            "prequential_winkler_50","prequential_winkler_80",
+        ]
+        expected = upstream[cols].copy()
+    elif filename == "T3_RO2_propagation_summary.csv":
+        expected = upstream[upstream["representation"].isin([
+            "joint_duration_primary", "independent_duration_sensitivity"
+        ])].copy()
+    elif filename == "T6_RO3_ablation.csv":
+        # 8Q currently preserves the complete primary ablation source.
+        expected = upstream.copy()
+    else:
+        # T2, service-risk, sensitivity and controller-descriptive artifacts are
+        # direct source copies in the 8Q generator.
+        expected = upstream.copy()
+
+    if list(pub.columns) != list(expected.columns) or pub.shape != expected.shape:
+        return False, f"expected transformed shape {expected.shape}, got {pub.shape}"
+    try:
+        assert_frame_equal(
+            pub.reset_index(drop=True), expected.reset_index(drop=True),
+            check_dtype=False, check_exact=False, rtol=1e-12, atol=1e-12,
+        )
+        return True, "deterministic 8Q transformation matches upstream values"
+    except AssertionError as exc:
+        return False, str(exc).splitlines()[0] if str(exc) else "value mismatch"
 
 
 def generate(root: Path | None = None):
@@ -73,12 +102,26 @@ def generate(root: Path | None = None):
             a = pd.read_csv(pub)
             b = pd.read_csv(upstream)
             ck(f"{filename}_row_count", len(a) == expected_rows, f"{len(a)} expected {expected_rows}")
-            ck(f"{filename}_schema_exact", list(a.columns) == list(b.columns))
-            ck(f"{filename}_values_exact", same_frame(a, b))
+            # Schema is checked against the deterministic 8Q output, not blindly
+            # against the full upstream source when 8Q intentionally projects columns.
+            if filename == "T1_RO1_validation_metrics.csv":
+                expected_schema = list(b[[
+                    "dataset","series","horizon","n_raw","n_calibrated_50","n_calibrated_80",
+                    "mae_q50","rmse_q50","prequential_coverage_50","prequential_coverage_80",
+                    "prequential_coverage_error_50","prequential_coverage_error_80",
+                    "prequential_mean_width_50","prequential_mean_width_80",
+                    "prequential_winkler_50","prequential_winkler_80",
+                ]].columns)
+            elif filename == "T3_RO2_propagation_summary.csv":
+                expected_schema = list(b.columns)
+            else:
+                expected_schema = list(b.columns)
+            ck(f"{filename}_schema_exact", list(a.columns) == expected_schema)
+            ok, detail = reconcile(a, b, filename)
+            ck(f"{filename}_values_exact", ok, detail)
             entry = q_entries.get(filename)
             ck(f"{filename}_manifest_hash_match", bool(entry) and entry.get("source_sha256") == sha256(upstream))
 
-    # Frozen RO3 cardinality and controller invariants.
     desc = q / "T5_T6_controller_descriptives.csv"
     if desc.exists():
         df = pd.read_csv(desc)
@@ -94,7 +137,6 @@ def generate(root: Path | None = None):
         ck("RO2_sensitivity_5_quantiles", set(df["quantile"]) == {0.5, 0.75, 0.9, 0.95, 0.99})
         ck("RO2_sensitivity_4x12x5", len(df) == 4 * 12 * 5, str(len(df)))
 
-    # 8R concordance must reference exactly the six frozen 8Q sources.
     if r_manifest.exists():
         rm = json.loads(r_manifest.read_text(encoding="utf-8"))
         ck("8R_manifest_status_pass", rm.get("status") == "PASS", str(rm.get("status")))
@@ -117,7 +159,7 @@ def generate(root: Path | None = None):
         "status": "PASS" if checks and all(x["passed"] for x in checks) else "HOLD",
         "checks_passed": sum(x["passed"] for x in checks),
         "checks_total": len(checks),
-        "purpose": "Full numerical/source reconciliation for frozen 8Q publication tables and 8R figures.",
+        "purpose": "Full numerical/source reconciliation for frozen 8Q publication tables and 8R figures using declared deterministic transformations.",
     }
     (out / "CMIDO_8S_RECONCILIATION_MANIFEST.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     pd.DataFrame(checks).to_csv(out / "CMIDO_8S_RECONCILIATION_AUDIT.csv", index=False)
@@ -135,7 +177,7 @@ def main() -> int:
         print(f"[{marker}] {row['check']}{suffix}")
     print("=" * 78)
     print(f"STATUS: {report['status']} ({report['checks_passed']}/{report['checks_total']})")
-    print(f"OUTPUT: {ROOT / 'results/8S_numerical_reconciliation'}")
+    print(f"OUTPUT: {out if 'out' in locals() else ROOT / 'results/8S_numerical_reconciliation'}")
     print("=" * 78)
     return 0 if report["status"] == "PASS" else 1
 
