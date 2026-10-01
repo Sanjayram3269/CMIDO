@@ -14,6 +14,11 @@ from .runner import run_experiment
 from .scenarios import build_delay_scenarios, validate_scenario
 from .evaluator import evaluate_schedule_scenario
 from .report import build_experiment_report
+from .artifacts import (
+    ARTIFACT_SCHEMA_VERSION,
+    build_experiment_artifact,
+    validate_experiment_artifact,
+)
 
 __all__ = [
     "ExperimentConfig",
@@ -31,4 +36,7 @@ __all__ = [
     "run_benchmark_case",
     "evaluate_schedule_scenario",
     "build_experiment_report",
+    "ARTIFACT_SCHEMA_VERSION",
+    "build_experiment_artifact",
+    "validate_experiment_artifact",
 ]
