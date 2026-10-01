@@ -68,7 +68,16 @@ def run_gate(root: Path | None = None) -> dict:
             ck("logistics_supplier_rows", summary["supplier_material_rows"] == 407, str(summary["supplier_material_rows"]))
             ck("logistics_truck_rows", summary["truck_count"] == 5, str(summary["truck_count"]))
             ck("logistics_ccc_rows", summary["ccc_count"] == 25, str(summary["ccc_count"]))
-            ck("logistics_no_invalid_rows", all(t["invalid_numeric_or_date_rows"] == 0 for t in logistics_audit["tables"].values()))
+            invalid_tables = {
+                name: table["invalid_records"]
+                for name, table in logistics_audit["tables"].items()
+                if table["invalid_numeric_or_date_rows"] > 0
+            }
+            ck(
+                "logistics_no_invalid_rows",
+                not invalid_tables,
+                json.dumps(invalid_tables, ensure_ascii=False),
+            )
         except Exception as exc:
             ck("logistics_ingestion", False, str(exc))
 
