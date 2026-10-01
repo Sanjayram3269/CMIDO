@@ -8,7 +8,7 @@ from .dataset import build_canonical_dataset, validate_dataset_structure
 
 
 def load_json_dataset(path: str | Path) -> dict[str, Any]:
-    """Load a JSON dataset and validate its canonical CMIDO structure."""
+    """Load JSON and return a canonical 8H dataset envelope."""
     file_path = Path(path)
     if not file_path.exists():
         raise ValueError(f"dataset file does not exist: {file_path}")
@@ -21,8 +21,26 @@ def load_json_dataset(path: str | Path) -> dict[str, Any]:
     except json.JSONDecodeError as exc:
         raise ValueError(f"invalid JSON dataset: {file_path}") from exc
 
-    validate_dataset_structure(dataset)
-    return dataset
+    if not isinstance(dataset, dict):
+        raise ValueError("dataset must be a dictionary")
+
+    if "schema_version" in dataset and "dataset_id" in dataset:
+        validate_dataset_structure(dataset)
+        return dataset
+
+    required = {"project", "activities", "dependencies"}
+    missing = required - dataset.keys()
+    if missing:
+        raise ValueError(f"dataset missing fields: {sorted(missing)}")
+
+    return build_canonical_dataset(
+        dataset["project"],
+        dataset["activities"],
+        dataset["dependencies"],
+        source=str(file_path),
+        dataset_id="CMIDO_DATASET",
+        metadata={"source_path": str(file_path)},
+    )
 
 
 def load_source_records(
@@ -31,11 +49,7 @@ def load_source_records(
     dataset_id: str = "CMIDO_DATASET",
     source: str | None = None,
 ) -> dict[str, Any]:
-    """Load a source JSON record and normalize it into the 8H envelope.
-
-    The source must already expose project, activities, and dependencies.
-    8H intentionally validates rather than guessing missing domain semantics.
-    """
+    """Load a source JSON record and normalize it into the 8H envelope."""
     file_path = Path(path)
     if not file_path.exists():
         raise ValueError(f"dataset file does not exist: {file_path}")
