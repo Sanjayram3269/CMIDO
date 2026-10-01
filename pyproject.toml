@@ -7,7 +7,7 @@ name = "cmido"
 version = "0.1.0"
 description = "Research foundation for the CMIDO framework"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = ["openpyxl>=3.1"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
