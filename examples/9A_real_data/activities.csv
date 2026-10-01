@@ -1,0 +1,5 @@
+task_id,task_code,task_name,planned_duration,unit,status,planned_start,planned_finish
+A001,EXC-001,Excavation,48,hours,planned,2026-01-05,2026-01-07
+A002,CON-001,Concrete Works,5,days,planned,2026-01-08,2026-01-12
+A003,DRN-001,Drain Installation,1,weeks,planned,2026-01-13,2026-01-19
+A004,BCK-001,Backfilling,24,hours,planned,2026-01-20,2026-01-20
