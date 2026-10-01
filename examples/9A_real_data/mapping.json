@@ -1,0 +1,38 @@
+{
+  "schema_version": "9A-1.0",
+  "source_format": "csv_bundle",
+  "source_schema_version": "civil-project-example-1.0",
+  "tables": {
+    "project": {
+      "file": "project.csv",
+      "mapping": {
+        "project_id": "project_code",
+        "project_name": "project_title",
+        "location": "location",
+        "project_type": "project_type"
+      }
+    },
+    "activities": {
+      "file": "activities.csv",
+      "duration_unit": "day",
+      "mapping": {
+        "activity_id": "task_id",
+        "activity_code": "task_code",
+        "activity_name": "task_name",
+        "duration_days": "planned_duration",
+        "status": "status",
+        "planned_start": "planned_start",
+        "planned_finish": "planned_finish"
+      }
+    },
+    "dependencies": {
+      "file": "dependencies.csv",
+      "mapping": {
+        "predecessor_id": "predecessor",
+        "successor_id": "successor",
+        "relationship_type": "dependency_type",
+        "lag_days": "lead_lag"
+      }
+    }
+  }
+}
