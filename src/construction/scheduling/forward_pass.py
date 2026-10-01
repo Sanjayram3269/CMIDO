@@ -90,7 +90,7 @@ def calculate_forward_pass(
 
                 predecessor_finish_times.append(constraint)
 
-            es = max(predecessor_finish_times)
+            es = max(0, max(predecessor_finish_times))
 
         ef = es + duration
 
