@@ -21,7 +21,7 @@ from .dataset import DatasetValidationResult, build_canonical_dataset, validate_
 from .dataset_loader import load_json_dataset, load_source_records
 from .dataset_fingerprint import build_dataset_metadata, fingerprint_dataset
 from .normalization import DEFAULT_ALIASES, normalize_project, normalize_activity, normalize_dependency, normalize_dataset
-from .real_data_runner import run_real_dataset_experiment, run_real_dataset_report
+from .real_data_runner import run_real_dataset_experiment, run_real_dataset_report, run_real_dataset_statistical_analysis
 from .statistical import STATISTICAL_ANALYSIS_SCHEMA_VERSION, bootstrap_mean_ci, build_statistical_analysis, summarize_numeric
 
 __all__ = [
@@ -36,6 +36,6 @@ __all__ = [
     "build_experiment_design", "DatasetValidationResult", "build_canonical_dataset", "validate_dataset_structure",
     "load_json_dataset", "load_source_records", "build_dataset_metadata", "fingerprint_dataset", "DEFAULT_ALIASES",
     "normalize_project", "normalize_activity", "normalize_dependency", "normalize_dataset",
-    "run_real_dataset_experiment", "run_real_dataset_report", "STATISTICAL_ANALYSIS_SCHEMA_VERSION", "summarize_numeric",
-    "bootstrap_mean_ci", "build_statistical_analysis",
+    "run_real_dataset_experiment", "run_real_dataset_report", "run_real_dataset_statistical_analysis",
+    "STATISTICAL_ANALYSIS_SCHEMA_VERSION", "summarize_numeric", "bootstrap_mean_ci", "build_statistical_analysis",
 ]
