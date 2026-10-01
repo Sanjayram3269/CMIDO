@@ -31,6 +31,13 @@ class DatasetValidationResult:
         }
 
 
+def _activity_duration(activity: dict[str, Any]) -> Any:
+    """Read either CMIDO's duration or duration_days field."""
+    if "duration" in activity:
+        return activity["duration"]
+    return activity.get("duration_days")
+
+
 def validate_dataset_structure(dataset: dict[str, Any]) -> DatasetValidationResult:
     """Validate the minimum canonical structure needed by CMIDO experiments."""
     if not isinstance(dataset, dict):
@@ -66,8 +73,8 @@ def validate_dataset_structure(dataset: dict[str, Any]) -> DatasetValidationResu
         if activity_id in activity_ids:
             raise ValueError(f"duplicate activity_id: {activity_id}")
         activity_ids.add(activity_id)
-        duration = activity.get("duration")
-        if not isinstance(duration, int) or duration < 0:
+        duration = _activity_duration(activity)
+        if not isinstance(duration, int) or isinstance(duration, bool) or duration < 0:
             raise ValueError(f"activity {activity_id} has invalid duration")
 
     for index, dependency in enumerate(dependencies):
