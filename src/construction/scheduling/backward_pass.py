@@ -81,17 +81,22 @@ def calculate_backward_pass(
                 relationship_type = dependency["relationship_type"]
                 lag_days = dependency["lag_days"]
 
-                if relationship_type != "FS":
+                if relationship_type == "FS":
+                    constraint = successor_result["ls"] - lag_days
+                elif relationship_type == "SS":
+                    constraint = successor_result["ls"] - lag_days + duration
+                elif relationship_type == "FF":
+                    constraint = successor_result["lf"] - lag_days
+                elif relationship_type == "SF":
+                    constraint = successor_result["lf"] - lag_days + duration
+                else:
                     raise ValueError(
                         f"Unsupported relationship type "
                         f"{relationship_type!r} for dependency "
-                        f"{dependency['dependency_id']}. "
-                        f"3B currently supports FS only."
+                        f"{dependency['dependency_id']}."
                     )
 
-                successor_constraints.append(
-                    successor_result["ls"] - lag_days
-                )
+                successor_constraints.append(constraint)
 
             lf = min(successor_constraints)
 
