@@ -13,6 +13,7 @@ from .reproducibility import build_metadata, stable_hash
 from .runner import run_experiment
 from .scenarios import build_delay_scenarios, validate_scenario
 from .evaluator import evaluate_schedule_scenario
+from .report import build_experiment_report
 
 __all__ = [
     "ExperimentConfig",
@@ -29,4 +30,5 @@ __all__ = [
     "run_all_benchmarks",
     "run_benchmark_case",
     "evaluate_schedule_scenario",
+    "build_experiment_report",
 ]
