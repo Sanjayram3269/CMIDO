@@ -23,6 +23,11 @@ from .validation import (
     VALIDATION_SCHEMA_VERSION,
     validate_experiment_evidence,
 )
+from .analysis import (
+    compare_scenarios,
+    analyze_activity_sensitivity,
+    build_research_analysis,
+)
 
 __all__ = [
     "ExperimentConfig",
@@ -45,4 +50,7 @@ __all__ = [
     "validate_experiment_artifact",
     "VALIDATION_SCHEMA_VERSION",
     "validate_experiment_evidence",
+    "compare_scenarios",
+    "analyze_activity_sensitivity",
+    "build_research_analysis",
 ]
