@@ -51,22 +51,36 @@ The dashboard is therefore **genuinely implemented**, not merely planned. The cu
 
 ## 8M
 
-**Status: NOT IMPLEMENTED AS A DISTINCT REPOSITORY STAGE YET.**
+**Status: IMPLEMENTED / AWAITING LOCAL EXECUTION GATE.**
 
-The earlier working roadmap described 8M as the next evidence/baseline-ablation completion stage. However, there is no 8M-labelled implementation commit on `main`.
+The repository already contains a defined RO3.6 controlled 2×2 ablation design and generated O1/O2/O3/O4 evidence. The 8M implementation layer is now explicit through `src/optimization/cmido_8m_evidence_gate.py`, which validates the frozen controller contract, common evaluation population, origin-level results, material coverage, paired statistical evidence, planned contrasts, and source-artifact presence without retuning or mutating scientific outcomes.
 
-### Required 8M work
+### 8M evidence basis
 
-1. Inventory all existing baseline outputs.
-2. Inventory all existing ablation outputs.
-3. Define the exact comparison populations/configurations.
-4. Identify any missing baseline/ablation runs.
-5. Run missing real-data experiments.
-6. Generate final machine-derived comparison tables.
-7. Link every result to a claim in the evidence concordance.
-8. Freeze the resulting evidence package.
+- Four controlled arms: O1 deterministic + heuristic, O2 deterministic + optimization, O3 probabilistic + heuristic, O4 probabilistic + optimization.
+- 11 locked forecast origins.
+- Four common materials.
+- Origin-level inferential unit.
+- Primary metrics: realized procurement + holding cost, total shortage, service level, shortage CVaR95.
+- Paired bootstrap confidence intervals and Benjamini–Hochberg correction are present in the generated statistical artifacts.
+- Common realized ledger and origin/material summaries are present.
 
-**Gate:** no 8M completion claim until the above is executed and locally verified.
+### 8M implementation gate
+
+Run locally:
+
+```powershell
+python -m src.optimization.cmido_8m_evidence_gate
+```
+
+Expected outcome is **PASS** only when all source-artifact and statistical consistency checks pass on the user's current checkout. The gate writes:
+
+```text
+results/RO3/ablation/8M_gate/CMIDO_8M_GATE_MANIFEST.json
+results/RO3/ablation/8M_gate/CMIDO_8M_GATE_AUDIT.csv
+```
+
+The stage remains **not frozen** until this command and the full regression are executed locally on the same repository state.
 
 ## 8N
 
@@ -168,7 +182,7 @@ Final reproducibility/freeze package:
 
 ## Current phase gate
 
-The correct next stage is therefore **8M**, not UI redesign yet.
+The correct next stage is therefore the **8M local evidence gate**, followed by the 8N integrated evidence package.
 
 ```text
 340/340 local regression GREEN
