@@ -28,6 +28,26 @@ from .analysis import (
     analyze_activity_sensitivity,
     build_research_analysis,
 )
+from .factors import (
+    VALID_CONFIGURATIONS,
+    VALID_SCENARIO_TYPES,
+    VALID_RISK_SEVERITIES,
+    build_factor_space,
+    validate_configuration,
+    validate_delay_levels,
+    validate_scenario_type,
+)
+from .protocols import (
+    ExperimentalConfiguration,
+    ScenarioProtocol,
+    build_scenario_protocol,
+    get_experimental_configurations,
+)
+from .experiment_design import (
+    EXPERIMENTAL_METRICS,
+    RESEARCH_HYPOTHESES,
+    build_experiment_design,
+)
 
 __all__ = [
     "ExperimentConfig",
@@ -53,4 +73,18 @@ __all__ = [
     "compare_scenarios",
     "analyze_activity_sensitivity",
     "build_research_analysis",
+    "VALID_CONFIGURATIONS",
+    "VALID_SCENARIO_TYPES",
+    "VALID_RISK_SEVERITIES",
+    "build_factor_space",
+    "validate_configuration",
+    "validate_delay_levels",
+    "validate_scenario_type",
+    "ExperimentalConfiguration",
+    "ScenarioProtocol",
+    "build_scenario_protocol",
+    "get_experimental_configurations",
+    "EXPERIMENTAL_METRICS",
+    "RESEARCH_HYPOTHESES",
+    "build_experiment_design",
 ]
