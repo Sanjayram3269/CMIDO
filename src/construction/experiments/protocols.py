@@ -11,6 +11,14 @@ from .factors import (
 )
 
 
+CONFIGURATION_ORDER = (
+    "CPM",
+    "CPM_DELAY",
+    "INTEGRATED_OPERATIONAL",
+    "FULL_CMIDO",
+)
+
+
 @dataclass(frozen=True)
 class ExperimentalConfiguration:
     """Named CMIDO analysis configuration used as a research factor."""
@@ -22,7 +30,7 @@ class ExperimentalConfiguration:
     def __post_init__(self) -> None:
         if self.configuration_id not in VALID_CONFIGURATIONS:
             raise ValueError(f"Invalid configuration_id: {self.configuration_id}")
-        if not self.name.strip():
+        if not isinstance(self.name, str) or not self.name.strip():
             raise ValueError("configuration name must be non-empty")
         if not self.includes:
             raise ValueError("configuration must include at least one component")
@@ -81,7 +89,7 @@ class ScenarioProtocol:
 
 def get_experimental_configurations() -> list[dict[str, Any]]:
     """Return the registered research configurations in stable order."""
-    return [CONFIGURATIONS[key].to_dict() for key in VALID_CONFIGURATIONS]
+    return [CONFIGURATIONS[key].to_dict() for key in CONFIGURATION_ORDER]
 
 
 def build_scenario_protocol(
