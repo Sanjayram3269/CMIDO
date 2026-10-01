@@ -51,7 +51,7 @@ The dashboard is therefore **genuinely implemented**, not merely planned. The cu
 
 ## 8M
 
-**Status: IMPLEMENTED / AWAITING LOCAL EXECUTION GATE.**
+**Status: DONE / VERIFIED GREEN.**
 
 The repository already contains a defined RO3.6 controlled 2×2 ablation design and generated O1/O2/O3/O4 evidence. The 8M implementation layer is now explicit through `src/optimization/cmido_8m_evidence_gate.py`, which validates the frozen controller contract, common evaluation population, origin-level results, material coverage, paired statistical evidence, planned contrasts, and source-artifact presence without retuning or mutating scientific outcomes.
 
@@ -80,7 +80,7 @@ results/RO3/ablation/8M_gate/CMIDO_8M_GATE_MANIFEST.json
 results/RO3/ablation/8M_gate/CMIDO_8M_GATE_AUDIT.csv
 ```
 
-The stage remains **not frozen** until this command and the full regression are executed locally on the same repository state.
+The local gate has now been executed successfully on the current repository state: **20/20 checks PASS**. The full regression suite was also executed immediately afterward: **343 passed in 2.36s**. 8M is therefore frozen as an implementation/evidence stage; downstream publication packaging may still reference these outputs.
 
 ## 8N
 
