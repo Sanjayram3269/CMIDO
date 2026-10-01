@@ -17,7 +17,9 @@ from pandas.testing import assert_frame_equal
 ROOT = Path(__file__).resolve().parents[2]
 
 SPECS = {
-    "T5_RO3_baseline_comparison.csv": ("results/RO3/ablation/final_comparison/RO3_step36_statistical_pairwise_comparisons.csv", 5),
+    # Five planned contrasts are represented by seven metric rows each in the
+    # frozen pairwise source: 5 contrasts × 7 metrics = 35 publication rows.
+    "T5_RO3_baseline_comparison.csv": ("results/RO3/ablation/final_comparison/RO3_step36_statistical_pairwise_comparisons.csv", 35),
     "T6_RO3_ablation.csv": ("results/RO3/ablation/final_comparison/RO3_step36_primary_ablation_results.csv", 20),
     "T5_T6_controller_descriptives.csv": ("results/RO3/ablation/final_comparison/RO3_step36_controller_descriptive_statistics.csv", 4),
     "T1_RO1_validation_metrics.csv": ("results/forecasting/probabilistic_calibration/RO1_step26c3_validation_metrics.csv", 36),
