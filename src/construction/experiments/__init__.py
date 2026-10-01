@@ -48,6 +48,13 @@ from .experiment_design import (
     RESEARCH_HYPOTHESES,
     build_experiment_design,
 )
+from .dataset import (
+    DatasetValidationResult,
+    build_canonical_dataset,
+    validate_dataset_structure,
+)
+from .dataset_loader import load_json_dataset, load_source_records
+from .dataset_fingerprint import build_dataset_metadata, fingerprint_dataset
 
 __all__ = [
     "ExperimentConfig",
@@ -87,4 +94,11 @@ __all__ = [
     "EXPERIMENTAL_METRICS",
     "RESEARCH_HYPOTHESES",
     "build_experiment_design",
+    "DatasetValidationResult",
+    "build_canonical_dataset",
+    "validate_dataset_structure",
+    "load_json_dataset",
+    "load_source_records",
+    "build_dataset_metadata",
+    "fingerprint_dataset",
 ]
