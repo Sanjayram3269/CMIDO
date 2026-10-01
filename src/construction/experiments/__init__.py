@@ -1,3 +1,12 @@
+from .benchmarks import (
+    BenchmarkCase,
+    get_benchmark_case,
+    get_benchmark_cases,
+)
+from .benchmark_runner import (
+    run_all_benchmarks,
+    run_benchmark_case,
+)
 from .config import ExperimentConfig
 from .metrics import summarize_result, summarize_schedule_impact
 from .reproducibility import build_metadata, stable_hash
@@ -13,4 +22,9 @@ __all__ = [
     "build_metadata",
     "stable_hash",
     "run_experiment",
+    "BenchmarkCase",
+    "get_benchmark_case",
+    "get_benchmark_cases",
+    "run_all_benchmarks",
+    "run_benchmark_case",
 ]
