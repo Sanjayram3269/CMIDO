@@ -106,14 +106,14 @@ The package must identify the exact result artifacts and configurations used by 
 
 ## 8O
 
-**Status: IN IMPLEMENTATION.**
+**Status: DONE / VERIFIED GREEN.**
 
 8O is the paper-facing evidence package: a structured layer that converts the technical evidence already verified in 8M/8N into manuscript-ready provenance, assumptions, limitations, threats to validity, experiment identity, claim slots, and publication-artifact references.
 
 
 ## 8P
 
-**Status: NOT IMPLEMENTED AS A DISTINCT REPOSITORY STAGE YET.**
+**Status: IN IMPLEMENTATION.**
 
 The dashboard exists, but that is not equivalent to an 8P real-data demonstration.
 
