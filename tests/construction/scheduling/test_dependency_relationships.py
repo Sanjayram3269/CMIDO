@@ -32,11 +32,14 @@ def test_forward_pass_supports_all_dependency_relationships():
 
 
 def test_backward_pass_supports_all_dependency_relationships():
+    expected_ls = {"FS": 0, "SS": -3, "FF": 0, "SF": 5}
+    expected_lf = {"FS": 5, "SS": 2, "FF": 5, "SF": 10}
+
     for relationship in ("FS", "SS", "FF", "SF"):
         results = calculate_backward_pass(project_for(relationship))
         by_id = {item["activity_id"]: item for item in results}
-        assert by_id["A"]["ls"] <= by_id["B"]["ls"] + 5
-        assert by_id["A"]["ls"] + by_id["A"]["duration_days"] == by_id["A"]["lf"]
+        assert by_id["A"]["ls"] == expected_ls[relationship]
+        assert by_id["A"]["lf"] == expected_lf[relationship]
 
 
 def test_forward_relationship_constraints_are_preserved():
