@@ -84,7 +84,7 @@ The local gate has now been executed successfully on the current repository stat
 
 ## 8N
 
-**Status: NOT IMPLEMENTED AS A DISTINCT REPOSITORY STAGE YET.**
+**Status: DONE / VERIFIED GREEN.**
 
 ### Required 8N work
 
@@ -106,22 +106,10 @@ The package must identify the exact result artifacts and configurations used by 
 
 ## 8O
 
-**Status: NOT IMPLEMENTED AS A DISTINCT REPOSITORY STAGE YET.**
+**Status: IN IMPLEMENTATION.**
 
-### Required 8O work
+8O is the paper-facing evidence package: a structured layer that converts the technical evidence already verified in 8M/8N into manuscript-ready provenance, assumptions, limitations, threats to validity, experiment identity, claim slots, and publication-artifact references.
 
-Create the paper-facing evidence package:
-
-- assumptions;
-- data provenance;
-- admissible modelling views;
-- limitations;
-- threats to validity;
-- experiment registry;
-- claim register;
-- table register;
-- figure register;
-- reproducibility notes.
 
 ## 8P
 
