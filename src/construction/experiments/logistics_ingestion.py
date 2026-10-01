@@ -70,8 +70,8 @@ def _audit_table(path: Path, expected_headers: list[str]) -> dict[str, Any]:
                     int(row["number_of_days"])
                 elif path.name == "material_demand_periods.csv":
                     int(row["period"])
-                    int(row["demand_m3"])
-                    int(row["demand_kg"])
+                    float(row["demand_m3"])
+                    float(row["demand_kg"])
                 elif path.name == "origin_destination.csv":
                     int(row["meters"])
                     int(row["seconds"])
