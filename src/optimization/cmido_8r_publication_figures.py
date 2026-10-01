@@ -57,7 +57,6 @@ def generate(root: Path | None = None):
     if not all(x["passed"] for x in checks):
         return checks, artifacts, out
 
-    # F1: RO1 interval/calibration diagnostics. Values are read directly from T1.
     df = pd.read_csv(q / FIGURES["F1_RO1_calibration"])
     required = {"series", "prequential_coverage_50", "prequential_coverage_80",
                 "prequential_coverage_error_50", "prequential_coverage_error_80"}
@@ -81,7 +80,6 @@ def generate(root: Path | None = None):
         plt.close(fig)
         artifacts.append(("F1_RO1_calibration_coverage.png", q / FIGURES["F1_RO1_calibration"]))
 
-    # F2: RO2 tail representation comparison. No derived values beyond plotting source columns.
     df = pd.read_csv(q / FIGURES["F2_RO2_tail"])
     required = {"quantile", "representation", "quantile_days"}
     ck("F2_required_columns", required <= set(df.columns))
@@ -100,7 +98,6 @@ def generate(root: Path | None = None):
         plt.close(fig)
         artifacts.append(("F2_RO2_tail_comparison.png", q / FIGURES["F2_RO2_tail"]))
 
-    # F3: RO2 propagation quantiles for the two declared representations.
     df = pd.read_csv(q / FIGURES["F3_RO2_propagation"])
     required = {"material", "representation", "q50", "q75", "q90", "q95", "q99"}
     ck("F3_required_columns", required <= set(df.columns))
@@ -120,7 +117,6 @@ def generate(root: Path | None = None):
         plt.close(fig)
         artifacts.append(("F3_RO2_propagation_tail.png", q / FIGURES["F3_RO2_propagation"]))
 
-    # F4: 240-row joint-vs-independent sensitivity source.
     df = pd.read_csv(q / FIGURES["F4_RO2_sensitivity"])
     required = {"material", "forecast_origin", "quantile", "independent_minus_joint", "independent_vs_joint_pct"}
     ck("F4_required_columns", required <= set(df.columns))
@@ -139,26 +135,27 @@ def generate(root: Path | None = None):
         plt.close(fig)
         artifacts.append(("F4_RO2_joint_independent_sensitivity.png", q / FIGURES["F4_RO2_sensitivity"]))
 
-    # F5: controller-level descriptive evidence.
+    # F5: controller-level descriptive evidence. The frozen artifact does not
+    # contain a delay metric; use realized service level, an explicit primary
+    # operational outcome already present in the source table.
     df = pd.read_csv(q / FIGURES["F5_RO3_controllers"])
     ck("F5_controller_rows", len(df) == 4, str(len(df)))
     ck("F5_controller_column", "controller" in df.columns)
-    if len(df) == 4 and "controller" in df.columns:
-        metric = next((c for c in ["mean_project_delay", "mean_project_delay_days", "delay_rate", "mean_delay"] if c in df.columns), None)
-        ck("F5_plot_metric_available", metric is not None, metric or "none")
-        if metric:
-            fig, ax = plt.subplots(figsize=(7, 5))
-            ax.bar(df["controller"], df[metric])
-            ax.set_xlabel("Controller")
-            ax.set_ylabel(metric)
-            ax.set_title("RO3 — Controller descriptive comparison")
-            fig.tight_layout()
-            path = out / "F5_RO3_controller_descriptives.png"
-            fig.savefig(path, dpi=300, bbox_inches="tight")
-            plt.close(fig)
-            artifacts.append(("F5_RO3_controller_descriptives.png", q / FIGURES["F5_RO3_controllers"]))
+    metric = "realized_service_level_mean"
+    ck("F5_plot_metric_available", metric in df.columns, metric if metric in df.columns else "none")
+    if len(df) == 4 and "controller" in df.columns and metric in df.columns:
+        fig, ax = plt.subplots(figsize=(7, 5))
+        ax.bar(df["controller"], df[metric])
+        ax.set_xlabel("Controller")
+        ax.set_ylabel("Mean realized service level")
+        ax.set_ylim(0, 1)
+        ax.set_title("RO3 — Realized service-level comparison across controllers")
+        fig.tight_layout()
+        path = out / "F5_RO3_controller_descriptives.png"
+        fig.savefig(path, dpi=300, bbox_inches="tight")
+        plt.close(fig)
+        artifacts.append(("F5_RO3_controller_descriptives.png", q / FIGURES["F5_RO3_controllers"]))
 
-    # F6: ablation effect sizes directly from T6.
     df = pd.read_csv(q / FIGURES["F6_RO3_ablation"])
     required = {"comparison", "mean_difference_newer_minus_base"}
     ck("F6_required_columns", required <= set(df.columns))
