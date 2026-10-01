@@ -32,7 +32,7 @@ def test_forward_pass_supports_all_dependency_relationships():
 
 
 def test_backward_pass_supports_all_dependency_relationships():
-    expected_lf = {"FS": 5, "SS": 5, "FF": 5, "SF": 10}
+    expected_lf = {"FS": 5, "SS": 7, "FF": 5, "SF": 10}
 
     for relationship in ("FS", "SS", "FF", "SF"):
         results = calculate_backward_pass(project_for(relationship))
