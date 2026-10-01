@@ -153,6 +153,16 @@ def ingest_pslib_project(path: str | Path, *, dataset_id: str | None = None) -> 
             rejected_dependencies.append({"activity_id": activity_id, "source_row": excel_row, "field": "Predecessors", "reason": str(exc)})
             continue
         for predecessor_id, relationship in parsed:
+            if predecessor_id == activity_id:
+                rejected_dependencies.append({
+                    "activity_id": activity_id,
+                    "source_row": excel_row,
+                    "field": "Predecessors",
+                    "predecessor_id": predecessor_id,
+                    "relationship_type": relationship,
+                    "reason": "self dependency rejected by CMIDO canonical schema",
+                })
+                continue
             dependencies.append({
                 "dependency_id": f"D{len(dependencies) + 1:05d}",
                 "project_id": project_id,
