@@ -70,6 +70,15 @@ def expected_publication_frame(upstream: pd.DataFrame, filename: str) -> pd.Data
     return upstream.copy()
 
 
+def same_frame(a: pd.DataFrame, b: pd.DataFrame) -> bool:
+    """Compatibility helper retained for the 8S test contract."""
+    try:
+        assert_frame_equal(a.reset_index(drop=True), b.reset_index(drop=True), check_dtype=False, check_exact=False, rtol=1e-12, atol=1e-12)
+        return True
+    except AssertionError:
+        return False
+
+
 def reconcile(pub: pd.DataFrame, upstream: pd.DataFrame, filename: str) -> tuple[bool, str]:
     expected = expected_publication_frame(upstream, filename)
     if list(pub.columns) != list(expected.columns) or pub.shape != expected.shape:
