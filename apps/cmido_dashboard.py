@@ -24,6 +24,7 @@ from src.construction.experiments import (
     build_statistical_analysis,
     run_real_dataset_experiment,
 )
+from src.construction.dashboard_data import build_dashboard_snapshot
 
 DEFAULT_PROJECT = ROOT / "data" / "projects" / "cmido_demo_project.json"
 
@@ -256,6 +257,63 @@ elif page == "Experiment Lab":
 
 elif page == "Research Evidence":
     st.subheader("📊 Research Evidence")
+    
+    # 10A.2-B Validated Repository Snapshot
+    snapshot = build_dashboard_snapshot(ROOT)
+    with st.expander("🏛️ Repository Research Artifact Ecosystem (10A.2-B Contract)", expanded=True):
+        ov_snap = snapshot.overview
+        c_snap = st.columns(4)
+        with c_snap[0]: kpi("📁", "Registered Artifacts", str(ov_snap.total_artifacts_registered))
+        with c_snap[1]: kpi("✅", "Available Artifacts", str(ov_snap.total_artifacts_available))
+        with c_snap[2]: kpi("⚠️", "Missing Artifacts", str(ov_snap.total_artifacts_missing))
+        with c_snap[3]: kpi("🚨", "Invalid Artifacts", str(ov_snap.total_artifacts_invalid))
+        
+        tab_ro1, tab_ro2, tab_ro3, tab_real, tab_prov = st.tabs([
+            "RO1 Forecasting", "RO2 Uncertainty", "RO3 Optimisation", "Real-Data Evidence", "Provenance Audit"
+        ])
+        with tab_ro1:
+            st.caption("RO1 Probabilistic Forecasting Validation Metrics (Publication T1)")
+            if snapshot.ro1.validation_metrics:
+                st.dataframe(pd.DataFrame(snapshot.ro1.validation_metrics), use_container_width=True, hide_index=True)
+            else:
+                st.write("No RO1 validation metrics loaded.")
+        with tab_ro2:
+            st.caption("RO2 Joint Uncertainty Propagation Summary (Publication T2)")
+            if snapshot.ro2.joint_propagation_summary:
+                st.dataframe(pd.DataFrame(snapshot.ro2.joint_propagation_summary), use_container_width=True, hide_index=True)
+            else:
+                st.write("No RO2 joint propagation summary loaded.")
+        with tab_ro3:
+            st.caption("RO3 Controller Baseline Comparison & Ablation (Publication T5/T6)")
+            if snapshot.ro3.baseline_comparison:
+                st.dataframe(pd.DataFrame(snapshot.ro3.baseline_comparison), use_container_width=True, hide_index=True)
+            if snapshot.ro3.ablation:
+                st.subheader("Ablation Incremental Value")
+                st.dataframe(pd.DataFrame(snapshot.ro3.ablation), use_container_width=True, hide_index=True)
+        with tab_real:
+            st.caption("Real-Data Ingestion Quality & PSLIB/SUCCESS Audit Evidence")
+            st.json({
+                "9A_canonical_dataset": snapshot.real_data.canonical_9a.get("dataset_id", "N/A"),
+                "9B_pslib_project": snapshot.real_data.pslib_audit.get("project_id", "N/A"),
+                "9B_experiment_stage": snapshot.real_data.experiment_9b.get("stage", "N/A"),
+            })
+        with tab_prov:
+            st.caption("Artifact Provenance & Integrity Registry")
+            prov_data = [
+                {
+                    "Artifact ID": p.artifact_id,
+                    "Source Path": p.source_path,
+                    "Class": p.provenance_class.value,
+                    "Stage": p.research_stage,
+                    "Status": p.status.value,
+                    "Schema Status": p.schema_status,
+                }
+                for p in snapshot.provenance
+            ]
+            st.dataframe(pd.DataFrame(prov_data), use_container_width=True, hide_index=True)
+            
+    st.divider()
+    st.markdown("### 🧪 Live Interactive Experiment Evidence")
     experiment = st.session_state.get("experiment")
     if not experiment:
         st.info("Run an experiment in Experiment Lab first.")
