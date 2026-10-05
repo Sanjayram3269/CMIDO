@@ -1,3 +1,17 @@
+"""CMIDO Streamlit dashboard.
+
+Layering (10A.2-B preserved, 10A.3 UI layer added)::
+
+    research engines -> validated artifacts -> dashboard_data snapshot
+                    -> dashboard_ui design system -> this page
+
+10A.3 scope: this page consumes the reusable design system
+(:mod:`src.construction.dashboard_ui`) for branding, headers, KPI cards,
+section headers, chart containers, table wrappers, provenance badges and
+artifact status states.  It performs no new research logic and reads no raw
+scenario ledgers.
+"""
+
 from __future__ import annotations
 
 import json
@@ -25,8 +39,49 @@ from src.construction.experiments import (
     run_real_dataset_experiment,
 )
 from src.construction.dashboard_data import build_dashboard_snapshot
+from src.construction.dashboard_ui import (
+    apply_chart_theme,
+    axis_reference,
+    build_artifact_state,
+    build_breadcrumb,
+    build_empty_state,
+    build_flow_diagram,
+    build_footer,
+    build_methodology_card,
+    build_provenance_badge,
+    build_publication_status,
+    format_days,
+    format_feasibility,
+    format_integer,
+    format_interval,
+    format_number,
+    format_percent,
+)
+from src.construction.dashboard_ui.components import (
+    inject_css,
+    render_app_header,
+    render_chart,
+    render_error_state,
+    render_html,
+    render_kpi_columns,
+    render_legacy_kpi_row,
+    render_page_header,
+    render_section_header,
+    render_status_banner,
+    render_table,
+)
 
 DEFAULT_PROJECT = ROOT / "data" / "projects" / "cmido_demo_project.json"
+
+PAGES = [
+    "Overview",
+    "Schedule",
+    "Materials & Resources",
+    "Risk & Scenarios",
+    "Experiment Lab",
+    "Research Evidence",
+    "3D Project Graph",
+]
 
 st.set_page_config(
     page_title="CMIDO | Construction Decision Intelligence",
@@ -35,19 +90,19 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.markdown(
+# 10A.3 design system stylesheet (injected once per session).
+inject_css()
+
+
+@st.cache_data(show_spinner=False, max_entries=1)
+def cached_snapshot(root: str) -> Any:
+    """Cache the 10A.2-B snapshot so artifact loading is not repeated per rerun.
+
+    The snapshot is validated, read-only evidence assembled from the artifact
+    registry; caching it keeps Streamlit reruns cheap without bypassing the
+    ``dashboard_data`` layer.
     """
-    <style>
-    .block-container{max-width:1550px;padding-top:1rem;padding-bottom:2rem}
-    .hero{padding:1.7rem 2rem;border-radius:24px;background:linear-gradient(135deg,#07111f,#123d70 60%,#0f766e);color:white;box-shadow:0 18px 45px rgba(15,23,42,.24);margin-bottom:1rem}
-    .hero h1{margin:0;font-size:2.55rem}.hero p{margin:.45rem 0 0;color:#dbeafe}
-    .card{padding:1rem 1.1rem;border:1px solid #dbe3ee;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(15,23,42,.07)}
-    .flow{display:flex;gap:.55rem;flex-wrap:wrap;padding:1rem;border-radius:18px;background:#f8fafc;border:1px solid #e2e8f0;margin-bottom:1rem}.node{padding:.55rem .8rem;border-radius:12px;background:#fff;border:1px solid #cbd5e1;font-weight:700}
-    .pill{display:inline-block;padding:.3rem .65rem;border-radius:999px;background:#ecfeff;border:1px solid #a5f3fc;font-weight:700;margin-right:.3rem}
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+    return build_dashboard_snapshot(Path(root))
 
 
 def load_project(uploaded: Any) -> tuple[dict[str, Any], str, str]:
@@ -55,13 +110,6 @@ def load_project(uploaded: Any) -> tuple[dict[str, Any], str, str]:
         data = json.loads(uploaded.getvalue().decode("utf-8"))
         return data, uploaded.name, "uploaded"
     return json.loads(DEFAULT_PROJECT.read_text(encoding="utf-8")), DEFAULT_PROJECT.name, str(DEFAULT_PROJECT)
-
-
-def kpi(icon: str, label: str, value: str) -> None:
-    st.markdown(
-        f'<div class="card"><div style="font-size:1.45rem">{icon}</div><small>{label}</small><h3 style="margin:.15rem 0">{value}</h3></div>',
-        unsafe_allow_html=True,
-    )
 
 
 def graph_3d(project: dict[str, Any], critical: set[str]) -> go.Figure:
@@ -78,20 +126,20 @@ def graph_3d(project: dict[str, Any], critical: set[str]) -> go.Figure:
         marker=dict(
             size=[17 if x else 10 for x in critical_mask],
             color=[10 if x else 0 for x in critical_mask],
-            colorscale=[[0, "#38bdf8"], [1, "#ef4444"]],
+            colorscale=[[0, "#3B6EA5"], [1, "#B23A2E"]],
             symbol="diamond", showscale=False,
         ), name="Activities"
     ))
     fig.update_layout(
-        height=600, margin=dict(l=0, r=0, t=35, b=0),
+        height=600,
         scene=dict(
-            xaxis_title="Dependency level", yaxis_title="Parallel position",
-            zaxis_title="Duration (days)",
-            bgcolor="rgba(0,0,0,0)",
+            xaxis=axis_reference("Dependency level"),
+            yaxis=axis_reference("Parallel position"),
+            zaxis=axis_reference("Duration", "days"),
         ),
-        legend=dict(orientation="h", y=1.02),
     )
-    return fig
+    # 3D scenes need the full canvas, so the shared 2D margins are relaxed.
+    return apply_chart_theme(fig, margin={"l": 0, "r": 0, "t": 40, "b": 0})
 
 
 def result_frame(experiment: dict[str, Any]) -> pd.DataFrame:
@@ -108,55 +156,81 @@ def result_frame(experiment: dict[str, Any]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def critical_path_banner(critical_path: list[str]) -> None:
+    """Render the critical path with an explicit deterministic/derived marker."""
+    render_status_banner(
+        "Critical path: " + " → ".join(critical_path),
+        status="valid",
+        title="Deterministic critical path",
+    )
+
+
 def render_overview(project: dict[str, Any], data: dict[str, Any]) -> None:
     ov = data["overview"]
     critical = set(data["schedule"]["critical_path"])
-    st.subheader(f"{ov['project_name']} · {ov['location']}")
-    c = st.columns(6)
-    values = [
-        ("📅", "Project duration", f"{ov['project_duration_days']} d"),
-        ("⚡", "Critical path", f"{ov['critical_path_duration_days']} d"),
-        ("🔗", "Activities", str(ov['total_activities'])),
-        ("🧱", "Material types", str(ov['total_material_types'])),
-        ("⚡", "Critical activities", str(ov['critical_activities'])),
-        ("🧭", "Status", "ANALYZED"),
-    ]
-    for col, item in zip(c, values):
-        with col:
-            kpi(*item)
-    st.markdown(
-        '<div class="flow">' + ''.join(
-            f'<span class="node">{x}</span>' for x in [
-                "📦 Materials", "📅 CPM Schedule", "👷 Resources", "⚠️ Risk Context",
-                "🧪 Experiments", "📊 Statistical Evidence",
-            ]
-        ) + "</div>", unsafe_allow_html=True,
+    render_page_header(
+        f"{ov['project_name']} · {ov['location']}",
+        "Schedule, resource and procurement intelligence computed by the CMIDO engines.",
+        context=f"Project duration {format_days(ov['project_duration_days'], 0)} · {format_integer(ov['total_activities'])} activities",
+        provenance="DER",
     )
-    st.plotly_chart(graph_3d(project, critical), use_container_width=True, config={"displaylogo": False})
-    st.info("Critical path: " + " → ".join(data["schedule"]["critical_path"]))
+    render_legacy_kpi_row([
+        ("📅", "Project duration", format_days(ov["project_duration_days"], 0)),
+        ("⚡", "Critical path", format_days(ov["critical_path_duration_days"], 0)),
+        ("🔗", "Activities", format_integer(ov["total_activities"])),
+        ("🧱", "Material types", format_integer(ov["total_material_types"])),
+    ])
+    render_legacy_kpi_row([
+        ("⚡", "Critical activities", format_integer(ov["critical_activities"])),
+        ("🧭", "Analysis status", "ANALYZED"),
+    ])
+    render_html(build_flow_diagram([
+        "📦 Materials",
+        "📅 CPM Schedule",
+        "👷 Resources",
+        "⚠️ Risk Context",
+        "🧪 Experiments",
+        "📊 Statistical Evidence",
+    ], title="Analysis pipeline"))
+    render_chart(
+        graph_3d(project, critical),
+        title="3D project dependency graph",
+        subtitle="Diamonds mark critical-path activities; edges are project dependencies.",
+        caption="Deterministic CPM output — provenance DER.",
+        provenance="DER",
+    )
+    critical_path_banner(data["schedule"]["critical_path"])
 
 
-st.markdown(
-    '<div class="hero"><h1>🏗️ CMIDO Decision Intelligence</h1>'
-    '<p>Interactive construction schedule, resource, procurement, uncertainty and research-evidence command center.</p></div>',
-    unsafe_allow_html=True,
+render_app_header()
+render_page_header(
+    "CMIDO Decision Intelligence",
+    "Interactive construction schedule, resource, procurement, uncertainty and "
+    "research-evidence command center.",
 )
 
 with st.sidebar:
     st.header("🎛️ Control Center")
+    render_html(build_breadcrumb(["CMIDO", "Control Center"]))
     uploaded = st.file_uploader("Load project JSON", type=["json"])
-    page = st.radio(
-        "Navigate",
-        ["Overview", "Schedule", "Materials & Resources", "Risk & Scenarios", "Experiment Lab", "Research Evidence", "3D Project Graph"],
-    )
+    page = st.radio("Navigate", PAGES)
     st.divider()
-    st.caption("The UI calls the existing deterministic CMIDO engines. It visualizes results and executes controlled scenarios; it does not replace the research logic.")
+    render_html(build_provenance_badge("DER"))
+    st.caption(
+        "The UI calls the existing deterministic CMIDO engines. It visualizes results "
+        "and executes controlled scenarios; it does not replace the research logic."
+    )
 
 try:
     project, source_name, source_path = load_project(uploaded)
     data = build_dashboard_data(project)
-except Exception as exc:
-    st.error(f"Could not load project: {exc}")
+except Exception as exc:  # noqa: BLE001 - surfaced as a designed error state
+    render_error_state(
+        "Project data unavailable",
+        description="The selected project file could not be read. "
+                    "Upload a valid CMIDO project JSON or restore the default demo project.",
+        diagnostics=f"{type(exc).__name__}: {exc}",
+    )
     st.stop()
 
 ov = data["overview"]
@@ -166,17 +240,37 @@ if page == "Overview":
     render_overview(project, data)
 
 elif page == "Schedule":
-    st.subheader("📅 Schedule & Critical Path")
-    c = st.columns(3)
-    with c[0]: kpi("⚡", "Critical activities", str(ov["critical_activities"]))
-    with c[1]: kpi("◻️", "Non-critical activities", str(ov["non_critical_activities"]))
-    with c[2]: kpi("⏱️", "Duration", f"{ov['project_duration_days']} days")
-    st.dataframe(pd.DataFrame(data["schedule"]["activities"]), use_container_width=True, hide_index=True)
-    st.info("Critical path: " + " → ".join(data["schedule"]["critical_path"]))
+    render_section_header(
+        "📅 Schedule & Critical Path",
+        "Deterministic CPM forward/backward pass, float and classification.",
+        research_stage="RO1",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="Method: critical path method (deterministic). Floats are derived, not estimated.",
+    )
+    render_kpi_columns([
+        {"label": "Critical activities", "value": format_integer(ov["critical_activities"]), "provenance": "DER", "status": "valid"},
+        {"label": "Non-critical activities", "value": format_integer(ov["non_critical_activities"]), "provenance": "DER", "status": "valid"},
+        {"label": "Project duration", "value": format_number(ov["project_duration_days"], 0), "unit": "d", "provenance": "DER", "status": "valid"},
+    ])
+    render_table(
+        pd.DataFrame(data["schedule"]["activities"]),
+        title="Activity schedule",
+        subtitle="Forward/backward pass results, total float and critical classification.",
+        caption=f"{format_integer(ov['total_activities'])} activities · critical path length "
+                f"{format_integer(len(data['schedule']['critical_path']))}",
+        provenance="DER",
+    )
+    critical_path_banner(data["schedule"]["critical_path"])
 
 elif page == "Materials & Resources":
-    st.subheader("🧱 Materials & Resource Feasibility")
-    st.caption("Change availability below and the shortage state is recalculated live by the CMIDO resource engine.")
+    render_section_header(
+        "🧱 Materials & Resource Feasibility",
+        "Change availability below and the shortage state is recalculated live by the CMIDO resource engine.",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="Method: deterministic quantity-versus-availability feasibility check.",
+    )
     materials = project.get("materials", [])
     available: dict[str, float] = {}
     cols = st.columns(min(4, max(1, len(materials))))
@@ -188,47 +282,100 @@ elif page == "Materials & Resources":
             )
     resource = build_resource_dashboard(project, available)
     summary = resource["summary"]
-    c = st.columns(3)
-    with c[0]: kpi("📦", "Resource types", str(summary["total_resources"]))
-    with c[1]: kpi("✅", "Feasible", str(summary["feasible_resources"]))
-    with c[2]: kpi("⚠️", "Shortage", str(summary["shortage_resources"]))
-    st.dataframe(pd.DataFrame(resource["resources"]), use_container_width=True, hide_index=True)
+    render_kpi_columns([
+        {"label": "Resource types", "value": format_integer(summary["total_resources"]), "provenance": "DER"},
+        {"label": "Feasible", "value": format_feasibility(summary["feasible_resources"], summary["total_resources"]), "provenance": "DER"},
+        {"label": "Shortage", "value": format_integer(summary["shortage_resources"]), "provenance": "DER", "status": "attention" if summary["shortage_resources"] else "valid"},
+    ])
+    render_table(
+        pd.DataFrame(resource["resources"]),
+        title="Resource feasibility detail",
+        subtitle="Required vs available quantity and shortage percentage per resource.",
+        caption=f"Shortage share is computed against required quantity ({format_percent(1 - summary['feasible_resources'] / max(1, summary['total_resources']))} of resources short).",
+        provenance="DER",
+    )
 
 elif page == "Risk & Scenarios":
-    st.subheader("⚠️ Deterministic Risk & Delay Lab")
+    render_section_header(
+        "⚠️ Deterministic Risk & Delay Lab",
+        "Inject a delay into a single activity and observe the deterministic schedule response.",
+        provenance="SCN",
+        evidence_state="valid",
+        methodology="Method: single-activity delay injection through the schedule-impact engine. "
+                     "Scenario outputs are scenario-generated (SCN), not observed.",
+    )
     ids = [a["activity_id"] for a in project.get("activities", [])]
     activity = st.selectbox("Activity to stress", ids)
     delay = st.slider("Injected delay (days)", 0, 30, 3)
     if st.button("▶ Run scenario", type="primary", use_container_width=True):
         try:
             result = analyze_schedule_impact(project, activity, delay)
-            c = st.columns(4)
-            with c[0]: kpi("📅", "Baseline", f"{result['baseline_project_duration']} d")
-            with c[1]: kpi("🎯", "Scenario", f"{result['scenario_project_duration']} d")
-            with c[2]: kpi("🚨", "Project delay", f"{result['project_delay_days']} d")
-            with c[3]: kpi("🔀", "CP changed", "YES" if result["critical_path_changed"] else "NO")
-            st.write("**Before:**", " → ".join(result["critical_path_before"]))
-            st.write("**After:**", " → ".join(result["critical_path_after"]))
-            st.dataframe(pd.DataFrame(result["affected_activities"]), use_container_width=True, hide_index=True)
-        except Exception as exc:
-            st.error(f"Scenario failed: {exc}")
+            render_kpi_columns([
+                {"label": "Baseline", "value": format_number(result["baseline_project_duration"], 0), "unit": "d", "provenance": "DER"},
+                {"label": "Scenario", "value": format_number(result["scenario_project_duration"], 0), "unit": "d", "provenance": "SCN"},
+                {"label": "Project delay", "value": format_number(result["project_delay_days"], 1), "unit": "d", "provenance": "SCN", "status": "attention" if result["project_delay_days"] else "valid"},
+                {"label": "Critical path changed", "value": "YES" if result["critical_path_changed"] else "NO", "provenance": "DER"},
+            ])
+            render_html(build_methodology_card(
+                "Scenario interpretation",
+                "Critical path before and after the injected delay.",
+                key_metric=format_days(result["project_delay_days"]),
+                key_metric_label="Project delay",
+                evidence_state="valid",
+                provenance="SCN",
+                detail="Before: " + " → ".join(result["critical_path_before"]) + "\n\nAfter: " + " → ".join(result["critical_path_after"]),
+            ))
+            render_table(
+                pd.DataFrame(result["affected_activities"]),
+                title="Affected activities",
+                subtitle="Activities whose earliest/latest dates respond to the injected delay.",
+                provenance="SCN",
+            )
+        except Exception as exc:  # noqa: BLE001 - technical detail kept secondary
+            render_error_state(
+                "Scenario could not be completed",
+                description="The schedule-impact engine did not return a result for this configuration. "
+                            "Adjust the activity or delay level and run the scenario again.",
+                diagnostics=f"{type(exc).__name__}: {exc}",
+            )
     with st.expander("Show empty risk context"):
         context = build_uncertainty_context(project, [])
         st.json({"baseline": context["baseline"], "risk_summary": context["risk_summary"], "project_impact": context["project_impact"]})
+        render_html(build_empty_state(
+            "No demand samples were supplied, so the uncertainty context is intentionally empty.",
+            title="Empty risk context",
+            hint="This is the expected baseline behaviour of the CMIDO uncertainty context builder.",
+        ))
 
 elif page == "Experiment Lab":
-    st.subheader("🧪 Controlled Experiment Lab")
-    st.caption("Deterministic CMIDO scenarios are executed through the real schedule-impact engine; experiment evidence is kept traceable to the selected configuration and seed.")
-    st.caption("Every selected scenario is executed through the real CMIDO schedule-impact evaluator.")
+    render_section_header(
+        "🧪 Controlled Experiment Lab",
+        "Deterministic CMIDO scenarios are executed through the real schedule-impact engine; "
+        "experiment evidence is kept traceable to the selected configuration and seed.",
+        research_stage="RO3",
+        provenance="SCN",
+        methodology="Method: deterministic scenario grid evaluated by the schedule-impact engine. "
+                     "Statistical summaries are computed afterwards from the executed runs.",
+    )
     ids = [a["activity_id"] for a in project.get("activities", [])]
     selected = st.multiselect("Activities", ids, default=ids[:1])
     delays = st.multiselect("Delay levels", list(range(0, 16)), default=[0, 1, 3, 5])
     seed = st.number_input("Experiment seed", min_value=0, value=42, step=1)
     if st.button("🚀 Execute experiment", type="primary", use_container_width=True):
         if not selected or not delays:
-            st.error("Select at least one activity and one delay level.")
+            render_status_banner(
+                "Select at least one activity and one delay level before executing the experiment.",
+                status="attention",
+                title="Incomplete experiment configuration",
+            )
         elif source_path == "uploaded":
-            st.error("Uploaded projects are supported for visualization. Save the dataset locally before running the real-data experiment runner.")
+            render_status_banner(
+                "Uploaded projects are supported for visualization. Save the dataset locally before "
+                "running the real-data experiment runner.",
+                status="optional",
+                title="Uploaded dataset",
+                hint="The real-data experiment runner resolves artifacts from a repository path.",
+            )
         else:
             scenarios = [scenario for activity in selected for scenario in build_delay_scenarios(activity, delays)]
             config = ExperimentConfig(
@@ -244,7 +391,14 @@ elif page == "Experiment Lab":
     experiment = st.session_state.get("experiment")
     if experiment:
         frame = result_frame(experiment)
-        st.dataframe(frame, use_container_width=True, hide_index=True)
+        render_table(
+            frame,
+            title="Executed scenarios",
+            subtitle="One row per evaluated scenario from the current experiment run.",
+            caption=f"Seed {experiment['experiment']['seed']} · {experiment['scenario_count']} scenarios",
+            provenance="SCN",
+            research_stage="RO3",
+        )
         if not frame.empty:
             fig = go.Figure()
             for activity_id, group in frame.groupby("Activity"):
@@ -252,53 +406,125 @@ elif page == "Experiment Lab":
                     x=group["Input delay (days)"], y=group["Project delay (days)"],
                     mode="lines+markers", name=activity_id,
                 ))
-            fig.update_layout(height=420, xaxis_title="Input delay (days)", yaxis_title="Observed project delay (days)")
-            st.plotly_chart(fig, use_container_width=True)
+            apply_chart_theme(fig, height=420)
+            render_chart(
+                fig,
+                title="Observed project delay vs injected delay",
+                subtitle="One line per stressed activity; values are deterministic engine outputs.",
+                provenance="SCN",
+                research_stage="RO3",
+            )
+    else:
+        render_html(build_empty_state(
+            "No experiment has been executed in this session yet.",
+            title="Empty experiment registry",
+            hint="Configure activities, delay levels and a seed, then execute the experiment.",
+        ))
 
 elif page == "Research Evidence":
-    st.subheader("📊 Research Evidence")
-    
+    render_section_header(
+        "📊 Research Evidence",
+        "Validated repository research artifacts exposed through the 10A.2-B dashboard contract.",
+        research_stage="EVIDENCE",
+        evidence_state="valid",
+        methodology="Method: every artifact is registered, loaded under its loading policy, "
+                     "schema-validated and provenance-tagged before display.",
+    )
+
     # 10A.2-B Validated Repository Snapshot
-    snapshot = build_dashboard_snapshot(ROOT)
+    snapshot = cached_snapshot(str(ROOT))
     with st.expander("🏛️ Repository Research Artifact Ecosystem (10A.2-B Contract)", expanded=True):
         ov_snap = snapshot.overview
-        c_snap = st.columns(4)
-        with c_snap[0]: kpi("📁", "Registered Artifacts", str(ov_snap.total_artifacts_registered))
-        with c_snap[1]: kpi("✅", "Available Artifacts", str(ov_snap.total_artifacts_available))
-        with c_snap[2]: kpi("⚠️", "Missing Artifacts", str(ov_snap.total_artifacts_missing))
-        with c_snap[3]: kpi("🚨", "Invalid Artifacts", str(ov_snap.total_artifacts_invalid))
-        
+        render_kpi_columns([
+            {"label": "Registered artifacts", "value": format_integer(ov_snap.total_artifacts_registered), "evidence_state": "valid"},
+            {"label": "Available artifacts", "value": format_integer(ov_snap.total_artifacts_available), "evidence_state": "valid", "provenance": "OBS"},
+            {"label": "Missing artifacts", "value": format_integer(ov_snap.total_artifacts_missing), "evidence_state": "missing"},
+            {"label": "Invalid artifacts", "value": format_integer(ov_snap.total_artifacts_invalid), "evidence_state": "invalid"},
+        ])
+        render_html(build_publication_status(
+            title="Artifact loading policy compliance",
+            note="Experiment-scale scenario ledgers are never loaded by the dashboard.",
+            status="valid" if ov_snap.total_artifacts_invalid == 0 else "attention",
+            rows=[
+                ("Registered artifacts", "valid"),
+                ("Loaded artifacts", "valid" if ov_snap.total_artifacts_available else "empty"),
+                ("Unavailable artifacts", "attention" if ov_snap.total_artifacts_missing else "valid"),
+            ],
+        ))
+
         tab_ro1, tab_ro2, tab_ro3, tab_real, tab_prov = st.tabs([
             "RO1 Forecasting", "RO2 Uncertainty", "RO3 Optimisation", "Real-Data Evidence", "Provenance Audit"
         ])
         with tab_ro1:
-            st.caption("RO1 Probabilistic Forecasting Validation Metrics (Publication T1)")
-            if snapshot.ro1.validation_metrics:
-                st.dataframe(pd.DataFrame(snapshot.ro1.validation_metrics), use_container_width=True, hide_index=True)
-            else:
-                st.write("No RO1 validation metrics loaded.")
+            render_section_header("RO1 Forecasting Validation Metrics", research_stage="RO1")
+            render_table(
+                pd.DataFrame(snapshot.ro1.validation_metrics),
+                title="RO1 validation metrics (Publication T1)",
+                subtitle="Forecast accuracy and calibration evidence produced by the RO1 engine.",
+                provenance="EST",
+                research_stage="RO1",
+                empty_message="RO1 validation metrics are not available in this checkout.",
+            )
         with tab_ro2:
-            st.caption("RO2 Joint Uncertainty Propagation Summary (Publication T2)")
-            if snapshot.ro2.joint_propagation_summary:
-                st.dataframe(pd.DataFrame(snapshot.ro2.joint_propagation_summary), use_container_width=True, hide_index=True)
-            else:
-                st.write("No RO2 joint propagation summary loaded.")
+            render_section_header("RO2 Joint Uncertainty Propagation", research_stage="RO2")
+            render_table(
+                pd.DataFrame(snapshot.ro2.joint_propagation_summary),
+                title="RO2 joint propagation summary (Publication T2)",
+                subtitle="Demand and supply/lead-time uncertainty propagated jointly.",
+                provenance="EST",
+                research_stage="RO2",
+                uncertainty="distribution",
+                empty_message="RO2 joint propagation summary is not available in this checkout.",
+            )
+            render_table(
+                pd.DataFrame(snapshot.ro2.service_risk_curve),
+                title="RO2 service-risk curve",
+                subtitle="Probability that the service level is violated under the joint model.",
+                provenance="EST",
+                research_stage="RO2",
+                uncertainty="service_risk",
+                empty_message="RO2 service-risk curve is not available in this checkout.",
+            )
         with tab_ro3:
-            st.caption("RO3 Controller Baseline Comparison & Ablation (Publication T5/T6)")
-            if snapshot.ro3.baseline_comparison:
-                st.dataframe(pd.DataFrame(snapshot.ro3.baseline_comparison), use_container_width=True, hide_index=True)
-            if snapshot.ro3.ablation:
-                st.subheader("Ablation Incremental Value")
-                st.dataframe(pd.DataFrame(snapshot.ro3.ablation), use_container_width=True, hide_index=True)
+            render_section_header("RO3 Controller Baseline & Ablation", research_stage="RO3")
+            render_table(
+                pd.DataFrame(snapshot.ro3.baseline_comparison),
+                title="RO3 baseline comparison (Publication T5)",
+                subtitle="Controller performance against the documented baselines.",
+                provenance="DER",
+                research_stage="RO3",
+                empty_message="RO3 baseline comparison is not available in this checkout.",
+            )
+            render_table(
+                pd.DataFrame(snapshot.ro3.ablation),
+                title="Ablation incremental value (Publication T6)",
+                subtitle="Contribution of each controller component.",
+                provenance="DER",
+                research_stage="ABLATION",
+                empty_message="RO3 ablation results are not available in this checkout.",
+            )
         with tab_real:
-            st.caption("Real-Data Ingestion Quality & PSLIB/SUCCESS Audit Evidence")
+            render_section_header("Real-Data Ingestion Quality", research_stage="REAL_DATA")
+            render_html(build_methodology_card(
+                "Real-world data evidence",
+                "Canonical dataset, PSLIB project audit and experiment stage recorded by the ingestion layer.",
+                key_metric=str(snapshot.real_data.canonical_9a.get("dataset_id", "n/a")),
+                key_metric_label="9A canonical dataset",
+                evidence_state="valid",
+                provenance="OBS",
+                research_stage="REAL_DATA",
+                detail=(
+                    f"9B PSLIB project: {snapshot.real_data.pslib_audit.get('project_id', 'n/a')} · "
+                    f"9B experiment stage: {snapshot.real_data.experiment_9b.get('stage', 'n/a')}"
+                ),
+            ))
             st.json({
                 "9A_canonical_dataset": snapshot.real_data.canonical_9a.get("dataset_id", "N/A"),
                 "9B_pslib_project": snapshot.real_data.pslib_audit.get("project_id", "N/A"),
                 "9B_experiment_stage": snapshot.real_data.experiment_9b.get("stage", "N/A"),
             })
         with tab_prov:
-            st.caption("Artifact Provenance & Integrity Registry")
+            render_section_header("Artifact Provenance & Integrity Registry", research_stage="EVIDENCE")
             prov_data = [
                 {
                     "Artifact ID": p.artifact_id,
@@ -310,28 +536,73 @@ elif page == "Research Evidence":
                 }
                 for p in snapshot.provenance
             ]
-            st.dataframe(pd.DataFrame(prov_data), use_container_width=True, hide_index=True)
-            
+            render_table(
+                pd.DataFrame(prov_data),
+                title="Provenance registry",
+                subtitle="Every registered artifact with its provenance class and loading status.",
+                caption=f"{len(prov_data)} registered artifacts",
+                provenance="OBS",
+                research_stage="EVIDENCE",
+                empty_message="No artifacts are registered in this checkout.",
+            )
+            unavailable = [p for p in snapshot.provenance if p.status.value != "AVAILABLE"]
+            if unavailable:
+                render_section_header("Unavailable evidence", methodology="States are reported in plain language; technical notes stay secondary.")
+                for record in unavailable[:12]:
+                    render_html(build_artifact_state(
+                        record.artifact_id,
+                        record.status,
+                        stage=record.research_stage,
+                        provenance=record.provenance_class.value,
+                        diagnostics=record.notes or None,
+                    ))
+            else:
+                render_html(build_empty_state(
+                    "All registered artifacts loaded successfully.",
+                    title="Complete evidence set",
+                ))
+
     st.divider()
-    st.markdown("### 🧪 Live Interactive Experiment Evidence")
+    render_section_header(
+        "🧪 Live Interactive Experiment Evidence",
+        "Statistical analysis of the experiment executed in this session.",
+        research_stage="RO3",
+        uncertainty="distribution",
+    )
     experiment = st.session_state.get("experiment")
     if not experiment:
-        st.info("Run an experiment in Experiment Lab first.")
+        render_html(build_empty_state(
+            "Run an experiment in Experiment Lab first.",
+            title="No live experiment evidence",
+            hint="The statistical panel populates once an experiment has been executed in this session.",
+        ))
     else:
         analysis = build_statistical_analysis(experiment["results"], seed=experiment["experiment"]["seed"])
         project_delay = analysis["project_delay"]
         ci = analysis["mean_project_delay_confidence_interval"]
-        c = st.columns(4)
-        with c[0]: kpi("🧪", "Scenarios", str(analysis["scenario_count"]))
-        with c[1]: kpi("📈", "Mean project delay", f"{project_delay['mean']:.2f} d")
-        with c[2]: kpi("⚠️", "Delayed scenarios", f"{analysis['delay_rate']:.1%}")
-        with c[3]: kpi("📐", "95% bootstrap CI", f"{ci['lower']:.2f}–{ci['upper']:.2f} d")
+        render_kpi_columns([
+            {"label": "Scenarios", "value": format_integer(analysis["scenario_count"]), "provenance": "SCN"},
+            {"label": "Mean project delay", "value": format_number(project_delay["mean"]), "unit": "d", "provenance": "EST", "uncertainty": "point"},
+            {"label": "Delayed scenarios", "value": format_percent(analysis["delay_rate"]), "provenance": "EST", "uncertainty": "distribution"},
+            {"label": "95% bootstrap CI", "value": f"{format_number(ci['lower'])}–{format_number(ci['upper'])} d", "provenance": "EST", "uncertainty": "interval",
+             "description": format_interval(ci["lower"], ci["upper"], label="Mean project delay")},
+        ])
         st.json(analysis)
 
 elif page == "3D Project Graph":
-    st.subheader("🌐 3D Project Graph")
-    st.caption("Rotate, zoom and hover. Diamonds identify critical-path activities; edges are project dependencies.")
-    st.plotly_chart(graph_3d(project, critical), use_container_width=True, config={"displaylogo": False, "scrollZoom": True})
+    render_section_header(
+        "🌐 3D Project Graph",
+        "Rotate, zoom and hover. Diamonds identify critical-path activities; edges are project dependencies.",
+        research_stage="RO1",
+        provenance="DER",
+        methodology="Deterministic dependency layout with critical-path highlighting.",
+    )
+    render_chart(
+        graph_3d(project, critical),
+        title="Project dependency graph",
+        subtitle="Interactive 3D view of the deterministic dependency network.",
+        provenance="DER",
+    )
 
 st.divider()
-st.caption("CMIDO · interactive construction decision intelligence · 8L dashboard")
+render_html(build_footer())
