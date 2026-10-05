@@ -26,6 +26,23 @@ from .badges import build_badge_row, build_evidence_state_badge, build_provenanc
 from .cards import build_chart_card, build_kpi, build_table_card
 from .charts import get_chart_config, get_plotly_theme
 from .formatting import is_missing
+from .navigation import (
+    NAV_SESSION_KEY,
+    breadcrumb_for,
+    build_future_page_panel,
+    build_nav_breadcrumb,
+    build_nav_group_header,
+    build_nav_item_html,
+    build_nav_legend,
+    group_for,
+    page_by_id,
+    page_description,
+    page_future_phase,
+    page_is_planned,
+    pages_in_group,
+    pages,
+    resolve_page,
+)
 from .sections import (
     build_artifact_state,
     build_empty_state,
@@ -367,6 +384,99 @@ def render_artifact_state(
 def render_badges(*badges: str) -> None:
     """Render a row of badges produced by the badge builders."""
     render_html(build_badge_row(list(badges)))
+
+
+# ---------------------------------------------------------------------------
+# Application shell (10A.4)
+# ---------------------------------------------------------------------------
+def render_breadcrumb(trail: Sequence[str]) -> None:
+    """Render a navigation trail such as CMIDO / Decision / Schedule."""
+    from .sections import build_breadcrumb
+
+    render_html(build_breadcrumb(trail))
+
+
+def render_nav_legend() -> None:
+    """Render the compact explanation of the navigation groups."""
+    render_html(build_nav_legend())
+
+
+def render_sidebar_navigation(active: Any = None, *, rerun: bool = True) -> str:
+    """Render the grouped sidebar navigation and return the active page id.
+
+    The selection is held in session state rather than in a flat radio widget
+    so the sidebar can present the pages in their four research groups. Unknown
+    or missing state resolves to the default page instead of raising, which keeps
+    a stale session from stranding the shell.
+
+    For planned pages the button still renders, but the live dispatch below treats
+    them as ``st.stop()`` placeholders so navigating to a future workspace surfaces
+    the honest ``build_future_page_panel`` rather than silently dropping through to
+    the next ``elif`` branch.
+    """
+    st = _st()
+
+    current = resolve_page(
+        active if active is not None else st.session_state.get(NAV_SESSION_KEY)
+    )
+    st.session_state[NAV_SESSION_KEY] = current
+
+    for group in nav_groups():
+        members = pages_in_group(group.key)
+        if not members:
+            continue
+        render_html(build_nav_group_header(group))
+        for page in members:
+            selected = st.button(
+                page.display,
+                key=f"cmido_nav_{page.slug}",
+                use_container_width=True,
+                type="primary" if page.id == current else "secondary",
+                help=page_description(page.id) or None,
+            )
+            if selected and page.id != current:
+                st.session_state[NAV_SESSION_KEY] = page.id
+                if rerun:
+                    st.rerun()
+    return current
+
+
+def render_future_page_panel(page_id: str) -> None:
+    """Render an honest placeholder panel for a planned page.
+
+    This deliberately contains no fabricated numbers, charts or KPIs. It states
+    what the workspace will cover and which phase will deliver it, then stops the
+    page so the dashboard does not fall through to unrelated content.
+    """
+    page = page_by_id(resolve_page(page_id))
+    if not page.is_planned:
+        return
+    render_html(build_future_page_panel(page.id))
+    st = _st()
+    st.divider()
+    render_status_banner(
+        "Planned workspace — not yet available.",
+        status="optional",
+        title=f"{page.title} ({page_future_phase(page.id)})",
+        hint=page_description(page.id),
+    )
+    st.stop()
+
+
+def render_active_nav_item(label: str) -> None:
+    """Render the sidebar-style active row for a destination (audit/tests)."""
+    page = page_by_id(resolve_page(label))
+    render_html(build_nav_item_html(page, active=True))
+
+
+def nav_breadcrumb(label: str) -> list[str]:
+    """Return the breadcrumb trail for a destination without rendering it."""
+    return breadcrumb_for(resolve_page(label))
+
+
+def page_title_st(label: str) -> str:
+    """Convenience for Streamlit pages that already carry a legacy route string."""
+    return page_title(resolve_page(label))
 
 
 def render_metadata_badges(

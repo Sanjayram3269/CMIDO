@@ -312,13 +312,30 @@ def build_footer(text: str | None = None) -> str:
 
 
 def build_sidebar_group(label: str, caption: str | None = None) -> str:
-    """Sidebar section label styling for the future 10A.4 navigation."""
+    """Sidebar section header used by the 10A.4 grouped navigation."""
     parts = [
-        f'<div style="{TYPOGRAPHY["kpi_label"]};margin-bottom:0.25rem;">{_escape(label)}</div>'
+        '<div class="cmido-nav-group">',
+        f'<div class="cmido-nav-group-label">{_escape(label)}</div>',
     ]
     if caption:
-        parts.append(f'<div style="{TYPOGRAPHY["caption"]};margin-bottom:0.5rem;">{_escape(caption)}</div>')
+        parts.append(f'<div class="cmido-nav-group-caption">{_escape(caption)}</div>')
+    parts.append("</div>")
     return "".join(parts)
+
+
+def build_nav_item(item_label: str, *, active: bool = False, group: str | None = None) -> str:
+    """Sidebar destination row, marked active for the current page."""
+    from .navigation import nav_item, resolve_page
+
+    item = nav_item(resolve_page(item_label))
+    classes = ["cmido-nav-item"]
+    if active:
+        classes.append("cmido-nav-item--active")
+    group_attr = f' data-group="{_escape(group)}"' if group else ""
+    return (
+        f'<div class="{"".join(classes)}"{group_attr} '
+        f'data-slug="{_escape(item.slug)}">{_escape(item.display)}</div>'
+    )
 
 
 # Re-exported colour helpers keep secondary text tokens available to callers

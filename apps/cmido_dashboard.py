@@ -10,6 +10,12 @@ Layering (10A.2-B preserved, 10A.3 UI layer added)::
 section headers, chart containers, table wrappers, provenance badges and
 artifact status states.  It performs no new research logic and reads no raw
 scenario ledgers.
+
+10A.4 scope: this page adds the application shell.  The grouped sidebar,
+the breadcrumb and the page router all read from one declarative navigation
+registry (:mod:`src.construction.dashboard_ui.navigation`), so the four
+research groups - CORE, DECISION, RESEARCH, EVIDENCE - cannot drift apart.
+Page content is unchanged from 10A.3.
 """
 
 from __future__ import annotations
@@ -44,6 +50,13 @@ from src.construction.dashboard_ui import (
     axis_reference,
     build_artifact_state,
     build_breadcrumb,
+    build_nav_breadcrumb,
+    page_description,
+    page_future_phase,
+    page_group_label,
+    page_is_planned,
+    page_title,
+    render_future_page_panel,
     build_empty_state,
     build_flow_diagram,
     build_footer,
@@ -56,32 +69,46 @@ from src.construction.dashboard_ui import (
     format_interval,
     format_number,
     format_percent,
+    pagelist,
+    validate_shell,
 )
 from src.construction.dashboard_ui.components import (
     inject_css,
+    render_active_nav_item,
     render_app_header,
     render_chart,
     render_error_state,
     render_html,
     render_kpi_columns,
     render_legacy_kpi_row,
+    render_nav_legend,
     render_page_header,
     render_section_header,
+    render_sidebar_navigation,
     render_status_banner,
     render_table,
 )
 
+
+def page_provenance(page_id: str) -> str | None:
+    """Return the provenance vocabulary for a page, if the registry carries one.
+
+    This is purely a presentation helper; it does not read artifacts or infer
+    provenance. Unknown or empty values are left as ``None`` so the page header
+    does not invent a provenance badge.
+    """
+    from src.construction.dashboard_ui.navigation import page_by_id
+
+    page = page_by_id(page_id)
+    return page.provenance or None
+
+
 DEFAULT_PROJECT = ROOT / "data" / "projects" / "cmido_demo_project.json"
 
-PAGES = [
-    "Overview",
-    "Schedule",
-    "Materials & Resources",
-    "Risk & Scenarios",
-    "Experiment Lab",
-    "Research Evidence",
-    "3D Project Graph",
-]
+#: Destination labels, owned by the 10A.4 navigation registry.  The page body
+#: below dispatches on these labels, so the registry stays the single source of
+#: truth for the shell, the breadcrumb and the router.
+PAGES = list(pagelist())
 
 st.set_page_config(
     page_title="CMIDO | Construction Decision Intelligence",
@@ -92,6 +119,17 @@ st.set_page_config(
 
 # 10A.3 design system stylesheet (injected once per session).
 inject_css()
+
+# 10A.4 shell: refuse to render navigation built on a malformed registry.
+NAV_PROBLEMS = validate_nav()
+if NAV_PROBLEMS:
+    render_error_state(
+        "Navigation registry is misconfigured",
+        description="The dashboard shell could not resolve its navigation registry. "
+                    "Restore src/construction/dashboard_ui/navigation.py to the shipped registry.",
+        diagnostics="; ".join(NAV_PROBLEMS),
+    )
+    st.stop()
 
 
 @st.cache_data(show_spinner=False, max_entries=1)
@@ -203,17 +241,20 @@ def render_overview(project: dict[str, Any], data: dict[str, Any]) -> None:
 
 
 render_app_header()
+render_nav_legend()
+render_html(build_nav_breadcrumb(page))
 render_page_header(
-    "CMIDO Decision Intelligence",
-    "Interactive construction schedule, resource, procurement, uncertainty and "
-    "research-evidence command center.",
+    page_title(page),
+    page_description(page) or "Interactive construction schedule, resource, procurement, uncertainty and research-evidence command center.",
+    research_stage=page_research_stage(page),
 )
 
 with st.sidebar:
     st.header("🎛️ Control Center")
     render_html(build_breadcrumb(["CMIDO", "Control Center"]))
     uploaded = st.file_uploader("Load project JSON", type=["json"])
-    page = st.radio("Navigate", PAGES)
+    st.divider()
+    page = render_sidebar_navigation()
     st.divider()
     render_html(build_provenance_badge("DER"))
     st.caption(
@@ -232,6 +273,9 @@ except Exception as exc:  # noqa: BLE001 - surfaced as a designed error state
         diagnostics=f"{type(exc).__name__}: {exc}",
     )
     st.stop()
+
+render_future_page_panel(page)
+st.stop()
 
 ov = data["overview"]
 critical = set(data["schedule"]["critical_path"])

@@ -533,5 +533,66 @@ def build_css() -> str:
 .cmido-empty-body {{ margin-top: 0.35rem; }}
 
 .cmido-table-note {{ {TYPOGRAPHY['caption']} margin: 0.35rem 0 0 0; }}
+
+/* ---- CMIDO 10A.4 application shell navigation -------------------------- */
+.cmido-nav-group {{
+    margin: {SPACING['md']} 0 {SPACING['xs']} 0;
+    padding-top: {SPACING['sm']};
+    border-top: 1px solid {BORDER_MUTED};
+}}
+.cmido-nav-group:first-of-type {{
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}}
+.cmido-nav-group-label {{
+    {TYPOGRAPHY['kpi_label']}
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: {PRIMARY_TEXT};
+}}
+.cmido-nav-group-caption {{
+    {TYPOGRAPHY['caption']}
+    color: {MUTED_TEXT};
+    margin-top: 0.1rem;
+    margin-bottom: 0.45rem;
+}}
+.cmido-nav-item {{
+    display: block;
+    padding: 0.32rem 0.6rem;
+    border-radius: {CORNERS['sm']};
+    border-left: 3px solid transparent;
+    {TYPOGRAPHY['body']}
+    color: {SECONDARY_TEXT};
+}}
+.cmido-nav-item--active {{
+    background: {ACCENT_SOFT};
+    border-left-color: {ACCENT};
+    color: {PRIMARY_TEXT};
+    font-weight: 600;
+}}
+.cmido-nav-legend {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: {SPACING['sm']} {SPACING['md']};
+    align-items: baseline;
+    padding: {SPACING['xs']} 0;
+    margin-bottom: {SPACING['xs']};
+    border-bottom: 1px solid {BORDER_MUTED};
+    {TYPOGRAPHY['caption']}
+    color: {MUTED_TEXT};
+}}
+.cmido-nav-legend-title {{
+    font-weight: 700;
+    color: {PRIMARY_TEXT};
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}}
+.cmido-nav-legend-item {{
+    display: inline-flex;
+    gap: 0.3rem;
+    align-items: baseline;
+}}
+.cmido-nav-legend-item strong {{ color: {SECONDARY_TEXT}; }}
 </style>
 """
