@@ -656,6 +656,39 @@ class TestAccessibility:
         assert contrast_ratio(theme.MUTED_TEXT, theme.SURFACE) >= 4.5
         assert contrast_ratio(theme.MUTED_TEXT, theme.PAGE_BG) >= 4.5
 
+    def test_chrome_text_meets_aa_on_dark_application_chrome(self):
+        """Headings/labels on Streamlit's dark chrome clear WCAG AA.
+
+        The dark canvas (#0E1117) and sidebar (#262730) are the surfaces
+        chrome-level text sits on when the app renders dark; the *_ON_DARK
+        companions are applied there through CSS ``light-dark()``.
+        """
+        from src.construction.dashboard_ui import theme
+
+        for surface in ("#0E1117", "#262730"):
+            assert contrast_ratio(theme.PRIMARY_TEXT_ON_DARK, surface) >= 4.5
+            assert contrast_ratio(theme.SECONDARY_TEXT_ON_DARK, surface) >= 4.5
+            assert contrast_ratio(theme.MUTED_TEXT_ON_DARK, surface) >= 4.5
+
+    def test_chrome_text_follows_the_app_color_scheme(self):
+        """Chrome rules resolve through light-dark(); white-surface rules do not."""
+        css = build_css()
+
+        for selector in (
+            ".cmido-page-title",
+            ".cmido-section-title",
+            ".cmido-nav-group-label",
+            ".cmido-nav-legend-title",
+            ".cmido-breadcrumb",
+        ):
+            rule = css.split(selector, 1)[1].split("}", 1)[0]
+            assert "light-dark(" in rule, selector
+
+        card_rule = css.split(".cmido-card-title", 1)[1].split("}", 1)[0]
+        assert "light-dark" not in card_rule
+        kpi_rule = css.split(".cmido-kpi {", 1)[1].split("}", 1)[0]
+        assert "light-dark" not in kpi_rule
+
     def test_accent_text_is_readable_on_its_soft_background(self):
         from src.construction.dashboard_ui import theme
 

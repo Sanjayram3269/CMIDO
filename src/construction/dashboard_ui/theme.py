@@ -48,6 +48,23 @@ SECONDARY_TEXT: Final[str] = "#3F556E"
 MUTED_TEXT: Final[str] = "#5C6E85"
 
 # ---------------------------------------------------------------------------
+# Text on the dark application chrome
+# ---------------------------------------------------------------------------
+#: Companion text colours for content rendered directly on the application
+#: chrome when Streamlit renders the app dark (canvas #0E1117, sidebar
+#: #262730): the light-surface tokens above collapse to ~1.2:1 there.
+#: Chrome-level text - page/section headings, subtitles, notes, sidebar group
+#: labels, captions, legend and breadcrumb - resolves these through CSS
+#: ``light-dark()`` so it follows the inherited ``color-scheme`` of the app
+#: and therefore agrees with whichever theme Streamlit actually rendered.
+#: White cards, KPI tiles, banners and badges keep the light-surface tokens
+#: in both themes; every pair below clears WCAG AA (>= 4.5:1) on both dark
+#: chrome surfaces.
+PRIMARY_TEXT_ON_DARK: Final[str] = "#EDF2F8"
+SECONDARY_TEXT_ON_DARK: Final[str] = "#AEC0D4"
+MUTED_TEXT_ON_DARK: Final[str] = "#8FA0B5"
+
+# ---------------------------------------------------------------------------
 # Accent — used sparingly (branding, emphasis, provenance chrome)
 # ---------------------------------------------------------------------------
 ACCENT: Final[str] = "#0F6E6E"
@@ -450,16 +467,17 @@ def build_css() -> str:
 .cmido-brand-name {{ {TYPOGRAPHY['app_name']} margin: 0; }}
 .cmido-brand-tagline {{ {TYPOGRAPHY['app_tagline']} margin: 0.15rem 0 0 0; }}
 
-.cmido-page-title {{ {TYPOGRAPHY['page_title']} margin: 0 0 0.2rem 0; }}
-.cmido-page-subtitle {{ {TYPOGRAPHY['page_subtitle']} margin: 0 0 0.15rem 0; }}
+.cmido-page-title {{ {TYPOGRAPHY['page_title']} color: light-dark({PRIMARY_TEXT}, {PRIMARY_TEXT_ON_DARK}); margin: 0 0 0.2rem 0; }}
+.cmido-page-subtitle {{ {TYPOGRAPHY['page_subtitle']} color: light-dark({SECONDARY_TEXT}, {SECONDARY_TEXT_ON_DARK}); margin: 0 0 0.15rem 0; }}
 
 .cmido-section {{
     padding: {SPACING['md']} 0 {SPACING['sm']} 0;
     border-bottom: 1px solid {BORDER_MUTED};
     margin-bottom: {SPACING['md']};
 }}
-.cmido-section-title {{ {TYPOGRAPHY['section_title']} margin: 0; }}
+.cmido-section-title {{ {TYPOGRAPHY['section_title']} color: light-dark({PRIMARY_TEXT}, {PRIMARY_TEXT_ON_DARK}); margin: 0; }}
 .cmido-section-subtitle {{ {TYPOGRAPHY['section_subtitle']} margin: 0.25rem 0 0 0; }}
+.cmido-section .cmido-section-subtitle {{ color: light-dark({SECONDARY_TEXT}, {SECONDARY_TEXT_ON_DARK}); }}
 .cmido-section-meta {{ display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.55rem; }}
 
 .cmido-kpi {{
@@ -517,7 +535,7 @@ def build_css() -> str:
 
 .cmido-breadcrumb {{
     display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center;
-    {TYPOGRAPHY['metadata']} margin-bottom: {SPACING['xs']};
+    {TYPOGRAPHY['metadata']} color: light-dark({MUTED_TEXT}, {MUTED_TEXT_ON_DARK}); margin-bottom: {SPACING['xs']};
 }}
 .cmido-breadcrumb-sep {{ color: {BORDER_REINFORCED}; }}
 
@@ -533,6 +551,9 @@ def build_css() -> str:
 .cmido-empty-body {{ margin-top: 0.35rem; }}
 
 .cmido-table-note {{ {TYPOGRAPHY['caption']} margin: 0.35rem 0 0 0; }}
+.cmido-section .cmido-table-note,
+.cmido-page-header .cmido-table-note,
+.cmido-future-page .cmido-table-note {{ color: light-dark({MUTED_TEXT}, {MUTED_TEXT_ON_DARK}); }}
 
 /* ---- CMIDO 10A.4 application shell navigation -------------------------- */
 .cmido-nav-group {{
@@ -550,10 +571,12 @@ def build_css() -> str:
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: {PRIMARY_TEXT};
+    color: light-dark({PRIMARY_TEXT}, {PRIMARY_TEXT_ON_DARK});
 }}
 .cmido-nav-group-caption {{
     {TYPOGRAPHY['caption']}
     color: {MUTED_TEXT};
+    color: light-dark({MUTED_TEXT}, {MUTED_TEXT_ON_DARK});
     margin-top: 0.1rem;
     margin-bottom: 0.45rem;
 }}
@@ -564,6 +587,7 @@ def build_css() -> str:
     border-left: 3px solid transparent;
     {TYPOGRAPHY['body']}
     color: {SECONDARY_TEXT};
+    color: light-dark({SECONDARY_TEXT}, {SECONDARY_TEXT_ON_DARK});
 }}
 .cmido-nav-item--active {{
     background: {ACCENT_SOFT};
@@ -581,10 +605,12 @@ def build_css() -> str:
     border-bottom: 1px solid {BORDER_MUTED};
     {TYPOGRAPHY['caption']}
     color: {MUTED_TEXT};
+    color: light-dark({MUTED_TEXT}, {MUTED_TEXT_ON_DARK});
 }}
 .cmido-nav-legend-title {{
     font-weight: 700;
     color: {PRIMARY_TEXT};
+    color: light-dark({PRIMARY_TEXT}, {PRIMARY_TEXT_ON_DARK});
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }}
@@ -593,6 +619,6 @@ def build_css() -> str:
     gap: 0.3rem;
     align-items: baseline;
 }}
-.cmido-nav-legend-item strong {{ color: {SECONDARY_TEXT}; }}
+.cmido-nav-legend-item strong {{ color: {SECONDARY_TEXT}; color: light-dark({SECONDARY_TEXT}, {SECONDARY_TEXT_ON_DARK}); }}
 </style>
 """
