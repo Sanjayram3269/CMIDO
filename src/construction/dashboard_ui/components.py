@@ -55,7 +55,7 @@ from .sections import (
 from .tables import prepare_table
 from .theme import build_css
 
-#: Session key guarding one-time CSS injection.
+#: Session key recording that CSS has been emitted at least once this session.
 CSS_SESSION_KEY = "_cmido_css_injected"
 
 
@@ -67,16 +67,23 @@ def _st() -> Any:
 
 
 def inject_css(*, force: bool = False) -> bool:
-    """Emit the design-system stylesheet once per Streamlit session.
+    """Emit the design-system stylesheet.
 
-    Returns ``True`` when the stylesheet was written on this call.
+    Streamlit rebuilds the DOM on every run *and* on every page reload, while
+    session state survives reconnections. A once-per-session guard therefore
+    left a reloaded page unstyled: the run after a reload remembered that the
+    CSS had been emitted but no longer carried the element. The stylesheet is
+    now emitted on every run — Streamlit replaces the markdown element in
+    place, so exactly one ``<style>`` block exists — and the return value
+    still reports whether this is the session's first emission.
+
+    ``force`` is kept for API compatibility; emission is unconditional.
     """
     st = _st()
-    if not force and st.session_state.get(CSS_SESSION_KEY):
-        return False
+    first_emission = not st.session_state.get(CSS_SESSION_KEY)
     st.markdown(build_css(), unsafe_allow_html=True)
     st.session_state[CSS_SESSION_KEY] = True
-    return True
+    return first_emission
 
 
 # ---------------------------------------------------------------------------

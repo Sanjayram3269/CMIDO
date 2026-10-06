@@ -127,6 +127,14 @@ from .navigation import (
     set_current_page,
     validate_shell,
 )
+from .overview import (
+    build_evidence_status,
+    build_overview_kpis,
+    build_project_context_rows,
+    build_schedule_rows,
+    build_status_board,
+    deterministic_status,
+)
 from .sections import (
     build_app_header,
     build_artifact_state,
@@ -326,6 +334,12 @@ __all__ = [
     "build_artifact_state",
     "build_breadcrumb",
     "build_empty_state",
+    "build_evidence_status",
+    "build_overview_kpis",
+    "build_project_context_rows",
+    "build_schedule_rows",
+    "build_status_board",
+    "deterministic_status",
     "build_error_state",
     "build_flow_diagram",
     "build_footer",

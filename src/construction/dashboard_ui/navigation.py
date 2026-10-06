@@ -224,7 +224,7 @@ PAGES: tuple[PageDefinition, ...] = (
         title="Overview",
         group="CORE",
         icon="\U0001f3d7",
-        description="Project duration, critical path and analysis pipeline",
+        description="Project intelligence and decision context for the loaded project.",
         provenance="DER",
         route="Overview",
     ),

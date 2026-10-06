@@ -36,6 +36,7 @@ if str(ROOT) not in sys.path:
 from src.construction.dashboard import build_dashboard_data
 from src.construction.dashboard_view import build_dependency_3d_data
 from src.construction.resource_dashboard import build_resource_dashboard
+from src.construction.scheduling import calculate_total_float
 from src.construction.simulation.impact import analyze_schedule_impact
 from src.construction.uncertainty.context import build_uncertainty_context
 from src.construction.experiments import (
@@ -61,8 +62,14 @@ from src.construction.dashboard_ui import (
     build_flow_diagram,
     build_footer,
     build_methodology_card,
+    build_evidence_status,
+    build_overview_kpis,
+    build_project_context_rows,
     build_provenance_badge,
     build_publication_status,
+    build_schedule_rows,
+    build_status_board,
+    deterministic_status,
     format_days,
     format_feasibility,
     format_integer,
@@ -91,6 +98,7 @@ from src.construction.dashboard_ui.components import (
 )
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
+from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
 
 
 def page_provenance(page_id: str) -> str | None:
@@ -206,41 +214,329 @@ def critical_path_banner(critical_path: list[str]) -> None:
     )
 
 
-def render_overview(project: dict[str, Any], data: dict[str, Any]) -> None:
+def schedule_timeline(rows: list[dict[str, Any]], project_duration: Any) -> go.Figure:
+    """Gantt-style progression built from existing CPM outputs.
+
+    Each bar spans early start -> early finish for one activity; colour marks
+    criticality with the 10A.3 theme tokens. No schedule value is computed
+    here - the rows are engine output shaped for presentation only.
+    """
+    critical_rows = [row for row in rows if row.get("Critical") == "YES"]
+    other_rows = [row for row in rows if row.get("Critical") != "YES"]
+
+    def label(row: dict[str, Any]) -> str:
+        name = row.get("Name")
+        return f"{row.get('Activity')} \u00b7 {name}" if name else str(row.get("Activity"))
+
+    fig = go.Figure()
+    for group, name, color in (
+        (critical_rows, "Critical", DANGER),
+        (other_rows, "Non-critical", INFO),
+    ):
+        if not group:
+            continue
+        fig.add_trace(go.Bar(
+            y=[label(row) for row in group],
+            x=[row.get("Duration (d)") for row in group],
+            base=[row.get("Early start (d)") for row in group],
+            orientation="h",
+            name=name,
+            marker=dict(color=color),
+            hovertemplate="%{y}<br>early day %{base} \u00b7 %{x} d<extra>"
+            + name
+            + "</extra>",
+        ))
+    ordered = sorted(
+        rows,
+        key=lambda row: (row.get("Early start (d)") or 0, str(row.get("Activity") or "")),
+    )
+    fig.update_layout(
+        barmode="group",
+        bargap=0.35,
+        yaxis=dict(
+            autorange="reversed",
+            categoryorder="array",
+            categoryarray=[label(row) for row in ordered],
+        ),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
+    )
+    if isinstance(project_duration, (int, float)):
+        fig.add_vline(
+            x=project_duration,
+            line_dash="dash",
+            line_color=SECONDARY_TEXT,
+            annotation_text=f"baseline {project_duration} d",
+            annotation_position="top",
+        )
+    height = max(340, 26 * len(rows) + 150)
+    return apply_chart_theme(fig, height=height, x_title="Project day (early schedule)")
+
+
+def render_overview(
+    project: dict[str, Any],
+    data: dict[str, Any],
+    source_name: str,
+    source_path: str,
+) -> None:
+    """10A.5 Project Intelligence workspace: orientation, not research results.
+
+    Every value shown here comes from the loaded project inputs, the existing
+    deterministic engines or the cached 10A.2-B snapshot. Nothing is scanned
+    from results/ directories and no research claim is made on this page.
+    """
     ov = data["overview"]
     critical = set(data["schedule"]["critical_path"])
-    render_page_header(
-        f"{ov['project_name']} · {ov['location']}",
-        "Schedule, resource and procurement intelligence computed by the CMIDO engines.",
-        context=f"Project duration {format_days(ov['project_duration_days'], 0)} · {format_integer(ov['total_activities'])} activities",
-        provenance="DER",
+
+    # ---- Global context: which project is loaded right now ----------------
+    meta = project.get("project") or {}
+    identity = " \u00b7 ".join(
+        str(part)
+        for part in (meta.get("project_id"), meta.get("project_type"), meta.get("location"))
+        if part
     )
-    render_legacy_kpi_row([
-        ("📅", "Project duration", format_days(ov["project_duration_days"], 0)),
-        ("⚡", "Critical path", format_days(ov["critical_path_duration_days"], 0)),
-        ("🔗", "Activities", format_integer(ov["total_activities"])),
-        ("🧱", "Material types", format_integer(ov["total_material_types"])),
-    ])
-    render_legacy_kpi_row([
-        ("⚡", "Critical activities", format_integer(ov["critical_activities"])),
-        ("🧭", "Analysis status", "ANALYZED"),
-    ])
-    render_html(build_flow_diagram([
-        "📦 Materials",
-        "📅 CPM Schedule",
-        "👷 Resources",
-        "⚠️ Risk Context",
-        "🧪 Experiments",
-        "📊 Statistical Evidence",
-    ], title="Analysis pipeline"))
+    if meta.get("status"):
+        identity = f"{identity} \u00b7 status {meta['status']}" if identity else f"status {meta['status']}"
+    source_label = (
+        f"{source_name} \u2014 uploaded in this session"
+        if source_path == "uploaded"
+        else f"{source_name} \u2014 bundled project file"
+    )
+    render_status_banner(
+        meta.get("project_name") or "Project name unavailable",
+        status="valid" if meta.get("project_name") else "optional",
+        title="Loaded project",
+        detail=" \u00b7 ".join(part for part in (identity, source_label) if part),
+    )
+
+    # ---- Project snapshot -------------------------------------------------
+    render_section_header(
+        "Project snapshot",
+        "Orientation metrics computed by the existing CMIDO engines from the loaded project",
+        evidence_state="valid",
+        provenance="DER",
+        methodology="Absent source values are omitted rather than shown as zero; input facts are marked OBS.",
+    )
+    kpis = build_overview_kpis(project, data)
+    if kpis:
+        # Uniform rows of three keep card widths consistent at any count.
+        for start in range(0, len(kpis), 3):
+            render_kpi_columns(kpis[start : start + 3])
+    else:
+        render_html(build_empty_state(
+            "The loaded project did not provide snapshot metrics.",
+            title="No snapshot metrics available",
+            hint="Load a valid project JSON to populate duration, activity and material metrics.",
+        ))
+
+    # ---- Project context --------------------------------------------------
+    render_section_header(
+        "Project context",
+        "Declared inputs, provenance and horizon of the project being analysed",
+        provenance="OBS",
+        methodology="Input facts are read from the project JSON; the planned horizon is derived from the declared dates.",
+    )
+    context_rows = build_project_context_rows(project, source_name, source_path)
+    if context_rows:
+        render_table(
+            pd.DataFrame(context_rows, columns=["Field", "Value"]),
+            title="Project input context",
+            subtitle="What is being analysed right now",
+            caption="Declared project inputs (OBS) plus one derived horizon (DER).",
+            provenance="OBS",
+        )
+    else:
+        render_html(build_empty_state(
+            "The loaded project declared no context fields.",
+            title="No project context available",
+            hint="A valid CMIDO project JSON declares identity, dates, calendar and counts.",
+        ))
+
+    # ---- Schedule intelligence -------------------------------------------
+    render_section_header(
+        "Schedule intelligence",
+        "Critical path method output for the loaded project",
+        evidence_state="valid",
+        provenance="DER",
+        methodology="Deterministic CPM from the existing scheduling engine: early start/finish and total "
+                    "float are engine outputs, never recomputed in the UI.",
+    )
+    float_rows: list[dict[str, Any]] | None = None
+    try:
+        float_rows = calculate_total_float(project)
+    except Exception as exc:  # noqa: BLE001 - partial state, technical detail stays secondary
+        render_status_banner(
+            "Timing and total-float detail could not be computed for this project. "
+            "Duration, activity counts and criticality remain available above.",
+            status="optional",
+            title="Partial schedule intelligence",
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+    schedule_rows = build_schedule_rows(data["schedule"]["activities"], float_rows)
+    if schedule_rows:
+        render_table(
+            pd.DataFrame(schedule_rows),
+            title="Activity schedule structure",
+            subtitle="Duration, early timing, total float and criticality",
+            caption=f"{len(schedule_rows)} activities \u00b7 critical path length {len(critical)}",
+            provenance="DER",
+        )
+        if schedule_rows[0].get("Early start (d)") is not None:
+            duration_note = (
+                " Bars span early start to early finish; the dashed line marks the baseline duration."
+                if isinstance(ov.get("project_duration_days"), (int, float))
+                else " Bars span early start to early finish."
+            )
+            render_chart(
+                schedule_timeline(schedule_rows, ov.get("project_duration_days")),
+                title="Schedule progression & critical path",
+                subtitle="Horizontal bars show when each activity is scheduled."
+                + duration_note,
+                caption="Deterministic CPM output \u2014 provenance DER.",
+                provenance="DER",
+            )
+    else:
+        render_html(build_empty_state(
+            "The loaded project has no activities, so no schedule structure can be shown.",
+            title="No schedule rows",
+            hint="Load a project JSON that declares activities and dependencies.",
+        ))
+    critical_path_banner(data["schedule"]["critical_path"])
+
+    # ---- Project intelligence graph (existing 3D view, unchanged) ---------
+    render_section_header(
+        "Project intelligence graph",
+        "Dependency network with critical-path highlighting \u2014 the structural intelligence view of this project",
+        evidence_state="valid",
+        provenance="DER",
+        methodology="Existing dependency-layout view: graph calculations and semantics are unchanged by this page.",
+    )
     render_chart(
         graph_3d(project, critical),
         title="3D project dependency graph",
-        subtitle="Diamonds mark critical-path activities; edges are project dependencies.",
-        caption="Deterministic CPM output — provenance DER.",
+        subtitle="Rotate, zoom and hover. Diamonds identify critical-path activities; edges are project dependencies.",
+        caption="Deterministic CPM output \u2014 provenance DER.",
         provenance="DER",
     )
-    critical_path_banner(data["schedule"]["critical_path"])
+
+    # ---- Material & resource intelligence ---------------------------------
+    render_section_header(
+        "Material & resource intelligence",
+        "Quantity demand from the loaded project and the current feasibility context",
+        provenance="DER",
+        methodology="Demand is aggregated from activity-material links by the existing quantity engine; "
+                    "feasibility needs availability inputs supplied on Materials & Resources.",
+    )
+    material_rows = data["materials"]["materials"]
+    if material_rows:
+        frame = pd.DataFrame(material_rows)
+        rename = {
+            "material_id": "Material ID",
+            "material_name": "Material",
+            "total_quantity": "Total required",
+            "unit": "Unit",
+        }
+        frame = frame[[c for c in rename if c in frame.columns]].rename(columns=rename)
+        render_table(
+            frame,
+            title="Material demand summary",
+            subtitle="Total required quantity per material type",
+            caption=f"{data['materials']['total_material_types']} material types aggregated from activity-material links.",
+            provenance="DER",
+        )
+    else:
+        render_html(build_empty_state(
+            "The loaded project declares no material requirements.",
+            title="No material demand",
+            hint="Add materials and activity-material links to the project JSON to populate demand.",
+        ))
+    render_html(build_empty_state(
+        "Resource feasibility needs availability quantities, which are user inputs collected on "
+        "Materials & Resources \u2014 not values this page can derive. Material demand, supplier "
+        "registrations, schedule and evidence context above remain available.",
+        title="Resource feasibility not evaluated",
+        hint="Open Materials & Resources, set availability, and the feasibility engine reports shortage states there.",
+        status="optional",
+    ))
+
+    # ---- Decision & analytical pipeline -----------------------------------
+    render_section_header(
+        "Decision & analytical pipeline",
+        "Route from project data to decision intelligence in this application",
+        methodology="Shows the pipeline shape, not completion: research workspaces RO1\u2013RO3 are planned "
+                    "(Phases 10A.7\u201310A.9) and are not presented as complete.",
+    )
+    render_html(build_flow_diagram([
+        "Project Data",
+        "Validation",
+        "Quantity / Demand",
+        "CPM Schedule",
+        "Resource / Procurement Feasibility",
+        "Scenario / Impact Analysis",
+        "Research Evidence",
+        "Decision Intelligence",
+    ], title="CMIDO analytical pipeline"))
+
+    # ---- Evidence & data status -------------------------------------------
+    render_section_header(
+        "Evidence & data status",
+        "What evidence this application can actually show right now",
+        methodology="Artifact counts come from the cached 10A.2-B snapshot; planned workspaces are read "
+                    "from the 10A.4 page registry.",
+    )
+    snapshot_error: str | None = None
+    try:
+        snapshot_overview = cached_snapshot(str(ROOT)).overview
+    except Exception as exc:  # noqa: BLE001 - reported as an honest missing state
+        snapshot_overview = None
+        snapshot_error = f"{type(exc).__name__}: {exc}"
+    evidence_rows, evidence_overall, evidence_note = build_evidence_status(
+        snapshot_overview,
+        real_world_planned=page_is_planned("real_world_data"),
+        ro_workspaces_planned=all(
+            page_is_planned(pid) for pid in ("ro1_forecasting", "ro2_uncertainty", "ro3_optimization")
+        ),
+    )
+    planned_bits = []
+    if page_is_planned("real_world_data"):
+        planned_bits.append(
+            f"real-world data ({(page_future_phase('real_world_data') or '').replace('Phase ', '')})"
+        )
+    if all(page_is_planned(pid) for pid in ("ro1_forecasting", "ro3_optimization")):
+        first = (page_future_phase("ro1_forecasting") or "").replace("Phase ", "")
+        last = (page_future_phase("ro3_optimization") or "").replace("Phase ", "")
+        planned_bits.append(f"RO1\u2013RO3 (Phases {first}\u2013{last})")
+    if planned_bits:
+        evidence_note = f"{evidence_note} Planned: {'; '.join(planned_bits)}."
+    render_html(build_publication_status(
+        title="Evidence readiness",
+        rows=evidence_rows,
+        status=evidence_overall,
+        note=evidence_note,
+    ))
+    if snapshot_error:
+        render_status_banner(
+            "The dashboard snapshot could not be loaded, so artifact counts are unavailable. "
+            "Project data, schedule and material intelligence on this page remain available.",
+            status="attention",
+            title="Evidence snapshot unavailable",
+            diagnostics=snapshot_error,
+        )
+
+    # ---- Project status (three layers, never collapsed) --------------------
+    render_section_header(
+        "Project status",
+        "Deterministic state, evidence availability and research-stage availability reported separately",
+        methodology="These three layers are never collapsed into one verdict.",
+    )
+    schedule_state, schedule_message = deterministic_status(data)
+    render_status_banner(schedule_message, status=schedule_state, title="Deterministic project state")
+    board_overall, board_rows = build_status_board(schedule_state, evidence_overall)
+    render_html(build_publication_status(
+        title="Status board",
+        rows=board_rows,
+        status=board_overall,
+        note="Rows report each layer separately; planned or input-dependent layers are labelled, not scored.",
+    ))
 
 
 with st.sidebar:
@@ -290,7 +586,7 @@ critical = set(data["schedule"]["critical_path"])
 route = legacy_route_for(page)
 
 if route == "Overview":
-    render_overview(project, data)
+    render_overview(project, data, source_name, source_path)
 
 elif route == "Schedule":
     render_section_header(
