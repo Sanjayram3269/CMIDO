@@ -13,14 +13,14 @@ legend, the active-state styling and the page dispatch in
 ``apps/cmido_dashboard.py`` — is derived from this registry. The four research
 groups are fixed and enforced by tests so they cannot drift apart.
 
-Grouping rationale (fixed):
+Grouping rationale (sidebar order, fixed):
 
 ``CORE``
     Orientation. What the project *is*.
-``DECISION``
-    Deterministic decision support. The analyses a planner acts on.
 ``RESEARCH``
     Controlled scenarios, experiments and the derived evidence around them.
+``DECISION``
+    Deterministic decision support. The analyses a planner acts on.
 ``EVIDENCE``
     The validated repository artifact layer behind every number shown.
 
@@ -38,28 +38,28 @@ Layering contract (unchanged from 10A.3, reaffirmed for 10A.4):
   never as completed research. No fabricated numbers, charts or KPIs are produced
   here or anywhere in the shell.
 
-Mapping to the existing dashboard (preserved from 10A.3, not redesigned here):
+Mapping to the intended 15-destination information architecture (audited for 10A.4):
 
 ``CORE``
     *Overview* — existing Overview page.
-    *3D Project Graph* — existing 3D Project Graph page.
-``DECISION``
-    *Schedule* — existing Schedule page.
-    *Materials & Resources* — existing Materials & Resources page.
-    *Risk & Scenarios* — existing Risk & Scenarios page (the Scenario Lab entry).
+    *3D Project Graph* — existing page serving the Project Intelligence destination.
+    *Schedule & Critical Path*, *Materials & Resources* — existing deterministic
+    planner pages (moved into CORE by the 10A.4 registry audit).
 ``RESEARCH``
-    *Experiment Lab* — existing Experiment Lab page.
-    *Research Evidence* — existing Research Evidence page.
-    *RO1 · Forecasting*, *RO2 · Uncertainty*, *RO3 · Optimization* — planned future
-    workspaces for the corresponding research phases.
+    *RO1 · Forecasting*, *RO2 · Uncertainty*, *RO3 · Optimization* — planned
+    future workspaces for the corresponding research phases.
+``DECISION``
+    *Scenario Lab* — existing Risk & Scenarios page.
+    *Procurement Decisions*, *Resilience & Stress* — CMIDO has no live
+    implementation for these yet, so they are declared as planned future pages
+    (Phase 10A.10) rather than routed to live content.
 ``EVIDENCE``
+    *Experiments* — existing Experiment Lab page.
     *Research Evidence* — existing Research Evidence page.
     *Real-World Data*, *Ablation & Robustness*, *Provenance & Integrity* — planned
     future workspaces for the corresponding evidence activities.
 
-At present CMIDO does not have a Procurement Decisions or Resilience & Stress
-implementation, so those are declared as planned future pages rather than routed
-to live content.
+The registry therefore carries all 15 destinations: 7 available and 8 planned.
 """
 
 from __future__ import annotations
@@ -205,16 +205,17 @@ class NavGroup:
 
 NAV_GROUPS: tuple[NavGroup, ...] = (
     NavGroup(key="CORE", label="Core", caption="Project orientation and structure", order=0),
+    NavGroup(key="RESEARCH", label="Research", caption="Controlled scenarios and evidence", order=1),
     NavGroup(
         key="DECISION",
         label="Decision",
         caption="Deterministic decision support",
-        order=1,
+        order=2,
     ),
-    NavGroup(key="RESEARCH", label="Research", caption="Controlled scenarios and evidence", order=2),
     NavGroup(key="EVIDENCE", label="Evidence", caption="Validated repository research artifacts", order=3),
 )
 
+#: Every page in display order (grouped, then registry order within each group).
 #: Every page in display order (grouped, then registry order within each group).
 PAGES: tuple[PageDefinition, ...] = (
     # ---- CORE ----------------------------------------------------------------
@@ -232,16 +233,15 @@ PAGES: tuple[PageDefinition, ...] = (
         title="3D Project Graph",
         group="CORE",
         icon="\U0001f310",
-        description="Dependency network with critical-path highlighting",
+        description="Dependency network with critical-path highlighting (the Project Intelligence destination).",
         research_stage="RO1",
         provenance="DER",
         route="3D Project Graph",
     ),
-    # ---- DECISION -------------------------------------------------------------
     PageDefinition(
         id="schedule",
         title="Schedule & Critical Path",
-        group="DECISION",
+        group="CORE",
         icon="\U0001f4c5",
         description="CPM forward/backward pass, float and classification",
         research_stage="RO1",
@@ -251,35 +251,13 @@ PAGES: tuple[PageDefinition, ...] = (
     PageDefinition(
         id="materials",
         title="Materials & Resources",
-        group="DECISION",
+        group="CORE",
         icon="\U0001f9f1",
         description="Quantity-versus-availability feasibility",
         provenance="DER",
         route="Materials & Resources",
     ),
-    PageDefinition(
-        id="scenarios",
-        title="Scenario Lab",
-        group="DECISION",
-        icon="\u26a0\ufe0f",
-        description="Single-activity delay injection and response",
-        research_stage="SCN",
-        provenance="SCN",
-        route="Risk & Scenarios",
-    ),
     # ---- RESEARCH -------------------------------------------------------------
-    PageDefinition(
-        id="experiment_lab",
-        title="Experiments",
-        group="RESEARCH",
-        icon="\U0001f9ea",
-        description="Controlled scenario grid with a fixed seed",
-        research_stage="RO3",
-        provenance="SCN",
-        route="Experiment Lab",
-    ),
-    # ---- research evidence is exposed through the EVIDENCE-group live page ----
-    # ---- research placeholders (planned) --------------------------------------
     PageDefinition(
         id="ro1_forecasting",
         title="RO1 · Forecasting",
@@ -313,6 +291,38 @@ PAGES: tuple[PageDefinition, ...] = (
         implementation=ImplementationStatus.PLANNED,
         future_phase="Phase 10A.9",
     ),
+    # ---- DECISION -------------------------------------------------------------
+    PageDefinition(
+        id="scenarios",
+        title="Scenario Lab",
+        group="DECISION",
+        icon="\u26a0\ufe0f",
+        description="Single-activity delay injection and response",
+        provenance="SCN",
+        route="Risk & Scenarios",
+    ),
+    PageDefinition(
+        id="procurement_decisions",
+        title="Procurement Decisions",
+        group="DECISION",
+        icon="\U0001f4ca",
+        description="Supplier selection, award and procurement decision workspace.",
+        research_stage="RO3",
+        evidence_state_note="Not yet implemented",
+        implementation=ImplementationStatus.PLANNED,
+        future_phase="Phase 10A.10",
+    ),
+    PageDefinition(
+        id="resilience_stress",
+        title="Resilience & Stress",
+        group="DECISION",
+        icon="\U0001f4ca",
+        description="Stress testing, resilience and robustness analysis workspace.",
+        research_stage="STRESS",
+        evidence_state_note="Not yet implemented",
+        implementation=ImplementationStatus.PLANNED,
+        future_phase="Phase 10A.10",
+    ),
     # ---- EVIDENCE -------------------------------------------------------------
     PageDefinition(
         id="evidence",
@@ -324,7 +334,16 @@ PAGES: tuple[PageDefinition, ...] = (
         provenance="OBS",
         route="Research Evidence",
     ),
-    # ---- research placeholders (planned) --------------------------------------
+    PageDefinition(
+        id="experiment_lab",
+        title="Experiments",
+        group="EVIDENCE",
+        icon="\U0001f9ea",
+        description="Controlled scenario grid with a fixed seed",
+        research_stage="RO3",
+        provenance="SCN",
+        route="Experiment Lab",
+    ),
     PageDefinition(
         id="real_world_data",
         title="Real-World Data",

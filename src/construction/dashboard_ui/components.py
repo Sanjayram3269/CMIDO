@@ -35,6 +35,7 @@ from .navigation import (
     build_nav_item_html,
     build_nav_legend,
     group_for,
+    nav_groups,
     page_by_id,
     page_description,
     page_future_phase,

@@ -83,7 +83,7 @@ class TestPageRegistry:
 
     def test_groups_are_four_and_ordered(self) -> None:
         group_keys = [group.key for group in nav.nav_groups()]
-        assert group_keys == ["CORE", "DECISION", "RESEARCH", "EVIDENCE"]
+        assert group_keys == ["CORE", "RESEARCH", "DECISION", "EVIDENCE"]
 
     def test_each_group_has_label_and_caption(self) -> None:
         for group in nav.nav_groups():
@@ -162,27 +162,35 @@ class TestNavigationGroups:
         core = pages_in_group("CORE")
         titles = {page.title for page in core}
         assert "Overview" in titles
+        # Project Intelligence is served by the 3D Project Graph page.
         assert "3D Project Graph" in titles
+        assert "Schedule & Critical Path" in titles
+        assert "Materials & Resources" in titles
 
     def test_decision_contains_planner_pages(self) -> None:
         decision = pages_in_group("DECISION")
         titles = {page.title for page in decision}
-        assert "Schedule & Critical Path" in titles
-        assert "Materials & Resources" in titles
         assert "Scenario Lab" in titles
+        assert "Procurement Decisions" in titles
+        assert "Resilience & Stress" in titles
+        # Deterministic planner pages belong to CORE in the intended IA.
+        assert "Schedule & Critical Path" not in titles
+        assert "Materials & Resources" not in titles
 
-    def test_research_contains_experiments_and_placeholders(self) -> None:
+    def test_research_contains_research_placeholders(self) -> None:
         research = pages_in_group("RESEARCH")
         titles = {page.title for page in research}
-        assert "Experiments" in titles
         assert "RO1 · Forecasting" in titles
         assert "RO2 · Uncertainty" in titles
         assert "RO3 · Optimization" in titles
+        # Experiments is an EVIDENCE destination in the intended IA.
+        assert "Experiments" not in titles
 
     def test_evidence_contains_live_evidence_and_placeholders(self) -> None:
         evidence = pages_in_group("EVIDENCE")
         titles = {page.title for page in evidence}
         assert "Research Evidence" in titles
+        assert "Experiments" in titles
         assert "Real-World Data" in titles
         assert "Ablation & Robustness" in titles
         assert "Provenance & Integrity" in titles
@@ -481,13 +489,70 @@ class TestLegacyAppContractPreserved:
         assert "page_research_stage" in _app_text
 
 
+class TestIntendedIACoverage:
+    """The 15-destination information architecture the shell must expose.
+
+    Project Intelligence is intentionally served by the existing 3D Project
+    Graph page (documented alias); every other destination maps one to one.
+    """
+
+    INTENDED_IA = {
+        "CORE": [
+            "Overview",
+            "Project Intelligence",
+            "Schedule & Critical Path",
+            "Materials & Resources",
+        ],
+        "RESEARCH": ["RO1 · Forecasting", "RO2 · Uncertainty", "RO3 · Optimization"],
+        "DECISION": ["Scenario Lab", "Procurement Decisions", "Resilience & Stress"],
+        "EVIDENCE": [
+            "Real-World Data",
+            "Experiments",
+            "Ablation & Robustness",
+            "Research Evidence",
+            "Provenance & Integrity",
+        ],
+    }
+    ALIASES = {"Project Intelligence": "3D Project Graph"}
+
+    def test_every_intended_destination_is_registered_in_its_group(self) -> None:
+        for group_key, intended in self.INTENDED_IA.items():
+            expected = {self.ALIASES.get(title, title) for title in intended}
+            actual = {page.title for page in pages_in_group(group_key)}
+            assert actual == expected, f"{group_key} registry drifted from the intended IA"
+
+    def test_registry_counts_match_the_intended_ia(self) -> None:
+        assert len(pages()) == 15
+        assert sum(1 for page in pages() if page.is_available) == 7
+        assert sum(1 for page in pages() if page.is_planned) == 8
+        counts = {group.key: len(pages_in_group(group.key)) for group in nav.nav_groups()}
+        assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 5}
+
+    def test_planned_destinations_are_honest_placeholders(self) -> None:
+        planned_ids = {page.id for page in pages() if page.is_planned}
+        assert planned_ids == {
+            "ro1_forecasting",
+            "ro2_uncertainty",
+            "ro3_optimization",
+            "procurement_decisions",
+            "resilience_stress",
+            "real_world_data",
+            "ablation_robustness",
+            "provenance_integrity",
+        }
+        for page_id in planned_ids:
+            assert page_placeholder_reason(page_id)
+
+
 @pytest.mark.parametrize("page_id,expected_group", [
     ("overview", "CORE"),
     ("graph_3d", "CORE"),
-    ("schedule", "DECISION"),
-    ("materials", "DECISION"),
+    ("schedule", "CORE"),
+    ("materials", "CORE"),
     ("scenarios", "DECISION"),
-    ("experiment_lab", "RESEARCH"),
+    ("procurement_decisions", "DECISION"),
+    ("resilience_stress", "DECISION"),
+    ("experiment_lab", "EVIDENCE"),
     ("ro1_forecasting", "RESEARCH"),
     ("ro2_uncertainty", "RESEARCH"),
     ("ro3_optimization", "RESEARCH"),

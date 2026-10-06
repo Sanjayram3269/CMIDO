@@ -55,8 +55,8 @@ from src.construction.dashboard_ui import (
     page_future_phase,
     page_group_label,
     page_is_planned,
+    page_research_stage,
     page_title,
-    render_future_page_panel,
     build_empty_state,
     build_flow_diagram,
     build_footer,
@@ -78,6 +78,7 @@ from src.construction.dashboard_ui.components import (
     render_app_header,
     render_chart,
     render_error_state,
+    render_future_page_panel,
     render_html,
     render_kpi_columns,
     render_legacy_kpi_row,
@@ -88,6 +89,8 @@ from src.construction.dashboard_ui.components import (
     render_status_banner,
     render_table,
 )
+
+from src.construction.dashboard_ui.navigation import legacy_route_for
 
 
 def page_provenance(page_id: str) -> str | None:
@@ -106,7 +109,7 @@ def page_provenance(page_id: str) -> str | None:
 DEFAULT_PROJECT = ROOT / "data" / "projects" / "cmido_demo_project.json"
 
 #: Destination labels, owned by the 10A.4 navigation registry.  The page body
-#: below dispatches on these labels, so the registry stays the single source of
+#: below dispatches on the registry route titles, so the registry stays the single source of
 #: truth for the shell, the breadcrumb and the router.
 PAGES = list(pagelist())
 
@@ -121,7 +124,7 @@ st.set_page_config(
 inject_css()
 
 # 10A.4 shell: refuse to render navigation built on a malformed registry.
-NAV_PROBLEMS = validate_nav()
+NAV_PROBLEMS = validate_shell()
 if NAV_PROBLEMS:
     render_error_state(
         "Navigation registry is misconfigured",
@@ -240,15 +243,6 @@ def render_overview(project: dict[str, Any], data: dict[str, Any]) -> None:
     critical_path_banner(data["schedule"]["critical_path"])
 
 
-render_app_header()
-render_nav_legend()
-render_html(build_nav_breadcrumb(page))
-render_page_header(
-    page_title(page),
-    page_description(page) or "Interactive construction schedule, resource, procurement, uncertainty and research-evidence command center.",
-    research_stage=page_research_stage(page),
-)
-
 with st.sidebar:
     st.header("🎛️ Control Center")
     render_html(build_breadcrumb(["CMIDO", "Control Center"]))
@@ -262,6 +256,16 @@ with st.sidebar:
         "and executes controlled scenarios; it does not replace the research logic."
     )
 
+render_app_header()
+render_nav_legend()
+render_html(build_nav_breadcrumb(page))
+render_page_header(
+    page_title(page),
+    page_description(page) or "Interactive construction schedule, resource, procurement, uncertainty and research-evidence command center.",
+    research_stage=page_research_stage(page),
+    provenance=page_provenance(page),
+)
+
 try:
     project, source_name, source_path = load_project(uploaded)
     data = build_dashboard_data(project)
@@ -274,16 +278,21 @@ except Exception as exc:  # noqa: BLE001 - surfaced as a designed error state
     )
     st.stop()
 
+# Planned pages render an honest placeholder panel and stop inside the
+# helper; available pages fall through to the dispatch below.
 render_future_page_panel(page)
-st.stop()
 
 ov = data["overview"]
 critical = set(data["schedule"]["critical_path"])
 
-if page == "Overview":
+# The sidebar resolves a stable page id; the legacy dispatch branches on
+# route titles, so resolve the route once before the chain.
+route = legacy_route_for(page)
+
+if route == "Overview":
     render_overview(project, data)
 
-elif page == "Schedule":
+elif route == "Schedule":
     render_section_header(
         "📅 Schedule & Critical Path",
         "Deterministic CPM forward/backward pass, float and classification.",
@@ -307,7 +316,7 @@ elif page == "Schedule":
     )
     critical_path_banner(data["schedule"]["critical_path"])
 
-elif page == "Materials & Resources":
+elif route == "Materials & Resources":
     render_section_header(
         "🧱 Materials & Resource Feasibility",
         "Change availability below and the shortage state is recalculated live by the CMIDO resource engine.",
@@ -339,7 +348,7 @@ elif page == "Materials & Resources":
         provenance="DER",
     )
 
-elif page == "Risk & Scenarios":
+elif route == "Risk & Scenarios":
     render_section_header(
         "⚠️ Deterministic Risk & Delay Lab",
         "Inject a delay into a single activity and observe the deterministic schedule response.",
@@ -391,7 +400,7 @@ elif page == "Risk & Scenarios":
             hint="This is the expected baseline behaviour of the CMIDO uncertainty context builder.",
         ))
 
-elif page == "Experiment Lab":
+elif route == "Experiment Lab":
     render_section_header(
         "🧪 Controlled Experiment Lab",
         "Deterministic CMIDO scenarios are executed through the real schedule-impact engine; "
@@ -465,7 +474,7 @@ elif page == "Experiment Lab":
             hint="Configure activities, delay levels and a seed, then execute the experiment.",
         ))
 
-elif page == "Research Evidence":
+elif route == "Research Evidence":
     render_section_header(
         "📊 Research Evidence",
         "Validated repository research artifacts exposed through the 10A.2-B dashboard contract.",
@@ -633,7 +642,7 @@ elif page == "Research Evidence":
         ])
         st.json(analysis)
 
-elif page == "3D Project Graph":
+elif route == "3D Project Graph":
     render_section_header(
         "🌐 3D Project Graph",
         "Rotate, zoom and hover. Diamonds identify critical-path activities; edges are project dependencies.",
