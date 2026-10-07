@@ -454,7 +454,10 @@ class TestOverviewRuntime:
         at.session_state["cmido_active_page"] = "schedule"
         at.run()
         assert not at.exception
-        assert "Deterministic CPM forward/backward pass" in overview_markdown(at)
+        text = overview_markdown(at)
+        assert "Schedule" in text and "Critical Path" in text
+        assert "Schedule snapshot" in text
+        assert "Critical path" in text
 
         at.session_state["cmido_active_page"] = "overview"
         at.run()

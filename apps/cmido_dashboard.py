@@ -76,6 +76,7 @@ from src.construction.dashboard_ui import (
     format_interval,
     format_number,
     format_percent,
+    format_shortage_pct,
     pagelist,
     validate_shell,
 )
@@ -539,6 +540,843 @@ def render_overview(
     ))
 
 
+def _render_schedule_workspace(
+    project: dict[str, Any],
+    data: dict[str, Any],
+    source_name: str,
+    source_path: str,
+) -> None:
+    """Schedule & Critical Path workspace.
+
+    Presents deterministic CPM output from the existing scheduling engine:
+    forward/backward pass, total float, classification, critical path and
+    dependency relationships. No schedule value is computed here.
+    """
+    ov = data["overview"]
+    sched = data["schedule"]
+    critical_path = sched["critical_path"]
+    critical_set = set(critical_path)
+
+    # ---- Float intelligence from the existing engine --------------------
+    float_rows: list[dict[str, Any]] | None = None
+    timing_available = False
+    try:
+        float_rows = calculate_total_float(project)
+        timing_available = bool(float_rows) and all(
+            row.get("activity_id") in critical_set or True
+            for row in float_rows
+        )
+    except Exception as exc:  # noqa: BLE001 - partial state
+        render_status_banner(
+            "Total float, early/late dates and dependency detail could not be computed for this project. Duration, activity counts and criticality remain available below.",
+            status="optional",
+            title="Partial schedule intelligence",
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+
+    float_by_id: dict[str, dict[str, Any]] = {}
+    if timing_available and float_rows:
+        float_by_id = {row["activity_id"]: row for row in float_rows}
+
+    # ---- Page header ----------------------------------------------------
+    render_page_header(
+        "Schedule & Critical Path",
+        "Schedule structure, dependency intelligence and project-duration drivers from the existing CPM engine.",
+        provenance="DER",
+        research_stage="RO1",
+    )
+    render_html(build_breadcrumb(["CMIDO", "Core", "Schedule & Critical Path"]))
+    render_html(page_description("schedule"))
+
+    # ---- Schedule snapshot ---------------------------------------------
+    render_section_header(
+        "Schedule snapshot",
+        "Project-level schedule metrics from the existing CPM calculation.",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="All values are derived by the existing scheduling engine; absent values are omitted, never zeroed.",
+    )
+
+    float_values = []
+    if timing_available and float_by_id:
+        float_values = [row["total_float"] for row in float_by_id.values()]
+
+    zero_float_count = 0
+    min_float: float | None = None
+    max_float: float | None = None
+    if float_values:
+        zero_float_count = sum(1 for f in float_values if f == 0)
+        min_float = min(float_values)
+        max_float = max(float_values)
+
+    snapshot_kpis = [
+        {
+            "label": "Project duration",
+            "value": format_number(ov["project_duration_days"], 0),
+            "unit": "d",
+            "provenance": "DER",
+            "status": "valid",
+            "description": "Baseline CPM project duration.",
+        },
+        {
+            "label": "Critical-path duration",
+            "value": format_number(ov["critical_path_duration_days"], 0),
+            "unit": "d",
+            "provenance": "DER",
+            "status": "valid",
+            "description": "Sum of durations along the critical path.",
+        },
+        {
+            "label": "Total activities",
+            "value": format_integer(ov["total_activities"]),
+            "provenance": "DER",
+            "status": "valid",
+            "description": f"{ov['critical_activities']} critical · {ov['non_critical_activities']} non-critical.",
+        },
+        {
+            "label": "Critical activities",
+            "value": format_integer(ov["critical_activities"]),
+            "provenance": "DER",
+            "status": "valid",
+            "description": "Activities with zero total float.",
+        },
+    ]
+    if min_float is not None:
+        snapshot_kpis.append(
+            {
+                "label": "Minimum float",
+                "value": format_number(min_float, 0),
+                "unit": "d",
+                "provenance": "DER",
+                "status": "attention" if min_float == 0 else "valid",
+                "description": "Smallest total float across all activities.",
+            }
+        )
+        snapshot_kpis.append(
+            {
+                "label": "Maximum float",
+                "value": format_number(max_float, 0),
+                "unit": "d",
+                "provenance": "DER",
+                "status": "valid",
+                "description": "Largest total float across all activities.",
+            }
+        )
+        snapshot_kpis.append(
+            {
+                "label": "Zero-float activities",
+                "value": format_integer(zero_float_count),
+                "provenance": "DER",
+                "status": "valid",
+                "description": "Activities with no scheduling flexibility.",
+            }
+        )
+    render_kpi_columns(snapshot_kpis)
+
+    # ---- Schedule timeline ---------------------------------------------
+    if timing_available and float_by_id:
+        timeline_rows = []
+        for row in float_by_id.values():
+            critical = row["activity_id"] in critical_set
+            timeline_rows.append(
+                {
+                    "Activity": row["activity_id"],
+                    "Name": row.get("activity_name", ""),
+                    "Early start (d)": row.get("es"),
+                    "Early finish (d)": row.get("ef"),
+                    "Duration (d)": row.get("duration_days"),
+                    "Critical": "YES" if critical else "NO",
+                }
+            )
+        render_section_header(
+            "Schedule timeline",
+            "When each activity is scheduled in the early schedule, with critical-path highlighting.",
+            provenance="DER",
+            evidence_state="valid",
+            methodology="Bars span early start to early finish; the dashed line marks the baseline project duration.",
+        )
+        if timeline_rows:
+            render_chart(
+                schedule_timeline(timeline_rows, ov["project_duration_days"]),
+                title="Schedule progression & critical path",
+                subtitle="Horizontal bars show when each activity is scheduled in the early schedule.",
+                caption=f"{len(timeline_rows)} activities · critical path length {len(critical_path)} · provenance DER.",
+                provenance="DER",
+            )
+    else:
+        render_html(build_empty_state(
+            "Timing detail (early start, early finish, total float) is not available for this project.",
+            title="No schedule timeline available",
+            hint="The CPM forward/backward pass did not return timing for every activity.",
+            status="optional",
+        ))
+
+    # ---- Critical path -------------------------------------------------
+    render_section_header(
+        "Critical path",
+        "The sequence of activities that currently determines project completion.",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="The critical path is the longest zero-float chain from the existing CPM engine; it is not recomputed in the UI.",
+    )
+    if critical_path:
+        path_with_durations: list[dict[str, Any]] = []
+        total_path_duration = 0
+        for act_id in critical_path:
+            act = next((a for a in sched["activities"] if a["activity_id"] == act_id), None)
+            if act is None:
+                continue
+            dur = act.get("duration_days", 0)
+            es = float_by_id.get(act_id, {}).get("es")
+            ef = float_by_id.get(act_id, {}).get("ef")
+            tf = float_by_id.get(act_id, {}).get("total_float")
+            total_path_duration += dur
+            path_with_durations.append(
+                {
+                    "Order": len(path_with_durations) + 1,
+                    "Activity": act_id,
+                    "Activity name": act.get("activity_name", ""),
+                    "Duration (d)": dur,
+                    "Early start (d)": es if es is not None else None,
+                    "Early finish (d)": ef if ef is not None else None,
+                    "Total float (d)": tf if tf is not None else None,
+                    "Critical": "YES",
+                }
+            )
+        if path_with_durations:
+            render_table(
+                pd.DataFrame(path_with_durations),
+                title="Critical path sequence",
+                subtitle="Ordered activities that determine project completion.",
+                caption=f"Critical path: {' → '.join(critical_path)} · total {total_path_duration} d · provenance DER.",
+                provenance="DER",
+            )
+            render_html(build_methodology_card(
+                "Critical-path interpretation",
+                "The activities above form the longest zero-float chain in the project. Any delay to one of these activities delays the entire project by the same amount, unless subsequent activities have float to absorb it.",
+                key_metric=format_number(total_path_duration, 0),
+                key_metric_label="Critical-path duration",
+                key_metric_unit="d",
+                provenance="DER",
+                evidence_state="valid",
+            ))
+    else:
+        render_html(build_empty_state(
+            "No critical path could be derived for this project.",
+            title="No critical path",
+            hint="A critical path requires zero-float activities and a connected dependency chain.",
+            status="optional",
+        ))
+
+    # ---- Float intelligence --------------------------------------------
+    if timing_available and float_by_id:
+        render_section_header(
+            "Float intelligence",
+            "Total float and early/late date windows for every activity.",
+            provenance="DER",
+            evidence_state="valid",
+            methodology="Total float = LS - ES = LF - EF from the existing backward pass. Values are presented as computed, without invented risk bands.",
+        )
+        float_display: list[dict[str, Any]] = []
+        for row in float_by_id.values():
+            critical = row["activity_id"] in critical_set
+            float_display.append(
+                {
+                    "Activity": row["activity_id"],
+                    "Activity name": row.get("activity_name", ""),
+                    "Duration (d)": row.get("duration_days"),
+                    "Early start (d)": row.get("es"),
+                    "Early finish (d)": row.get("ef"),
+                    "Late start (d)": row.get("ls"),
+                    "Late finish (d)": row.get("lf"),
+                    "Total float (d)": row.get("total_float"),
+                    "Critical": "YES" if critical else "NO",
+                }
+            )
+        if float_display:
+            render_table(
+                pd.DataFrame(float_display),
+                title="Activity float & date windows",
+                subtitle="Early and late dates plus total float per activity.",
+                caption=f"{len(float_display)} activities · zero-float: {zero_float_count} · provenance DER.",
+                provenance="DER",
+            )
+
+            # Float concentration interpretation
+            if zero_float_count == len(float_display):
+                render_html(build_methodology_card(
+                    "Float concentration",
+                    "Every activity in this project has zero total float, so the entire schedule is critical.",
+                    key_metric=f"{zero_float_count} of {len(float_display)}",
+                    key_metric_label="Zero-float activities",
+                    provenance="DER",
+                    evidence_state="valid",
+                ))
+            elif zero_float_count == 0:
+                render_html(build_methodology_card(
+                    "Float concentration",
+                    "No activity in this project has zero total float, so no single activity determines project completion on its own.",
+                    key_metric="0 of " + str(len(float_display)),
+                    key_metric_label="Zero-float activities",
+                    provenance="DER",
+                    evidence_state="valid",
+                ))
+            else:
+                render_html(build_methodology_card(
+                    "Float concentration",
+                    f"{zero_float_count} of {len(float_display)} activities carry zero total float and form the critical chain; the remaining {len(float_display) - zero_float_count} have scheduling flexibility.",
+                    key_metric=f"{zero_float_count} of {len(float_display)}",
+                    key_metric_label="Zero-float activities",
+                    provenance="DER",
+                    evidence_state="valid",
+                    detail=f"Minimum float: {min_float} d · Maximum float: {max_float} d.",
+                ))
+    else:
+        render_html(build_empty_state(
+            "Float and late-date information is not available for this project.",
+            title="No float intelligence available",
+            hint="Float requires a completed backward pass over the project dependencies.",
+            status="optional",
+        ))
+
+    # ---- Dependency intelligence ----------------------------------------
+    if timing_available and float_by_id:
+        render_section_header(
+            "Dependency intelligence",
+            "Predecessor and successor relationships between activities.",
+            provenance="DER",
+            evidence_state="valid",
+            methodology="Relationships come from the project dependency list; the table presents them as declared, not inferred.",
+        )
+        dep_rows: list[dict[str, Any]] = []
+        for row in float_by_id.values():
+            preds = row.get("predecessors") or []
+            succs = row.get("successors") or []
+            if preds or succs:
+                dep_rows.append(
+                    {
+                        "Activity": row["activity_id"],
+                        "Activity name": row.get("activity_name", ""),
+                        "Predecessors": " → ".join(preds) if preds else "—",
+                        "Successors": " → ".join(succs) if succs else "—",
+                        "Critical": "YES" if row["activity_id"] in critical_set else "NO",
+                    }
+                )
+        if dep_rows:
+            render_table(
+                pd.DataFrame(dep_rows),
+                title="Activity dependencies",
+                subtitle="Predecessor and successor chains for each activity.",
+                caption=f"{len(dep_rows)} activities with dependencies · provenance DER.",
+                provenance="DER",
+            )
+        else:
+            render_html(build_empty_state(
+                "No dependency relationships are declared for this project.",
+                title="No dependencies",
+                hint="Add dependencies to the project JSON to populate the dependency view.",
+                status="optional",
+            ))
+    else:
+        render_html(build_empty_state(
+            "Dependency detail is not available because timing could not be computed.",
+            title="No dependency intelligence",
+            hint="Dependency view requires a completed CPM forward/backward pass.",
+            status="optional",
+        ))
+
+    # ---- Full activity table -------------------------------------------
+    render_section_header(
+        "Activity schedule table",
+        "Complete activity schedule with timing, float and criticality.",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="One row per activity. Columns are shown only when the engine supplies the underlying value.",
+    )
+    if timing_available and float_by_id:
+        full_rows: list[dict[str, Any]] = []
+        for row in float_by_id.values():
+            critical = row["activity_id"] in critical_set
+            full_rows.append(
+                {
+                    "ID": row["activity_id"],
+                    "Activity": row.get("activity_name", ""),
+                    "Duration (d)": row.get("duration_days"),
+                    "Early start (d)": row.get("es"),
+                    "Early finish (d)": row.get("ef"),
+                    "Late start (d)": row.get("ls"),
+                    "Late finish (d)": row.get("lf"),
+                    "Total float (d)": row.get("total_float"),
+                    "Critical": "YES" if critical else "NO",
+                    "Predecessors": " → ".join(row.get("predecessors") or []),
+                    "Successors": " → ".join(row.get("successors") or []),
+                }
+            )
+        if full_rows:
+            render_table(
+                pd.DataFrame(full_rows),
+                title="All activities",
+                subtitle="Duration, early/late dates, total float, criticality and dependencies.",
+                caption=f"{len(full_rows)} activities · critical path length {len(critical_path)} · provenance DER.",
+                provenance="DER",
+            )
+    else:
+        simple_rows = []
+        for act in sched["activities"]:
+            critical = act["activity_id"] in critical_set
+            simple_rows.append(
+                {
+                    "ID": act["activity_id"],
+                    "Activity": act.get("activity_name", ""),
+                    "Duration (d)": act.get("duration_days"),
+                    "Critical": "YES" if critical else "NO",
+                }
+            )
+        if simple_rows:
+            render_table(
+                pd.DataFrame(simple_rows),
+                title="All activities (timing unavailable)",
+                subtitle="Activity ID, name, duration and criticality only.",
+                caption=f"{len(simple_rows)} activities · timing detail not available · provenance DER.",
+                provenance="DER",
+            )
+
+
+def _render_materials_workspace(
+    project: dict[str, Any],
+    data: dict[str, Any],
+    source_name: str,
+    source_path: str,
+) -> None:
+    """Materials & Resources workspace.
+
+    Presents material demand from the existing quantity engine and deterministic
+    feasibility from the existing resource-shortage engine. Availability is a
+    user input collected on this page; the engine reports shortage state, never
+    the reverse.
+    """
+    ov = data["overview"]
+
+    # ---- Gather existing material and supplier context --------------------
+    materials_list = project.get("materials", [])
+    activity_materials = project.get("activity_materials", [])
+    suppliers = project.get("suppliers", [])
+    supplier_materials = project.get("supplier_materials", [])
+
+    materials_by_id = {m["material_id"]: m for m in materials_list}
+    supplier_by_id = {s["supplier_id"]: s for s in suppliers}
+    supplier_mat_by_mat: dict[str, list[dict[str, Any]]] = {}
+    for sm in supplier_materials:
+        supplier_mat_by_mat.setdefault(sm["material_id"], []).append(sm)
+
+    # ---- Page header ---------------------------------------------------
+    render_page_header(
+        "Materials & Resources",
+        "Material demand, availability and deterministic feasibility context from the existing CMIDO engines.",
+        provenance="DER",
+    )
+    render_html(build_breadcrumb(["CMIDO", "Core", "Materials & Resources"]))
+    render_html(page_description("materials"))
+
+    # ---- Resource snapshot ---------------------------------------------
+    render_section_header(
+        "Resource snapshot",
+        "Material types, demand and feasibility context from the loaded project.",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="Material demand is aggregated from activity-material links by the existing quantity engine. Feasibility needs availability inputs set below.",
+    )
+
+    total_material_types = ov.get("total_material_types", 0)
+    snapshot_kpis = [
+        {
+            "label": "Material types",
+            "value": format_integer(total_material_types),
+            "provenance": "DER",
+            "status": "valid",
+            "description": "Distinct material types tracked in quantity demand.",
+        },
+        {
+            "label": "Suppliers registered",
+            "value": format_integer(len(suppliers)),
+            "provenance": "OBS",
+            "status": "valid",
+            "description": "Supplier declarations in project inputs.",
+        },
+        {
+            "label": "Supplier-material links",
+            "value": format_integer(len(supplier_materials)),
+            "provenance": "OBS",
+            "status": "valid",
+            "description": "Declared supplier-c material relationships.",
+        },
+    ]
+    render_kpi_columns(snapshot_kpis)
+
+    # ---- Availability inputs -------------------------------------------
+    render_section_header(
+        "Availability inputs",
+        "Set the currently available quantity for each material. The feasibility engine recomputes shortage state from these values.",
+        provenance="OBS",
+        evidence_state="valid",
+        methodology="Availability is a user input here; the engine compares it against required quantity and reports shortage state. No availability is assumed.",
+    )
+
+    if not materials_list:
+        render_html(build_empty_state(
+            "The loaded project declares no materials, so no availability or feasibility can be evaluated.",
+            title="No materials declared",
+            hint="Add materials and activity-material links to the project JSON.",
+            status="empty",
+        ))
+        return
+
+    available: dict[str, float] = {}
+    cols = st.columns(min(4, max(1, len(materials_list))))
+    for i, material in enumerate(materials_list):
+        with cols[i % len(cols)]:
+            available[material["material_id"]] = st.number_input(
+                f"{material['material_name']} ({material['unit']})",
+                min_value=0.0,
+                value=1000.0,
+                step=50.0,
+                key="inventory_" + material["material_id"],
+                help=f"Currently available quantity of {material['material_name']}.",
+            )
+
+    # ---- Material demand -----------------------------------------------
+    render_section_header(
+        "Material demand",
+        "Total required quantity per material, aggregated from activity-material links.",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="Demand is aggregated by the existing quantity engine from activity-material links; units come from the project inputs.",
+    )
+
+    demand_by_mat = data["materials"]["materials"]
+    demand_rows: list[dict[str, Any]] = []
+    for req in demand_by_mat:
+        mid = req["material_id"]
+        mat = materials_by_id.get(mid, {})
+        demand_rows.append(
+            {
+                "Material": req.get("material_name", mat.get("material_name", mid)),
+                "Material ID": mid,
+                "Required quantity": req.get("total_quantity"),
+                "Unit": req.get("unit", mat.get("unit", "")),
+                "Activities using": _activity_count_for_material(mid, activity_materials, project),
+                "Required by": " · ".join(
+                    _activity_names_for_material(mid, activity_materials, project)
+                ) or "—",
+            }
+        )
+    if demand_rows:
+        render_table(
+            pd.DataFrame(demand_rows),
+            title="Material demand summary",
+            subtitle="Total required quantity per material and the activities that use it.",
+            caption=f"{len(demand_rows)} material types aggregated from activity-material links · provenance DER.",
+            provenance="DER",
+        )
+    else:
+        render_html(build_empty_state(
+            "No material demand could be aggregated from this project.",
+            title="No material demand",
+            hint="Add activity-material links to the project JSON.",
+            status="empty",
+        ))
+
+    # ---- Resource feasibility -------------------------------------------
+    render_section_header(
+        "Material availability & feasibility",
+        "Required vs available quantity and deterministic shortage state per material.",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="Feasibility is computed by the existing resource-shortage engine: required quantity is compared against the availability you set above. NOT_ANALYZED is never treated as feasible.",
+    )
+
+    resource_data = _build_materials_feasibility(project, available)
+    summary = resource_data["summary"]
+    resources = resource_data["resources"]
+
+    feas = summary.get("feasible_resources", 0)
+    total = summary.get("total_resources", 0)
+    short = summary.get("shortage_resources", 0)
+
+    render_kpi_columns([
+        {
+            "label": "Materials analyzed",
+            "value": format_integer(total),
+            "provenance": "DER",
+            "status": "valid",
+            "description": "Materials with demand in this project.",
+        },
+        {
+            "label": "Feasible",
+            "value": format_feasibility(feas, total) if total else "—",
+            "provenance": "DER",
+            "status": "valid" if short == 0 else "attention",
+            "description": "Materials with no shortage detected.",
+        },
+        {
+            "label": "Shortage",
+            "value": format_integer(short),
+            "provenance": "DER",
+            "status": "attention" if short else "valid",
+            "description": "Materials where available < required.",
+        },
+    ])
+
+    if resources:
+        feas_rows: list[dict[str, Any]] = []
+        for r in resources:
+            req_qty = r.get("required_quantity", 0)
+            short_qty = r.get("shortage_quantity", 0)
+            short_pct = format_shortage_pct(short_qty, req_qty) if req_qty else "—"
+            feas_rows.append(
+                {
+                    "Material": r.get("resource_name", r.get("resource_id", "")),
+                    "Material ID": r.get("resource_id", ""),
+                    "Unit": r.get("unit", ""),
+                    "Required quantity": req_qty,
+                    "Available quantity": r.get("available_quantity", 0),
+                    "Shortage quantity": short_qty,
+                    "Shortage %": short_pct,
+                    "Status": _status_label(r.get("status")),
+                    "Affected activities": _affected_activity_names(r.get("affected_activities", [])),
+                }
+            )
+        render_table(
+            pd.DataFrame(feas_rows),
+            title="Material feasibility detail",
+            subtitle="Required, available, shortage and deterministic status per material.",
+            caption=f"{len(feas_rows)} materials analyzed · availability is a user input · provenance DER.",
+            provenance="DER",
+        )
+
+        # Shortage intelligence — only when actual shortages exist
+        shortage_rows = [r for r in resources if r.get("status") == "SHORTAGE"]
+        if shortage_rows:
+            render_section_header(
+                "Shortage intelligence",
+                "Materials where available quantity is below required quantity.",
+                provenance="DER",
+                evidence_state="attention",
+                methodology="A shortage is reported only when the engine compares required against available and finds a deficit. It is not a risk claim.",
+            )
+            for s in shortage_rows:
+                req_qty = s.get("required_quantity", 0)
+                avail_qty = s.get("available_quantity", 0)
+                short_qty = s.get("shortage_quantity", 0)
+                short_pct = format_shortage_pct(short_qty, req_qty) if req_qty else "—"
+                affected = s.get("affected_activities", [])
+                render_html(build_methodology_card(
+                    f"Shortage: {s.get('resource_name', s.get('resource_id', ''))}",
+                    f"Required {req_qty} {s.get('unit', '')}; {avail_qty} available; shortage {short_qty} {s.get('unit', '')} ({short_pct}).",
+                    key_metric=format_number(short_qty, 0),
+                    key_metric_label="Shortage quantity",
+                    key_metric_unit=s.get("unit", ""),
+                    provenance="DER",
+                    evidence_state="attention",
+                    detail="Affected activity" + ("ies" if len(affected) != 1 else "") + ": " + (", ".join(a.get("activity_name", a.get("activity_id", "")) for a in affected) or "none"),
+                ))
+        else:
+            render_html(build_empty_state(
+                "No shortages detected with the availability set above.",
+                title="No shortages",
+                hint="Every material's available quantity meets or exceeds its required quantity.",
+                status="valid",
+            ))
+    else:
+        render_html(build_empty_state(
+            "No material feasibility could be evaluated for this project.",
+            title="No feasibility data",
+            hint="Add materials and activity-material links to the project JSON.",
+            status="empty",
+        ))
+
+    # ---- Supplier context -----------------------------------------------
+    if supplier_materials:
+        render_section_header(
+            "Supplier context",
+            "Declared suppliers, supplied materials and capacity context from project inputs.",
+            provenance="OBS",
+            evidence_state="valid",
+            methodology="Supplier declarations are project inputs (OBS). This page presents them as context; supplier selection and optimisation are deferred to later decision work.",
+        )
+        supplier_rows: list[dict[str, Any]] = []
+        for sm in supplier_materials:
+            sup = supplier_by_id.get(sm["supplier_id"], {})
+            mat = materials_by_id.get(sm["material_id"], {})
+            supplier_rows.append(
+                {
+                    "Supplier": sup.get("supplier_name", sm["supplier_id"]),
+                    "Supplier ID": sm["supplier_id"],
+                    "Material": mat.get("material_name", sm["material_id"]),
+                    "Material ID": sm["material_id"],
+                    "Unit price": sm.get("unit_price"),
+                    "Capacity": sm.get("capacity"),
+                    "Lead time (d)": sm.get("lead_time_days"),
+                    "Min order qty": sm.get("minimum_order_quantity"),
+                    "Location": sup.get("location", "—") or "—",
+                }
+            )
+        if supplier_rows:
+            render_table(
+                pd.DataFrame(supplier_rows),
+                title="Supplier-material declarations",
+                subtitle="Declared suppliers, the materials they supply and their capacity context.",
+                caption=f"{len(supplier_rows)} supplier-material links declared in project inputs · provenance OBS.",
+                provenance="OBS",
+            )
+
+            # Supplier summary per material
+            render_section_header(
+                "Supplier coverage by material",
+                "Which declared suppliers cover each material in the project.",
+                provenance="OBS",
+                evidence_state="valid",
+            )
+            coverage_rows: list[dict[str, Any]] = []
+            for req in demand_by_mat:
+                mid = req["material_id"]
+                sms = supplier_mat_by_mat.get(mid, [])
+                mat = materials_by_id.get(mid, {})
+                if sms:
+                    coverage_rows.append(
+                        {
+                            "Material": mat.get("material_name", mid),
+                            "Material ID": mid,
+                            "Suppliers": " · ".join(s.get("supplier_name", s["supplier_id"]) for s in sms),
+                            "Supplier count": len(sms),
+                            "Total capacity": sum(s.get("capacity", 0) for s in sms),
+                            "Shortest lead time (d)": min((s.get("lead_time_days", 0) for s in sms), default=0),
+                            "Coverage": "Declared" if sms else "None declared",
+                        }
+                    )
+                else:
+                    coverage_rows.append(
+                        {
+                            "Material": mat.get("material_name", mid),
+                            "Material ID": mid,
+                            "Suppliers": "—",
+                            "Supplier count": 0,
+                            "Total capacity": 0,
+                            "Shortest lead time (d)": 0,
+                            "Coverage": "None declared",
+                        }
+                    )
+            render_table(
+                pd.DataFrame(coverage_rows),
+                title="Material supplier coverage",
+                subtitle="Declared supplier coverage for each material in demand.",
+                caption=f"{len(coverage_rows)} materials · supplier data from project inputs · provenance OBS.",
+                provenance="OBS",
+            )
+    else:
+        render_html(build_empty_state(
+            "No supplier declarations are present in this project.",
+            title="No supplier context",
+            hint="Supplier declarations are optional project inputs. Add suppliers and supplier-material links to populate this section.",
+            status="optional",
+        ))
+
+    # ---- Feasibility interpretation -------------------------------------
+    render_section_header(
+        "Feasibility interpretation",
+        "What the current availability state implies about material feasibility.",
+        provenance="DER",
+        evidence_state="valid",
+        methodology="Interpretation is limited to what the deterministic shortage engine reports: feasible, shortage, or not analyzed. No probabilistic or optimisation claim is made here.",
+    )
+    if total == 0:
+        render_html(build_empty_state(
+            "No materials were analyzed, so feasibility cannot be interpreted.",
+            title="No materials analyzed",
+            status="empty",
+        ))
+    elif short == 0 and total > 0:
+        render_html(build_methodology_card(
+            "Current feasibility",
+            f"All {total} materials analyzed are feasible with the availability set above: required quantity is met or exceeded for every material.",
+            key_metric=f"{total} of {total}",
+            key_metric_label="Feasible materials",
+            provenance="DER",
+            evidence_state="valid",
+        ))
+    elif short > 0:
+        render_html(build_methodology_card(
+            "Current feasibility",
+            f"{short} of {total} materials analyzed have a shortage with the availability set above. Adjust availability inputs to explore feasible states.",
+            key_metric=f"{short} of {total}",
+            key_metric_label="Materials with shortage",
+            provenance="DER",
+            evidence_state="attention",
+            detail=f"{total - short} of {total} materials are feasible.",
+        ))
+
+
+def _build_materials_feasibility(
+    project: dict[str, Any],
+    available: dict[str, float],
+) -> dict[str, Any]:
+    """Build material feasibility rows using the existing resource dashboard engine.
+
+    This is a presentation adapter: it calls ``build_resource_dashboard`` and
+    reshapes its output for the materials workspace. No feasibility logic lives here.
+    """
+    try:
+        resource = build_resource_dashboard(project, available)
+    except Exception as exc:  # noqa: BLE001 - report honestly
+        return {
+            "summary": {
+                "total_resources": 0,
+                "feasible_resources": 0,
+                "shortage_resources": 0,
+            },
+            "resources": [],
+            "_error": f"{type(exc).__name__}: {exc}",
+        }
+    return resource
+
+
+def _activity_count_for_material(
+    material_id: str,
+    activity_materials: list[dict[str, Any]],
+    project: dict[str, Any],
+) -> int:
+    activity_by_id = {a["activity_id"]: a for a in project.get("activities", [])}
+    ids = {item["activity_id"] for item in activity_materials if item.get("material_id") == material_id}
+    return len(ids)
+
+
+def _activity_names_for_material(
+    material_id: str,
+    activity_materials: list[dict[str, Any]],
+    project: dict[str, Any],
+) -> list[str]:
+    activity_by_id = {a["activity_id"]: a for a in project.get("activities", [])}
+    ids = sorted(
+        {item["activity_id"] for item in activity_materials if item.get("material_id") == material_id}
+    )
+    return [activity_by_id.get(aid, {}).get("activity_name", aid) for aid in ids]
+
+
+def _affected_activity_names(affected: list[dict[str, Any]]) -> str:
+    if not affected:
+        return "—"
+    return ", ".join(a.get("activity_name", a.get("activity_id", "")) for a in affected)
+
+
+def _status_label(status: Any) -> str:
+    s = str(status or "").upper()
+    return {
+        "FEASIBLE": "FEASIBLE",
+        "SHORTAGE": "SHORTAGE",
+        "NOT_ANALYZED": "NOT ANALYZED",
+    }.get(s, s or "UNKNOWN")
+
+
 with st.sidebar:
     st.header("🎛️ Control Center")
     render_html(build_breadcrumb(["CMIDO", "Control Center"]))
@@ -589,60 +1427,10 @@ if route == "Overview":
     render_overview(project, data, source_name, source_path)
 
 elif route == "Schedule":
-    render_section_header(
-        "📅 Schedule & Critical Path",
-        "Deterministic CPM forward/backward pass, float and classification.",
-        research_stage="RO1",
-        provenance="DER",
-        evidence_state="valid",
-        methodology="Method: critical path method (deterministic). Floats are derived, not estimated.",
-    )
-    render_kpi_columns([
-        {"label": "Critical activities", "value": format_integer(ov["critical_activities"]), "provenance": "DER", "status": "valid"},
-        {"label": "Non-critical activities", "value": format_integer(ov["non_critical_activities"]), "provenance": "DER", "status": "valid"},
-        {"label": "Project duration", "value": format_number(ov["project_duration_days"], 0), "unit": "d", "provenance": "DER", "status": "valid"},
-    ])
-    render_table(
-        pd.DataFrame(data["schedule"]["activities"]),
-        title="Activity schedule",
-        subtitle="Forward/backward pass results, total float and critical classification.",
-        caption=f"{format_integer(ov['total_activities'])} activities · critical path length "
-                f"{format_integer(len(data['schedule']['critical_path']))}",
-        provenance="DER",
-    )
-    critical_path_banner(data["schedule"]["critical_path"])
+    _render_schedule_workspace(project, data, source_name, source_path)
 
 elif route == "Materials & Resources":
-    render_section_header(
-        "🧱 Materials & Resource Feasibility",
-        "Change availability below and the shortage state is recalculated live by the CMIDO resource engine.",
-        provenance="DER",
-        evidence_state="valid",
-        methodology="Method: deterministic quantity-versus-availability feasibility check.",
-    )
-    materials = project.get("materials", [])
-    available: dict[str, float] = {}
-    cols = st.columns(min(4, max(1, len(materials))))
-    for i, material in enumerate(materials):
-        with cols[i % len(cols)]:
-            available[material["material_id"]] = st.number_input(
-                material["material_name"], min_value=0.0, value=1000.0, step=50.0,
-                key="inventory_" + material["material_id"],
-            )
-    resource = build_resource_dashboard(project, available)
-    summary = resource["summary"]
-    render_kpi_columns([
-        {"label": "Resource types", "value": format_integer(summary["total_resources"]), "provenance": "DER"},
-        {"label": "Feasible", "value": format_feasibility(summary["feasible_resources"], summary["total_resources"]), "provenance": "DER"},
-        {"label": "Shortage", "value": format_integer(summary["shortage_resources"]), "provenance": "DER", "status": "attention" if summary["shortage_resources"] else "valid"},
-    ])
-    render_table(
-        pd.DataFrame(resource["resources"]),
-        title="Resource feasibility detail",
-        subtitle="Required vs available quantity and shortage percentage per resource.",
-        caption=f"Shortage share is computed against required quantity ({format_percent(1 - summary['feasible_resources'] / max(1, summary['total_resources']))} of resources short).",
-        provenance="DER",
-    )
+    _render_materials_workspace(project, data, source_name, source_path)
 
 elif route == "Risk & Scenarios":
     render_section_header(
