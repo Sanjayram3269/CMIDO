@@ -92,11 +92,13 @@ from src.construction.dashboard_ui.components import (
     render_legacy_kpi_row,
     render_nav_legend,
     render_page_header,
+    render_section_block,
     render_section_header,
     render_sidebar_navigation,
     render_status_banner,
     render_table,
 )
+from src.construction.dashboard_ui import ro1 as ro1_workspace
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
 from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
@@ -1431,6 +1433,25 @@ elif route == "Schedule":
 
 elif route == "Materials & Resources":
     _render_materials_workspace(project, data, source_name, source_path)
+
+elif route == "RO1 · Forecasting":
+    # 10A.7 — presentation only: registered RO1 artifacts flow through the
+    # 10A.2-B snapshot contract. No model is trained and no metric recomputed.
+    try:
+        ro1_evidence = cached_snapshot(str(ROOT)).ro1
+    except Exception as exc:  # noqa: BLE001 - surfaced as an honest missing state
+        render_error_state(
+            "RO1 evidence unavailable",
+            description=(
+                "The validated repository snapshot could not be loaded, so no "
+                "forecasting evidence is shown. Nothing is computed in its place."
+            ),
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+        ro1_evidence = None
+    if ro1_evidence is not None:
+        for block in ro1_workspace.build_page_content(ro1_evidence):
+            render_section_block(block)
 
 elif route == "Risk & Scenarios":
     render_section_header(

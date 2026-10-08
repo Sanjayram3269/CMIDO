@@ -16,6 +16,8 @@ of dataframes.  No artifact is read here.
 from __future__ import annotations
 
 import math
+from dataclasses import dataclass, field
+from enum import Enum
 from typing import Any, Final, Mapping
 
 from .formatting import is_missing
@@ -240,3 +242,37 @@ def table_css_tokens() -> Mapping[str, str]:
         "note_text": MUTED_TEXT,
         "gap": SPACING["sm"],
     }
+
+
+# ---------------------------------------------------------------------------
+# Column presentation configuration (research tables, 10A.7)
+# ---------------------------------------------------------------------------
+
+
+class ColumnAlignment(str, Enum):
+    """Display alignment for a single table column."""
+
+    LEFT = "left"
+    CENTER = "center"
+    RIGHT = "right"
+
+
+@dataclass
+class ColumnConfig:
+    """Per-column display overrides (alignment only — no value mutation)."""
+
+    alignment: ColumnAlignment | None = None
+
+
+@dataclass
+class TableConfig:
+    """Display-only table configuration for research tables.
+
+    Pure presentation hints: nothing here changes cell values, it only tells
+    the render layer how to align and size the table.
+    """
+
+    default_alignment: ColumnAlignment = ColumnAlignment.LEFT
+    min_width: int | None = None
+    max_width: int | None = None
+    column_config: dict[int, ColumnConfig] = field(default_factory=dict)

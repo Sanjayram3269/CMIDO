@@ -187,6 +187,15 @@ def build_kpi_grid(items: Sequence[dict[str, Any]]) -> str:
     return f'<div class="cmido-kpi-grid" style="{style}">' + "".join(cards) + "</div>"
 
 
+def build_unavailable_reason(*, label: str, reason: str) -> dict[str, str]:
+    """Structured 'why this evidence is unavailable' item.
+
+    Returns a plain mapping so presentation layers can render it as a list
+    entry, a table row or a badge stack without re-deriving the wording.
+    """
+    return {"label": label, "reason": reason}
+
+
 def build_chart_card(
     figure: Any = None,
     *,

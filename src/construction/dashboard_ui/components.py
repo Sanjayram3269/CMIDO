@@ -20,7 +20,8 @@ Rules enforced by this layer:
 
 from __future__ import annotations
 
-from typing import Any, Sequence
+from dataclasses import dataclass, field
+from typing import Any, Mapping, Sequence
 
 from .badges import build_badge_row, build_evidence_state_badge, build_provenance_badge, build_research_stage_badge
 from .cards import build_chart_card, build_kpi, build_table_card
@@ -46,7 +47,7 @@ from .navigation import (
 )
 from .sections import (
     build_artifact_state,
-    build_empty_state,
+    build_empty_state as _sections_empty_state,
     build_error_state,
     build_page_header,
     build_section_header,
@@ -520,3 +521,296 @@ def format_display_value(value: Any, *, unit: str | None = None, decimals: int =
         return "—"
     text = format_number(value, decimals)
     return f"{text} {unit}".strip() if unit else text
+
+
+def _escape(text: Any) -> str:
+    """Minimal HTML escaping for text injected into builders."""
+    return (
+        str(text)
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+    )
+
+
+# ---------------------------------------------------------------------------
+# Section blocks (research page layer)
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class SectionBlock:
+    """Tagged structural block emitted by the pure dashboard builders.
+
+    ``kind`` selects the render treatment: ``unavailable_block`` renders as a
+    dedicated evidence-unavailable panel, ``empty_block`` as a polite no-data
+    panel, ``kpi_columns``/``section`` as ordinary content sections.
+    """
+
+    kind: str
+    title: str | None = None
+    body: str = ""
+    rows: list[Any] = field(default_factory=list)
+    provenance: Any = None
+    evidence_state: Any = None
+    uncertainty: Any = None
+    metadata: dict[str, Any] | None = None
+
+    def __str__(self) -> str:
+        parts: list[str] = [self.title or "", self.body or ""]
+        parts.extend(str(row) for row in self.rows)
+        if self.provenance is not None:
+            parts.append(str(self.provenance))
+        if self.evidence_state is not None:
+            parts.append(str(self.evidence_state))
+        return "\n".join(part for part in parts if part)
+
+    def __add__(self, other: Any) -> "SectionBlock":
+        """Concatenate two blocks (or a block and an HTML string)."""
+        return SectionBlock("section", rows=[self, other])
+
+
+@dataclass
+class TableBlock:
+    """A presentation-only table: display headers plus formatted row dicts."""
+
+    headers: list[str]
+    rows: list[dict[str, Any]]
+    column_config: Any = None
+    caption: str | None = None
+
+    def to_frame(self) -> Any:
+        """Positional DataFrame so display headers stay authoritative."""
+        import pandas as pd
+
+        data = [list(row.values()) for row in self.rows]
+        return pd.DataFrame(data, columns=list(self.headers))
+
+    def __str__(self) -> str:
+        head = "".join(f"<th>{_escape(h)}</th>" for h in self.headers)
+        body_rows = []
+        for row in self.rows:
+            cells = "".join(f"<td>{_escape(v)}</td>" for v in row.values())
+            body_rows.append(f"<tr>{cells}</tr>")
+        caption = f"<caption>{_escape(self.caption)}</caption>" if self.caption else ""
+        return f"<table>{caption}<thead><tr>{head}</tr></thead><tbody>{''.join(body_rows)}</tbody></table>"
+
+
+@dataclass
+class ChartBlock:
+    """A Plotly figure deferred to the Streamlit render layer."""
+
+    figure: Any = None
+    caption: str | None = None
+    config: dict[str, Any] | None = None
+
+    def __str__(self) -> str:
+        return self.caption or "chart"
+
+
+@dataclass
+class BreadcrumbRow:
+    """Breadcrumb trail data rendered by the shell or a page."""
+
+    ids: tuple[str, ...] = ()
+    labels: list[str] = field(default_factory=list)
+    missing: frozenset[str] = frozenset()
+
+    def __str__(self) -> str:
+        return " / ".join(
+            f"{label} (planned)" if id_ in self.missing else label
+            for id_, label in zip(self.ids, self.labels)
+        )
+
+
+def section_block(kind: str, *, title: str | None = None, body: str = "", **kwargs: Any) -> SectionBlock:
+    """Tiny constructor kept for the pure builders in dashboard_ui."""
+    return SectionBlock(kind=kind, title=title, body=body, **kwargs)
+
+
+def build_empty_state(
+    message: str | None = None,
+    *,
+    title: str | None = "No data to display",
+    hint: str | None = None,
+    body: str | None = None,
+) -> str:
+    """Render the designed empty state as HTML.
+
+    ``body`` is an alias for ``message`` so research builders can express
+    intent with either name; only one of the two should be supplied.
+    """
+    text = message if message is not None else (body or "")
+    return _sections_empty_state(text, title=title, hint=hint)
+
+
+def build_note_bare(text: str) -> str:
+    """A bare note paragraph (no card, no banner) for provenance lines."""
+    return f'<p class="cmido-table-note">{_escape(text)}</p>'
+
+
+def build_unavailable_body(title: str, body: str) -> str:
+    """Body HTML for an unavailable block: title plus bullet lines."""
+    parts = [
+        '<div class="cmido-unavailable-body">',
+        f'<p class="cmido-unavailable-title">{_escape(title)}</p>',
+        '<ul class="cmido-unavailable-list">',
+    ]
+    for line in body.splitlines():
+        line = line.strip()
+        if line:
+            parts.append(f'<li class="cmido-unavailable-item">{_escape(line)}</li>')
+    parts.append("</ul></div>")
+    return "".join(parts)
+
+
+def build_unavailable_block(
+    title: str,
+    *,
+    body: str,
+    provenance: Any = None,
+    evidence_state: Any = None,
+) -> SectionBlock:
+    """A research-grade 'unavailable' block with optional provenance."""
+    return SectionBlock(
+        "unavailable_block",
+        title=title,
+        body=build_unavailable_body(title, body),
+        provenance=provenance,
+        evidence_state=evidence_state,
+    )
+
+
+def build_empty_block(
+    message: str,
+    *,
+    title: str | None = "No data to display",
+    hint: str | None = None,
+) -> SectionBlock:
+    """A designed empty-state panel (no data to display)."""
+    return SectionBlock(
+        "empty_block",
+        title=title,
+        body=build_empty_state(message, title=title, hint=hint),
+    )
+
+
+def build_section(*, header: str | None = None, rows: Sequence[Any] = ()) -> SectionBlock:
+    """A titled section composed of heterogeneous presentation rows."""
+    return SectionBlock("section", body=header or "", rows=list(rows))
+
+
+def build_kpi_columns(*, cards: Sequence[str]) -> SectionBlock:
+    """Wrap pre-built KPI card HTML in the responsive grid."""
+    from .cards import SPACING
+
+    if not cards:
+        return SectionBlock("kpi_columns", body="")
+    style = (
+        "display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));"
+        f"gap:{SPACING['sm']};margin-bottom:{SPACING['md']};"
+    )
+    html = f'<div class="cmido-kpi-grid" style="{style}">' + "".join(cards) + "</div>"
+    return SectionBlock("kpi_columns", body=html)
+
+
+def build_table(
+    *,
+    headers: Sequence[str],
+    rows: Sequence[dict[str, Any]],
+    column_config: Any = None,
+    caption: str | None = None,
+) -> TableBlock:
+    """A presentation-only table block."""
+    return TableBlock(
+        headers=list(headers),
+        rows=list(rows),
+        column_config=column_config,
+        caption=caption,
+    )
+
+
+def build_chart(
+    chart: Any = None,
+    *,
+    title: str | None = None,
+    subtitle: str | None = None,
+    caption: str | None = None,
+    research_stage: Any = None,
+    provenance: Any = None,
+    evidence_state: Any = None,
+    uncertainty: Any = None,
+    chart_config: dict[str, Any] | None = None,
+    config: dict[str, Any] | None = None,
+) -> ChartBlock:
+    """Defer a Plotly figure to the Streamlit render layer."""
+    return ChartBlock(
+        figure=chart,
+        caption=caption,
+        config=chart_config or config,
+    )
+
+
+def build_unavailable_stack(*, items: Sequence[Any]) -> str:
+    """Render structured unavailable reasons as a compact list."""
+    parts = ['<ul class="cmido-unavailable-list">']
+    for item in items:
+        if isinstance(item, Mapping):
+            label = item.get("label", "")
+            reason = item.get("reason", "")
+            parts.append(
+                f'<li class="cmido-unavailable-item"><strong>{_escape(label)}</strong> — {_escape(reason)}</li>'
+            )
+        else:
+            parts.append(f'<li class="cmido-unavailable-item">{_escape(item)}</li>')
+    parts.append("</ul>")
+    return "".join(parts)
+
+
+def build_breadcrumb(
+    *,
+    ids: Sequence[str],
+    labels_map: Mapping[str, str],
+    missing_set: Sequence[str] | set[str] | frozenset[str] = (),
+) -> BreadcrumbRow:
+    """Structured breadcrumb trail for a research page."""
+    return BreadcrumbRow(
+        ids=tuple(ids),
+        labels=[labels_map.get(id_, id_) for id_ in ids],
+        missing=frozenset(missing_set),
+    )
+
+
+def render_section_block(block: Any) -> None:
+    """Render any research-page block (recursive) through the shell."""
+    if block is None:
+        return
+    if isinstance(block, SectionBlock):
+        if block.body:
+            render_html(block.body)
+        elif block.title:
+            render_html(f'<p class="cmido-section-title">{_escape(block.title)}</p>')
+        for row in block.rows:
+            render_section_block(row)
+        return
+    if isinstance(block, TableBlock):
+        render_table(block.to_frame(), caption=block.caption)
+        return
+    if isinstance(block, ChartBlock):
+        render_chart(block.figure, caption=block.caption, chart_config=block.config)
+        return
+    if isinstance(block, dict) and "label" in block and "body" in block:
+        label = block.get("label") or ""
+        body = block.get("body") or ""
+        render_html(
+            '<div class="cmido-card">'
+            f'<p class="cmido-kpi-label">{_escape(label)}</p>'
+            f'<p class="cmido-section-subtitle" style="white-space:pre-wrap">{_escape(body)}</p>'
+            "</div>"
+        )
+        return
+    if isinstance(block, str):
+        render_html(block)
+        return
+    render_html(str(block))

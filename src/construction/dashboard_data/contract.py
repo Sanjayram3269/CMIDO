@@ -63,6 +63,7 @@ class ArtifactProvenance:
 class RO1Evidence:
     """Publication-grade RO1 forecasting validation evidence."""
     validation_metrics: list[dict[str, Any]] = field(default_factory=list)
+    validation_forecasts: list[dict[str, Any]] = field(default_factory=list)
     calibration_summary: list[dict[str, Any]] = field(default_factory=list)
     paired_comparison: list[dict[str, Any]] = field(default_factory=list)
     integrity_audit: dict[str, Any] = field(default_factory=dict)

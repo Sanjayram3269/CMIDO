@@ -24,6 +24,7 @@ from src.construction.dashboard_data.loaders import LoadResult
 def adapt_ro1_evidence(results: dict[str, LoadResult]) -> RO1Evidence:
     """Adapt RO1 forecasting artifacts into RO1Evidence contract."""
     validation_metrics: list[dict[str, Any]] = []
+    validation_forecasts: list[dict[str, Any]] = []
     calibration_summary: list[dict[str, Any]] = []
     paired_comparison: list[dict[str, Any]] = []
     integrity_audit: dict[str, Any] = {}
@@ -36,21 +37,28 @@ def adapt_ro1_evidence(results: dict[str, LoadResult]) -> RO1Evidence:
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
             validation_metrics = res.data.to_dict(orient="records")
 
-    # 2. Calibration scores / summary
+    # 2. Validation forecasts (probabilistic forecast + intervals + per-row calibration)
+    res = results.get("RO1_VALIDATION_FORECASTS")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            validation_forecasts = res.data.to_dict(orient="records")
+
+    # 3. Calibration scores / summary
     res = results.get("RO1_CALIBRATION_SCORES")
     if res:
         provenance_list.append(res.provenance)
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
             calibration_summary = res.data.to_dict(orient="records")
 
-    # 3. Paired comparison
+    # 4. Paired comparison
     res = results.get("RO1_PAIRED_BOOTSTRAP")
     if res:
         provenance_list.append(res.provenance)
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
             paired_comparison = res.data.to_dict(orient="records")
 
-    # 4. Integrity audit
+    # 5. Integrity audit
     res = results.get("RO1_FINAL_INTEGRITY")
     if res:
         provenance_list.append(res.provenance)
@@ -59,6 +67,7 @@ def adapt_ro1_evidence(results: dict[str, LoadResult]) -> RO1Evidence:
 
     return RO1Evidence(
         validation_metrics=validation_metrics,
+        validation_forecasts=validation_forecasts,
         calibration_summary=calibration_summary,
         paired_comparison=paired_comparison,
         integrity_audit=integrity_audit,

@@ -287,3 +287,24 @@ def muted_annotation(text: str) -> dict[str, Any]:
         "font": {"family": FONT, "size": 11, "color": MUTED_TEXT},
         "align": "left",
     }
+
+
+# ---------------------------------------------------------------------------
+# Named chart configurations for research pages (10A.7)
+# ---------------------------------------------------------------------------
+
+#: Interactive forecast chart: full mode bar for inspecting series.
+CHART_CONFIG_FORECAST: Final[dict[str, Any]] = {
+    "displaylogo": False,
+    "responsive": True,
+    "displayModeBar": True,
+    "modeBarButtonsToRemove": ["lasso2d", "select2d"],
+    "scrollZoom": True,
+}
+
+#: Static research-flow diagram: no mode bar, presentation only.
+CHART_CONFIG_FLOW: Final[dict[str, Any]] = {
+    "displaylogo": False,
+    "responsive": True,
+    "displayModeBar": False,
+}

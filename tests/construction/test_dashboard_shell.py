@@ -240,6 +240,13 @@ class TestRoutingAndPlaceholders:
             if page.is_planned:
                 assert page.future_phase, f"planned page {page.id!r} must name its phase"
 
+    def test_ro1_page_is_now_available(self) -> None:
+        page = page_by_id("ro1_forecasting")
+        assert page.is_available
+        assert not page.is_planned
+        assert page.route == "RO1 · Forecasting"
+        assert page.provenance == "EST"
+
     def test_no_future_page_is_mistakenly_available(self) -> None:
         for page in pages():
             assert page.is_available != page.is_planned
@@ -409,7 +416,8 @@ class TestSessionStateHelpers:
 
 class TestNoFabricatedResearchDataInShell:
     def test_placeholder_helper_does_not_invent_metrics(self) -> None:
-        panel = build_future_page_panel("ro1_forecasting")
+        # RO1 is delivered in 10A.7; RO2 remains planned and must stay honest.
+        panel = build_future_page_panel("ro2_uncertainty")
         forbidden = ("MAE", "RMSE", "95%", "bootstrap", "mean project delay", "shortage")
         lowered = panel.lower()
         for token in forbidden:
@@ -523,15 +531,13 @@ class TestIntendedIACoverage:
 
     def test_registry_counts_match_the_intended_ia(self) -> None:
         assert len(pages()) == 15
-        assert sum(1 for page in pages() if page.is_available) == 7
-        assert sum(1 for page in pages() if page.is_planned) == 8
+        assert sum(1 for page in pages() if page.is_available) == 8
+        assert sum(1 for page in pages() if page.is_planned) == 7
         counts = {group.key: len(pages_in_group(group.key)) for group in nav.nav_groups()}
         assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 5}
 
     def test_planned_destinations_are_honest_placeholders(self) -> None:
-        planned_ids = {page.id for page in pages() if page.is_planned}
-        assert planned_ids == {
-            "ro1_forecasting",
+        planned_ids = {
             "ro2_uncertainty",
             "ro3_optimization",
             "procurement_decisions",
@@ -540,6 +546,9 @@ class TestIntendedIACoverage:
             "ablation_robustness",
             "provenance_integrity",
         }
+        assert "ro1_forecasting" not in planned_ids
+        for page_id in planned_ids:
+            assert page_placeholder_reason(page_id)
         for page_id in planned_ids:
             assert page_placeholder_reason(page_id)
 

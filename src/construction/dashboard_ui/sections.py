@@ -277,6 +277,41 @@ def build_empty_state(
     return "".join(parts)
 
 
+def build_unavailable_block(
+    title: str,
+    *,
+    body: str,
+    provenance: Any = None,
+    evidence_state: Any = None,
+) -> components.SectionBlock:
+    """Render a research-intensive 'unavailable' block with provenance."""
+    from . import components
+
+    return components.SectionBlock(
+        "unavailable_block",
+        title=title,
+        body=_build_unavailable_body(title, body),
+        provenance=provenance,
+        evidence_state=evidence_state,
+    )
+
+
+def _build_unavailable_body(title: str, body: str) -> str:
+    """Body HTML for an unavailable block: title, bullet body, optional provenance."""
+    parts = [
+        f'<div class="cmido-unavailable-body">',
+        f'<p class="cmido-unavailable-title">{_escape(title)}</p>',
+        f'<ul class="cmido-unavailable-list">',
+    ]
+    for line in body.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        parts.append(f'<li class="cmido-unavailable-item">{_escape(line)}</li>')
+    parts.append("</ul></div>")
+    return "".join(parts)
+
+
 def build_loading_state(message: str = "Loading validated evidence...") -> str:
     """Loading placeholder rendered while a snapshot is assembled."""
     return build_status_banner(message, status="loading", title="Loading")
