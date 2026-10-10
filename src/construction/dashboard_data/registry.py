@@ -464,6 +464,39 @@ ARTIFACT_REGISTRY: tuple[ArtifactEntry, ...] = (
         provenance_class="DER",
         evidence_role="RO3 integrity gate",
     ),
+    ArtifactEntry(
+        artifact_id="RO3_PARETO_ALL_ORIGINS",
+        name="RO3 Pareto Fronts (all origins, N=2500)",
+        component=ResearchComponent.RO3,
+        relative_path="results/RO3/multi_origin/RO3_step35_pareto_all_origins_N2500.csv",
+        artifact_type=ArtifactType.CSV,
+        loading_policy=LoadingPolicy.SAFE,
+        required=False,
+        description="Per-origin nondominated objective triples (Z1 cost, Z2 expected shortage, Z3 CVaR_0.95 shortage) from the epsilon-constraint solver.",
+        expected_columns=(
+            "forecast_origin", "pareto_id", "Z1", "Z2", "Z3",
+            "eps2", "eps3", "runtime_sec", "scenario_count",
+        ),
+        provenance_class="DER",
+        evidence_role="RO3 Pareto / trade-off evidence",
+        max_safe_bytes=500_000,
+    ),
+    ArtifactEntry(
+        artifact_id="RO3_PARETO_DECISIONS",
+        name="RO3 Per-Solution Procurement Decisions (all origins, N=2500)",
+        component=ResearchComponent.RO3,
+        relative_path="results/RO3/multi_origin/RO3_step35_decisions_all_origins_N2500.csv",
+        artifact_type=ArtifactType.CSV,
+        loading_policy=LoadingPolicy.SAFE,
+        required=False,
+        description="Per-Pareto-solution, per-material monthly-ahead procurement quantity q(i,t) for each forecast origin.",
+        expected_columns=(
+            "forecast_origin", "pareto_id", "material", "month_ahead", "q",
+        ),
+        provenance_class="DER",
+        evidence_role="RO3 procurement decision evidence",
+        max_safe_bytes=2_000_000,
+    ),
 
     # ── Large raw scenario files — NEVER load ─────────────────────
     ArtifactEntry(

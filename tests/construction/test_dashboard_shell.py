@@ -327,21 +327,23 @@ class TestActiveStateAndShellHTML:
 
 
 class TestPlaceholderPolicy:
+    # ``procurement_decisions`` (Phase 10A.10) is now the planned-page exemplar:
+    # RO3 became AVAILABLE in Phase 10A.9.
     def test_future_page_panel_is_honest(self) -> None:
-        panel = build_future_page_panel("ro3_optimization")
+        panel = build_future_page_panel("procurement_decisions")
         # No fabricated numbers, charts or KPIs.
-        assert "RO3 · Optimization" in panel
+        assert "Procurement Decisions" in panel
         assert "Research stage" in panel
         assert "Delivery" in panel
         # Explicitly not a completed research result
         assert "planned" in panel.lower()
 
     def test_future_page_panel_mentions_the_phase(self) -> None:
-        panel = build_future_page_panel("ro3_optimization")
-        assert page_future_phase("ro3_optimization") in panel
+        panel = build_future_page_panel("procurement_decisions")
+        assert page_future_phase("procurement_decisions") in panel
 
     def test_future_page_panel_does_not_contain_numbers_that_look_like_results(self) -> None:
-        panel = build_future_page_panel("ro3_optimization")
+        panel = build_future_page_panel("procurement_decisions")
         # Guard against accidental fabrication; the panel should not claim a numeric result.
         for token in ("95%", "confidence interval", "mean project delay", "bootstrap"):
             assert token.lower() not in panel.lower()
@@ -416,8 +418,9 @@ class TestSessionStateHelpers:
 
 class TestNoFabricatedResearchDataInShell:
     def test_placeholder_helper_does_not_invent_metrics(self) -> None:
-        # RO1 ships in 10A.7 and RO2 in 10A.8; RO3 remains planned and must stay honest.
-        panel = build_future_page_panel("ro3_optimization")
+        # RO1 ships in 10A.7, RO2 in 10A.8 and RO3 in 10A.9; the remaining
+        # planned pages (e.g. procurement_decisions) must stay honest.
+        panel = build_future_page_panel("procurement_decisions")
         forbidden = ("MAE", "RMSE", "95%", "bootstrap", "mean project delay", "shortage")
         lowered = panel.lower()
         for token in forbidden:
@@ -531,14 +534,14 @@ class TestIntendedIACoverage:
 
     def test_registry_counts_match_the_intended_ia(self) -> None:
         assert len(pages()) == 15
-        assert sum(1 for page in pages() if page.is_available) == 9
-        assert sum(1 for page in pages() if page.is_planned) == 6
+        # RO3 became AVAILABLE in Phase 10A.9: 10 available, 5 planned.
+        assert sum(1 for page in pages() if page.is_available) == 10
+        assert sum(1 for page in pages() if page.is_planned) == 5
         counts = {group.key: len(pages_in_group(group.key)) for group in nav.nav_groups()}
         assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 5}
 
     def test_planned_destinations_are_honest_placeholders(self) -> None:
         planned_ids = {
-            "ro3_optimization",
             "procurement_decisions",
             "resilience_stress",
             "real_world_data",

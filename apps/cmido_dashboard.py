@@ -100,6 +100,7 @@ from src.construction.dashboard_ui.components import (
 )
 from src.construction.dashboard_ui import ro1 as ro1_workspace
 from src.construction.dashboard_ui import ro2 as ro2_workspace
+from src.construction.dashboard_ui import ro3 as ro3_workspace
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
 from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
@@ -1471,6 +1472,25 @@ elif route == "RO2 · Uncertainty":
         ro2_evidence = None
     if ro2_evidence is not None:
         for block in ro2_workspace.build_page_content(ro2_evidence):
+            render_section_block(block)
+
+elif route == "RO3 · Optimization":
+    # 10A.9 — presentation only: registered RO3 artifacts flow through the
+    # 10A.2-B snapshot contract. No optimisation is run and no metric recomputed.
+    try:
+        ro3_evidence = cached_snapshot(str(ROOT)).ro3
+    except Exception as exc:  # noqa: BLE001 - surfaced as an honest missing state
+        render_error_state(
+            "RO3 evidence unavailable",
+            description=(
+                "The validated repository snapshot could not be loaded, so no optimization "
+                "evidence is shown. Nothing is computed in its place."
+            ),
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+        ro3_evidence = None
+    if ro3_evidence is not None:
+        for block in ro3_workspace.build_page_content(ro3_evidence):
             render_section_block(block)
 
 elif route == "Risk & Scenarios":

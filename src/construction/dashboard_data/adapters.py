@@ -210,6 +210,7 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
     robustness_summary: list[dict[str, Any]] = []
     convergence_summary: dict[str, Any] = {}
     pareto_summary: list[dict[str, Any]] = []
+    pareto_decisions: list[dict[str, Any]] = []
     final_audit: dict[str, Any] = {}
     provenance_list: list[ArtifactProvenance] = []
 
@@ -255,7 +256,21 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
             convergence_summary = res.data
 
-    # 7. Final audit
+    # 7. Pareto fronts (all origins) — genuine nondominated evidence
+    res = results.get("RO3_PARETO_ALL_ORIGINS")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            pareto_summary = res.data.to_dict(orient="records")
+
+    # 8. Per-solution procurement decisions q(i,t)
+    res = results.get("RO3_PARETO_DECISIONS")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            pareto_decisions = res.data.to_dict(orient="records")
+
+    # 9. Final audit
     res = results.get("RO3_FINAL_AUDIT")
     if res:
         provenance_list.append(res.provenance)
@@ -276,6 +291,7 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
         robustness_summary=robustness_summary,
         convergence_summary=convergence_summary,
         pareto_summary=pareto_summary,
+        pareto_decisions=pareto_decisions,
         final_audit=final_audit,
         provenance=provenance_list,
     )

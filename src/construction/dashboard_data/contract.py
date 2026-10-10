@@ -115,6 +115,7 @@ class RO3Evidence:
     )
     convergence_summary: dict[str, Any] = field(default_factory=dict)
     pareto_summary: list[dict[str, Any]] = field(default_factory=list)
+    pareto_decisions: list[dict[str, Any]] = field(default_factory=list)
     final_audit: dict[str, Any] = field(default_factory=dict)
     provenance: list[ArtifactProvenance] = field(default_factory=list)
 
