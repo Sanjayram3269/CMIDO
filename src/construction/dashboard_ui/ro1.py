@@ -120,6 +120,8 @@ def _snapshot_context(evidence: RO1Evidence) -> dict[str, Any]:
     # Row inventory (honest counts, never asserted against a single canonical total)
     context["metrics_row_count"] = int(len(metrics_df))
     context["forecast_row_count"] = int(len(forecasts_df))
+    context["test_metrics_row_count"] = int(len(evidence.test_metrics))
+    context["baseline_metrics_row_count"] = int(len(evidence.baseline_metrics))
 
     # Provenance inventory
     provenance_tally: dict[str, list[str]] = {}
@@ -421,13 +423,30 @@ def _missing_snapshot_cards(ctx: dict[str, Any]) -> list[dict[str, Any]]:
                 reason="No per-origin probabilistic forecast rows available in the curated artifacts.",
             )
         )
-    if not ctx.get("probabilistic_score_columns"):
+    if not ctx.get("test_metrics_row_count"):
         missing.append(
             cards.build_unavailable_reason(
-                label="CRPS / pinball / sMAPE",
+                label="Test-split pinball / coverage / width",
                 reason="Not reported in the RO1 validation metrics artifact.",
             )
         )
+    if not ctx.get("baseline_metrics_row_count"):
+        missing.append(
+            cards.build_unavailable_reason(
+                label="Baseline sMAPE / MAPE",
+                reason="No registered RO1 baseline artifact was available to load.",
+            )
+        )
+    # CRPS: verified absent from every registered RO1 artifact (10A.8 audit).
+    missing.append(
+        cards.build_unavailable_reason(
+            label="CRPS",
+            reason=(
+                "Not reported in any registered RO1 artifact. Pinball loss is reported on "
+                "the held-out test split; CRPS was not computed in the source artifacts."
+            ),
+        )
+    )
     return missing
 
 
@@ -634,11 +653,23 @@ def _format_metric_cell(column: str, value: Any) -> str:
             return str(int(float(value)))
         except (TypeError, ValueError):
             return str(value)
+    if column in ("n_test", "n_forecasts"):
+        try:
+            return str(int(float(value)))
+        except (TypeError, ValueError):
+            return str(value)
     try:
         num = float(value)
-        if column.startswith("coverage") or column.endswith("coverage"):
+        lowered = column.lower()
+        if "coverage" in lowered and "error" not in lowered:
             return formatting.format_percent(num, decimals=1)
-        if column.startswith("mae") or column.startswith("rmse") or column.startswith("winkler") or column.startswith("width"):
+        if (
+            lowered.startswith(("mae", "rmse", "winkler", "width", "pinball"))
+            or "smape" in lowered
+            or lowered.endswith("mape_percent")
+            or lowered.endswith("_width_50")
+            or lowered.endswith("_width_80")
+        ):
             return formatting.format_number(num, decimals=2)
     except (TypeError, ValueError):
         return str(value)
@@ -1366,6 +1397,110 @@ def _build_temporal_origin_summary(forecasts_df: pd.DataFrame, origin_col: str) 
 # J. RO1 -> RO2 handoff
 # ---------------------------------------------------------------------------
 
+def build_test_scores_section(evidence: RO1Evidence) -> components.SectionBlock:
+    """Held-out test-split probabilistic scores and naive-baseline sMAPE (10A.8 audit)."""
+    test_df = pd.DataFrame(evidence.test_metrics)
+    base_df = pd.DataFrame(evidence.baseline_metrics)
+
+    rows: list[Any] = []
+
+    if test_df.empty:
+        rows.append(
+            components.build_unavailable_block(
+                "Test-split probabilistic scores unavailable",
+                body=(
+                    "The registered RO1 test-split metrics artifact was not available for this "
+                    "workspace. Pinball, coverage, width and Winkler scores are not shown and "
+                    "are never substituted with the validation-split numbers."
+                ),
+            )
+        )
+    else:
+        rows.append(_build_simple_table(
+            test_df,
+            columns=[
+                "dataset", "series", "horizon", "n_test",
+                "pinball_q10", "pinball_q50", "pinball_q90",
+                "raw_coverage_50", "cqr_coverage_50",
+                "raw_coverage_80", "cqr_coverage_80",
+                "cqr_mean_width_80", "cqr_winkler_80",
+            ],
+            headers=[
+                "Dataset", "Series", "Horizon", "n (test)",
+                "Pinball q10", "Pinball q50", "Pinball q90",
+                "Raw coverage 50%", "CQR coverage 50%",
+                "Raw coverage 80%", "CQR coverage 80%",
+                "CQR mean width 80%", "CQR Winkler 80%",
+            ],
+            caption="Held-out test-split scores as recorded in the registered RO1 test-metrics artifact.",
+        ))
+        rows.append(components.build_note_bare(
+            "Provenance: DER. These scores come from the held-out test split, not the validation "
+            "split shown above. Pinball loss is reported per quantile; CRPS is not computed in "
+            "this artifact. No composite score is invented."
+        ))
+
+    if base_df.empty:
+        rows.append(
+            components.build_unavailable_block(
+                "Baseline sMAPE unavailable",
+                body=(
+                    "No registered RO1 baseline metrics artifact was loaded, so naive-benchmark "
+                    "sMAPE/MAPE values are not shown."
+                ),
+            )
+        )
+    else:
+        rows.append(_build_simple_table(
+            base_df,
+            columns=[
+                "dataset", "split", "series", "horizon", "model", "n_forecasts",
+                "MAE", "RMSE", "sMAPE_percent", "MAPE_percent",
+            ],
+            headers=[
+                "Dataset", "Split", "Series", "Horizon", "Model", "n",
+                "MAE", "RMSE", "sMAPE (%)", "MAPE (%)",
+            ],
+            caption="Naive / SeasonalNaive test-split benchmarks as recorded in the registered baseline artifact.",
+        ))
+        rows.append(components.build_note_bare(
+            "Provenance: DER. Baseline scores are a reference point, not a ranking of the "
+            "probabilistic methods; the rows are shown exactly as recorded."
+        ))
+
+    return components.build_section(
+        header=components.build_section_header(
+            title="Test-split scores and baselines",
+            subtitle=(
+                "Held-out pinball / coverage / width scores and naive sMAPE baselines, surfaced "
+                "by the 10A.8 metric audit. Values not present in the artifacts remain unavailable."
+            ),
+        ),
+        rows=rows,
+    )
+
+
+def _build_simple_table(
+    frame: pd.DataFrame,
+    *,
+    columns: list[str],
+    headers: list[str],
+    caption: str,
+) -> components.TableBlock:
+    """Positional table over a curated column subset; absent columns render as unavailable."""
+    rows_data: list[dict[str, Any]] = []
+    for _, row in frame.iterrows():
+        entry: dict[str, Any] = {}
+        for col in columns:
+            entry[col] = _format_metric_cell(col, row.get(col)) if col in frame.columns else formatting.MISSING_DISPLAY
+        rows_data.append(entry)
+    return components.build_table(headers=headers, rows=rows_data, caption=caption)
+
+
+def build_test_scores_section_header_title() -> str:
+    return "Test-split scores and baselines"
+
+
 def build_handoff_section(evidence: RO1Evidence) -> components.SectionBlock:
     ctx = _snapshot_context(evidence)
     has_forecasts = ctx["forecast_row_count"] > 0
@@ -1623,6 +1758,7 @@ def build_page_content(evidence: RO1Evidence) -> list[components.SectionBlock]:
         build_probabilistic_forecast_section(evidence),
         build_uncertainty_width_section(evidence),
         build_calibration_section(evidence),
+        build_test_scores_section(evidence),
         build_material_stability_section(evidence),
         build_temporal_stability_section(evidence),
         build_handoff_section(evidence),

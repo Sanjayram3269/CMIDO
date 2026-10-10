@@ -46,8 +46,9 @@ Mapping to the intended 15-destination information architecture (audited for 10A
     *Schedule & Critical Path*, *Materials & Resources* — existing deterministic
     planner pages (moved into CORE by the 10A.4 registry audit).
 ``RESEARCH``
-    *RO1 · Forecasting*, *RO2 · Uncertainty*, *RO3 · Optimization* — planned
-    future workspaces for the corresponding research phases.
+    *RO1 · Forecasting*, *RO2 · Uncertainty* — available research
+    workspaces (10A.7 / 10A.8); *RO3 · Optimization* — a planned
+    future workspace (Phase 10A.9).
 ``DECISION``
     *Scenario Lab* — existing Risk & Scenarios page.
     *Procurement Decisions*, *Resilience & Stress* — CMIDO has no live
@@ -59,7 +60,7 @@ Mapping to the intended 15-destination information architecture (audited for 10A
     *Real-World Data*, *Ablation & Robustness*, *Provenance & Integrity* — planned
     future workspaces for the corresponding evidence activities.
 
-The registry therefore carries all 15 destinations: 7 available and 8 planned.
+The registry therefore carries all 15 destinations: 9 available and 6 planned.
 """
 
 from __future__ import annotations
@@ -276,9 +277,9 @@ PAGES: tuple[PageDefinition, ...] = (
         icon="\U0001f4ca",
         description="Joint uncertainty propagation and service-risk workspace.",
         research_stage="RO2",
-        evidence_state_note="Not yet implemented",
-        implementation=ImplementationStatus.PLANNED,
-        future_phase="Phase 10A.8",
+        provenance="SCN",
+        route="RO2 · Uncertainty",
+        implementation=ImplementationStatus.AVAILABLE,
     ),
     PageDefinition(
         id="ro3_optimization",

@@ -66,6 +66,8 @@ class RO1Evidence:
     validation_forecasts: list[dict[str, Any]] = field(default_factory=list)
     calibration_summary: list[dict[str, Any]] = field(default_factory=list)
     paired_comparison: list[dict[str, Any]] = field(default_factory=list)
+    test_metrics: list[dict[str, Any]] = field(default_factory=list)
+    baseline_metrics: list[dict[str, Any]] = field(default_factory=list)
     integrity_audit: dict[str, Any] = field(default_factory=dict)
     provenance: list[ArtifactProvenance] = field(default_factory=list)
 
@@ -83,6 +85,12 @@ class RO2Evidence:
     tail_comparison: list[dict[str, Any]] = field(default_factory=list)
     service_risk_curve: list[dict[str, Any]] = field(default_factory=list)
     sensitivity: list[dict[str, Any]] = field(default_factory=list)
+    propagation_config: dict[str, Any] = field(default_factory=dict)
+    propagation_summary: list[dict[str, Any]] = field(default_factory=list)
+    distribution_decision: list[dict[str, Any]] = field(default_factory=list)
+    duration_observed_stats: list[dict[str, Any]] = field(default_factory=list)
+    propagation_audit: dict[str, Any] = field(default_factory=dict)
+    convergence_summary: dict[str, Any] = field(default_factory=dict)
     final_audit: dict[str, Any] = field(default_factory=dict)
     provenance: list[ArtifactProvenance] = field(default_factory=list)
 

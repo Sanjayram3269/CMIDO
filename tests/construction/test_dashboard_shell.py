@@ -251,13 +251,13 @@ class TestRoutingAndPlaceholders:
         for page in pages():
             assert page.is_available != page.is_planned
 
-    def test_ro2_placeholder_is_in_research(self) -> None:
+    def test_ro2_page_is_now_available(self) -> None:
         page = page_by_id("ro2_uncertainty")
-        assert page.is_planned
+        assert page.is_available
+        assert not page.is_planned
         assert page.group == "RESEARCH"
         assert page.research_stage == ResearchStage.RO2.value
-        assert page.future_phase
-        assert page_placeholder_reason("ro2_uncertainty")
+        assert page.route == "RO2 · Uncertainty"
 
     def test_provenance_placeholder_is_in_evidence(self) -> None:
         page = page_by_id("provenance_integrity")
@@ -328,20 +328,20 @@ class TestActiveStateAndShellHTML:
 
 class TestPlaceholderPolicy:
     def test_future_page_panel_is_honest(self) -> None:
-        panel = build_future_page_panel("ro2_uncertainty")
+        panel = build_future_page_panel("ro3_optimization")
         # No fabricated numbers, charts or KPIs.
-        assert "RO2 · Uncertainty" in panel
+        assert "RO3 · Optimization" in panel
         assert "Research stage" in panel
         assert "Delivery" in panel
         # Explicitly not a completed research result
         assert "planned" in panel.lower()
 
     def test_future_page_panel_mentions_the_phase(self) -> None:
-        panel = build_future_page_panel("ro2_uncertainty")
-        assert page_future_phase("ro2_uncertainty") in panel
+        panel = build_future_page_panel("ro3_optimization")
+        assert page_future_phase("ro3_optimization") in panel
 
     def test_future_page_panel_does_not_contain_numbers_that_look_like_results(self) -> None:
-        panel = build_future_page_panel("ro2_uncertainty")
+        panel = build_future_page_panel("ro3_optimization")
         # Guard against accidental fabrication; the panel should not claim a numeric result.
         for token in ("95%", "confidence interval", "mean project delay", "bootstrap"):
             assert token.lower() not in panel.lower()
@@ -416,8 +416,8 @@ class TestSessionStateHelpers:
 
 class TestNoFabricatedResearchDataInShell:
     def test_placeholder_helper_does_not_invent_metrics(self) -> None:
-        # RO1 is delivered in 10A.7; RO2 remains planned and must stay honest.
-        panel = build_future_page_panel("ro2_uncertainty")
+        # RO1 ships in 10A.7 and RO2 in 10A.8; RO3 remains planned and must stay honest.
+        panel = build_future_page_panel("ro3_optimization")
         forbidden = ("MAE", "RMSE", "95%", "bootstrap", "mean project delay", "shortage")
         lowered = panel.lower()
         for token in forbidden:
@@ -531,14 +531,13 @@ class TestIntendedIACoverage:
 
     def test_registry_counts_match_the_intended_ia(self) -> None:
         assert len(pages()) == 15
-        assert sum(1 for page in pages() if page.is_available) == 8
-        assert sum(1 for page in pages() if page.is_planned) == 7
+        assert sum(1 for page in pages() if page.is_available) == 9
+        assert sum(1 for page in pages() if page.is_planned) == 6
         counts = {group.key: len(pages_in_group(group.key)) for group in nav.nav_groups()}
         assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 5}
 
     def test_planned_destinations_are_honest_placeholders(self) -> None:
         planned_ids = {
-            "ro2_uncertainty",
             "ro3_optimization",
             "procurement_decisions",
             "resilience_stress",
@@ -547,6 +546,7 @@ class TestIntendedIACoverage:
             "provenance_integrity",
         }
         assert "ro1_forecasting" not in planned_ids
+        assert "ro2_uncertainty" not in planned_ids
         for page_id in planned_ids:
             assert page_placeholder_reason(page_id)
         for page_id in planned_ids:

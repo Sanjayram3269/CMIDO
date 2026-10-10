@@ -99,6 +99,7 @@ from src.construction.dashboard_ui.components import (
     render_table,
 )
 from src.construction.dashboard_ui import ro1 as ro1_workspace
+from src.construction.dashboard_ui import ro2 as ro2_workspace
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
 from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
@@ -1451,6 +1452,25 @@ elif route == "RO1 · Forecasting":
         ro1_evidence = None
     if ro1_evidence is not None:
         for block in ro1_workspace.build_page_content(ro1_evidence):
+            render_section_block(block)
+
+elif route == "RO2 · Uncertainty":
+    # 10A.8 — presentation only: registered RO2 artifacts flow through the
+    # 10A.2-B snapshot contract. No simulation is run and no metric recomputed.
+    try:
+        ro2_evidence = cached_snapshot(str(ROOT)).ro2
+    except Exception as exc:  # noqa: BLE001 - surfaced as an honest missing state
+        render_error_state(
+            "RO2 evidence unavailable",
+            description=(
+                "The validated repository snapshot could not be loaded, so no "
+                "uncertainty-propagation evidence is shown. Nothing is computed in its place."
+            ),
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+        ro2_evidence = None
+    if ro2_evidence is not None:
+        for block in ro2_workspace.build_page_content(ro2_evidence):
             render_section_block(block)
 
 elif route == "Risk & Scenarios":

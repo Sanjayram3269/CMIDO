@@ -27,6 +27,8 @@ def adapt_ro1_evidence(results: dict[str, LoadResult]) -> RO1Evidence:
     validation_forecasts: list[dict[str, Any]] = []
     calibration_summary: list[dict[str, Any]] = []
     paired_comparison: list[dict[str, Any]] = []
+    test_metrics: list[dict[str, Any]] = []
+    baseline_metrics: list[dict[str, Any]] = []
     integrity_audit: dict[str, Any] = {}
     provenance_list: list[ArtifactProvenance] = []
 
@@ -58,7 +60,21 @@ def adapt_ro1_evidence(results: dict[str, LoadResult]) -> RO1Evidence:
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
             paired_comparison = res.data.to_dict(orient="records")
 
-    # 5. Integrity audit
+    # 5. Held-out test-split probabilistic scores (pinball / coverage / width)
+    res = results.get("RO1_TEST_METRICS")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            test_metrics = res.data.to_dict(orient="records")
+
+    # 6. Naive baseline test metrics (sMAPE / MAPE reference)
+    res = results.get("RO1_BASELINE_METRICS")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            baseline_metrics = res.data.to_dict(orient="records")
+
+    # 7. Integrity audit
     res = results.get("RO1_FINAL_INTEGRITY")
     if res:
         provenance_list.append(res.provenance)
@@ -70,6 +86,8 @@ def adapt_ro1_evidence(results: dict[str, LoadResult]) -> RO1Evidence:
         validation_forecasts=validation_forecasts,
         calibration_summary=calibration_summary,
         paired_comparison=paired_comparison,
+        test_metrics=test_metrics,
+        baseline_metrics=baseline_metrics,
         integrity_audit=integrity_audit,
         provenance=provenance_list,
     )
@@ -81,6 +99,12 @@ def adapt_ro2_evidence(results: dict[str, LoadResult]) -> RO2Evidence:
     tail_comparison: list[dict[str, Any]] = []
     service_risk_curve: list[dict[str, Any]] = []
     sensitivity: list[dict[str, Any]] = []
+    propagation_config: dict[str, Any] = {}
+    propagation_summary: list[dict[str, Any]] = []
+    distribution_decision: list[dict[str, Any]] = []
+    duration_observed_stats: list[dict[str, Any]] = []
+    propagation_audit: dict[str, Any] = {}
+    convergence_summary: dict[str, Any] = {}
     final_audit: dict[str, Any] = {}
     provenance_list: list[ArtifactProvenance] = []
 
@@ -112,7 +136,49 @@ def adapt_ro2_evidence(results: dict[str, LoadResult]) -> RO2Evidence:
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
             sensitivity = res.data.to_dict(orient="records")
 
-    # 5. Final audit
+    # 5. Propagation run configuration (seed / MC draws / materials)
+    res = results.get("RO2_PROPAGATION_CONFIG")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
+            propagation_config = res.data
+
+    # 6. Demand-during-duration propagation summary (joint vs independent)
+    res = results.get("RO2_PROPAGATION_SUMMARY")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            propagation_summary = res.data.to_dict(orient="records")
+
+    # 7. Provisional distribution selection decision
+    res = results.get("RO2_DISTRIBUTION_DECISION")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            distribution_decision = res.data.to_dict(orient="records")
+
+    # 8. Observed procurement-process duration statistics
+    res = results.get("RO2_DURATION_OBSERVED_STATS")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            duration_observed_stats = res.data.to_dict(orient="records")
+
+    # 9. Propagation audit gate (27D.1)
+    res = results.get("RO2_PROPAGATION_AUDIT")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
+            propagation_audit = res.data
+
+    # 10. Nested convergence summary (27D.4)
+    res = results.get("RO2_CONVERGENCE_SUMMARY")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
+            convergence_summary = res.data
+
+    # 11. Final audit
     res = results.get("RO2_FINAL_AUDIT")
     if res:
         provenance_list.append(res.provenance)
@@ -124,6 +190,12 @@ def adapt_ro2_evidence(results: dict[str, LoadResult]) -> RO2Evidence:
         tail_comparison=tail_comparison,
         service_risk_curve=service_risk_curve,
         sensitivity=sensitivity,
+        propagation_config=propagation_config,
+        propagation_summary=propagation_summary,
+        distribution_decision=distribution_decision,
+        duration_observed_stats=duration_observed_stats,
+        propagation_audit=propagation_audit,
+        convergence_summary=convergence_summary,
         final_audit=final_audit,
         provenance=provenance_list,
     )

@@ -472,8 +472,8 @@ class TestOverviewRuntime:
         from streamlit.testing.v1 import AppTest
 
         at = AppTest.from_file(str(APP_PATH.resolve()), default_timeout=90)
-        # RO1 ships in 10A.7; RO2 remains a planned placeholder.
-        at.session_state["cmido_active_page"] = "ro2_uncertainty"
+        # RO1 ships in 10A.7 and RO2 in 10A.8; RO3 remains a planned placeholder.
+        at.session_state["cmido_active_page"] = "ro3_optimization"
         at.run()
         assert not at.exception
         assert "Planned workspace" in overview_markdown(at)
