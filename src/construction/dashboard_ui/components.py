@@ -814,3 +814,14 @@ def render_section_block(block: Any) -> None:
         render_html(block)
         return
     render_html(str(block))
+
+
+def render_paragraph(block: Any) -> None:
+    """Render one label + body paragraph (``{"label", "body"}`` contract)."""
+    render_section_block(block)
+
+
+def render_inline_label_values(blocks: Sequence[Any]) -> None:
+    """Render a compact vertical stack of label + body blocks."""
+    for block in blocks:
+        render_section_block(block)

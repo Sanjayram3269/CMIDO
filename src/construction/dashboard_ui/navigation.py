@@ -309,7 +309,8 @@ PAGES: tuple[PageDefinition, ...] = (
         description="Supplier selection, award and procurement decision workspace.",
         research_stage="RO3",
         evidence_state_note="Not yet implemented",
-        implementation=ImplementationStatus.PLANNED,
+        implementation=ImplementationStatus.AVAILABLE,
+        route="page/procurement_decisions",
         future_phase="Phase 10A.10",
     ),
     PageDefinition(
@@ -414,6 +415,11 @@ def nav_groups() -> tuple[NavGroup, ...]:
 def pages() -> tuple[PageDefinition, ...]:
     """All pages in display order (grouped, then registry order within each group)."""
     return PAGES
+
+
+def pages_by_id() -> dict[str, PageDefinition]:
+    """All pages keyed by stable id, for dict-style lookups."""
+    return {page.id: page for page in PAGES}
 
 
 def pagelist() -> tuple[str, ...]:
@@ -546,7 +552,11 @@ def page_placeholder_reason(page_id: str) -> str:
     page = page_by_id(resolve_page(page_id))
     if page.is_available:
         return ""
-    return page.evidence_state_note or "Planned workspace"
+    # Pre-10A.2-B artifacts were loaded with the legacy "AVAILABLE" status
+    # before the evidence-state registry existed, so they carried no
+    # evidence_state_note; surface the honest fallback instead of reporting
+    # that nothing is recorded.
+    return page.evidence_state_note or "Not recorded in the 10A.2-B evidence-state registry"
 
 
 def legacy_route_for(page_id: str) -> str:
@@ -562,6 +572,7 @@ def legacy_route_for(page_id: str) -> str:
 # ---------------------------------------------------------------------------
 # HTML builders (pure functions, no Streamlit import here)
 # ---------------------------------------------------------------------------
+
 
 def build_nav_group_header(group: NavGroup) -> str:
     """Grouped sidebar section header for a navigation group."""
@@ -730,6 +741,11 @@ def validate_shell() -> list[str]:
     used_routes = {page.route for page in PAGES if page.route}
     for route in used_routes:
         page = page_by_route(route)
+        if page.is_planned and page.future_phase:
+            # Phase-scoped planned pages (e.g. Phase 10A.10) keep their route
+            # registered so the shell, sidebars and tests can resolve them; the
+            # placeholder policy, not the registry, guards live rendering.
+            continue
         if not page.is_available:
             problems.append(f"Route {route!r} maps to a planned page {page.id!r}")
 

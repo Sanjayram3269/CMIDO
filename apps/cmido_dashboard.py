@@ -101,6 +101,7 @@ from src.construction.dashboard_ui.components import (
 from src.construction.dashboard_ui import ro1 as ro1_workspace
 from src.construction.dashboard_ui import ro2 as ro2_workspace
 from src.construction.dashboard_ui import ro3 as ro3_workspace
+from src.construction.dashboard_ui import procurement_decisions as procurement_workspace
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
 from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
@@ -1492,6 +1493,26 @@ elif route == "RO3 · Optimization":
     if ro3_evidence is not None:
         for block in ro3_workspace.build_page_content(ro3_evidence):
             render_section_block(block)
+
+elif route == "page/procurement_decisions":
+    # 10A.10 — presentation only: registered decision-level RO3 artifacts flow
+    # through the 10A.2-B snapshot contract. No optimization is run here and
+    # nothing is recomputed in its place.
+    try:
+        procurement_snapshot = cached_snapshot(str(ROOT))
+    except Exception as exc:  # noqa: BLE001 - surfaced as an honest missing state
+        render_error_state(
+            "Procurement decision evidence unavailable",
+            description=(
+                "The validated repository snapshot could not be loaded, so no procurement "
+                "decision evidence is shown. Nothing is computed in its place."
+            ),
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+        procurement_snapshot = None
+    if procurement_snapshot is not None:
+        # The shell already rendered the page header and design-system CSS.
+        procurement_workspace.render_page(procurement_snapshot, include_header=False)
 
 elif route == "Risk & Scenarios":
     render_section_header(

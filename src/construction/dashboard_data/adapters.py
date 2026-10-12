@@ -20,6 +20,24 @@ from src.construction.dashboard_data.contract import (
 )
 from src.construction.dashboard_data.loaders import LoadResult
 
+#: Maximum number of realized-evaluation ledger rows a UI component is willing to
+#: ingest. The multi-origin realized-evaluation ledger (per material and period) is
+#: expected to exceed this; the O4 single-origin ledger is small enough.
+_SAFE_LEDGER_ROWS = 1000
+
+def _ledger_is_safe_for_ui(res: LoadResult, max_rows: int) -> bool:
+    """Return True only if a realized-evaluation ledger is small enough to surface.
+
+    The multi-origin realized-evaluation ledger is expected to be too large to render;
+    the O4 single-origin ledger is small enough. This function is the gate that keeps
+    the large multi-origin ledger out of the UI while still allowing the provenance row
+    to record that the artifact was found.
+    """
+    if not isinstance(res.data, pd.DataFrame):
+        return False
+    n = len(res.data)
+    return 0 < n <= max_rows
+
 
 def adapt_ro1_evidence(results: dict[str, LoadResult]) -> RO1Evidence:
     """Adapt RO1 forecasting artifacts into RO1Evidence contract."""
@@ -202,7 +220,13 @@ def adapt_ro2_evidence(results: dict[str, LoadResult]) -> RO2Evidence:
 
 
 def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
-    """Adapt RO3 optimisation artifacts into RO3Evidence contract."""
+    """Adapt RO3 optimisation artifacts into RO3Evidence contract.
+
+    Besides the Pareto-level evidence consumed by the RO3 page, this adapter also
+    loads the decision-level artifacts that the procurement-decisions page interprets:
+    selected decisions, realized-evaluation summary, the sanitized realized-evaluation
+    ledger, the multi-origin summary, and the decision-sensitivity summary.
+    """
     baseline_comparison: list[dict[str, Any]] = []
     ablation: list[dict[str, Any]] = []
     controller_descriptives: list[dict[str, Any]] = []
@@ -283,6 +307,61 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
         if b_res:
             provenance_list.append(b_res.provenance)
 
+    # 8b. Selected decisions (decision-level) q(i,t) with period + selected candidate
+    res = results.get("RO3_O2_SELECTED_DECISIONS")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            selected_decisions = res.data.to_dict(orient="records")
+        else:
+            # The decision-level artifact is absent or not schema-valid: leave
+            # the field empty so the UI shows an explicit unavailable state
+            # instead of a fabricated quantity.
+            selected_decisions = []
+    else:
+        selected_decisions = []
+
+    # Decision-level decision variables (initialized empty so the return always binds them)
+    realized_evaluation_summary: list[dict[str, Any]] = []
+    realized_evaluation_ledger: list[dict[str, Any]] = []
+    multi_origin_summary: list[dict[str, Any]] = []
+    decision_sensitivity: list[dict[str, Any]] = []
+
+    # 9b. Realized evaluation summary (per-material realized outcomes of selected decisions)
+    res = results.get("RO3_O2_REALIZED_EVALUATION_SUMMARY")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            realized_evaluation_summary = res.data.to_dict(orient="records")
+
+    # 9c. Realized evaluation ledger, gate by size — NEVER load the multi-origin raw ledger
+    res = results.get("RO3_O4_REALIZED_EVALUATION_LEDGER")
+    if res:
+        provenance_list.append(res.provenance)
+        if (
+            res.status == ArtifactStatus.AVAILABLE
+            and isinstance(res.data, pd.DataFrame)
+            and _ledger_is_safe_for_ui(res, max_rows=_SAFE_LEDGER_ROWS)
+        ):
+            realized_evaluation_ledger = res.data.to_dict(orient="records")
+        else:
+            # Keep provenance but do NOT surface the ledger rows.
+            pass
+
+    # 9d. Multi-origin summary (per-origin Pareto count + objective range)
+    res = results.get("RO3_MULTI_ORIGIN_SUMMARY")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            multi_origin_summary = res.data.to_dict(orient="records")
+
+    # 9e. Decision sensitivity (pairwise corrected summary)
+    res = results.get("RO3_DECISION_SENSITIVITY")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            decision_sensitivity = res.data.to_dict(orient="records")
+
     return RO3Evidence(
         baseline_comparison=baseline_comparison,
         ablation=ablation,
@@ -294,6 +373,11 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
         pareto_decisions=pareto_decisions,
         final_audit=final_audit,
         provenance=provenance_list,
+        selected_decisions=selected_decisions,
+        realized_evaluation_summary=realized_evaluation_summary,
+        realized_evaluation_ledger=realized_evaluation_ledger,
+        multi_origin_summary=multi_origin_summary,
+        decision_sensitivity=decision_sensitivity,
     )
 
 
