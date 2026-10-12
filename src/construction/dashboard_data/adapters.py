@@ -236,6 +236,11 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
     pareto_summary: list[dict[str, Any]] = []
     pareto_decisions: list[dict[str, Any]] = []
     final_audit: dict[str, Any] = {}
+    ablation_gate_manifest: dict[str, Any] = {}
+    ablation_gate_audit: dict[str, Any] = {}
+    stress_paired: list[dict[str, Any]] = []
+    holding_contrasts: list[dict[str, Any]] = []
+    holding_sensitivity: list[dict[str, Any]] = []
     provenance_list: list[ArtifactProvenance] = []
 
     # 1. Baseline comparison
@@ -300,6 +305,42 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
         provenance_list.append(res.provenance)
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
             final_audit = {"audit_rows": res.data.to_dict(orient="records")}
+
+    # 9f. Ablation evidence gate (8M) manifest — controllers, locked origins,
+    # common materials, inferential unit and source-artifact fingerprints.
+    res = results.get("ABLATION_8M_GATE_MANIFEST")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
+            ablation_gate_manifest = res.data
+
+    # 9g. Ablation evidence gate audit rows.
+    res = results.get("ABLATION_8M_GATE_AUDIT")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            ablation_gate_audit = {"audit_rows": res.data.to_dict(orient="records")}
+
+    # 9h. Descriptive stress paired changes (no significance test recorded).
+    res = results.get("RO3_STRESS_PAIRED")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            stress_paired = res.data.to_dict(orient="records")
+
+    # 9i. Descriptive holding-rate controller contrasts (untested).
+    res = results.get("RO3_HOLDING_CONTRASTS")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            holding_contrasts = res.data.to_dict(orient="records")
+
+    # 9j. Descriptive holding-rate sensitivity vs H30 (untested).
+    res = results.get("RO3_HOLDING_SENSITIVITY")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, pd.DataFrame):
+            holding_sensitivity = res.data.to_dict(orient="records")
 
     # Also capture blocked scenario files into provenance if present
     for blocked_id in ("RO3_SCENARIOS_2500_RAW", "RO3_SCENARIOS_5000_RAW"):
@@ -372,6 +413,11 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
         pareto_summary=pareto_summary,
         pareto_decisions=pareto_decisions,
         final_audit=final_audit,
+        ablation_gate_manifest=ablation_gate_manifest,
+        ablation_gate_audit=ablation_gate_audit,
+        stress_paired=stress_paired,
+        holding_contrasts=holding_contrasts,
+        holding_sensitivity=holding_sensitivity,
         provenance=provenance_list,
         selected_decisions=selected_decisions,
         realized_evaluation_summary=realized_evaluation_summary,

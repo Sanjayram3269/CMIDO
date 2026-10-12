@@ -57,10 +57,11 @@ Mapping to the intended 15-destination information architecture (audited for 10A
     *Experiments* — existing Experiment Lab page.
     *Research Evidence* — existing Research Evidence page.
     *Real-World Data* — available research workspace (10A.11).
-    *Ablation & Robustness*, *Provenance & Integrity* — planned
-    future workspaces for the corresponding evidence activities.
+    *Ablation & Robustness* — available research workspace (10A.12).
+    *Provenance & Integrity* — planned
+    future workspace for the provenance and integrity evidence activity.
 
-The registry therefore carries all 15 destinations: 12 available and 3 planned.
+The registry therefore carries all 15 destinations: 13 available and 2 planned.
 """
 
 from __future__ import annotations
@@ -323,7 +324,11 @@ PAGES: tuple[PageDefinition, ...] = (
         research_stage="STRESS",
         evidence_state_note="Not yet implemented",
         implementation=ImplementationStatus.PLANNED,
-        future_phase="Phase 10A.10",
+        # 10A.10 delivered Procurement Decisions only, so the earlier
+        # "Phase 10A.10" label was stale. No phase is currently committed to
+        # this workspace; say so honestly rather than naming a phase that
+        # belongs to another destination.
+        future_phase="Beyond Phase 10A.13",
     ),
     # ---- EVIDENCE -------------------------------------------------------------
     PageDefinition(
@@ -364,11 +369,14 @@ PAGES: tuple[PageDefinition, ...] = (
         title="Ablation & Robustness",
         group="EVIDENCE",
         icon="\U0001f4ca",
-        description="Controller ablation, stress and robustness evidence.",
+        description=(
+            "2×2 controller ablation, stress and holding-rate robustness, "
+            "convergence and integrity-gate evidence."
+        ),
         research_stage="ABLATION",
         provenance="DER",
-        evidence_state_note="Not yet implemented",
-        implementation=ImplementationStatus.PLANNED,
+        implementation=ImplementationStatus.AVAILABLE,
+        route="page/ablation_robustness",
         future_phase="Phase 10A.12",
     ),
     PageDefinition(

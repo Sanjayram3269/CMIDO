@@ -103,6 +103,7 @@ from src.construction.dashboard_ui import ro2 as ro2_workspace
 from src.construction.dashboard_ui import ro3 as ro3_workspace
 from src.construction.dashboard_ui import procurement_decisions as procurement_workspace
 from src.construction.dashboard_ui import real_world_data as real_world_workspace
+from src.construction.dashboard_ui import ablation_robustness as ablation_workspace
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
 from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
@@ -1534,6 +1535,28 @@ elif route == "page/real_world_data":
     if real_world_snapshot is not None:
         # The shell already rendered the page header and design-system CSS.
         real_world_workspace.render_page(real_world_snapshot, include_header=False)
+
+elif route == "page/ablation_robustness":
+    # 10A.12 — presentation only: registered ablation, stress, robustness,
+    # convergence and integrity-gate artifacts flow through the 10A.2-B
+    # snapshot contract. No research computation is run here and no result
+    # is recomputed in its place.
+    try:
+        ablation_snapshot = cached_snapshot(str(ROOT))
+    except Exception as exc:  # noqa: BLE001 - surfaced as an honest missing state
+        render_error_state(
+            "Ablation and robustness evidence unavailable",
+            description=(
+                "The validated repository snapshot could not be loaded, so no "
+                "ablation or robustness evidence is shown. Nothing is computed "
+                "in its place."
+            ),
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+        ablation_snapshot = None
+    if ablation_snapshot is not None:
+        # The shell already rendered the page header and design-system CSS.
+        ablation_workspace.render_page(ablation_snapshot, include_header=False)
 
 elif route == "Risk & Scenarios":
     render_section_header(

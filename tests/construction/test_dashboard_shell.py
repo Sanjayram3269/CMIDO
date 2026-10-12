@@ -328,7 +328,8 @@ class TestActiveStateAndShellHTML:
 
 class TestPlaceholderPolicy:
     # ``resilience_stress`` is now the planned-page exemplar: RO3 became
-    # AVAILABLE in Phase 10A.9 and Procurement Decisions in Phase 10A.10.
+    # AVAILABLE in Phase 10A.9, Procurement Decisions in Phase 10A.10,
+    # Real-World Data in Phase 10A.11 and Ablation & Robustness in Phase 10A.12.
     def test_future_page_panel_is_honest(self) -> None:
         panel = build_future_page_panel("resilience_stress")
         # No fabricated numbers, charts or KPIs.
@@ -419,8 +420,8 @@ class TestSessionStateHelpers:
 class TestNoFabricatedResearchDataInShell:
     def test_placeholder_helper_does_not_invent_metrics(self) -> None:
         # RO1 ships in 10A.7, RO2 in 10A.8, RO3 in 10A.9, Procurement
-        # Decisions in 10A.10 and Real-World Data in 10A.11; the remaining
-        # planned pages must stay honest.
+        # Decisions in 10A.10, Real-World Data in 10A.11 and Ablation &
+        # Robustness in 10A.12; the remaining planned pages must stay honest.
         panel = build_future_page_panel("resilience_stress")
         forbidden = ("MAE", "RMSE", "95%", "bootstrap", "mean project delay", "shortage")
         lowered = panel.lower()
@@ -535,17 +536,17 @@ class TestIntendedIACoverage:
 
     def test_registry_counts_match_the_intended_ia(self) -> None:
         assert len(pages()) == 15
-        # Procurement Decisions became AVAILABLE in Phase 10A.10 and
-        # Real-World Data in Phase 10A.11: 12 available, 3 planned.
-        assert sum(1 for page in pages() if page.is_available) == 12
-        assert sum(1 for page in pages() if page.is_planned) == 3
+        # Procurement Decisions became AVAILABLE in Phase 10A.10,
+        # Real-World Data in Phase 10A.11 and Ablation & Robustness in
+        # Phase 10A.12: 13 available, 2 planned.
+        assert sum(1 for page in pages() if page.is_available) == 13
+        assert sum(1 for page in pages() if page.is_planned) == 2
         counts = {group.key: len(pages_in_group(group.key)) for group in nav.nav_groups()}
         assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 5}
 
     def test_planned_destinations_are_honest_placeholders(self) -> None:
         planned_ids = {
             "resilience_stress",
-            "ablation_robustness",
             "provenance_integrity",
         }
         assert "ro1_forecasting" not in planned_ids

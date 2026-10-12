@@ -101,11 +101,14 @@ class RO2Evidence:
 
 @dataclass(frozen=True)
 class RO3Evidence:
-    """RO3 optimisation evidence for the RO3 Pareto page and the procurement-decisions page.
+    """RO3 optimisation evidence for the RO3 Pareto, procurement-decisions and
+    ablation-robustness pages.
 
     This bundle intentionally includes the decision-level artifacts (selected decisions,
     realized-evaluation summaries, decision-sensitivity, robustness and stress summaries)
-    that the RO3 Pareto page references AND that the procurement-decisions page interprets.
+    that the RO3 Pareto page references AND that the procurement-decisions page interprets,
+    plus the ablation evidence-gate and descriptive stress/holding-rate artifacts that the
+    Ablation & Robustness workspace presents.
     """
     baseline_comparison: list[dict[str, Any]] = field(
         default_factory=list,
@@ -119,6 +122,18 @@ class RO3Evidence:
         default_factory=list,
     )
     convergence_summary: dict[str, Any] = field(default_factory=dict)
+
+    # Ablation evidence gate (8M) — controllers, locked origins, common
+    # materials, inferential unit and the gate's per-check audit rows.
+    ablation_gate_manifest: dict[str, Any] = field(default_factory=dict)
+    ablation_gate_audit: dict[str, Any] = field(default_factory=dict)
+
+    # Descriptive (untested) stress and holding-rate evidence presented by the
+    # Ablation & Robustness workspace. These artifacts record paired change
+    # summaries only; no significance test is recorded in them.
+    stress_paired: list[dict[str, Any]] = field(default_factory=list)
+    holding_contrasts: list[dict[str, Any]] = field(default_factory=list)
+    holding_sensitivity: list[dict[str, Any]] = field(default_factory=list)
     pareto_summary: list[dict[str, Any]] = field(default_factory=list)
     pareto_decisions: list[dict[str, Any]] = field(default_factory=list)
     final_audit: dict[str, Any] = field(default_factory=dict)
@@ -130,45 +145,6 @@ class RO3Evidence:
     realized_evaluation_ledger: list[dict[str, Any]] = field(default_factory=list)
     multi_origin_summary: list[dict[str, Any]] = field(default_factory=list)
     decision_sensitivity: list[dict[str, Any]] = field(default_factory=list)
-
-
-# ------------------------------------------------------------------
-# Procurement decisions evidence
-# ------------------------------------------------------------------
-
-@dataclass(frozen=True)
-class ProcurementDecisionsEvidence:
-    """Decision-level procurement evidence surfaced by the 10A.10 workspace.
-
-    Every field is a curated view of a registered artifact; nothing is
-    recomputed here.  Fields that the repository does not evidence are left at
-    their empty defaults so the workspace can render an honest unavailable
-    state rather than a fabricated value.
-
-    Deliberately **not** modelled, because the frozen RO3 formulation audit
-    records them as excluded from scope (``supplier_specific_allocation_-
-    not_claimed``, ``storage_capacity_excluded``):
-
-    * supplier-allocation decisions y(i,s,t)
-    * safety-stock state variables ss(i,t)
-    * supplier-capacity constraint rows
-
-    Those omissions are a property of the optimisation design, not a gap in the
-    dashboard's loading, and the workspace says so explicitly.
-    """
-    # Decision-level quantities for a single selected Pareto solution per origin.
-    selected_decisions: list[dict[str, Any]] = field(default_factory=list)
-    # Per-origin realised evaluation of those decisions (cost/shortage/service/...).
-    realized_evaluation: list[dict[str, Any]] = field(default_factory=list)
-    # Recorded experiment configuration for the selected-decision experiment.
-    decision_config: dict[str, Any] = field(default_factory=dict)
-    # Per-origin Pareto cardinality and objective ranges (step 35 origin summary).
-    origin_summary: list[dict[str, Any]] = field(default_factory=list)
-    # Sample-size sensitivity of the decision vectors (step 33B corrected summary).
-    sensitivity_summary: list[dict[str, Any]] = field(default_factory=list)
-    # Integrity audit rows for the selected-decision experiment.
-    decision_audit: dict[str, Any] = field(default_factory=dict)
-    provenance: list[ArtifactProvenance] = field(default_factory=list)
 
 
 # ------------------------------------------------------------------
@@ -264,9 +240,6 @@ class DashboardSnapshot:
     ro1: RO1Evidence = field(default_factory=RO1Evidence)
     ro2: RO2Evidence = field(default_factory=RO2Evidence)
     ro3: RO3Evidence = field(default_factory=RO3Evidence)
-    procurement: ProcurementDecisionsEvidence = field(
-        default_factory=ProcurementDecisionsEvidence,
-    )
     real_data: RealDataEvidence = field(
         default_factory=RealDataEvidence,
     )
