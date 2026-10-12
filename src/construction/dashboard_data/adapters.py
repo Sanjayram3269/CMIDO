@@ -384,11 +384,16 @@ def adapt_ro3_evidence(results: dict[str, LoadResult]) -> RO3Evidence:
 def adapt_real_data_evidence(results: dict[str, LoadResult]) -> RealDataEvidence:
     """Adapt real-data ingestion artifacts into RealDataEvidence contract.
 
-    Maintains clear boundary between PSLIB and SUCCESS.
+    Maintains clear boundary between PSLIB and SUCCESS: the PSLIB workbook
+    audit and the SUCCESS logistics audit are adapted into separate fields
+    and are never combined. The 9A fixture fields are kept separate again —
+    the fixture is neither PSLIB nor SUCCESS.
     """
     pslib_audit: dict[str, Any] = {}
-    success_ingestion_audit: dict[str, Any] = {}
+    ingestion_audit_9a: dict[str, Any] = {}
     canonical_9a: dict[str, Any] = {}
+    generalization_manifest_9a: dict[str, Any] = {}
+    logistics_audit: dict[str, Any] = {}
     experiment_9b: dict[str, Any] = {}
     provenance_list: list[ArtifactProvenance] = []
 
@@ -402,13 +407,25 @@ def adapt_real_data_evidence(results: dict[str, LoadResult]) -> RealDataEvidence
     if res:
         provenance_list.append(res.provenance)
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
-            success_ingestion_audit = res.data
+            ingestion_audit_9a = res.data
+
+    res = results.get("REAL_9A_MANIFEST")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
+            generalization_manifest_9a = res.data
 
     res = results.get("REAL_9B_PSLIB_AUDIT")
     if res:
         provenance_list.append(res.provenance)
         if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
             pslib_audit = res.data
+
+    res = results.get("REAL_9B_LOGISTICS_AUDIT")
+    if res:
+        provenance_list.append(res.provenance)
+        if res.status == ArtifactStatus.AVAILABLE and isinstance(res.data, dict):
+            logistics_audit = res.data
 
     res = results.get("REAL_9B_MANIFEST")
     if res:
@@ -418,8 +435,10 @@ def adapt_real_data_evidence(results: dict[str, LoadResult]) -> RealDataEvidence
 
     return RealDataEvidence(
         pslib_audit=pslib_audit,
-        success_ingestion_audit=success_ingestion_audit,
+        ingestion_audit_9a=ingestion_audit_9a,
         canonical_9a=canonical_9a,
+        generalization_manifest_9a=generalization_manifest_9a,
+        logistics_audit=logistics_audit,
         experiment_9b=experiment_9b,
         provenance=provenance_list,
     )

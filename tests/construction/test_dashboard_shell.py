@@ -418,8 +418,9 @@ class TestSessionStateHelpers:
 
 class TestNoFabricatedResearchDataInShell:
     def test_placeholder_helper_does_not_invent_metrics(self) -> None:
-        # RO1 ships in 10A.7, RO2 in 10A.8, RO3 in 10A.9 and Procurement
-        # Decisions in 10A.10; the remaining planned pages must stay honest.
+        # RO1 ships in 10A.7, RO2 in 10A.8, RO3 in 10A.9, Procurement
+        # Decisions in 10A.10 and Real-World Data in 10A.11; the remaining
+        # planned pages must stay honest.
         panel = build_future_page_panel("resilience_stress")
         forbidden = ("MAE", "RMSE", "95%", "bootstrap", "mean project delay", "shortage")
         lowered = panel.lower()
@@ -534,17 +535,16 @@ class TestIntendedIACoverage:
 
     def test_registry_counts_match_the_intended_ia(self) -> None:
         assert len(pages()) == 15
-        # Procurement Decisions became AVAILABLE in Phase 10A.10:
-        # 11 available, 4 planned.
-        assert sum(1 for page in pages() if page.is_available) == 11
-        assert sum(1 for page in pages() if page.is_planned) == 4
+        # Procurement Decisions became AVAILABLE in Phase 10A.10 and
+        # Real-World Data in Phase 10A.11: 12 available, 3 planned.
+        assert sum(1 for page in pages() if page.is_available) == 12
+        assert sum(1 for page in pages() if page.is_planned) == 3
         counts = {group.key: len(pages_in_group(group.key)) for group in nav.nav_groups()}
         assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 5}
 
     def test_planned_destinations_are_honest_placeholders(self) -> None:
         planned_ids = {
             "resilience_stress",
-            "real_world_data",
             "ablation_robustness",
             "provenance_integrity",
         }

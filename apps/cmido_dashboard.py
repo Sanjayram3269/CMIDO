@@ -102,6 +102,7 @@ from src.construction.dashboard_ui import ro1 as ro1_workspace
 from src.construction.dashboard_ui import ro2 as ro2_workspace
 from src.construction.dashboard_ui import ro3 as ro3_workspace
 from src.construction.dashboard_ui import procurement_decisions as procurement_workspace
+from src.construction.dashboard_ui import real_world_data as real_world_workspace
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
 from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
@@ -1513,6 +1514,26 @@ elif route == "page/procurement_decisions":
     if procurement_snapshot is not None:
         # The shell already rendered the page header and design-system CSS.
         procurement_workspace.render_page(procurement_snapshot, include_header=False)
+
+elif route == "page/real_world_data":
+    # 10A.11 — presentation only: registered 9A/9B real-data artifacts flow
+    # through the 10A.2-B snapshot contract. No research computation is run
+    # here and the PSLIB / SUCCESS streams are never joined.
+    try:
+        real_world_snapshot = cached_snapshot(str(ROOT))
+    except Exception as exc:  # noqa: BLE001 - surfaced as an honest missing state
+        render_error_state(
+            "Real-world evidence unavailable",
+            description=(
+                "The validated repository snapshot could not be loaded, so no "
+                "real-data evidence is shown. Nothing is computed in its place."
+            ),
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+        real_world_snapshot = None
+    if real_world_snapshot is not None:
+        # The shell already rendered the page header and design-system CSS.
+        real_world_workspace.render_page(real_world_snapshot, include_header=False)
 
 elif route == "Risk & Scenarios":
     render_section_header(

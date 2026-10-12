@@ -50,16 +50,17 @@ Mapping to the intended 15-destination information architecture (audited for 10A
     are available research workspaces (10A.7 / 10A.8 / 10A.9).
 ``DECISION``
     *Scenario Lab* — existing Risk & Scenarios page.
-    *Procurement Decisions*, *Resilience & Stress* — CMIDO has no live
-    implementation for these yet, so they are declared as planned future pages
-    (Phase 10A.10) rather than routed to live content.
+    *Procurement Decisions* — available research workspace (10A.10).
+    *Resilience & Stress* — CMIDO has no live implementation for this yet, so
+    it is declared as a planned future page rather than routed to live content.
 ``EVIDENCE``
     *Experiments* — existing Experiment Lab page.
     *Research Evidence* — existing Research Evidence page.
-    *Real-World Data*, *Ablation & Robustness*, *Provenance & Integrity* — planned
+    *Real-World Data* — available research workspace (10A.11).
+    *Ablation & Robustness*, *Provenance & Integrity* — planned
     future workspaces for the corresponding evidence activities.
 
-The registry therefore carries all 15 destinations: 10 available and 5 planned.
+The registry therefore carries all 15 destinations: 12 available and 3 planned.
 """
 
 from __future__ import annotations
@@ -350,11 +351,12 @@ PAGES: tuple[PageDefinition, ...] = (
         title="Real-World Data",
         group="EVIDENCE",
         icon="\U0001f4ca",
-        description="Canonical dataset, PSLIB project audit and ingestion-stage evidence.",
+        description="PSLIB project audit, SUCCESS logistics coverage and 9A ingestion-fixture evidence.",
         research_stage="REAL_DATA",
         provenance="OBS",
         evidence_state_note="Not yet implemented",
-        implementation=ImplementationStatus.PLANNED,
+        implementation=ImplementationStatus.AVAILABLE,
+        route="page/real_world_data",
         future_phase="Phase 10A.11",
     ),
     PageDefinition(

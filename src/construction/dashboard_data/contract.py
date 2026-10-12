@@ -177,17 +177,31 @@ class ProcurementDecisionsEvidence:
 
 @dataclass(frozen=True)
 class RealDataEvidence:
-    """Evidence from PSLIB / SUCCESS real-data ingestion.
+    """Evidence from the real-data streams registered by phases 9A and 9B.
 
-    PSLIB and SUCCESS are complementary observed datasets.
-    They are NOT joined unless an explicit validated artifact
-    establishes that relationship.
+    Three streams are kept strictly separate:
+
+    * **9A fixture** — a civil-project CSV-bundle fixture that proves the
+      ingestion adapter (``canonical_9a``, ``ingestion_audit_9a``,
+      ``generalization_manifest_9a``). It is neither PSLIB nor SUCCESS.
+    * **PSLIB** — the empirical project workbook audit (``pslib_audit``).
+    * **SUCCESS** — the construction-logistics table audit
+      (``logistics_audit``).
+
+    PSLIB and SUCCESS are complementary observed datasets. They are NOT
+    joined unless an explicit validated artifact establishes that
+    relationship. ``experiment_9b`` carries the 9B gate manifest that
+    records that boundary.
     """
     pslib_audit: dict[str, Any] = field(default_factory=dict)
-    success_ingestion_audit: dict[str, Any] = field(
+    ingestion_audit_9a: dict[str, Any] = field(
         default_factory=dict,
     )
     canonical_9a: dict[str, Any] = field(default_factory=dict)
+    generalization_manifest_9a: dict[str, Any] = field(
+        default_factory=dict,
+    )
+    logistics_audit: dict[str, Any] = field(default_factory=dict)
     experiment_9b: dict[str, Any] = field(default_factory=dict)
     provenance: list[ArtifactProvenance] = field(default_factory=list)
 
