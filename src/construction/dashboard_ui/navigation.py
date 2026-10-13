@@ -58,10 +58,9 @@ Mapping to the intended 15-destination information architecture (audited for 10A
     *Research Evidence* — existing Research Evidence page.
     *Real-World Data* — available research workspace (10A.11).
     *Ablation & Robustness* — available research workspace (10A.12).
-    *Provenance & Integrity* — planned
-    future workspace for the provenance and integrity evidence activity.
+    *Provenance & Integrity* — available research workspace (10A.13).
 
-The registry therefore carries all 15 destinations: 13 available and 2 planned.
+The registry therefore carries all 15 destinations: 14 available and 1 planned.
 """
 
 from __future__ import annotations
@@ -384,11 +383,14 @@ PAGES: tuple[PageDefinition, ...] = (
         title="Provenance & Integrity",
         group="EVIDENCE",
         icon="\U0001f4ca",
-        description="Artifact provenance, integrity and loading-policy registry.",
+        description=(
+            "Registered artifact provenance classes, recorded fingerprints and "
+            "integrity checks, loading policies and known evidence gaps."
+        ),
         research_stage="EVIDENCE",
         provenance="OBS",
-        evidence_state_note="Not yet implemented",
-        implementation=ImplementationStatus.PLANNED,
+        implementation=ImplementationStatus.AVAILABLE,
+        route="page/provenance_integrity",
         future_phase="Phase 10A.13",
     ),
 )

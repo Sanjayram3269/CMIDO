@@ -77,6 +77,94 @@ class ArtifactEntry:
 
 
 # ------------------------------------------------------------------
+# Known-unregistered artifacts
+# ------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class UnregisteredArtifact:
+    """A repository file that is deliberately NOT in ``ARTIFACT_REGISTRY``.
+
+    These entries exist so the Provenance & Integrity workspace can report
+    the registration gap honestly (presence plus documented origin) without
+    hard-coding repository paths in the presentation layer. Listing an
+    artifact here never makes it loadable: it carries no loading policy, no
+    schema contract and no provenance record, and the dashboard reads none
+    of these files' contents.
+    """
+
+    artifact: str
+    documented_by: str
+    relative_path: str
+
+
+#: Files documented across the research phases but absent from the registry.
+#: Paths are internal reference data for the provenance page only: they are
+#: never rendered, never loaded and never adapted into the snapshot contract.
+KNOWN_UNREGISTERED_ARTIFACTS: tuple[UnregisteredArtifact, ...] = (
+    UnregisteredArtifact(
+        artifact="Canonical PSLIB project JSON",
+        documented_by="9B real-project audit phase",
+        relative_path="results/9B_real_project_e2e/CMIDO_9B_PSLIB_C2025_02_CANONICAL.json",
+    ),
+    UnregisteredArtifact(
+        artifact="Real-project experiment output",
+        documented_by="9B real-project audit phase",
+        relative_path="results/9B_real_project_e2e/CMIDO_9B_REAL_PROJECT_EXPERIMENT.json",
+    ),
+    UnregisteredArtifact(
+        artifact="9A repository inventory",
+        documented_by="9A generalization phase",
+        relative_path="results/9A_repository_inventory.csv",
+    ),
+    UnregisteredArtifact(
+        artifact="9A generalization audit table",
+        documented_by="9A generalization phase",
+        relative_path="results/9A_real_data_generalization/CMIDO_9A_REAL_DATA_GENERALIZATION_AUDIT.csv",
+    ),
+    UnregisteredArtifact(
+        artifact="Controller freeze manifest (step 36)",
+        documented_by="8M gate manifest fingerprint",
+        relative_path="results/RO3/ablation/RO3_step36_controller_freeze_manifest.json",
+    ),
+    UnregisteredArtifact(
+        artifact="Origin-level results (step 36)",
+        documented_by="8M gate manifest fingerprint",
+        relative_path="results/RO3/ablation/final_comparison/RO3_step36_origin_level_results.csv",
+    ),
+    UnregisteredArtifact(
+        artifact="Material-level results (step 36)",
+        documented_by="8M gate manifest fingerprint",
+        relative_path="results/RO3/ablation/final_comparison/RO3_step36_material_level_results.csv",
+    ),
+    UnregisteredArtifact(
+        artifact="Selected decisions (O2)",
+        documented_by="Phase 10A.10 decision-level inventory",
+        relative_path="results/RO3/ablation/O2/O2_selected_decisions.csv",
+    ),
+    UnregisteredArtifact(
+        artifact="Realized evaluation summary (O2)",
+        documented_by="Phase 10A.10 decision-level inventory",
+        relative_path="results/RO3/ablation/O2/O2_realized_evaluation_summary.csv",
+    ),
+    UnregisteredArtifact(
+        artifact="Realized evaluation ledger (O4 single origin)",
+        documented_by="Phase 10A.10 decision-level inventory",
+        relative_path="results/RO3/ablation/O4_single_origin/O4_single_origin_realized_evaluation_ledger.csv",
+    ),
+    UnregisteredArtifact(
+        artifact="Per-origin Pareto summary (step 35)",
+        documented_by="Phase 10A.10 decision-level inventory",
+        relative_path="results/RO3/multi_origin/RO3_step35_origin_summary_N2500.csv",
+    ),
+    UnregisteredArtifact(
+        artifact="Decision sensitivity summary (step 33B)",
+        documented_by="Phase 10A.10 decision-level inventory",
+        relative_path="results/RO3/decision_sensitivity/RO3_step33B_corrected_summary_20220701.csv",
+    ),
+)
+
+
+# ------------------------------------------------------------------
 # The Registry
 # ------------------------------------------------------------------
 

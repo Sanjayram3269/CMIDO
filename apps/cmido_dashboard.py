@@ -104,6 +104,7 @@ from src.construction.dashboard_ui import ro3 as ro3_workspace
 from src.construction.dashboard_ui import procurement_decisions as procurement_workspace
 from src.construction.dashboard_ui import real_world_data as real_world_workspace
 from src.construction.dashboard_ui import ablation_robustness as ablation_workspace
+from src.construction.dashboard_ui import provenance_integrity as provenance_workspace
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
 from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
@@ -1557,6 +1558,28 @@ elif route == "page/ablation_robustness":
     if ablation_snapshot is not None:
         # The shell already rendered the page header and design-system CSS.
         ablation_workspace.render_page(ablation_snapshot, include_header=False)
+
+elif route == "page/provenance_integrity":
+    # 10A.13 — presentation only: registered artifacts, their provenance
+    # records, recorded fingerprints and recorded integrity checks flow
+    # through the 10A.2-B snapshot contract. No digest is recomputed, no
+    # check is re-run and no research result is recalculated here.
+    try:
+        provenance_snapshot = cached_snapshot(str(ROOT))
+    except Exception as exc:  # noqa: BLE001 - surfaced as an honest missing state
+        render_error_state(
+            "Provenance and integrity evidence unavailable",
+            description=(
+                "The validated repository snapshot could not be loaded, so no "
+                "provenance or integrity evidence is shown. Nothing is computed "
+                "in its place."
+            ),
+            diagnostics=f"{type(exc).__name__}: {exc}",
+        )
+        provenance_snapshot = None
+    if provenance_snapshot is not None:
+        # The shell already rendered the page header and design-system CSS.
+        provenance_workspace.render_page(provenance_snapshot, include_header=False)
 
 elif route == "Risk & Scenarios":
     render_section_header(

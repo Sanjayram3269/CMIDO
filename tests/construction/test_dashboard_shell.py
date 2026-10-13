@@ -259,12 +259,14 @@ class TestRoutingAndPlaceholders:
         assert page.research_stage == ResearchStage.RO2.value
         assert page.route == "RO2 · Uncertainty"
 
-    def test_provenance_placeholder_is_in_evidence(self) -> None:
+    def test_provenance_page_is_now_available(self) -> None:
         page = page_by_id("provenance_integrity")
-        assert page.is_planned
+        assert page.is_available
+        assert not page.is_planned
         assert page.group == "EVIDENCE"
         assert page.research_stage == ResearchStage.EVIDENCE.value
         assert page.future_phase
+        assert page.route == "page/provenance_integrity"
 
 
 class TestBreadcrumbs:
@@ -537,17 +539,17 @@ class TestIntendedIACoverage:
     def test_registry_counts_match_the_intended_ia(self) -> None:
         assert len(pages()) == 15
         # Procurement Decisions became AVAILABLE in Phase 10A.10,
-        # Real-World Data in Phase 10A.11 and Ablation & Robustness in
-        # Phase 10A.12: 13 available, 2 planned.
-        assert sum(1 for page in pages() if page.is_available) == 13
-        assert sum(1 for page in pages() if page.is_planned) == 2
+        # Real-World Data in Phase 10A.11, Ablation & Robustness in
+        # Phase 10A.12 and Provenance & Integrity in Phase 10A.13:
+        # 14 available, 1 planned.
+        assert sum(1 for page in pages() if page.is_available) == 14
+        assert sum(1 for page in pages() if page.is_planned) == 1
         counts = {group.key: len(pages_in_group(group.key)) for group in nav.nav_groups()}
         assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 5}
 
     def test_planned_destinations_are_honest_placeholders(self) -> None:
         planned_ids = {
             "resilience_stress",
-            "provenance_integrity",
         }
         assert "ro1_forecasting" not in planned_ids
         assert "ro2_uncertainty" not in planned_ids
