@@ -120,8 +120,8 @@ def _render_decision_overview(evidence: RO3Evidence, provenance_rows: list[dict[
                 "Decision variables explicitly out of scope",
                 [
                     "y(i,s,t) — supplier allocation is NOT a decision output of this experiment. The frozen formulation audit records "
-                    "supplier_specific_allocation_not_claimed and supplier_disruption_probability_excluded as deliberate design choices, "
-                    "not as missing data.",
+                    "that supplier-specific allocation is not claimed and supplier-disruption probability is excluded as deliberate design "
+                    "choices, not as missing data.",
                     "ss(i,t) — safety stock is NOT a decision output of this experiment. No safety-stock artifact is registered, and none "
                     "is inferred from procurement quantities.",
                     "Storage capacity / supplier capacity constraints — NOT modeled as active constraints in this experiment. Feasibility is "
@@ -384,8 +384,8 @@ def _render_supplier_and_capacity(evidence: RO3Evidence) -> None:
                 "The RO3 experiment does not model supplier allocation as a decision variable. The frozen formulation audit records two relevant "
                 "design decisions:",
                 "",
-                " - supplier_specific_allocation_not_claimed: pass — the model intentionally does not claim a supplier-specific allocation.",
-                " - supplier_disruption_probability_excluded: pass — supplier-disruption probability is intentionally excluded from the model.",
+                " - supplier-specific allocation not claimed: pass — the model intentionally does not claim a supplier-specific allocation.",
+                " - supplier-disruption probability excluded: pass — supplier-disruption probability is intentionally excluded from the model.",
                 "",
                 "Because of that design, no artifact in this repository contains supplier allocations y(i,s,t), supplier-capacity constraints, or "
                 "supplier-disruption probabilities. Nothing on this page infers such values from aggregate material quantities.",

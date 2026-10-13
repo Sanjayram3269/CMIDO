@@ -1814,7 +1814,6 @@ elif route == "Research Evidence":
             prov_data = [
                 {
                     "Artifact ID": p.artifact_id,
-                    "Source Path": p.source_path,
                     "Class": p.provenance_class.value,
                     "Stage": p.research_stage,
                     "Status": p.status.value,

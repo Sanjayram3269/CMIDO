@@ -90,6 +90,33 @@ def _fill(color: str, alpha: float) -> str:
     return f"rgba({r},{g},{b},{alpha})"
 
 
+def _sentence_case(text: str) -> str:
+    """Title-cases a snake_case metric/fragment label into a short English
+    signpost while leaving digits and punctuation in place."""
+    if not text:
+        return text
+    lowered = text.lower()
+    head, sep, tail = lowered.partition("_")
+    if not tail:
+        # single token: capitalise the first alpha run only
+        m = __import__("re").search(r"[A-Za-z]", lowered)
+        if not m:
+            return lowered
+        start = m.start()
+        return lowered[:start] + lowered[start].upper() + lowered[start + 1 :]
+    parts: list[str] = [head.capitalize()]
+    for piece in tail.split("_"):
+        if not piece:
+            continue
+        m = __import__("re").search(r"[A-Za-z]", piece)
+        if not m:
+            parts.append(piece)
+            continue
+        start = m.start()
+        parts.append(piece[:start] + piece[start].upper() + piece[start + 1 :])
+    return " ".join(parts)
+
+
 # ---------------------------------------------------------------------------
 # Page shell metadata
 # ---------------------------------------------------------------------------
@@ -1286,7 +1313,13 @@ def _validation_findings(base_df: pd.DataFrame) -> list[str]:
                 qualifier = " (lower is better for this metric)"
             elif "higher=better" in direction:
                 qualifier = " (higher is better for this metric)"
-            parts.append(f"the newer controller {verb} {mlabel.lower()} ({_fmt_num(d)}){qualifier}")
+            qualifier = ""
+            if direction == "min":
+                qualifier = " — lower is better for this metric"
+            parts.append(
+                f"For {mlabel.lower()} the newer controller {verb} "
+                f"{_fmt_num(d)}{qualifier}."
+            )
         if parts:
             lines.append(f"{label}: " + "; ".join(parts) + ".")
         else:
