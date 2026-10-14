@@ -1,0 +1,57 @@
+{
+  "generated_utc": "2026-10-14T05:41:59.221412+00:00",
+  "python": "3.12.10",
+  "system": "Windows",
+  "machine": "AMD64",
+  "repo_root": "D:\\CMIDO",
+  "head": "c100b477ed8b79e8cdf1384ecfddd80b136adb78",
+  "origin_main": "c100b477ed8b79e8cdf1384ecfddd80b136adb78",
+  "head_synced_with_origin_main": "yes",
+  "tracked_working_tree": "dirty:?? .freebuff/ ?? package-lock.json ?? repro_adapters.py ?? results/8N_integrated_evidence/ ?? results/8O_paper_evidence/ ?? results/8P_dashboard_e2e/ ?? results/8Q_publication_artifacts/ ?? results/8R_publication_figures/ ?? results/8S_numerical_reconciliation/ ?? results/9A_real_data_generalization/ ?? results/9A_repository_inventory.csv ?? results/9B_real_project_e2e/ ?? results/RO3/ablation/8M_gate/ ?? run_test_fixture.py ?? run_test_fixture_debug.py",
+  "gates": [
+    {
+      "stage": "8Q",
+      "status": "PASS",
+      "checks_passed": 31,
+      "checks_total": 31,
+      "root": "D:\\CMIDO"
+    },
+    {
+      "stage": "8R",
+      "status": "PASS",
+      "checks_passed": 28,
+      "checks_total": 28
+    },
+    {
+      "stage": "8S",
+      "status": "PASS",
+      "checks_passed": 81,
+      "checks_total": 81
+    },
+    {
+      "stage": "8M",
+      "status": "PASS",
+      "checks_passed": 20,
+      "checks_total": 20
+    },
+    {
+      "stage": "8N",
+      "status": "PASS",
+      "checks_passed": 13,
+      "checks_total": 13
+    },
+    {
+      "stage": "8O",
+      "status": "PASS",
+      "checks_passed": 17,
+      "checks_total": 17
+    },
+    {
+      "stage": "8P",
+      "status": "PASS",
+      "checks_passed": 20,
+      "checks_total": 20
+    }
+  ],
+  "package_path": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE"
+}
