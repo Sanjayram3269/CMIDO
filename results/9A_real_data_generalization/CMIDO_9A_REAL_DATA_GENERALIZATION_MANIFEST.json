@@ -1,0 +1,113 @@
+{
+  "stage": "9A",
+  "status": "PASS",
+  "checks_passed": 19,
+  "checks_total": 19,
+  "checks": [
+    {
+      "check": "9a_mapping_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\examples\\9A_real_data\\mapping.json"
+    },
+    {
+      "check": "9a_project_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\examples\\9A_real_data\\project.csv"
+    },
+    {
+      "check": "9a_activities_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\examples\\9A_real_data\\activities.csv"
+    },
+    {
+      "check": "9a_dependencies_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\examples\\9A_real_data\\dependencies.csv"
+    },
+    {
+      "check": "explicit_mapping_ingestion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "canonical_schema_valid",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "single_project",
+      "passed": true,
+      "detail": "1"
+    },
+    {
+      "check": "four_activities",
+      "passed": true,
+      "detail": "4"
+    },
+    {
+      "check": "three_dependencies",
+      "passed": true,
+      "detail": "3"
+    },
+    {
+      "check": "duration_unit_normalization",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dependency_integrity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "provenance_present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "source_row_counts_present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "zero_rejected_records",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "sha256_fingerprint_present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "machine_readable_audit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "deterministic_fingerprint",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no_source_semantic_guessing",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "rejected_record_reporting",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "frozen_predecessor_phases": [
+    "8M",
+    "8N",
+    "8O",
+    "8P",
+    "8Q",
+    "8R",
+    "8S"
+  ],
+  "scope": "real-data ingestion/generalization boundary; no UI changes"
+}

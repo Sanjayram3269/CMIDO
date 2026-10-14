@@ -1,0 +1,93 @@
+{
+  "stage": "8O",
+  "status": "PASS",
+  "checks_passed": 17,
+  "checks_total": 17,
+  "checks": [
+    {
+      "check": "8o_package_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\docs\\CMIDO_8O_PAPER_EVIDENCE_PACKAGE.md"
+    },
+    {
+      "check": "8n_package_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\docs\\CMIDO_8N_INTEGRATED_EVIDENCE.md"
+    },
+    {
+      "check": "8m_manifest_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\RO3\\ablation\\8M_gate\\CMIDO_8M_GATE_MANIFEST.json"
+    },
+    {
+      "check": "8n_manifest_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\8N_integrated_evidence\\CMIDO_8N_INTEGRATED_EVIDENCE_MANIFEST.json"
+    },
+    {
+      "check": "ro1_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\forecasting\\probabilistic_calibration\\RO1_step26c3_validation_forecasts.csv"
+    },
+    {
+      "check": "ro2_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\RO2\\data_audit\\RO2_step27b4_admissible_modelling_view.csv"
+    },
+    {
+      "check": "ro3_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\RO3\\scenario_generation\\RO3_step32_scenarios_2500.csv"
+    },
+    {
+      "check": "8m_status_pass",
+      "passed": true,
+      "detail": "PASS"
+    },
+    {
+      "check": "8n_status_pass",
+      "passed": true,
+      "detail": "PASS"
+    },
+    {
+      "check": "package_contains_3._core_source_map",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "package_contains_4._experiment_identity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "package_contains_5._assumptions_requiring_explicit_manuscript_disclosure",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "package_contains_6._threats_to_validity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "package_contains_7._limitations_register",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "package_contains_8._claim_register",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "package_contains_9._publication_source_policy",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "package_contains_10._reproducibility_policy",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

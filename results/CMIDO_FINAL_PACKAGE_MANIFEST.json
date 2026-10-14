@@ -1,0 +1,76 @@
+{
+  "generated_utc": "2026-10-14T05:41:59.221412+00:00",
+  "python": "3.12.10",
+  "system": "Windows",
+  "machine": "AMD64",
+  "repo_root": "D:\\CMIDO",
+  "head": "c100b477ed8b79e8cdf1384ecfddd80b136adb78",
+  "origin_main": "c100b477ed8b79e8cdf1384ecfddd80b136adb78",
+  "head_synced_with_origin_main": "yes",
+  "tracked_working_tree": "dirty:?? .freebuff/ ?? package-lock.json ?? repro_adapters.py ?? results/8N_integrated_evidence/ ?? results/8O_paper_evidence/ ?? results/8P_dashboard_e2e/ ?? results/8Q_publication_artifacts/ ?? results/8R_publication_figures/ ?? results/8S_numerical_reconciliation/ ?? results/9A_real_data_generalization/ ?? results/9A_repository_inventory.csv ?? results/9B_real_project_e2e/ ?? results/RO3/ablation/8M_gate/ ?? run_test_fixture.py ?? run_test_fixture_debug.py",
+  "gates": [
+    {
+      "stage": "8Q",
+      "status": "PASS",
+      "checks_passed": 31,
+      "checks_total": 31,
+      "root": "D:\\CMIDO"
+    },
+    {
+      "stage": "8R",
+      "status": "PASS",
+      "checks_passed": 28,
+      "checks_total": 28
+    },
+    {
+      "stage": "8S",
+      "status": "PASS",
+      "checks_passed": 81,
+      "checks_total": 81
+    },
+    {
+      "stage": "8M",
+      "status": "PASS",
+      "checks_passed": 20,
+      "checks_total": 20
+    },
+    {
+      "stage": "8N",
+      "status": "PASS",
+      "checks_passed": 13,
+      "checks_total": 13
+    },
+    {
+      "stage": "8O",
+      "status": "PASS",
+      "checks_passed": 17,
+      "checks_total": 17
+    },
+    {
+      "stage": "8P",
+      "status": "PASS",
+      "checks_passed": 20,
+      "checks_total": 20
+    }
+  ],
+  "package_path": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE",
+  "manuscript_pdf": {
+    "path": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/04_PDF/CMIDO_PUBLICATION_MANUSCRIPT_DRAFT_V1.pdf",
+    "bytes": 1466530,
+    "sha256": "4978249fb42b8c8110c8b4207fc2e79fef584d4fac66763278bc1f21561f6b44",
+    "pages": 13,
+    "embedded_figures": 6,
+    "figure_files": [
+      "F1_RO1_calibration_coverage.png",
+      "F2_RO2_tail_comparison.png",
+      "F3_RO2_propagation_tail.png",
+      "F4_RO2_joint_independent_sensitivity.png",
+      "F5_RO3_controller_descriptives.png",
+      "F6_RO3_ablation_effects.png"
+    ],
+    "source_md": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/CMIDO_DRAFT_MANUSCRIPT.md",
+    "renderer": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/build_manuscript_pdf.py",
+    "regression_test": "tests/optimization/test_manuscript_pdf.py",
+    "build_command": "python -B deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/build_manuscript_pdf.py"
+  }
+}

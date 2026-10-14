@@ -1,0 +1,123 @@
+{
+  "stage": "9B",
+  "status": "PASS",
+  "checks_passed": 22,
+  "checks_total": 22,
+  "checks": [
+    {
+      "check": "pslib_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\data\\dataset\\pslib\\DSLIB 3.4\\Excel\\C2025-02 Urban Road.xlsx"
+    },
+    {
+      "check": "logistics_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\data\\dataset\\construction logistics"
+    },
+    {
+      "check": "pslib_ingestion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pslib_canonical_schema",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pslib_has_real_activities",
+      "passed": true,
+      "detail": "100"
+    },
+    {
+      "check": "pslib_has_dependencies",
+      "passed": true,
+      "detail": "94"
+    },
+    {
+      "check": "pslib_has_risk_profiles",
+      "passed": true,
+      "detail": "146"
+    },
+    {
+      "check": "pslib_has_control_snapshots",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pslib_has_resources",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "pslib_source_fingerprint",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "logistics_ingestion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "logistics_expected_files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "logistics_sites",
+      "passed": true,
+      "detail": "99"
+    },
+    {
+      "check": "logistics_material_demands",
+      "passed": true,
+      "detail": "1277"
+    },
+    {
+      "check": "logistics_period_demands",
+      "passed": true,
+      "detail": "93663"
+    },
+    {
+      "check": "logistics_origin_destination",
+      "passed": true,
+      "detail": "38640"
+    },
+    {
+      "check": "logistics_supplier_rows",
+      "passed": true,
+      "detail": "407"
+    },
+    {
+      "check": "logistics_truck_rows",
+      "passed": true,
+      "detail": "5"
+    },
+    {
+      "check": "logistics_ccc_rows",
+      "passed": true,
+      "detail": "25"
+    },
+    {
+      "check": "logistics_no_invalid_rows",
+      "passed": true,
+      "detail": "{}"
+    },
+    {
+      "check": "cmido_real_project_execution",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "cmido_execution_provenance",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "sources": {
+    "pslib": "D:\\CMIDO\\data\\dataset\\pslib\\DSLIB 3.4\\Excel\\C2025-02 Urban Road.xlsx",
+    "construction_logistics": "D:\\CMIDO\\data\\dataset\\construction logistics"
+  },
+  "integration_boundary": "PSLIB empirical project and SUCCESS logistics evidence are retained as separate observed datasets; no unsupported cross-dataset project identity is fabricated."
+}

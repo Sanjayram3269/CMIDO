@@ -1,0 +1,20 @@
+{
+  "schema_version": "9B-1.0",
+  "dataset_id": "CMIDO_9B_PSLIB_C2025_02",
+  "project_id": "C2025-02 Urban Road",
+  "project_name": "CONSTRUCCION DE CALZADA, VEREDA Y ALCANTARILLADO PLUVIAL; EN EL (LA) CALLE LAOS DEL BARRIO SEÑOR DE LOS MILAGROS, DISTRITO DE CHAVIN DE HUANTAR, PROVINCIA DE HUARI, DEPARTAMENTO DE ANCASH",
+  "pslib_release": "3.4",
+  "source": "D:\\CMIDO\\data\\dataset\\pslib\\DSLIB 3.4\\Excel\\C2025-02 Urban Road.xlsx",
+  "source_sha256": "dbbc6064a905e5d44bb32604deda08219abc880a4073984d4ca553d2eb4811db",
+  "canonical_fingerprint_sha256": "537ba5b2cd635a6a90350dc2f86ed9bb90cec86da85bf88f8986693b8b32fdc8",
+  "activity_count": 100,
+  "dependency_count": 94,
+  "risk_profile_count": 146,
+  "control_snapshot_names": [
+    "Project Control - TP1",
+    "TP2",
+    "TP3"
+  ],
+  "resource_row_count": 6,
+  "rejected_dependency_records": 6
+}

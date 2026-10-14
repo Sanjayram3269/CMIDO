@@ -95,10 +95,29 @@ python -m pytest \
   -q --tb=line
 ```
 
+## Rendering the manuscript PDF
+
+The review-draft PDF is built from the authoritative Markdown source and the frozen publication figures. It is a
+single-page-layout render (not a typeset journal proof):
+
+```bash
+cd /d/CMIDO
+python -B deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/build_manuscript_pdf.py
+```
+
+Output: `deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/04_PDF/CMIDO_PUBLICATION_MANUSCRIPT_DRAFT_V1.pdf`.
+The build embeds publication figures F1\u2013F6 inline (Flate-compressed RGB XObjects) and is covered by
+`tests/optimization/test_manuscript_pdf.py`, which rebuilds the PDF and asserts page count, figure embedding,
+figure aspect-ratio preservation, absence of clipped text/blank pages, and expected text markers.
+
+The renderer requires only `reportlab`; page-count and text-extraction verification use `pymupdf` when available
+and fall back to `pypdf` otherwise.
+
 ## Limitations of reproducibility here
 
-- This package is delivered as markdown plus figures and tables. A rendered PDF may be requested separately if a
-  confirmed PDF toolchain is available.
+- The rendered PDF is a review copy: it lays out the manuscript text and figures sequentially and is not a
+  formatted journal submission (no journal style file, no typeset equations, no reference manager integration).
+  The manuscript contains no LaTeX equations in this draft, so no equation typesetting is required.
 - Some dashboard widget/button labels render only at runtime and are not asserted as visible labels in the
   headless AppTest surface.
 - Reported SHA-256 fingerprints in prior artifacts have not been recomputed and verified in this packaging session;

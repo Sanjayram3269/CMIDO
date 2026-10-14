@@ -1,0 +1,496 @@
+{
+  "schema_version": "9B-1.0",
+  "source_format": "SUCCESS_CSV_BUNDLE",
+  "source": "D:\\CMIDO\\data\\dataset\\construction logistics",
+  "dataset_doi": "10.5281/zenodo.1249519",
+  "tables": {
+    "CCC_options_data.csv": {
+      "file": "CCC_options_data.csv",
+      "sha256": "117f631a92496f95344544d54bf0ce3e480aa16812af9d75b4840cdfc48ba41c",
+      "headers": [
+        "ccc_id",
+        "capacity_sqm",
+        "capacity_cubic_meters",
+        "Activation_Cost",
+        "Accessories",
+        "Bitumen",
+        "Bricks",
+        "Cement",
+        "Coating",
+        "Electrical",
+        "Epoxi",
+        "External_Doors",
+        "Fences",
+        "Fire_Doors",
+        "Gabions",
+        "Garden_Equipment",
+        "Geotexil",
+        "Glass_wool",
+        "Hydraulic",
+        "Internal_Doors",
+        "Lift",
+        "Metal",
+        "Metal_1",
+        "Paint",
+        "Parquet",
+        "Pipes",
+        "Plants",
+        "Plaster",
+        "Polystyrene",
+        "Precasted_Concrete",
+        "Roof",
+        "Scaffolding",
+        "Signals",
+        "Steel",
+        "Stone",
+        "Store_Equipment",
+        "Tar",
+        "Tiles",
+        "Windows",
+        "Wood"
+      ],
+      "row_count": 25,
+      "invalid_numeric_or_date_rows": 0,
+      "invalid_records": [],
+      "sample_rows": [
+        {
+          "ccc_id": "A_001     ",
+          "capacity_sqm": "2500",
+          "capacity_cubic_meters": "5250",
+          "Activation_Cost": "1",
+          "Accessories": "1050",
+          "Bitumen": "1050",
+          "Bricks": "1050",
+          "Cement": "1050",
+          "Coating": "1050",
+          "Electrical": "1050",
+          "Epoxi": "1050",
+          "External_Doors": "1050",
+          "Fences": "1050",
+          "Fire_Doors": "1050",
+          "Gabions": "1050",
+          "Garden_Equipment": "1050",
+          "Geotexil": "1050",
+          "Glass_wool": "1050",
+          "Hydraulic": "1050",
+          "Internal_Doors": "1050",
+          "Lift": "1050",
+          "Metal": "1050",
+          "Metal_1": "1050",
+          "Paint": "1050",
+          "Parquet": "1050",
+          "Pipes": "1050",
+          "Plants": "1050",
+          "Plaster": "1050",
+          "Polystyrene": "1050",
+          "Precasted_Concrete": "1050",
+          "Roof": "1050",
+          "Scaffolding": "1050",
+          "Signals": "1050",
+          "Steel": "1050",
+          "Stone": "1050",
+          "Store_Equipment": "1050",
+          "Tar": "1050",
+          "Tiles": "1050",
+          "Windows": "1050",
+          "Wood": "1050"
+        },
+        {
+          "ccc_id": "A_002     ",
+          "capacity_sqm": "1000",
+          "capacity_cubic_meters": "5100",
+          "Activation_Cost": "1",
+          "Accessories": "420",
+          "Bitumen": "420",
+          "Bricks": "420",
+          "Cement": "420",
+          "Coating": "420",
+          "Electrical": "420",
+          "Epoxi": "420",
+          "External_Doors": "420",
+          "Fences": "420",
+          "Fire_Doors": "420",
+          "Gabions": "420",
+          "Garden_Equipment": "420",
+          "Geotexil": "420",
+          "Glass_wool": "420",
+          "Hydraulic": "420",
+          "Internal_Doors": "420",
+          "Lift": "420",
+          "Metal": "420",
+          "Metal_1": "420",
+          "Paint": "420",
+          "Parquet": "420",
+          "Pipes": "420",
+          "Plants": "420",
+          "Plaster": "420",
+          "Polystyrene": "420",
+          "Precasted_Concrete": "420",
+          "Roof": "420",
+          "Scaffolding": "420",
+          "Signals": "420",
+          "Steel": "420",
+          "Stone": "420",
+          "Store_Equipment": "420",
+          "Tar": "420",
+          "Tiles": "420",
+          "Windows": "420",
+          "Wood": "420"
+        },
+        {
+          "ccc_id": "A_003     ",
+          "capacity_sqm": "900",
+          "capacity_cubic_meters": "5100",
+          "Activation_Cost": "1",
+          "Accessories": "378",
+          "Bitumen": "378",
+          "Bricks": "378",
+          "Cement": "378",
+          "Coating": "378",
+          "Electrical": "378",
+          "Epoxi": "378",
+          "External_Doors": "378",
+          "Fences": "378",
+          "Fire_Doors": "378",
+          "Gabions": "378",
+          "Garden_Equipment": "378",
+          "Geotexil": "378",
+          "Glass_wool": "378",
+          "Hydraulic": "378",
+          "Internal_Doors": "378",
+          "Lift": "378",
+          "Metal": "378",
+          "Metal_1": "378",
+          "Paint": "378",
+          "Parquet": "378",
+          "Pipes": "378",
+          "Plants": "378",
+          "Plaster": "378",
+          "Polystyrene": "378",
+          "Precasted_Concrete": "378",
+          "Roof": "378",
+          "Scaffolding": "378",
+          "Signals": "378",
+          "Steel": "378",
+          "Stone": "378",
+          "Store_Equipment": "378",
+          "Tar": "378",
+          "Tiles": "378",
+          "Windows": "378",
+          "Wood": "378"
+        }
+      ],
+      "provenance": "OBS"
+    },
+    "construction sites_data.csv": {
+      "file": "construction sites_data.csv",
+      "sha256": "77ce3f732c3dc6f776f9e7fd02c00fee519020c1e115cb37a55e2a47400a86a9",
+      "headers": [
+        "site_id",
+        "private_public",
+        "site_profile",
+        "Y1",
+        "Y2",
+        "Y3",
+        "start",
+        "end",
+        "duration",
+        "total_value_eur",
+        "size_sqm"
+      ],
+      "row_count": 99,
+      "invalid_numeric_or_date_rows": 0,
+      "invalid_records": [],
+      "sample_rows": [
+        {
+          "site_id": "A_001",
+          "private_public": "Private",
+          "site_profile": "Profile I",
+          "Y1": "100000000",
+          "Y2": "106000000",
+          "Y3": "0",
+          "start": "01/01/2017",
+          "end": "31/12/2018",
+          "duration": "24",
+          "total_value_eur": "20800000",
+          "size_sqm": "11400"
+        },
+        {
+          "site_id": "A_002",
+          "private_public": "Private",
+          "site_profile": "Profile I",
+          "Y1": "50000000",
+          "Y2": "60000000",
+          "Y3": "80000000",
+          "start": "01/06/2015",
+          "end": "01/06/2019",
+          "duration": "48",
+          "total_value_eur": "190000000",
+          "size_sqm": "36000"
+        },
+        {
+          "site_id": "A_003",
+          "private_public": "Private",
+          "site_profile": "Profile I",
+          "Y1": "5300000",
+          "Y2": "7000000",
+          "Y3": "6000000",
+          "start": "01/03/2017",
+          "end": "01/06/2019",
+          "duration": "27",
+          "total_value_eur": "18300000",
+          "size_sqm": "3500"
+        }
+      ],
+      "provenance": "OBS"
+    },
+    "material_demand.csv": {
+      "file": "material_demand.csv",
+      "sha256": "34df9e9d27d624c17e661982fc2277d6db8a23b0c326d20fec217bb5cfb63762",
+      "headers": [
+        "demand_id",
+        "profile",
+        "start_date",
+        "end_date",
+        "number_of_days",
+        "material",
+        "supplier_id"
+      ],
+      "row_count": 1277,
+      "invalid_numeric_or_date_rows": 0,
+      "invalid_records": [],
+      "sample_rows": [
+        {
+          "demand_id": "1",
+          "profile": "profile I",
+          "start_date": "25/04/2016",
+          "end_date": "30/01/2017",
+          "number_of_days": "201",
+          "material": "Accessories       ",
+          "supplier_id": "A_006"
+        },
+        {
+          "demand_id": "2",
+          "profile": "profile I",
+          "start_date": "01/04/2015",
+          "end_date": "04/07/2016",
+          "number_of_days": "329",
+          "material": "Accessories       ",
+          "supplier_id": "A_020"
+        },
+        {
+          "demand_id": "3",
+          "profile": "profile I",
+          "start_date": "15/09/2015",
+          "end_date": "03/02/2017",
+          "number_of_days": "364",
+          "material": "Accessories       ",
+          "supplier_id": "A_022"
+        }
+      ],
+      "provenance": "OBS"
+    },
+    "material_demand_periods.csv": {
+      "file": "material_demand_periods.csv",
+      "sha256": "e9d57c400df70576e362647af89114bf6e3ff449518b2650cab7e817373c70bd",
+      "headers": [
+        "demand_id",
+        "profile",
+        "period",
+        "demand_m3",
+        "demand_kg"
+      ],
+      "row_count": 93663,
+      "invalid_numeric_or_date_rows": 0,
+      "invalid_records": [],
+      "sample_rows": [
+        {
+          "demand_id": "1",
+          "profile": "profile I",
+          "period": "1",
+          "demand_m3": "0",
+          "demand_kg": "0"
+        },
+        {
+          "demand_id": "1",
+          "profile": "profile I",
+          "period": "2",
+          "demand_m3": "0",
+          "demand_kg": "0"
+        },
+        {
+          "demand_id": "1",
+          "profile": "profile I",
+          "period": "3",
+          "demand_m3": "0",
+          "demand_kg": "0"
+        }
+      ],
+      "provenance": "OBS"
+    },
+    "origin_destination.csv": {
+      "file": "origin_destination.csv",
+      "sha256": "283ff31de54537fde8997b78280ea876885031a8cd5551791a095bbadd4cc4cf",
+      "headers": [
+        "pilot",
+        "origin",
+        "destination",
+        "meters",
+        "seconds"
+      ],
+      "row_count": 38640,
+      "invalid_numeric_or_date_rows": 0,
+      "invalid_records": [],
+      "sample_rows": [
+        {
+          "pilot": "A",
+          "origin": "ccc_A_001     ",
+          "destination": "ccc_A_002     ",
+          "meters": "21202",
+          "seconds": "1093"
+        },
+        {
+          "pilot": "A",
+          "origin": "ccc_A_001     ",
+          "destination": "ccc_A_003     ",
+          "meters": "25895",
+          "seconds": "1467"
+        },
+        {
+          "pilot": "A",
+          "origin": "ccc_A_001     ",
+          "destination": "ccc_A_004     ",
+          "meters": "16386",
+          "seconds": "917"
+        }
+      ],
+      "provenance": "OBS"
+    },
+    "suppliers_data.csv": {
+      "file": "suppliers_data.csv",
+      "sha256": "cb13f9f1b152bf51c01d2aa874eaf37f602ee96da353aa1becaff13cdde197d8",
+      "headers": [
+        "supplier_id",
+        "Material delivered",
+        "Truck"
+      ],
+      "row_count": 407,
+      "invalid_numeric_or_date_rows": 0,
+      "invalid_records": [],
+      "sample_rows": [
+        {
+          "supplier_id": "A_001",
+          "Material delivered": "Fences",
+          "Truck": "5"
+        },
+        {
+          "supplier_id": "A_001",
+          "Material delivered": "Metal",
+          "Truck": "5"
+        },
+        {
+          "supplier_id": "A_001",
+          "Material delivered": "Store Equipment",
+          "Truck": "5"
+        }
+      ],
+      "provenance": "OBS"
+    },
+    "trucks_data.csv": {
+      "file": "trucks_data.csv",
+      "sha256": "6cc7df3c9f1dfddfb7d9e7f6dccc274fab0f013e912a8e06fca01b3e99e7a4c4",
+      "headers": [
+        "Truck_id",
+        "Vehicle",
+        "Capacity (kg)",
+        "Capacity (m3)",
+        "FlagFirstEchelon",
+        "FlagSecondEchelon"
+      ],
+      "row_count": 5,
+      "invalid_numeric_or_date_rows": 0,
+      "invalid_records": [],
+      "sample_rows": [
+        {
+          "Truck_id": "1",
+          "Vehicle": "Van / Light Truck",
+          "Capacity (kg)": "1500",
+          "Capacity (m3)": "10",
+          "FlagFirstEchelon": "X",
+          "FlagSecondEchelon": "X"
+        },
+        {
+          "Truck_id": "2",
+          "Vehicle": "2 Axes Truck 7.5T",
+          "Capacity (kg)": "4900",
+          "Capacity (m3)": "19",
+          "FlagFirstEchelon": "X",
+          "FlagSecondEchelon": "X"
+        },
+        {
+          "Truck_id": "3",
+          "Vehicle": "2 Axes Truck 14T",
+          "Capacity (kg)": "10000",
+          "Capacity (m3)": "25",
+          "FlagFirstEchelon": "X",
+          "FlagSecondEchelon": "X"
+        }
+      ],
+      "provenance": "OBS"
+    }
+  },
+  "derived_summary": {
+    "site_count": 99,
+    "material_demand_count": 1277,
+    "material_demand_period_count": 93663,
+    "origin_destination_count": 38640,
+    "supplier_material_rows": 407,
+    "truck_count": 5,
+    "ccc_count": 25,
+    "unique_materials_in_demand": 33,
+    "unique_suppliers_in_demand": 172,
+    "top_materials_by_demand_rows": [
+      [
+        "Pipes",
+        140
+      ],
+      [
+        "Plaster",
+        130
+      ],
+      [
+        "Electrical",
+        118
+      ],
+      [
+        "Steel",
+        105
+      ],
+      [
+        "Polystyrene",
+        77
+      ],
+      [
+        "Precasted Concrete",
+        76
+      ],
+      [
+        "Metal",
+        72
+      ],
+      [
+        "Coating",
+        68
+      ],
+      [
+        "Internal Doors",
+        54
+      ],
+      [
+        "Accessories",
+        52
+      ]
+    ]
+  },
+  "provenance": "OBS"
+}

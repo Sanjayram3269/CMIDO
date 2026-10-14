@@ -1,0 +1,75 @@
+{
+  "stage": "8M",
+  "status": "PASS",
+  "project_root": "D:\\CMIDO",
+  "controllers": [
+    "O1",
+    "O2",
+    "O3",
+    "O4"
+  ],
+  "locked_origins": [
+    "2022-07-01",
+    "2022-08-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-11-01",
+    "2022-12-01",
+    "2023-01-01",
+    "2023-02-01",
+    "2023-03-01",
+    "2023-04-01",
+    "2023-05-01"
+  ],
+  "common_materials": [
+    "Cement",
+    "Granite",
+    "Ready Mixed Concrete",
+    "Steel Reinforcement Bars"
+  ],
+  "inferential_unit": "forecast_origin",
+  "checks_passed": 20,
+  "checks_total": 20,
+  "source_artifacts": {
+    "controller_manifest": {
+      "path": "results\\RO3\\ablation\\RO3_step36_controller_freeze_manifest.json",
+      "sha256": "ad620d12cb54a7183cf72121c4a22d6e792218316edf7720771858e80c297f5d"
+    },
+    "controller_audit": {
+      "path": "results\\RO3\\ablation\\RO3_step36_controller_input_audit.csv",
+      "sha256": "584c9c5ded10ddb13b291cde92db8afa556fe4cff77186748b5d49efae492eb1"
+    },
+    "common_manifest": {
+      "path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_common_evaluation_manifest.json",
+      "sha256": "d2634c785142b5e8f6ebeba9315c9704b00cdd989b8fbae8b313b06d91293083"
+    },
+    "common_audit": {
+      "path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_common_evaluation_audit.csv",
+      "sha256": "893520401a92a36b9a1d7865a930f040556b2b2fd3836c5cf82308d6813881bf"
+    },
+    "origin": {
+      "path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_origin_level_results.csv",
+      "sha256": "f058ab4906296e8326d12054424ce33ab8e0a925577bc09b3561d52ab47f6fbf"
+    },
+    "material": {
+      "path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_material_level_results.csv",
+      "sha256": "96e4aeeac3f669d5020a6ec0ac4ea63b0ad705334d390d3c9fc5d229c28c3699"
+    },
+    "descriptive": {
+      "path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_controller_descriptive_statistics.csv",
+      "sha256": "bde4760b4249426cf8f8d4473038ebe4fce703e6e14a624ced3925ba98c27907"
+    },
+    "primary": {
+      "path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_primary_ablation_results.csv",
+      "sha256": "33f34b12d9e1a008ee7b2a07ebe1cd570d3c57ee68e748fbbbe15c21ff392f8d"
+    },
+    "pairwise": {
+      "path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_statistical_pairwise_comparisons.csv",
+      "sha256": "8a5f2183fbe52f823c32ee0e117bb902412c580f0b033485145e1000e9f534cb"
+    },
+    "audit": {
+      "path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_statistical_analysis_audit.csv",
+      "sha256": "9e5c1325a15320ffd9406726d25d855207bcad75316b8647d3b6c8cbb14059e6"
+    }
+  }
+}

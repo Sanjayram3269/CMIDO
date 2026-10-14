@@ -53,5 +53,24 @@
       "checks_total": 20
     }
   ],
-  "package_path": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE"
+  "package_path": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE",
+  "manuscript_pdf": {
+    "path": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/04_PDF/CMIDO_PUBLICATION_MANUSCRIPT_DRAFT_V1.pdf",
+    "bytes": 1466530,
+    "sha256": "4978249fb42b8c8110c8b4207fc2e79fef584d4fac66763278bc1f21561f6b44",
+    "pages": 13,
+    "embedded_figures": 6,
+    "figure_files": [
+      "F1_RO1_calibration_coverage.png",
+      "F2_RO2_tail_comparison.png",
+      "F3_RO2_propagation_tail.png",
+      "F4_RO2_joint_independent_sensitivity.png",
+      "F5_RO3_controller_descriptives.png",
+      "F6_RO3_ablation_effects.png"
+    ],
+    "source_md": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/CMIDO_DRAFT_MANUSCRIPT.md",
+    "renderer": "deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/build_manuscript_pdf.py",
+    "regression_test": "tests/optimization/test_manuscript_pdf.py",
+    "build_command": "python -B deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/build_manuscript_pdf.py"
+  }
 }

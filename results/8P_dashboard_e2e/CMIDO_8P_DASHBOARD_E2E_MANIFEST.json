@@ -1,0 +1,109 @@
+{
+  "stage": "8P",
+  "status": "PASS",
+  "checks_passed": 20,
+  "checks_total": 20,
+  "checks": [
+    {
+      "check": "dashboard_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\apps\\cmido_dashboard.py"
+    },
+    {
+      "check": "dashboard_guide_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\docs\\dashboard_8L.md"
+    },
+    {
+      "check": "ro1_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\forecasting\\probabilistic_calibration\\RO1_step26c3_validation_forecasts.csv"
+    },
+    {
+      "check": "ro2_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\RO2\\data_audit\\RO2_step27b4_admissible_modelling_view.csv"
+    },
+    {
+      "check": "ro3_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\RO3\\scenario_generation\\RO3_step32_scenarios_2500.csv"
+    },
+    {
+      "check": "ablation_source_exists",
+      "passed": true,
+      "detail": "D:\\CMIDO\\results\\RO3\\ablation\\final_comparison\\RO3_step36_origin_level_results.csv"
+    },
+    {
+      "check": "dashboard_contains_file_uploader",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_run_real_dataset_experiment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_experimentconfig(",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_experiment_id=cmido_dashboard_run",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_name=cmido_dashboard_experiment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_deterministic_cmido_scenarios",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_execute_experiment",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_research_evidence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_mean_project_delay_confidence_interval",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dashboard_contains_95%_bootstrap_ci",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ro1_forecast_contract",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ro2_modelling_contract",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ro3_scenario_contract",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ablation_controller_contract",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "interactive_smoke_required": true
+}

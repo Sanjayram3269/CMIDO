@@ -1,0 +1,51 @@
+{
+  "stage": "8R",
+  "status": "PASS",
+  "checks_passed": 28,
+  "checks_total": 28,
+  "source_package": "results/8Q_publication_artifacts",
+  "figures": [
+    {
+      "figure": "F1_RO1_calibration_coverage.png",
+      "source": "results\\8Q_publication_artifacts\\T1_RO1_validation_metrics.csv",
+      "source_sha256": "053804dbd125e3d912197c70c08c1a196a868af24da5adec5bbf255c7b08ae7e",
+      "figure_path": "results\\8R_publication_figures\\F1_RO1_calibration_coverage.png",
+      "generation_script": "src/optimization/cmido_8r_publication_figures.py"
+    },
+    {
+      "figure": "F2_RO2_tail_comparison.png",
+      "source": "results\\8Q_publication_artifacts\\T2_RO2_tail_comparison.csv",
+      "source_sha256": "461330c6b88c5fbe05de8404f5945e1de6753bd974e1bcca6c1c2c9b7ce7123d",
+      "figure_path": "results\\8R_publication_figures\\F2_RO2_tail_comparison.png",
+      "generation_script": "src/optimization/cmido_8r_publication_figures.py"
+    },
+    {
+      "figure": "F3_RO2_propagation_tail.png",
+      "source": "results\\8Q_publication_artifacts\\T3_RO2_propagation_summary.csv",
+      "source_sha256": "207778c4c4d85279997d4210850273d0f12f386fd2b8fc6ed4709e1af0a93ade",
+      "figure_path": "results\\8R_publication_figures\\F3_RO2_propagation_tail.png",
+      "generation_script": "src/optimization/cmido_8r_publication_figures.py"
+    },
+    {
+      "figure": "F4_RO2_joint_independent_sensitivity.png",
+      "source": "results\\8Q_publication_artifacts\\T3_RO2_joint_independent_sensitivity.csv",
+      "source_sha256": "63d5815be6a822a6a0707f07063a0836cf0e835c02ebb2dc70dbdca24d6d4119",
+      "figure_path": "results\\8R_publication_figures\\F4_RO2_joint_independent_sensitivity.png",
+      "generation_script": "src/optimization/cmido_8r_publication_figures.py"
+    },
+    {
+      "figure": "F5_RO3_controller_descriptives.png",
+      "source": "results\\8Q_publication_artifacts\\T5_T6_controller_descriptives.csv",
+      "source_sha256": "1fb35b6882e843cc565bb37692e6701eae84d90f9057762c3be59cb3ebbc13bf",
+      "figure_path": "results\\8R_publication_figures\\F5_RO3_controller_descriptives.png",
+      "generation_script": "src/optimization/cmido_8r_publication_figures.py"
+    },
+    {
+      "figure": "F6_RO3_ablation_effects.png",
+      "source": "results\\8Q_publication_artifacts\\T6_RO3_ablation.csv",
+      "source_sha256": "60020d489e39bd76ef9c7d66fde99e4d90684d0f8bff703412b0d10207ec5eb3",
+      "figure_path": "results\\8R_publication_figures\\F6_RO3_ablation_effects.png",
+      "generation_script": "src/optimization/cmido_8r_publication_figures.py"
+    }
+  ]
+}

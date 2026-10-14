@@ -12,6 +12,43 @@ CMIDO is designed as both a research framework and an engineering system. The re
 
 ---
 
+## Quick start (verified commands)
+
+Everything below was run from the repository root (`CMIDO/`) on Python 3.12.
+
+```powershell
+# 1. Dashboard dependencies
+python -m pip install -r requirements-dashboard.txt
+
+# 2. Run the dashboard (default bundled demo project loads automatically)
+python -m streamlit run apps/cmido_dashboard.py
+
+# 3. Render the manuscript review-copy PDF
+python -B deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/build_manuscript_pdf.py
+
+# 4. Run the regression suite
+python -m pytest tests/ -q
+```
+
+Verified at this checkpoint:
+
+- Dashboard deps install and `streamlit`/`plotly`/`pandas` import cleanly (`streamlit 1.65`, `plotly 6.9`, `pandas 3.0`).
+- `python -m pytest tests/ --collect-only -q` collects **1065 tests**.
+- The PDF renderer needs only `reportlab`; page-count/text extraction uses `pymupdf` when present (falls back to `pypdf`).
+
+### What runs, and what does not
+
+| Capability | Status |
+|---|---|
+| Dashboard: 15 pages across CORE / RESEARCH / DECISION / EVIDENCE groups | Runs |
+| Bundled demo construction project (`data/projects/cmido_demo_project.json`) | Runs |
+| Upload a compatible **construction project JSON** (sidebar `file_uploader`) | Runs |
+| Manuscript PDF render with embedded publication figures F1–F6 | Runs |
+| Publication table/figure regeneration + reconciliation gates (8Q/8R/8S) | Runs |
+| **External research-CSV upload → map → analyze → export** | **Not implemented** — see §28 |
+
+---
+
 ## 1. Research Identity
 
 ### Research title
@@ -769,7 +806,10 @@ The current construction codebase has a growing regression suite covering:
 
 ### Current checkpoint
 
-**249 tests passed** at the latest completed 7D checkpoint.
+**1065 tests collected** at the current repository checkpoint (`python -m pytest tests/ --collect-only -q`).
+This includes the construction domain suite, the dashboard UI/data/app suites, the publication-artifact gates
+(8Q/8R/8S/8M/8N/8O/8P), and the manuscript-PDF regression suite (`tests/optimization/test_manuscript_pdf.py`).
+The last full green run of the construction + optimization suites recorded **1059 passed** (see §26).
 
 The rule for every subsequent stage is:
 
@@ -1028,7 +1068,7 @@ This prevents the project from becoming a collection of disconnected features.
 
 # 26. Current State
 
-At the current repository checkpoint:
+At the current repository checkpoint (verified this session):
 
 - the construction domain foundation is implemented;
 - CPM scheduling and critical-path analysis are implemented;
@@ -1038,11 +1078,27 @@ At the current repository checkpoint:
 - deterministic schedule-delay simulation is implemented;
 - 7C-A, 7C-B, and 7C-C are implemented;
 - 7D risk/uncertainty context is implemented;
-- the regression suite has reached **249 passing tests** at the completed 7D checkpoint;
-- the next construction stage is **7E cross-domain integration**;
-- backend, frontend, and final end-to-end research packaging remain downstream stages.
+- a Streamlit dashboard (`apps/cmido_dashboard.py`) runs over these engines with 15 pages across
+  CORE / RESEARCH / DECISION / EVIDENCE groups;
+- the publication artifact chain is frozen and reconciled: 8Q tables → 8R figures → 8S numerical reconciliation,
+  with evidence gates 8M/8N/8O/8P all passing;
+- a manuscript review-copy PDF is built reproducibly from the Markdown source and frozen figures
+  (`deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/04_PDF/`);
+- the regression suite collects **1065 tests**; the last full construction+optimization run was **1059 passed**;
+- backend, live deployment, external-research-data ingestion, and journal-submission packaging remain open stages.
 
-The repository is therefore best understood as a **research + decision-engineering foundation that is being expanded toward a complete end-to-end construction procurement intelligence system**, rather than as a finished commercial application.
+The repository is therefore best understood as a **research + decision-engineering foundation with a working
+dashboard and a frozen, audited publication package**, rather than as a finished commercial application or a
+journal-submission-ready paper.
+
+Scientific caveats that remain in force:
+
+- The RO3 scenario-count convergence transition (500→1,000) **failed** and is recorded as failed; the next declared
+  evaluation is 2,500 then 5,000. This failure is preserved, not hidden, and is not claimed passed.
+- No single controller is claimed universally optimal; scenario-based results are never presented as observed
+  real-world outcomes.
+- The bibliography is intentionally not written until the literature is screened; no citation is invented.
+- A matching SHA-256 fingerprint proves artifact integrity/reproducibility, **not** scientific validity.
 
 ---
 
@@ -1084,3 +1140,69 @@ Uncertainty Propagation Procurement Context Procurement Context
 ```
 
 **CMIDO's long-term objective is not simply to predict construction-material behaviour. It is to build a traceable pipeline in which uncertainty survives from data and forecasting through risk propagation and finally changes an explicit procurement or project decision.**
+
+---
+
+# 28. External Data: What Is and Is Not Supported
+
+This section records the dashboard's real external-data boundary, verified by inspecting the running application.
+
+## Supported today
+
+- **Construction project JSON upload.** The sidebar `file_uploader` (`apps/cmido_dashboard.py`) accepts a compatible
+  project JSON. If none is supplied, the bundled demo project
+  (`data/projects/cmido_demo_project.json`) loads automatically. An unreadable file surfaces a designed error state,
+  not a crash.
+- **Read-only real-data evidence view.** The *Real-World Data* page renders registered real-data artifacts
+  (PSLIB and SUCCESS logistics streams) that were ingested, schema-validated and provenance-tagged **offline** by the
+  9A/9B gates. Every displayed value comes from a registered artifact or its provenance record; the page performs no
+  recomputation and joins nothing across streams.
+
+## Not implemented
+
+- **There is no in-dashboard upload of external research CSV data** that flows through preview → schema mapping →
+  validation → analysis execution → results → export. No `file_uploader` for research data, no schema-mapping UI, and
+  no analysis-export button exist anywhere in `src/construction/dashboard_ui/`, `src/construction/dashboard_data/`,
+  or `apps/`. The only uploader is the construction project JSON above.
+- Consequently, **no external-data analysis workflow was exercised end-to-end**, because none exists to exercise.
+  Adding one would require a new ingestion contract, an isolated analysis path that cannot touch canonical research
+  outputs, and provenance carry-through — none of which are present today.
+
+## Scientific boundary
+
+The dashboard is a **visualization and controlled-scenario layer over frozen research artifacts and deterministic
+engines**. It is not a general analytics product, does not accept arbitrary user datasets for modelling, and does
+not recompute research results at request time.
+
+---
+
+# 29. Publication Package Location
+
+The final research package lives at `deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/`. Its README
+(`deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/README.md`) is the authoritative index. Layout:
+
+```text
+deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/
+├── 00_README_AND_STATUS/       # package README, working audit, verification notes, completion check
+├── 01_MANUSCRIPT/              # CMIDO_DRAFT_MANUSCRIPT.md, review copy, build_manuscript_pdf.py
+├── 02_FIGURES/                 # F1–F6 publication figures (+ F7 diagram) and FIGURE_LIST.md
+├── 03_TABLES/                  # T1–T6 publication tables (CSV) and TABLE_LIST.md
+├── 04_PDF/                     # CMIDO_PUBLICATION_MANUSCRIPT_DRAFT_V1.pdf (the rendered review copy)
+├── 04_SUPPLEMENTARY/           # supplementary index
+├── 05_EVIDENCE_AND_AUDITS/     # evidence/audit index
+├── 06_REPRODUCIBILITY/         # REPRODUCIBILITY.md and PACKAGE_MANIFEST.json
+└── 07_PROFESSOR_REVIEW/        # supervisor message and demo outline
+```
+
+Key facts:
+
+- The manuscript PDF is `04_PDF/CMIDO_PUBLICATION_MANUSCRIPT_DRAFT_V1.pdf` (13 pages, F1–F6 embedded), rebuilt by
+  `build_manuscript_pdf.py` and guarded by `tests/optimization/test_manuscript_pdf.py`.
+- Publication tables (T1–T6) and figures (F1–F6) are generated from frozen upstream results by
+  `src/optimization/cmido_8q_publication_artifacts.py` and `src/optimization/cmido_8r_publication_figures.py`, and
+  reconciled by `cmido_8s_numerical_reconciliation.py` (`results/8S_numerical_reconciliation/`).
+- `F7` (the integrated-pipeline diagram) exists as a PNG but is **not** manuscript-bound and has **no** generation
+  script provenance; it is recorded as `DIAGRAM-PENDING` in `docs/CMIDO_EVIDENCE_CONCORDANCE.md`. Likewise `T4`
+  (RO2 stress) is not generated as a manuscript table in this draft.
+- The claim-to-evidence register is `docs/CMIDO_EVIDENCE_CONCORDANCE.md`; open research items (including the RO3
+  convergence failure) are recorded there and in the package README, not smoothed over.

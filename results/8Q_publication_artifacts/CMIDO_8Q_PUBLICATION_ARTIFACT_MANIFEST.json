@@ -1,0 +1,72 @@
+{
+  "stage": "8Q",
+  "status": "PASS",
+  "root": "D:\\CMIDO",
+  "checks_passed": 31,
+  "checks_total": 31,
+  "artifacts": [
+    {
+      "artifact": "T5_RO3_baseline_comparison.csv",
+      "source_path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_statistical_pairwise_comparisons.csv",
+      "source_sha256": "8a5f2183fbe52f823c32ee0e117bb902412c580f0b033485145e1000e9f534cb",
+      "source_name": "RO3_step36_statistical_pairwise_comparisons.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T6_RO3_ablation.csv",
+      "source_path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_primary_ablation_results.csv",
+      "source_sha256": "33f34b12d9e1a008ee7b2a07ebe1cd570d3c57ee68e748fbbbe15c21ff392f8d",
+      "source_name": "RO3_step36_primary_ablation_results.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T5_T6_controller_descriptives.csv",
+      "source_path": "results\\RO3\\ablation\\final_comparison\\RO3_step36_controller_descriptive_statistics.csv",
+      "source_sha256": "bde4760b4249426cf8f8d4473038ebe4fce703e6e14a624ced3925ba98c27907",
+      "source_name": "RO3_step36_controller_descriptive_statistics.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T1_RO1_validation_metrics.csv",
+      "source_path": "results\\forecasting\\probabilistic_calibration\\RO1_step26c3_validation_metrics.csv",
+      "source_sha256": "ec3ea185c4d33b71675738455f96a60df78caf98ad3d2b18e33922265489514f",
+      "source_name": "RO1_step26c3_validation_metrics.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T2_RO2_joint_propagation_summary.csv",
+      "source_path": "results\\RO2\\distribution\\RO2_step27c3_joint_propagation_summary.csv",
+      "source_sha256": "eda7bdc9c060c06d9d4837407472a4d2c2752378977ba27359991cc5cefaf9ea",
+      "source_name": "RO2_step27c3_joint_propagation_summary.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T2_RO2_tail_comparison.csv",
+      "source_path": "results\\RO2\\distribution\\RO2_step27c3_tail_comparison.csv",
+      "source_sha256": "2c627300e70943e54b2222d7389b07eef4517bd8c4a5fa43712576a007b863fc",
+      "source_name": "RO2_step27c3_tail_comparison.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T3_RO2_propagation_summary.csv",
+      "source_path": "results\\RO2\\propagation\\RO2_step27d_propagation_summary.csv",
+      "source_sha256": "a12662118c9a507580e9a601bc319308a9fa11005ecfe9f059628a05df3406a3",
+      "source_name": "RO2_step27d_propagation_summary.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T3_RO2_service_risk_curve.csv",
+      "source_path": "results\\RO2\\propagation\\RO2_step27d_service_risk_curve.csv",
+      "source_sha256": "7ac5a2bd3e6f8e2d65afc9f7fcd52dbd6aa80db4fbf2796936e43117274763db",
+      "source_name": "RO2_step27d_service_risk_curve.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T3_RO2_joint_independent_sensitivity.csv",
+      "source_path": "results\\RO2\\propagation\\RO2_step27d_joint_vs_independent_sensitivity.csv",
+      "source_sha256": "8b6400e7140d25aceb4ae3375e7cc227d67d1ecbbc496fad7e8d069e771d74ab",
+      "source_name": "RO2_step27d_joint_vs_independent_sensitivity.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    }
+  ]
+}

@@ -37,12 +37,12 @@ construction logistics benchmark used as an operational simulation environment. 
 bootstrap inference and Benjamini–Hochberg multiplicity control at the forecast-origin level.
 
 The central empirical question is whether retaining predictive uncertainty through the forecast, propagation,
-and decision layers produces measurably different procurement outcomes under the declared evaluation design —
+and decision layers produces measurably different procurement outcomes under the declared evaluation design,
 with the direction, magnitude, and desirability of those differences reported explicitly per objective, and with
 the cases where effects are statistically supported distinguished from the cases where they are not. The evidence
 is reported honestly across multiple objectives and configurations, including cases where effects are significant
-and cases where they are not. No single controller is claimed universally optimal, and scenario-based results are
-not presented as observed real-world outcomes.
+and cases where they are not. Scenario-based results are not presented as observed real-world outcomes, and no
+single controller is claimed universally optimal.
 
 **Keywords:** construction-material procurement; probabilistic forecasting; uncertainty propagation;
 shortage and service risk; multi-objective optimization; resilience; reproducibility.
@@ -343,6 +343,8 @@ Key reporting discipline:
 The publication table is a calibrated-forecast-facing projection of the broader
 `results/forecasting/probabilistic_calibration/RO1_step26c3_validation_metrics.csv` source. It drops the `raw_*`
 coverage/width/Winkler columns and retains the prequential-calibrated columns; the shared numeric values are intact.
+The publication figure for this section is `results/8R_publication_figures/F1_RO1_calibration_coverage.png`,
+generated from `results/8Q_publication_artifacts/T1_RO1_validation_metrics.csv`.
 
 ### 9.2 RO2 propagation and service risk
 
@@ -357,6 +359,13 @@ The RO2 evidence is reported from the 8Q publication tables derived from the RO2
 The manuscript does not claim that the admissible duration representation equals supplier-specific historical lead
 time. It reports the propagation behaviour under the documented admissible representation and notes the sensitivity
 of conclusions to the joint/independent assumption.
+
+The publication figures for this section are `results/8R_publication_figures/F2_RO2_tail_comparison.png`
+(generated from `results/8Q_publication_artifacts/T2_RO2_tail_comparison.csv`),
+`results/8R_publication_figures/F3_RO2_propagation_tail.png` (generated from
+`results/8Q_publication_artifacts/T3_RO2_propagation_summary.csv`), and
+`results/8R_publication_figures/F4_RO2_joint_independent_sensitivity.png` (generated from
+`results/8Q_publication_artifacts/T3_RO2_joint_independent_sensitivity.csv`).
 
 ### 9.3 RO3 baseline comparison and controller descriptives
 
@@ -385,7 +394,10 @@ different cost/shortage/service trade-offs from the deterministic and probabilis
 The publication baseline table is a projection of the source
 `results/RO3/ablation/final_comparison/RO3_step36_statistical_pairwise_comparisons.csv`. It keeps the core
 contrast/metric/estimate/inference columns and drops additional per-contrast control columns; the shared numeric
-values are identical.
+values are identical. The publication controller-descriptive table is generated from
+`results/RO3/ablation/final_comparison/RO3_step36_controller_descriptive_statistics.csv`. The publication figure for
+this section is `results/8R_publication_figures/F5_RO3_controller_descriptives.png`, generated from
+`results/8Q_publication_artifacts/T5_T6_controller_descriptives.csv`.
 
 ### 9.4 RO3 ablation
 
@@ -400,6 +412,8 @@ of equivalence.
 
 The ablation table is generated from
 `results/RO3/ablation/final_comparison/RO3_step36_primary_ablation_results.csv` and shares its schema and values.
+The publication figure for this section is `results/8R_publication_figures/F6_RO3_ablation_effects.png`, generated
+from `results/8Q_publication_artifacts/T6_RO3_ablation.csv`.
 
 ### 9.5 Stress and robustness
 
@@ -419,6 +433,9 @@ Robustness artifacts:
 - `results/RO3/ablation/RO3_8_robustness/RO3_step38_holding_rate_sensitivity_vs_H30.csv`
 - `results/RO3/ablation/RO3_8_robustness/RO3_step38_holding_rate_audit.csv`
 
+No manuscript-bound stress table or figure is generated in this draft; these CSVs are supplementary evidence and
+are not presented as a final results table until the concordance wording is finalized.
+
 These are used to report variation under declared stress and holding-rate sensitivity settings, not to claim that
 all procurement behaviour under all regimes is established.
 
@@ -426,9 +443,11 @@ all procurement behaviour under all regimes is established.
 
 The integrated claim reports whether the complete forecast → uncertainty → risk → decision chain is supported by
 the combined evidence set, with explicit scope. The current evidence supports reporting that the chain is
-empirically represented in the frozen artifacts and that the controlled contrasts show measurable differences among
-the predefined configurations. The manuscript does not claim universal superiority or claim that the result
-generalizes beyond the declared evaluation design without additional evidence.
+empirically represented in the frozen artifacts — specifically `results/8Q_publication_artifacts/`
+(T1, T2, T3, T5, T5_T6, T6) and `results/8R_publication_figures/` (F1, F2, F3, F4, F5, F6) — and that the
+controlled contrasts show measurable differences among the predefined configurations. The underlying RO1/RO2/RO3
+source files are listed in the review copy source map. The manuscript does not claim universal superiority or claim
+that the result generalizes beyond the declared evaluation design without additional evidence.
 
 ---
 

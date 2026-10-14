@@ -1,0 +1,14 @@
+{
+  "ingestion_schema_version": "9A-1.0",
+  "dataset_id": "CMIDO_9A_FIXTURE",
+  "canonical_schema_version": "8I-1.0",
+  "source": "D:\\CMIDO\\examples\\9A_real_data",
+  "fingerprint_sha256": "bf99df0b1cc184141e7178097eb09419a2f2732c0823e414245e0b92b122eedf",
+  "source_row_counts": {
+    "project": 1,
+    "activities": 4,
+    "dependencies": 3
+  },
+  "rejected_record_count": 0,
+  "traceability": "table + 1-based CSV row validated during ingestion"
+}
