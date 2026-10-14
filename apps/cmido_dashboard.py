@@ -105,6 +105,7 @@ from src.construction.dashboard_ui import procurement_decisions as procurement_w
 from src.construction.dashboard_ui import real_world_data as real_world_workspace
 from src.construction.dashboard_ui import ablation_robustness as ablation_workspace
 from src.construction.dashboard_ui import provenance_integrity as provenance_workspace
+from src.construction.dashboard_ui import external_data as external_data_workspace
 
 from src.construction.dashboard_ui.navigation import legacy_route_for
 from src.construction.dashboard_ui.theme import DANGER, INFO, SECONDARY_TEXT
@@ -1888,6 +1889,12 @@ elif route == "3D Project Graph":
         subtitle="Interactive 3D view of the deterministic dependency network.",
         provenance="DER",
     )
+
+elif route == "page/external_data":
+    # External-data ingestion: the uploaded file is parsed, profiled, mapped
+    # and — where the required fields are satisfied — analysed with the real
+    # CMIDO statistical engines. Runs are isolated from canonical artifacts.
+    external_data_workspace.render_page(include_header=False)
 
 st.divider()
 render_html(build_footer())

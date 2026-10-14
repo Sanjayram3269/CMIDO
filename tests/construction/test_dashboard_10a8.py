@@ -381,12 +381,33 @@ class TestHonestLanguageGuards:
 
 
 class TestRO1MetricAuditFindings:
+    @staticmethod
+    def _file_mentions(path: Path, needle: str = "crps") -> bool:
+        """Stream a file in chunks and report whether ``needle`` appears.
+
+        Large result artifacts (e.g. the 2,500-scenario RO3 ledger, ~169 MB)
+        cannot be slurped into memory with ``read_text``; scanning in binary
+        chunks keeps the assertion identical while bounding memory use.
+        """
+        token = needle.encode("utf-8")
+        overlap = len(token) - 1
+        prev = b""
+        with path.open("rb") as fh:
+            while True:
+                chunk = fh.read(1 << 20)  # 1 MiB
+                if not chunk:
+                    return False
+                window = prev + chunk
+                if token in window:
+                    return True
+                prev = window[-overlap:] if overlap else b""
+        
     def test_crps_is_genuinely_absent_from_results(self) -> None:
         root = Path(__file__).resolve().parents[2] / "results"
         hits = [
             p for p in root.rglob("*")
             if p.is_file() and p.suffix.lower() in {".csv", ".json", ".txt", ".md"}
-            and "crps" in p.read_text(encoding="utf-8", errors="ignore").lower()
+            and self._file_mentions(p)
         ]
         assert hits == [], f"CRPS unexpectedly present in {[str(h) for h in hits]}"
 

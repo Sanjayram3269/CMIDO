@@ -30,3 +30,15 @@ T3_RO2_service_risk_nonempty,True,240
 T3_RO2_sensitivity_source_exists,True,D:\CMIDO\results\RO2\propagation\RO2_step27d_joint_vs_independent_sensitivity.csv
 T3_RO2_sensitivity_required_columns,True,
 T3_RO2_sensitivity_expected_rows,True,240
+T4_stress_source_exists,True,D:\CMIDO\results\RO3\ablation\RO3_7_stress\RO3_step37_stress_summary.csv
+T4_stress_required_columns,True,
+T4_robustness_source_exists,True,D:\CMIDO\results\RO3\ablation\RO3_8_robustness\RO3_step38_holding_rate_summary.csv
+T4_robustness_required_columns,True,
+T4_shared_metric_columns,True,
+T4_stress_rows,True,16
+T4_robustness_rows,True,12
+T4_expected_rows,True,28
+T4_four_controllers,True,
+T4_stress_cases,True,
+T4_robustness_cases,True,
+T4_no_nan_values,True,

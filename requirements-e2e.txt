@@ -1,0 +1,4 @@
+# Live browser end-to-end tests (tests/e2e/).
+# After installing, fetch the browser once:
+#   python -m playwright install chromium
+playwright>=1.40,<2

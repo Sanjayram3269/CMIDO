@@ -34,7 +34,7 @@ is supplied by the caller.
 | `sections.py` | App branding, page/section headers, breadcrumb, flow diagram, status banners, artifact and empty states, footer. |
 | `charts.py` | Shared Plotly layout theme, palettes, semantic roles, figure helpers. |
 | `tables.py` | Shared table configuration, column alignment, display rounding, source notes. |
-| `components.py` | Thin Streamlit adapters (`render_*`, `inject_css`). The only module importing Streamlit. |
+| `components.py` | Thin Streamlit adapters (`render_*`, `widget_*`, `inject_css`). The only module importing Streamlit. Interactive widgets (`widget_file_uploader`, `widget_selectbox`, `widget_button`, `widget_columns`, `widget_dataframe`, `widget_metric`, `widget_expander`, `widget_download_button`) and session-state access (`get_state`/`set_state`) are pure delegation so widget-driven pages — e.g. the External Data workspace — stay Streamlit-free at import time. |
 
 All modules except `components.py` are Streamlit-free, so they can be imported
 by tests, notebooks or a future non-Streamlit renderer.

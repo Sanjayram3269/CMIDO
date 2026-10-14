@@ -1,0 +1,2 @@
+analysis,observed_column,interval_lower_column,interval_upper_column,n_scored,n_rows_total,coverage_rate,mean_interval_width,computed_from,engine,quantile_column,quantile_level,pinball_loss_mean,n_scored_quantile,pinball_loss_ci95_low,pinball_loss_ci95_high
+forecast_coverage,observed,lower_80,upper_80,200,200,0.995,20.01379,uploaded rows only,CMIDO calibration/coverage discipline,q50,0.5,1.3573750000000002,200,1.2131144375000003,1.4913842500000003

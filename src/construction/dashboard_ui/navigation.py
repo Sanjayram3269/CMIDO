@@ -393,6 +393,21 @@ PAGES: tuple[PageDefinition, ...] = (
         route="page/provenance_integrity",
         future_phase="Phase 10A.13",
     ),
+    PageDefinition(
+        id="external_data",
+        title="External Data",
+        group="EVIDENCE",
+        icon="\U0001f4e6",
+        description=(
+            "Upload a CSV or JSON table, map its columns to CMIDO fields, and "
+            "run a genuinely supported analysis on your own data."
+        ),
+        research_stage="EXTERNAL_DATA",
+        provenance="OBS",
+        implementation=ImplementationStatus.AVAILABLE,
+        route="page/external_data",
+        future_phase="External-data ingestion sprint",
+    ),
 )
 
 # ---------------------------------------------------------------------------

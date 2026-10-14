@@ -1,0 +1,60 @@
+{
+  "stage": "EXTERNAL_DATA_E2E",
+  "status": "PASS",
+  "checks_passed": 9,
+  "checks_total": 9,
+  "checks": [
+    {
+      "check": "navigates_to_external_data_page",
+      "passed": true,
+      "detail": "sidebar navigation click"
+    },
+    {
+      "check": "landing_state_is_honest",
+      "passed": true,
+      "detail": "empty state + unavailable stages + no run"
+    },
+    {
+      "check": "upload_and_profile_renders",
+      "passed": true,
+      "detail": "forecast_intervals_fixture.csv"
+    },
+    {
+      "check": "mapping_validates",
+      "passed": true,
+      "detail": "observed/lower_80/upper_80/q50"
+    },
+    {
+      "check": "results_metrics_render",
+      "passed": true,
+      "detail": "Coverage rate  0.995"
+    },
+    {
+      "check": "lineage_and_exports_render",
+      "passed": true,
+      "detail": "3 download buttons"
+    },
+    {
+      "check": "run_persisted_and_matches_dom",
+      "passed": true,
+      "detail": "run_20261014T191732Z_23407758 coverage=0.995"
+    },
+    {
+      "check": "unavailable_stages_stay_unavailable",
+      "passed": true,
+      "detail": "3 expanders"
+    },
+    {
+      "check": "no_fatal_console_errors",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "screenshots": [
+    "e2e_01_landing_empty_state.png",
+    "e2e_02_preview_profile.png",
+    "e2e_03_mapping_validated.png",
+    "e2e_04_results_lineage_export.png",
+    "e2e_05_unavailable_stages.png"
+  ]
+}

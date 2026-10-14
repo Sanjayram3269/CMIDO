@@ -505,7 +505,7 @@ class TestLegacyAppContractPreserved:
 
 
 class TestIntendedIACoverage:
-    """The 15-destination information architecture the shell must expose.
+    """The 16-destination information architecture the shell must expose.
 
     Project Intelligence is intentionally served by the existing 3D Project
     Graph page (documented alias); every other destination maps one to one.
@@ -526,6 +526,7 @@ class TestIntendedIACoverage:
             "Ablation & Robustness",
             "Research Evidence",
             "Provenance & Integrity",
+            "External Data",
         ],
     }
     ALIASES = {"Project Intelligence": "3D Project Graph"}
@@ -537,15 +538,16 @@ class TestIntendedIACoverage:
             assert actual == expected, f"{group_key} registry drifted from the intended IA"
 
     def test_registry_counts_match_the_intended_ia(self) -> None:
-        assert len(pages()) == 15
+        assert len(pages()) == 16
         # Procurement Decisions became AVAILABLE in Phase 10A.10,
         # Real-World Data in Phase 10A.11, Ablation & Robustness in
-        # Phase 10A.12 and Provenance & Integrity in Phase 10A.13:
-        # 14 available, 1 planned.
-        assert sum(1 for page in pages() if page.is_available) == 14
+        # Phase 10A.12, Provenance & Integrity in Phase 10A.13 and
+        # External Data in the external-data ingestion sprint:
+        # 15 available, 1 planned.
+        assert sum(1 for page in pages() if page.is_available) == 15
         assert sum(1 for page in pages() if page.is_planned) == 1
         counts = {group.key: len(pages_in_group(group.key)) for group in nav.nav_groups()}
-        assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 5}
+        assert counts == {"CORE": 4, "RESEARCH": 3, "DECISION": 3, "EVIDENCE": 6}
 
     def test_planned_destinations_are_honest_placeholders(self) -> None:
         planned_ids = {

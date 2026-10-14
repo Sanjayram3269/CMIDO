@@ -388,6 +388,131 @@ def render_artifact_state(
 
 
 # ---------------------------------------------------------------------------
+# Interactive widget adapters
+#
+# The External Data workspace is the first widget-driven page. These helpers
+# are pure delegation — no styling, no new primitives — so the page module can
+# stay Streamlit-free at import time. The 10A.3 rule that ``components.py`` is
+# the only module importing Streamlit is enforced by the layering test in
+# ``tests/construction/test_dashboard_ui.py``.
+# ---------------------------------------------------------------------------
+
+def render_markdown(body: str) -> None:
+    """Render a small markdown fragment (step headers, inline labels)."""
+    _st().markdown(body)
+
+
+def render_caption(text: str) -> None:
+    """Render helper/caption text under a heading or widget."""
+    _st().caption(text)
+
+
+def render_success(message: str) -> None:
+    """Render a success callout (delegates to ``st.success``)."""
+    _st().success(message)
+
+
+def render_warning(message: str) -> None:
+    """Render a warning callout (delegates to ``st.warning``)."""
+    _st().warning(message)
+
+
+def render_error(message: str) -> None:
+    """Render a short inline error callout.
+
+    Distinct from :func:`render_error_state`, which renders the designed
+    full error panel; this is the inline per-issue message form.
+    """
+    _st().error(message)
+
+
+def widget_file_uploader(label: str, *, types: Sequence[str], key: str) -> Any:
+    """Render a file uploader and return the uploaded file or ``None``."""
+    return _st().file_uploader(label, type=list(types), key=key)
+
+
+def widget_selectbox(
+    label: str,
+    options: Sequence[Any],
+    *,
+    key: str,
+    help: str | None = None,
+) -> Any:
+    """Render a selectbox and return the selected option."""
+    return _st().selectbox(label, list(options), key=key, help=help)
+
+
+def widget_button(label: str, *, key: str, disabled: bool = False) -> bool:
+    """Render a button and return whether it was pressed."""
+    return bool(_st().button(label, key=key, disabled=disabled))
+
+
+def widget_download_button(
+    label: str,
+    data: Any,
+    *,
+    file_name: str,
+    mime: str,
+    key: str,
+) -> None:
+    """Render a download button carrying text data."""
+    _st().download_button(label, data=data, file_name=file_name, mime=mime, key=key)
+
+
+def widget_expander(label: str, *, expanded: bool = False) -> Any:
+    """Render a collapsible expander section."""
+    return _st().expander(label, expanded=expanded)
+
+
+def widget_dataframe(frame: Any, *, hide_index: bool = False) -> None:
+    """Render a dataframe with the dashboard's standard stretch layout."""
+    _st().dataframe(frame, use_container_width=True, hide_index=hide_index)
+
+
+class _WidgetSlot:
+    """Column proxy so pages never hold a raw Streamlit column object."""
+
+    def __init__(self, column: Any) -> None:
+        self._column = column
+
+    def metric(self, label: str, value: Any) -> None:
+        self._column.metric(label, value)
+
+    def download_button(
+        self,
+        label: str,
+        data: Any,
+        *,
+        file_name: str,
+        mime: str,
+        key: str,
+    ) -> None:
+        self._column.download_button(
+            label, data=data, file_name=file_name, mime=mime, key=key
+        )
+
+
+def widget_columns(count: int) -> list[_WidgetSlot]:
+    """Render *count* equal columns as thin widget slots."""
+    return [_WidgetSlot(column) for column in _st().columns(count)]
+
+
+def widget_metric(label: str, value: Any) -> None:
+    """Render a single standalone metric block (delegates to ``st.metric``)."""
+    _st().metric(label, value)
+
+
+def get_state(key: str, default: Any = None) -> Any:
+    """Read a session-state value for this page's widgets."""
+    return _st().session_state.get(key, default)
+
+
+def set_state(key: str, value: Any) -> None:
+    """Write a session-state value for this page's widgets."""
+    _st().session_state[key] = value
+
+
+# ---------------------------------------------------------------------------
 # Badges
 # ---------------------------------------------------------------------------
 def render_badges(*badges: str) -> None:

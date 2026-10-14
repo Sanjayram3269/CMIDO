@@ -2,8 +2,8 @@
   "stage": "8Q",
   "status": "PASS",
   "root": "D:\\CMIDO",
-  "checks_passed": 31,
-  "checks_total": 31,
+  "checks_passed": 43,
+  "checks_total": 43,
   "artifacts": [
     {
       "artifact": "T5_RO3_baseline_comparison.csv",
@@ -67,6 +67,15 @@
       "source_sha256": "8b6400e7140d25aceb4ae3375e7cc227d67d1ecbbc496fad7e8d069e771d74ab",
       "source_name": "RO2_step27d_joint_vs_independent_sensitivity.csv",
       "generation_script": "src/optimization/cmido_8q_publication_artifacts.py"
+    },
+    {
+      "artifact": "T4_RO3_stress_robustness.csv",
+      "source_path": "results\\RO3\\ablation\\RO3_7_stress\\RO3_step37_stress_summary.csv",
+      "source_sha256": "2008bb0c69251393897285bf4a8f90d8aa4b95855b40e1a85a9273349a41fb0d",
+      "source_name": "RO3_step37_stress_summary.csv",
+      "generation_script": "src/optimization/cmido_8q_publication_artifacts.py",
+      "secondary_source_path": "results/RO3/ablation/RO3_8_robustness/RO3_step38_holding_rate_summary.csv",
+      "secondary_source_sha256": "f09b369e626ac3eb06e433d56d83938a1314c9bc881b9bf1c80e7f8902358605"
     }
   ]
 }

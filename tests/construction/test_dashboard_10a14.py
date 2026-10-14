@@ -199,14 +199,14 @@ def _app(page_id: str):
 # ---------------------------------------------------------------------------
 
 
-def test_registry_exposes_exactly_fifteen_destinations() -> None:
-    assert len(pages()) == 15, f"expected 15 destinations, got {len(pages())}"
+def test_registry_exposes_exactly_sixteen_destinations() -> None:
+    assert len(pages()) == 16, f"expected 16 destinations, got {len(pages())}"
 
 
-def test_fourteen_available_one_planned() -> None:
+def test_fifteen_available_one_planned() -> None:
     available = sum(1 for p in pages() if p.is_available)
     planned = sum(1 for p in pages() if p.is_planned)
-    assert available == 14, f"expected 14 available, got {available}"
+    assert available == 15, f"expected 15 available, got {available}"
     assert planned == 1, f"expected 1 planned, got {planned}"
 
 

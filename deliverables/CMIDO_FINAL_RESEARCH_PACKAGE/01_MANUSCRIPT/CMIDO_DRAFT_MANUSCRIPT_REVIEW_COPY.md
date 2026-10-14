@@ -76,6 +76,7 @@ so the review copy is provided as markdown with explicit pointers to the frozen 
 - Robustness artifacts:
   `results/RO3/ablation/RO3_8_robustness/RO3_step38_*.csv`
 - Publication tables:
+  `results/8Q_publication_artifacts/T4_RO3_stress_robustness.csv`
   `results/8Q_publication_artifacts/T5_RO3_baseline_comparison.csv`
   `results/8Q_publication_artifacts/T5_T6_controller_descriptives.csv`
   `results/8Q_publication_artifacts/T6_RO3_ablation.csv`
@@ -93,7 +94,8 @@ The following statements are supported by the frozen artifacts in this packaging
 - RO2 propagation, tail, service-risk, and joint/independent sensitivity results exist and are reported in
   publication tables T2 and T3 and figures F2–F4.
 - RO3 controlled contrasts O1/O2/O3/O4 exist and are reported in publication tables T5/T6 and figures F5–F6.
-- Stress and robustness results exist and are available as supplementary evidence.
+- Stress and robustness results exist and are reported in publication table T4 (§9.5), generated from the
+  RO3.7/RO3.8 frozen summaries and reconciled by 8S.
 
 The following are **not** claimed by this review copy:
 

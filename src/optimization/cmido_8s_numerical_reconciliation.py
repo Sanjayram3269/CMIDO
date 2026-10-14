@@ -28,6 +28,12 @@ SPECS = {
     "T3_RO2_propagation_summary.csv": ("results/RO2/propagation/RO2_step27d_propagation_summary.csv", 96),
     "T3_RO2_service_risk_curve.csv": ("results/RO2/propagation/RO2_step27d_service_risk_curve.csv", 240),
     "T3_RO2_joint_independent_sensitivity.csv": ("results/RO2/propagation/RO2_step27d_joint_vs_independent_sensitivity.csv", 240),
+    # T4 combines two frozen upstreams: RO3.7 duration stress (16 rows) and
+    # RO3.8 holding-rate robustness (12 rows) → 28 publication rows.
+    "T4_RO3_stress_robustness.csv": ((
+        "results/RO3/ablation/RO3_7_stress/RO3_step37_stress_summary.csv",
+        "results/RO3/ablation/RO3_8_robustness/RO3_step38_holding_rate_summary.csv",
+    ), 28),
 }
 
 T1_COLS = [
@@ -43,6 +49,40 @@ T5_COLS = [
     "mean_difference_newer_minus_base", "bootstrap_ci95_lower", "bootstrap_ci95_upper",
     "wilcoxon_p_raw", "wilcoxon_q_bh", "significant_bh_0_05",
 ]
+
+
+def combine_t4_sources(stress: pd.DataFrame, hold: pd.DataFrame) -> pd.DataFrame:
+    """Reproduce 8Q's deterministic T4 alignment of RO3.7 and RO3.8 summaries.
+
+    The two frozen summaries share every metric column but their case columns
+    (``stress_case``/``duration_days`` versus ``holding_case``/
+    ``annual_holding_rate``). The transformation only renames the case columns
+    into a common schema, labels the scenario family, and concatenates; no
+    scientific value is recomputed.
+    """
+    lead = ["scenario_family", "controller", "scenario_case", "parameter_name", "parameter_value"]
+    s_metrics = [c for c in stress.columns if c not in ("controller", "stress_case", "duration_days")]
+    h_metrics = [c for c in hold.columns if c not in ("controller", "holding_case", "annual_holding_rate")]
+    if s_metrics != h_metrics:
+        raise ValueError(f"T4 metric columns differ: {set(s_metrics) ^ set(h_metrics)}")
+    s_part = pd.DataFrame({
+        "scenario_family": "duration_stress",
+        "controller": stress["controller"],
+        "scenario_case": stress["stress_case"],
+        "parameter_name": "duration_days",
+        "parameter_value": stress["duration_days"],
+    })
+    h_part = pd.DataFrame({
+        "scenario_family": "holding_rate_robustness",
+        "controller": hold["controller"],
+        "scenario_case": hold["holding_case"],
+        "parameter_name": "annual_holding_rate",
+        "parameter_value": hold["annual_holding_rate"],
+    })
+    for m in s_metrics:
+        s_part[m] = stress[m]
+        h_part[m] = hold[m]
+    return pd.concat([s_part[lead + s_metrics], h_part[lead + s_metrics]], ignore_index=True)
 
 
 def sha256(path: Path) -> str:
@@ -117,14 +157,22 @@ def generate(root: Path | None = None):
         ck("8Q_manifest_artifact_count", len(q_entries) == len(SPECS), f"{len(q_entries)} expected {len(SPECS)}")
         ck("8Q_manifest_artifact_names_exact", set(q_entries) == set(SPECS), ", ".join(sorted(set(q_entries) ^ set(SPECS))))
 
-    for filename, (upstream_rel, expected_rows) in SPECS.items():
+    for filename, (upstream_spec, expected_rows) in SPECS.items():
+        upstream_rels = upstream_spec if isinstance(upstream_spec, (tuple, list)) else (upstream_spec,)
+        rel_main = upstream_rels[0]
+        rel_secondary = upstream_rels[1] if len(upstream_rels) > 1 else None
         pub = q / filename
-        upstream = root / upstream_rel
+        upstream = root / rel_main
         ck(f"{filename}_publication_exists", pub.exists(), str(pub))
         ck(f"{filename}_upstream_exists", upstream.exists(), str(upstream))
-        if pub.exists() and upstream.exists():
+        if rel_secondary is not None:
+            ck(f"{filename}_secondary_upstream_exists", (root / rel_secondary).exists(), str(root / rel_secondary))
+        all_upstreams_exist = all((root / rel).exists() for rel in upstream_rels)
+        if pub.exists() and all_upstreams_exist:
             a = pd.read_csv(pub)
             b = pd.read_csv(upstream)
+            if rel_secondary is not None:
+                b = combine_t4_sources(b, pd.read_csv(root / rel_secondary))
             expected = expected_publication_frame(b, filename)
             ck(f"{filename}_row_count", len(a) == expected_rows, f"{len(a)} expected {expected_rows}")
             ck(f"{filename}_schema_exact", list(a.columns) == list(expected.columns))
@@ -135,6 +183,11 @@ def generate(root: Path | None = None):
                 f"{filename}_manifest_hash_match",
                 bool(entry) and entry.get("source_sha256") == sha256(upstream),
             )
+            if rel_secondary is not None:
+                ck(
+                    f"{filename}_manifest_secondary_hash_match",
+                    bool(entry) and entry.get("secondary_source_sha256") == sha256(root / rel_secondary),
+                )
 
     desc = q / "T5_T6_controller_descriptives.csv"
     if desc.exists():
@@ -173,7 +226,7 @@ def generate(root: Path | None = None):
         "status": "PASS" if checks and all(x["passed"] for x in checks) else "HOLD",
         "checks_passed": sum(x["passed"] for x in checks),
         "checks_total": len(checks),
-        "purpose": "Full numerical/source reconciliation for all nine frozen 8Q publication tables and six 8R figures using declared deterministic transformations.",
+        "purpose": "Full numerical/source reconciliation for all ten frozen 8Q publication tables and six 8R figures using declared deterministic transformations.",
     }
     (out / "CMIDO_8S_RECONCILIATION_MANIFEST.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     pd.DataFrame(checks).to_csv(out / "CMIDO_8S_RECONCILIATION_AUDIT.csv", index=False)

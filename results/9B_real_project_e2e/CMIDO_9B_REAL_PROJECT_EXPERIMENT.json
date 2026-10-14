@@ -18,7 +18,7 @@
     },
     "configuration_fingerprint": "db82b4e5deff067edaef7b2c634e3ba6abc52b025e989eaeed9179034c7956db"
   },
-  "executed_at_utc": "2026-10-14T14:50:28.818971+00:00",
+  "executed_at_utc": "2026-10-14T19:17:40.415571+00:00",
   "scenario_count": 3,
   "results": [
     {
@@ -317,8 +317,8 @@
             "classification_after": "CRITICAL"
           },
           {
-            "activity_id": "39",
-            "activity_name": "CONCRETO f´c = 210 kg/cm2 - PAVIMENTOS E=0.10",
+            "activity_id": "69",
+            "activity_name": "CURADO DE CONCRETO",
             "es_change": 0,
             "ef_change": 0,
             "ls_change": 0,
@@ -343,6 +343,19 @@
             "classification_after": "NON_CRITICAL"
           },
           {
+            "activity_id": "83",
+            "activity_name": "ENCOFRADO Y DESENCOFRADO NORMAL",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
             "activity_id": "14",
             "activity_name": "ELABORACION, IMPLEMENTACION Y ADMINISTRACION DE SEGURIDAD Y SALUD EN EL TRABAJO",
             "es_change": 0,
@@ -351,6 +364,19 @@
             "lf_change": 0,
             "float_before": 17,
             "float_after": 17,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "39",
+            "activity_name": "CONCRETO f´c = 210 kg/cm2 - PAVIMENTOS E=0.10",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 20,
+            "float_after": 20,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -369,19 +395,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "69",
-            "activity_name": "CURADO DE CONCRETO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 20,
-            "float_after": 20,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "3",
             "activity_name": "ALQUILER DE ALMACEN Y OFICINA",
             "es_change": 0,
@@ -395,14 +408,14 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "83",
-            "activity_name": "ENCOFRADO Y DESENCOFRADO NORMAL",
+            "activity_id": "62",
+            "activity_name": "RELLENO DE JUNTAS CON CEMNETO Y ARENA GRUESA C:A 1:2",
             "es_change": 0,
             "ef_change": 0,
             "ls_change": 0,
             "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
+            "float_before": 20,
+            "float_after": 20,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -429,6 +442,19 @@
             "lf_change": 0,
             "float_before": 6,
             "float_after": 6,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "82",
+            "activity_name": "CONCRETO f´c = 210 kg/cm2",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -473,19 +499,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "62",
-            "activity_name": "RELLENO DE JUNTAS CON CEMNETO Y ARENA GRUESA C:A 1:2",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 20,
-            "float_after": 20,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "4",
             "activity_name": "AMBIENTE PARA GUARDIANIA",
             "es_change": 0,
@@ -494,19 +507,6 @@
             "lf_change": 0,
             "float_before": 21,
             "float_after": 21,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
-            "activity_id": "82",
-            "activity_name": "CONCRETO f´c = 210 kg/cm2",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -533,6 +533,19 @@
             "lf_change": 0,
             "float_before": 6,
             "float_after": 6,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "86",
+            "activity_name": "CURADO DE CONCRETO",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -603,19 +616,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "86",
-            "activity_name": "CURADO DE CONCRETO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "27",
             "activity_name": "TRAZO NIVELACION Y REPLANTEO DURANTE EL PROCESO",
             "es_change": 0,
@@ -650,6 +650,19 @@
             "lf_change": 0,
             "float_before": 7,
             "float_after": 7,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "88",
+            "activity_name": "REJILLA METALICA SEGUN DISEÑO",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -728,19 +741,6 @@
             "lf_change": 0,
             "float_before": 21,
             "float_after": 21,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
-            "activity_id": "88",
-            "activity_name": "REJILLA METALICA SEGUN DISEÑO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -1695,8 +1695,8 @@
             "classification_after": "CRITICAL"
           },
           {
-            "activity_id": "39",
-            "activity_name": "CONCRETO f´c = 210 kg/cm2 - PAVIMENTOS E=0.10",
+            "activity_id": "69",
+            "activity_name": "CURADO DE CONCRETO",
             "es_change": 0,
             "ef_change": 0,
             "ls_change": 0,
@@ -1721,6 +1721,19 @@
             "classification_after": "NON_CRITICAL"
           },
           {
+            "activity_id": "83",
+            "activity_name": "ENCOFRADO Y DESENCOFRADO NORMAL",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
             "activity_id": "14",
             "activity_name": "ELABORACION, IMPLEMENTACION Y ADMINISTRACION DE SEGURIDAD Y SALUD EN EL TRABAJO",
             "es_change": 0,
@@ -1729,6 +1742,19 @@
             "lf_change": 0,
             "float_before": 17,
             "float_after": 17,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "39",
+            "activity_name": "CONCRETO f´c = 210 kg/cm2 - PAVIMENTOS E=0.10",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 20,
+            "float_after": 20,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -1747,19 +1773,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "69",
-            "activity_name": "CURADO DE CONCRETO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 20,
-            "float_after": 20,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "3",
             "activity_name": "ALQUILER DE ALMACEN Y OFICINA",
             "es_change": 0,
@@ -1773,14 +1786,14 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "83",
-            "activity_name": "ENCOFRADO Y DESENCOFRADO NORMAL",
+            "activity_id": "62",
+            "activity_name": "RELLENO DE JUNTAS CON CEMNETO Y ARENA GRUESA C:A 1:2",
             "es_change": 0,
             "ef_change": 0,
             "ls_change": 0,
             "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
+            "float_before": 20,
+            "float_after": 20,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -1807,6 +1820,19 @@
             "lf_change": 0,
             "float_before": 6,
             "float_after": 6,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "82",
+            "activity_name": "CONCRETO f´c = 210 kg/cm2",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -1851,19 +1877,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "62",
-            "activity_name": "RELLENO DE JUNTAS CON CEMNETO Y ARENA GRUESA C:A 1:2",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 20,
-            "float_after": 20,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "4",
             "activity_name": "AMBIENTE PARA GUARDIANIA",
             "es_change": 0,
@@ -1872,19 +1885,6 @@
             "lf_change": 0,
             "float_before": 21,
             "float_after": 21,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
-            "activity_id": "82",
-            "activity_name": "CONCRETO f´c = 210 kg/cm2",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -1911,6 +1911,19 @@
             "lf_change": 0,
             "float_before": 6,
             "float_after": 6,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "86",
+            "activity_name": "CURADO DE CONCRETO",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -1981,19 +1994,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "86",
-            "activity_name": "CURADO DE CONCRETO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "27",
             "activity_name": "TRAZO NIVELACION Y REPLANTEO DURANTE EL PROCESO",
             "es_change": 0,
@@ -2028,6 +2028,19 @@
             "lf_change": 0,
             "float_before": 7,
             "float_after": 7,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "88",
+            "activity_name": "REJILLA METALICA SEGUN DISEÑO",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -2106,19 +2119,6 @@
             "lf_change": 0,
             "float_before": 21,
             "float_after": 21,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
-            "activity_id": "88",
-            "activity_name": "REJILLA METALICA SEGUN DISEÑO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -3073,8 +3073,8 @@
             "classification_after": "CRITICAL"
           },
           {
-            "activity_id": "39",
-            "activity_name": "CONCRETO f´c = 210 kg/cm2 - PAVIMENTOS E=0.10",
+            "activity_id": "69",
+            "activity_name": "CURADO DE CONCRETO",
             "es_change": 0,
             "ef_change": 0,
             "ls_change": 0,
@@ -3099,6 +3099,19 @@
             "classification_after": "NON_CRITICAL"
           },
           {
+            "activity_id": "83",
+            "activity_name": "ENCOFRADO Y DESENCOFRADO NORMAL",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
             "activity_id": "14",
             "activity_name": "ELABORACION, IMPLEMENTACION Y ADMINISTRACION DE SEGURIDAD Y SALUD EN EL TRABAJO",
             "es_change": 0,
@@ -3107,6 +3120,19 @@
             "lf_change": 0,
             "float_before": 17,
             "float_after": 17,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "39",
+            "activity_name": "CONCRETO f´c = 210 kg/cm2 - PAVIMENTOS E=0.10",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 20,
+            "float_after": 20,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -3125,19 +3151,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "69",
-            "activity_name": "CURADO DE CONCRETO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 20,
-            "float_after": 20,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "3",
             "activity_name": "ALQUILER DE ALMACEN Y OFICINA",
             "es_change": 0,
@@ -3151,14 +3164,14 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "83",
-            "activity_name": "ENCOFRADO Y DESENCOFRADO NORMAL",
+            "activity_id": "62",
+            "activity_name": "RELLENO DE JUNTAS CON CEMNETO Y ARENA GRUESA C:A 1:2",
             "es_change": 0,
             "ef_change": 0,
             "ls_change": 0,
             "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
+            "float_before": 20,
+            "float_after": 20,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -3185,6 +3198,19 @@
             "lf_change": 0,
             "float_before": 6,
             "float_after": 6,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "82",
+            "activity_name": "CONCRETO f´c = 210 kg/cm2",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -3229,19 +3255,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "62",
-            "activity_name": "RELLENO DE JUNTAS CON CEMNETO Y ARENA GRUESA C:A 1:2",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 20,
-            "float_after": 20,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "4",
             "activity_name": "AMBIENTE PARA GUARDIANIA",
             "es_change": 0,
@@ -3250,19 +3263,6 @@
             "lf_change": 0,
             "float_before": 21,
             "float_after": 21,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
-            "activity_id": "82",
-            "activity_name": "CONCRETO f´c = 210 kg/cm2",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -3289,6 +3289,19 @@
             "lf_change": 0,
             "float_before": 6,
             "float_after": 6,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "86",
+            "activity_name": "CURADO DE CONCRETO",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -3359,19 +3372,6 @@
             "classification_after": "NON_CRITICAL"
           },
           {
-            "activity_id": "86",
-            "activity_name": "CURADO DE CONCRETO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
             "activity_id": "27",
             "activity_name": "TRAZO NIVELACION Y REPLANTEO DURANTE EL PROCESO",
             "es_change": 0,
@@ -3406,6 +3406,19 @@
             "lf_change": 0,
             "float_before": 7,
             "float_after": 7,
+            "float_change": 0,
+            "classification_before": "NON_CRITICAL",
+            "classification_after": "NON_CRITICAL"
+          },
+          {
+            "activity_id": "88",
+            "activity_name": "REJILLA METALICA SEGUN DISEÑO",
+            "es_change": 0,
+            "ef_change": 0,
+            "ls_change": 0,
+            "lf_change": 0,
+            "float_before": 18,
+            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"
@@ -3484,19 +3497,6 @@
             "lf_change": 0,
             "float_before": 21,
             "float_after": 21,
-            "float_change": 0,
-            "classification_before": "NON_CRITICAL",
-            "classification_after": "NON_CRITICAL"
-          },
-          {
-            "activity_id": "88",
-            "activity_name": "REJILLA METALICA SEGUN DISEÑO",
-            "es_change": 0,
-            "ef_change": 0,
-            "ls_change": 0,
-            "lf_change": 0,
-            "float_before": 18,
-            "float_after": 18,
             "float_change": 0,
             "classification_before": "NON_CRITICAL",
             "classification_after": "NON_CRITICAL"

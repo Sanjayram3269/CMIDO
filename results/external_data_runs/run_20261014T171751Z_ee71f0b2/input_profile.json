@@ -1,0 +1,67 @@
+{
+  "column_count": 5,
+  "columns": [
+    {
+      "distinct_count": 4,
+      "inferred_type": "category",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "region"
+    },
+    {
+      "distinct_count": 199,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "observed",
+      "numeric_summary": {
+        "max": 80.066,
+        "mean": 50.741710000000005,
+        "min": 20.383,
+        "std": 11.643921871459083
+      }
+    },
+    {
+      "distinct_count": 200,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "q50",
+      "numeric_summary": {
+        "max": 84.552,
+        "mean": 50.912479999999995,
+        "min": 16.073,
+        "std": 12.195331290952304
+      }
+    },
+    {
+      "distinct_count": 200,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "lower_80",
+      "numeric_summary": {
+        "max": 79.431,
+        "mean": 40.77793,
+        "min": 4.183,
+        "std": 12.55058725908231
+      }
+    },
+    {
+      "distinct_count": 200,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "upper_80",
+      "numeric_summary": {
+        "max": 94.249,
+        "mean": 60.791720000000005,
+        "min": 27.525,
+        "std": 12.682974750990848
+      }
+    }
+  ],
+  "duplicate_rows": 0,
+  "row_count": 200,
+  "warnings": []
+}

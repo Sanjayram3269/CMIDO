@@ -485,7 +485,9 @@ def test_lineage_rows_display_names_not_paths() -> None:
 def test_real_snapshot_publication_lineage_is_recorded() -> None:
     snapshot = build_dashboard_snapshot()
     rows = page.build_lineage_rows(snapshot)
-    assert len(rows) == 9
+    # One lineage row per frozen 8Q publication table. This grows with the
+    # publication set (T4 stress/robustness was added after the original nine).
+    assert len(rows) == 10
     for row in rows:
         assert _DIGEST_RE.match(row["Source digest"]), row
         assert row["Generation script"] != "—"
@@ -665,7 +667,7 @@ def test_real_recorded_checks_report_their_recorded_totals(real_snapshot) -> Non
     rows = {r["Check source"]: r for r in page.build_recorded_check_rows(real_snapshot)}
     assert rows["8M ablation evidence gate"]["Recorded outcome"].startswith("20 of 20")
     assert rows["8S numerical reconciliation audit"]["Recorded outcome"].startswith(
-        "81 of 81"
+        "89 of 89"
     )
     assert rows["RO3 final experimental integrity audit (step 39)"][
         "Recorded outcome"

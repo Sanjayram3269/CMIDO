@@ -28,24 +28,32 @@ python -B deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/01_MANUSCRIPT/build_manuscri
 
 # 4. Run the regression suite
 python -m pytest tests/ -q
+
+# 5. (Optional) Live browser E2E for the External Data workspace (Playwright/Chromium)
+python -m pip install -r requirements-e2e.txt
+python -m playwright install chromium
+python -m pytest tests/e2e/ -q
 ```
 
 Verified at this checkpoint:
 
 - Dashboard deps install and `streamlit`/`plotly`/`pandas` import cleanly (`streamlit 1.65`, `plotly 6.9`, `pandas 3.0`).
-- `python -m pytest tests/ --collect-only -q` collects **1065 tests**.
+- `python -m pytest tests/ --collect-only -q` collects **1125 tests** (full suite re-run green: 1125 passed).
 - The PDF renderer needs only `reportlab`; page-count/text extraction uses `pymupdf` when present (falls back to `pypdf`).
+- The browser E2E starts its own Streamlit server on a free port, drives upload → map → run in real Chromium, and
+  writes 5 screenshots plus a 9-check manifest to `results/external_data_e2e/`.
 
 ### What runs, and what does not
 
 | Capability | Status |
 |---|---|
-| Dashboard: 15 pages across CORE / RESEARCH / DECISION / EVIDENCE groups | Runs |
+| Dashboard: 16 pages across CORE / RESEARCH / DECISION / EVIDENCE groups (15 available, 1 planned) | Runs |
 | Bundled demo construction project (`data/projects/cmido_demo_project.json`) | Runs |
 | Upload a compatible **construction project JSON** (sidebar `file_uploader`) | Runs |
-| Manuscript PDF render with embedded publication figures F1–F6 | Runs |
-| Publication table/figure regeneration + reconciliation gates (8Q/8R/8S) | Runs |
-| **External research-CSV upload → map → analyze → export** | **Not implemented** — see §28 |
+| Manuscript PDF render with embedded publication figures F1–F7 | Runs |
+| Publication table/figure regeneration + reconciliation gates (8Q/8R/8S/8T) | Runs |
+| External research-CSV/JSON upload → map → validate → run → export (isolated runs) | Runs — see §28 |
+| Live browser E2E of the External Data workflow with screenshots (Playwright) | Runs — `tests/e2e/` |
 
 ---
 
@@ -1145,7 +1153,8 @@ Uncertainty Propagation Procurement Context Procurement Context
 
 # 28. External Data: What Is and Is Not Supported
 
-This section records the dashboard's real external-data boundary, verified by inspecting the running application.
+This section records the dashboard's real external-data boundary, verified by inspecting the running application
+and by a live browser end-to-end test (`tests/e2e/test_external_data_browser.py`).
 
 ## Supported today
 
@@ -1157,22 +1166,51 @@ This section records the dashboard's real external-data boundary, verified by in
   (PSLIB and SUCCESS logistics streams) that were ingested, schema-validated and provenance-tagged **offline** by the
   9A/9B gates. Every displayed value comes from a registered artifact or its provenance record; the page performs no
   recomputation and joins nothing across streams.
+- **External Data workspace** (`EVIDENCE → External Data`, page module
+  `src/construction/dashboard_ui/external_data.py`, engine package `src/construction/external_data/`). This is the
+  in-dashboard research-CSV/JSON workflow that did not exist before this sprint:
+  1. **Upload** a CSV or JSON table (≤ 10 MiB). Files are parsed as data only; no uploaded code is ever executed.
+  2. **Preview and profile** — row/column counts, duplicates, per-column inferred type, missingness and distinct
+     counts, with validation warnings surfaced honestly.
+  3. **Choose an analysis and map columns** — two genuinely supported analyses ship today:
+     *Descriptive statistics + bootstrap interval* and *Forecast interval coverage* (empirical coverage, mean
+     interval width and pinball loss for quantile columns — the same calibration discipline RO1 uses, computed on
+     your rows). Field contracts are declared in `src/construction/external_data/contracts.py`.
+  4. **Validate the mapping** — blocking errors and soft warnings are shown before anything runs; the Run button
+     stays disabled until the mapping is valid.
+  5. **Run** — every displayed number is computed from the uploaded rows only, by the deterministic CMIDO engines.
+     Runs are persisted with full lineage (run id, input SHA-256, rows/columns, seed, provenance class `DER`,
+     duration) under `results/external_data_runs/<run_id>/` and never touch canonical research artifacts.
+  6. **Export** — schema mapping (JSON), run summary (JSON) and result table (CSV), reflecting that dataset only.
+  The three full research stages (RO1 training, RO2 propagation, RO3 optimization) are listed as **not available on
+  uploaded data** with an explicit reason; they require frozen upstream artifacts and are never simulated on an
+  arbitrary upload.
+  A deterministic example fixture ships at `examples/external_data/forecast_intervals_fixture.csv`.
 
-## Not implemented
+## Demo walkthrough (External Data, ~3 minutes)
 
-- **There is no in-dashboard upload of external research CSV data** that flows through preview → schema mapping →
-  validation → analysis execution → results → export. No `file_uploader` for research data, no schema-mapping UI, and
-  no analysis-export button exist anywhere in `src/construction/dashboard_ui/`, `src/construction/dashboard_data/`,
-  or `apps/`. The only uploader is the construction project JSON above.
-- Consequently, **no external-data analysis workflow was exercised end-to-end**, because none exists to exercise.
-  Adding one would require a new ingestion contract, an isolated analysis path that cannot touch canonical research
-  outputs, and provenance carry-through — none of which are present today.
+1. `python -m streamlit run apps/cmido_dashboard.py`, open the sidebar **EVIDENCE** group, click **External Data**.
+2. Before uploading, note the honest landing state: *No file selected*, and the three
+   “Research stages not run on uploaded data” expanders.
+3. Upload `examples/external_data/forecast_intervals_fixture.csv` (200 rows, 5 columns).
+4. Choose **Forecast interval coverage**; map Observed → `observed`, Lower → `lower_80`, Upper → `upper_80`, and
+   (under *Optional fields*) Quantile → `q50`. Watch the validation switch to “Mapping is valid”.
+5. Click **Run analysis**: expect Rows scored = 200, Coverage rate ≈ 0.995, Mean interval width ≈ 20.014,
+   Pinball loss (mean) ≈ 1.3574 — and a Run lineage table whose SHA-256 matches your file.
+6. Scroll to the bottom: the three research stages remain *not available* even after a successful run.
+7. Download the three exports, then inspect `results/external_data_runs/<run_id>/` on disk — the run record,
+   schema mapping, validation report, input profile and result table are all there.
+
+The same workflow is exercised headlessly by the browser E2E (`pip install -r requirements-e2e.txt`,
+`python -m playwright install chromium`, `pytest tests/e2e/`), which writes its evidence to
+`results/external_data_e2e/` (screenshots + `CMIDO_EXTERNAL_DATA_E2E_MANIFEST.json`, 9/9 checks).
 
 ## Scientific boundary
 
 The dashboard is a **visualization and controlled-scenario layer over frozen research artifacts and deterministic
-engines**. It is not a general analytics product, does not accept arbitrary user datasets for modelling, and does
-not recompute research results at request time.
+engines**. It is not a general analytics product and does not recompute canonical research results at request time.
+The External Data workspace runs real analyses, but only on the rows you uploaded, in an isolated derived-provenance
+path (`DER`) that cannot overwrite or be mistaken for the frozen evidence chain.
 
 ---
 
@@ -1196,13 +1234,12 @@ deliverables/CMIDO_FINAL_RESEARCH_PACKAGE/
 
 Key facts:
 
-- The manuscript PDF is `04_PDF/CMIDO_PUBLICATION_MANUSCRIPT_DRAFT_V1.pdf` (13 pages, F1–F6 embedded), rebuilt by
+- The manuscript PDF is `04_PDF/CMIDO_PUBLICATION_MANUSCRIPT_DRAFT_V1.pdf` (15 pages, F1–F7 embedded), rebuilt by
   `build_manuscript_pdf.py` and guarded by `tests/optimization/test_manuscript_pdf.py`.
-- Publication tables (T1–T6) and figures (F1–F6) are generated from frozen upstream results by
-  `src/optimization/cmido_8q_publication_artifacts.py` and `src/optimization/cmido_8r_publication_figures.py`, and
-  reconciled by `cmido_8s_numerical_reconciliation.py` (`results/8S_numerical_reconciliation/`).
-- `F7` (the integrated-pipeline diagram) exists as a PNG but is **not** manuscript-bound and has **no** generation
-  script provenance; it is recorded as `DIAGRAM-PENDING` in `docs/CMIDO_EVIDENCE_CONCORDANCE.md`. Likewise `T4`
-  (RO2 stress) is not generated as a manuscript table in this draft.
+- Publication tables (T1–T6, including the dual-source T4 stress/robustness table) and figures (F1–F6) are generated
+  from frozen upstream results by `src/optimization/cmido_8q_publication_artifacts.py` and
+  `src/optimization/cmido_8r_publication_figures.py`, and reconciled by `cmido_8s_numerical_reconciliation.py`
+  (`results/8S_numerical_reconciliation/`). `F7` (the integrated-pipeline diagram) is generated from its own label
+  definitions by `src/optimization/cmido_8t_f7_pipeline_figure.py` (stage 8T; manifest in `results/8T_f7_diagram/`).
 - The claim-to-evidence register is `docs/CMIDO_EVIDENCE_CONCORDANCE.md`; open research items (including the RO3
   convergence failure) are recorded there and in the package README, not smoothed over.

@@ -138,10 +138,65 @@ def generate(root: Path | None = None):
         ck("T3_RO2_sensitivity_expected_rows", len(sens) == 240, str(len(sens)))
         artifacts.append(("T3_RO2_joint_independent_sensitivity.csv", sens_path, "RO2_step27d_joint_vs_independent_sensitivity.csv"))
 
+    # T4 — RO3 stress and robustness (RO3.7 duration stress + RO3.8 holding-rate).
+    # The two frozen summaries share every metric column but their case columns;
+    # they are aligned into one table with an explicit scenario family. No value
+    # is recomputed here, only relabelled columns and concatenation.
+    stress_path = root / "results/RO3/ablation/RO3_7_stress/RO3_step37_stress_summary.csv"
+    stress = copy_source("T4_stress", stress_path, {"controller","stress_case","duration_days","n_origins","mean_cost","median_cost","mean_shortage","median_shortage","mean_service","median_service"})
+    hold_path = root / "results/RO3/ablation/RO3_8_robustness/RO3_step38_holding_rate_summary.csv"
+    hold = copy_source("T4_robustness", hold_path, {"controller","holding_case","annual_holding_rate","n_origins","mean_cost","median_cost","mean_shortage","median_shortage","mean_service","median_service"})
+    if stress is not None and hold is not None:
+        t4_lead = ["scenario_family","controller","scenario_case","parameter_name","parameter_value"]
+        s_metrics = [c for c in stress.columns if c not in ("controller","stress_case","duration_days")]
+        h_metrics = [c for c in hold.columns if c not in ("controller","holding_case","annual_holding_rate")]
+        ck("T4_shared_metric_columns", s_metrics == h_metrics)
+        if s_metrics == h_metrics:
+            s_part = pd.DataFrame({
+                "scenario_family": "duration_stress",
+                "controller": stress["controller"],
+                "scenario_case": stress["stress_case"],
+                "parameter_name": "duration_days",
+                "parameter_value": stress["duration_days"],
+            })
+            h_part = pd.DataFrame({
+                "scenario_family": "holding_rate_robustness",
+                "controller": hold["controller"],
+                "scenario_case": hold["holding_case"],
+                "parameter_name": "annual_holding_rate",
+                "parameter_value": hold["annual_holding_rate"],
+            })
+            for m in s_metrics:
+                s_part[m] = stress[m]
+                h_part[m] = hold[m]
+            t4 = pd.concat([s_part[t4_lead + s_metrics], h_part[t4_lead + s_metrics]], ignore_index=True)
+            t4.to_csv(out / "T4_RO3_stress_robustness.csv", index=False)
+            ck("T4_stress_rows", len(s_part) == 16, str(len(s_part)))
+            ck("T4_robustness_rows", len(h_part) == 12, str(len(h_part)))
+            ck("T4_expected_rows", len(t4) == 28, str(len(t4)))
+            ck("T4_four_controllers", set(t4.controller) == {"O1","O2","O3","O4"})
+            ck("T4_stress_cases", set(s_part.scenario_case) == {"P50","P75","P90","P95"})
+            ck("T4_robustness_cases", set(h_part.scenario_case) == {"H20","H30","H40"})
+            ck("T4_no_nan_values", not t4[s_metrics].isna().any().any())
+            artifacts.append(("T4_RO3_stress_robustness.csv", stress_path, "RO3_step37_stress_summary.csv", "results/RO3/ablation/RO3_8_robustness/RO3_step38_holding_rate_summary.csv"))
+
     manifest = {
         "stage":"8Q", "status":"PASS" if checks and all(x["passed"] for x in checks) else "HOLD",
         "root":str(root), "checks_passed":sum(x["passed"] for x in checks), "checks_total":len(checks),
-        "artifacts":[{"artifact":a,"source_path":str(s.relative_to(root)),"source_sha256":sha256(s),"source_name":n,"generation_script":"src/optimization/cmido_8q_publication_artifacts.py"} for a,s,n in artifacts]
+        "artifacts":[
+            {
+                "artifact": row[0],
+                "source_path": str(row[1].relative_to(root)),
+                "source_sha256": sha256(row[1]),
+                "source_name": row[2],
+                "generation_script": "src/optimization/cmido_8q_publication_artifacts.py",
+                **({
+                    "secondary_source_path": row[3],
+                    "secondary_source_sha256": sha256(root / row[3]),
+                } if len(row) > 3 else {}),
+            }
+            for row in artifacts
+        ]
     }
     (out / "CMIDO_8Q_PUBLICATION_ARTIFACT_MANIFEST.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     pd.DataFrame(checks).to_csv(out / "CMIDO_8Q_PUBLICATION_ARTIFACT_AUDIT.csv", index=False)

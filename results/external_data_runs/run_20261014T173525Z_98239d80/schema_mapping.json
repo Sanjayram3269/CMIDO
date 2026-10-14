@@ -1,0 +1,6 @@
+{
+  "interval_lower": "lower_80",
+  "interval_upper": "upper_80",
+  "observed": "observed",
+  "quantile": "q50"
+}

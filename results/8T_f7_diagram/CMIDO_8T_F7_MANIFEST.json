@@ -1,0 +1,15 @@
+{
+  "stage": "8T",
+  "status": "PASS",
+  "figure": "F7_CMIDO_integrated_pipeline.png",
+  "figure_path": "deliverables\\CMIDO_FINAL_RESEARCH_PACKAGE\\02_FIGURES\\F7_CMIDO_integrated_pipeline.png",
+  "sha256": "1840aaf734b89de7fe8a209bfb5cda18a419392ee8287bc4cea7a29671d3b22c",
+  "source_kind": "conceptual diagram generated from this script's label definitions (no data table)",
+  "generation_script": "src/optimization/cmido_8t_f7_pipeline_figure.py",
+  "manuscript_section": [
+    "1",
+    "9.6"
+  ],
+  "checks_passed": 8,
+  "checks_total": 8
+}

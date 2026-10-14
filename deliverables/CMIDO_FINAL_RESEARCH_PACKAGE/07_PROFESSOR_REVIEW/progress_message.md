@@ -101,9 +101,12 @@ I would especially value feedback on:
 If useful, I can walk through:
 
 1. the frozen evidence chain from RO1 forecasts to RO2 propagation to RO3 optimization;
-2. the 8Q tables and 8R figures and their source pointers;
+2. the 8Q tables and 8R figures and their source pointers, including the new T4 stress/robustness table
+   (RO3.7 + RO3.8, dual-source 8S reconciliation) and the reproducible F7 pipeline diagram (stage 8T);
 3. the 8S reconciliation and what it does and does not establish;
-4. the remaining open items and the plan to close them;
-5. the manuscript draft and where the reviewer’s input is most needed.
+4. the External Data workspace live: upload a CSV, map it to a declared contract, run a real analysis on the
+   uploaded rows, and inspect the persisted lineage and exports (walkthrough in the root README §28);
+5. the remaining open items and the plan to close them;
+6. the manuscript draft and where the reviewer’s input is most needed.
 
 <!-- End of supervisor message. -->

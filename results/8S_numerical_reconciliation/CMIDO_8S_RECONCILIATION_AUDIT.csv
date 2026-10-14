@@ -2,7 +2,7 @@ check,passed,detail
 8Q_manifest_exists,True,D:\CMIDO\results\8Q_publication_artifacts\CMIDO_8Q_PUBLICATION_ARTIFACT_MANIFEST.json
 8R_concordance_exists,True,D:\CMIDO\results\8R_publication_figures\CMIDO_8R_FIGURE_CONCORDANCE.json
 8Q_manifest_status_pass,True,PASS
-8Q_manifest_artifact_count,True,9 expected 9
+8Q_manifest_artifact_count,True,10 expected 10
 8Q_manifest_artifact_names_exact,True,
 T5_RO3_baseline_comparison.csv_publication_exists,True,D:\CMIDO\results\8Q_publication_artifacts\T5_RO3_baseline_comparison.csv
 T5_RO3_baseline_comparison.csv_upstream_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_statistical_pairwise_comparisons.csv
@@ -58,6 +58,14 @@ T3_RO2_joint_independent_sensitivity.csv_row_count,True,240 expected 240
 T3_RO2_joint_independent_sensitivity.csv_schema_exact,True,
 T3_RO2_joint_independent_sensitivity.csv_values_exact,True,deterministic 8Q transformation matches upstream values
 T3_RO2_joint_independent_sensitivity.csv_manifest_hash_match,True,
+T4_RO3_stress_robustness.csv_publication_exists,True,D:\CMIDO\results\8Q_publication_artifacts\T4_RO3_stress_robustness.csv
+T4_RO3_stress_robustness.csv_upstream_exists,True,D:\CMIDO\results\RO3\ablation\RO3_7_stress\RO3_step37_stress_summary.csv
+T4_RO3_stress_robustness.csv_secondary_upstream_exists,True,D:\CMIDO\results\RO3\ablation\RO3_8_robustness\RO3_step38_holding_rate_summary.csv
+T4_RO3_stress_robustness.csv_row_count,True,28 expected 28
+T4_RO3_stress_robustness.csv_schema_exact,True,
+T4_RO3_stress_robustness.csv_values_exact,True,deterministic 8Q transformation matches upstream values
+T4_RO3_stress_robustness.csv_manifest_hash_match,True,
+T4_RO3_stress_robustness.csv_manifest_secondary_hash_match,True,
 RO3_four_controllers,True,
 RO3_eleven_origins_each,True,
 RO3_service_level_metric_present,True,

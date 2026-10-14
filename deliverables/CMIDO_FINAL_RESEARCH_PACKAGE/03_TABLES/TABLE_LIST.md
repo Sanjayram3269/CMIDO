@@ -53,6 +53,18 @@ All tables are generated from the frozen upstream result files by
 - Scope: sensitivity to the joint versus independent propagation assumption.
 - Manuscript section: §6 and §9.2.
 
+### T4 — RO3 stress and robustness
+
+- File: `results/8Q_publication_artifacts/T4_RO3_stress_robustness.csv`
+- Upstream sources: `results/RO3/ablation/RO3_7_stress/RO3_step37_stress_summary.csv` (16 rows) and
+  `results/RO3/ablation/RO3_8_robustness/RO3_step38_holding_rate_summary.csv` (12 rows).
+- Scope: controller-level outcomes under four declared duration-stress cases (P50/P75/P90/P95) and three declared
+  annual holding-rate cases (H20/H30/H40), aligned into one table with an explicit `scenario_family`,
+  `scenario_case` and `parameter_name`/`parameter_value` pair.
+- Note: this is a relabel-and-concatenate projection of two frozen upstream summaries; no value is recomputed.
+  Both upstream SHA-256 hashes are recorded in the 8Q manifest and reconciled by 8S.
+- Manuscript section: §9.5 and §12.
+
 ### T5 — RO3 baseline comparison
 
 - File: `results/8Q_publication_artifacts/T5_RO3_baseline_comparison.csv`

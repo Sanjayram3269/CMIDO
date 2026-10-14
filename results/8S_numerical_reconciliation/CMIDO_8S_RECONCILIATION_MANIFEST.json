@@ -1,7 +1,7 @@
 {
   "stage": "8S",
   "status": "PASS",
-  "checks_passed": 81,
-  "checks_total": 81,
-  "purpose": "Full numerical/source reconciliation for all nine frozen 8Q publication tables and six 8R figures using declared deterministic transformations."
+  "checks_passed": 89,
+  "checks_total": 89,
+  "purpose": "Full numerical/source reconciliation for all ten frozen 8Q publication tables and six 8R figures using declared deterministic transformations."
 }
