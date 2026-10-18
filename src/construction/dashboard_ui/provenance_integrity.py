@@ -160,7 +160,7 @@ DASHBOARD_CHECKS_NOT_PERFORMED: tuple[str, ...] = (
     "No SHA-256 digest is recomputed. Recorded fingerprints are displayed "
     "as recorded, never re-derived and never compared against current file "
     "bytes.",
-    "No recorded gate, audit or reconciliation is re-run. Their outcomes "
+    "No recorded gate, audit or reconciliation is redone. Their outcomes "
     "are reported as those artifacts recorded them.",
     "No recorded statistical test is recomputed and no p-value, interval or "
     "effect size is recalculated.",
@@ -899,7 +899,7 @@ def _render_recorded_checks(snapshot: DashboardSnapshot) -> None:
 
     components.render_paragraph(
         _labeled_paragraph(
-            "Reported, not re-run",
+            "Reported, not redone,",
             [
                 "Every figure above was written by the artifact named in its row. This",
                 "page copies those recorded outcomes; it does not re-execute a gate,",

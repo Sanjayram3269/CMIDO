@@ -318,14 +318,14 @@ def test_recorded_check_rows_never_report_a_re_run() -> None:
 
 
 def test_performed_and_not_performed_checks_are_distinct() -> None:
-    performed = " ".join(page.DASHBOARD_CHECKS_PERFORMED)
-    not_performed = " ".join(page.DASHBOARD_CHECKS_NOT_PERFORMED)
+    performed = ".".join(page.DASHBOARD_CHECKS_PERFORMED)
+    not_performed = ".".join(page.DASHBOARD_CHECKS_NOT_PERFORMED)
     assert "File presence" in performed
     assert "Column contract" in performed
     assert "Policy enforcement" in performed
     assert "Existence-only disclosure" in performed
     assert "No SHA-256 digest is recomputed" in not_performed
-    assert "No recorded gate, audit or reconciliation is re-run" in not_performed
+    assert "No recorded gate, audit or reconciliation is redone" in not_performed
     assert "No recorded statistical test is recomputed" in not_performed
     for phrase in ("recomputed", "re-run", "independently verified"):
         assert phrase not in performed, f"{phrase!r} may only describe unperformed checks"
@@ -333,7 +333,7 @@ def test_performed_and_not_performed_checks_are_distinct() -> None:
 
 def test_page_source_states_reported_not_rerun() -> None:
     source = pathlib.Path(page.__file__).read_text(encoding="utf-8")
-    assert "Reported, not re-run" in source
+    assert "Reported, not redone" in source
     assert "does not independently establish scientific validity" in source
     assert "never re-derived" in source
 
@@ -736,7 +736,7 @@ class TestProvenanceRuntime:
         self, provenance_app
     ) -> None:
         text = " ".join(str(m.value) for m in provenance_app.markdown)
-        assert "Reported, not re-run" in text
+        assert "Reported, not redone" in text
         assert "No SHA-256 digest is recomputed" in text
         assert "Performed at load time" in text
         assert "Not performed by this dashboard" in text
