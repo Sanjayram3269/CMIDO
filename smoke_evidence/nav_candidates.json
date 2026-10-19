@@ -1,0 +1,110 @@
+[
+ {
+  "key": "upload\n\nUpload",
+  "tag": "button",
+  "label": "upload\n\nUpload",
+  "href": ""
+ },
+ {
+  "key": "\ud83c\udfd7 Overview",
+  "tag": "button",
+  "label": "\ud83c\udfd7 Overview",
+  "href": ""
+ },
+ {
+  "key": "\ud83c\udf10 3D Project Graph",
+  "tag": "button",
+  "label": "\ud83c\udf10 3D Project Graph",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcc5 Schedule & Critical Path",
+  "tag": "button",
+  "label": "\ud83d\udcc5 Schedule & Critical Path",
+  "href": ""
+ },
+ {
+  "key": "\ud83e\uddf1 Materials & Resources",
+  "tag": "button",
+  "label": "\ud83e\uddf1 Materials & Resources",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca RO1 \u00b7 Forecasting",
+  "tag": "button",
+  "label": "\ud83d\udcca RO1 \u00b7 Forecasting",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca RO2 \u00b7 Uncertainty",
+  "tag": "button",
+  "label": "\ud83d\udcca RO2 \u00b7 Uncertainty",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca RO3 \u00b7 Optimization",
+  "tag": "button",
+  "label": "\ud83d\udcca RO3 \u00b7 Optimization",
+  "href": ""
+ },
+ {
+  "key": "\u26a0\ufe0f Scenario Lab",
+  "tag": "button",
+  "label": "\u26a0\ufe0f Scenario Lab",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca Procurement Decisions",
+  "tag": "button",
+  "label": "\ud83d\udcca Procurement Decisions",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca Resilience & Stress",
+  "tag": "button",
+  "label": "\ud83d\udcca Resilience & Stress",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca Research Evidence",
+  "tag": "button",
+  "label": "\ud83d\udcca Research Evidence",
+  "href": ""
+ },
+ {
+  "key": "\ud83e\uddea Experiments",
+  "tag": "button",
+  "label": "\ud83e\uddea Experiments",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca Real-World Data",
+  "tag": "button",
+  "label": "\ud83d\udcca Real-World Data",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca Ablation & Robustness",
+  "tag": "button",
+  "label": "\ud83d\udcca Ablation & Robustness",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udcca Provenance & Integrity",
+  "tag": "button",
+  "label": "\ud83d\udcca Provenance & Integrity",
+  "href": ""
+ },
+ {
+  "key": "\ud83d\udce6 External Data",
+  "tag": "button",
+  "label": "\ud83d\udce6 External Data",
+  "href": ""
+ },
+ {
+  "key": "Deploy",
+  "tag": "button",
+  "label": "Deploy",
+  "href": ""
+ }
+]

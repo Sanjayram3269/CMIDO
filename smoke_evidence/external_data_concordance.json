@@ -1,0 +1,59 @@
+{
+ "descriptive_statistics": {
+  "run_dir": "run_20261019T191131Z_03523108",
+  "input_sha256_computed": "9d4f9ec297852dc2ed282738350bb1041be66df45e4048dd703f93a7e43ff7d5",
+  "input_sha256_record": "9d4f9ec297852dc2ed282738350bb1041be66df45e4048dd703f93a7e43ff7d5",
+  "input_hash_matches": true,
+  "input_filename_matches": true,
+  "analysis_matches": true,
+  "status": "SUCCEEDED",
+  "provenance_class": "DER",
+  "mapping": {
+   "measure": "forecast_demand_units"
+  },
+  "disk_row_count": 1,
+  "run_summary_download_matches_disk": true,
+  "result_table_download_matches_disk_csv": true,
+  "run_summary_error": "",
+  "result_table_error": "",
+  "run_summary_field_mismatches": [],
+  "run_summary_extra_keys": [],
+  "download_result_table_head": "group,n,mean,std,min,p25,median,p75,max,mean_ci95_low,mean_ci95_high,bootstrap_resamples,seed\n(all rows),3,131.66666666666666,10.408329997330663,120.0,127.5,135.0,137.5,140.0,120.0,140.0,1000,42\n"
+ },
+ "forecast_coverage": {
+  "run_dir": "run_20261019T191142Z_c2f5fc47",
+  "dom_metrics": {
+   "Rows scored": "Rows scored\n\n5",
+   "Coverage rate": "Coverage rate\n\n1.000",
+   "Mean interval width": "Mean interval width\n\n54.600"
+  },
+  "disk_analysis_result": {
+   "n_scored": 5,
+   "coverage_rate": 1.0,
+   "mean_interval_width": 54.6,
+   "pinball_loss_mean": null
+  },
+  "rows_scored_matches": true,
+  "coverage_rate_matches_rounded": true,
+  "mean_interval_width_matches_rounded": true,
+  "input_sha256_computed": "08bae3e7c7ddd2dfce050894d63967d06e7727adc111737345ed97f8a7b88da9",
+  "input_sha256_record": "08bae3e7c7ddd2dfce050894d63967d06e7727adc111737345ed97f8a7b88da9",
+  "input_hash_matches": true,
+  "input_filename_matches": true,
+  "analysis_matches": true,
+  "status": "SUCCEEDED",
+  "provenance_class": "DER",
+  "mapping": {
+   "interval_lower": "lower_p10",
+   "interval_upper": "upper_p90",
+   "observed": "observed_units"
+  },
+  "run_summary_download_matches_disk": true,
+  "result_table_download_matches_disk_csv": true,
+  "run_summary_error": "",
+  "result_table_error": "",
+  "run_summary_field_mismatches": [],
+  "run_summary_extra_keys": [],
+  "download_result_table_head": "analysis,observed_column,interval_lower_column,interval_upper_column,n_scored,n_rows_total,coverage_rate,mean_interval_width,computed_from,engine\nforecast_coverage,observed_units,lower_p10,upper_p90,5,5,1.0,54.6,uploaded rows only,CMIDO calibration/coverage discipline\n"
+ }
+}

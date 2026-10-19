@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-10-18T22:47:02.469861+00:00",
+  "files": {
+    "safe_external_demo_deterministic_input.csv": {
+      "purpose": "small deterministic input used for initial upload affordance probe",
+      "note": "text/csv was rejected by the live dashboard's allowed extensions; kept for provenance of that probe"
+    },
+    "safe_external_forecast_coverage_input.csv": {
+      "purpose": "forecast interval coverage input for the supported FORECAST_COVERAGE analysis",
+      "columns": [
+        "month_index",
+        "observed_units",
+        "lower_p10",
+        "upper_p90",
+        "lower_p25",
+        "upper_p75"
+      ],
+      "note": "maps to observed + predictive interval bounds for one supported external-data analysis only; not evidence; not canonical"
+    }
+  },
+  "note": "These fixtures are newly created smoke artifacts under smoke_evidence/ and do not touch any canonical research artifact."
+}

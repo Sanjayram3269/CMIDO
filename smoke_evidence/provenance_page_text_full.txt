@@ -1,0 +1,365 @@
+ Control Center
+CMIDO
+/
+Control Center
+
+Load project JSON
+
+upload
+
+Upload
+
+200MB per file  JSON
+CORE
+Project orientation and structure
+
+ Overview
+
+ 3D Project Graph
+
+ Schedule & Critical Path
+
+ Materials & Resources
+
+RESEARCH
+Controlled scenarios and evidence
+
+ RO1  Forecasting
+
+ RO2  Uncertainty
+
+ RO3  Optimization
+
+DECISION
+Deterministic decision support
+
+ Scenario Lab
+
+ Procurement Decisions
+
+ Resilience & Stress
+
+EVIDENCE
+Validated repository research artifacts
+
+ Research Evidence
+
+ Experiments
+
+ Real-World Data
+
+ Ablation & Robustness
+
+ Provenance & Integrity
+
+ External Data
+
+
+DER Derived
+
+The UI calls the existing deterministic CMIDO engines. It visualizes results and executes controlled scenarios; it does not replace the research logic.
+
+Deploy
+
+CMIDO
+
+Construction Material Intelligence & Decision Optimization
+
+CMIDO SHELL
+Core
+Project orientation and structure
+Research
+Controlled scenarios and evidence
+Decision
+Deterministic decision support
+Evidence
+Validated repository research artifacts
+CMIDO
+/
+Core
+/
+Overview
+
+Overview
+
+Project intelligence and decision context for the loaded project.
+
+
+DER Derived
+
+
+Loaded project
+
+Residential Building Demo
+
+CMIDO-DEMO-001  Residential  Bengaluru  status planned  cmido_demo_project.json  bundled project file
+
+Project snapshot
+
+Orientation metrics computed by the existing CMIDO engines from the loaded project
+
+
+Validated
+
+DER Derived
+
+Absent source values are omitted rather than shown as zero; input facts are marked OBS.
+
+PROJECT DURATION
+
+74 d
+
+
+Validated
+
+DER Derived
+
+Baseline CPM duration (deterministic)
+
+ACTIVITIES
+
+11
+
+
+Validated
+
+DER Derived
+
+9 critical  2 non-critical
+
+CRITICAL ACTIVITIES
+
+9
+
+
+Validated
+
+DER Derived
+
+9 of 11 activities on the critical path
+
+MATERIAL TYPES
+
+9
+
+
+Validated
+
+DER Derived
+
+tracked in quantity demand
+
+SUPPLIERS
+
+6
+
+
+Validated
+
+OBS Observed
+
+registered in project inputs
+
+PROJECT STATUS
+
+planned
+
+
+Validated
+
+OBS Observed
+
+declared in project inputs
+
+Project context
+
+Declared inputs, provenance and horizon of the project being analysed
+
+
+OBS Observed
+
+Input facts are read from the project JSON; the planned horizon is derived from the declared dates.
+
+Project input context
+
+What is being analysed right now
+
+
+OBS Observed
+
+Declared project inputs (OBS) plus one derived horizon (DER).
+
+Schedule intelligence
+
+Critical path method output for the loaded project
+
+
+Validated
+
+DER Derived
+
+Deterministic CPM from the existing scheduling engine: early start/finish and total float are engine outputs, never recomputed in the UI.
+
+Activity schedule structure
+
+Duration, early timing, total float and criticality
+
+
+DER Derived
+
+11 activities  critical path length 9
+
+Schedule progression & critical path
+
+Horizontal bars show when each activity is scheduled. Bars span early start to early finish; the dashed line marks the baseline duration.
+
+
+DER Derived
+
+Deterministic CPM output  provenance DER.
+
+0
+10
+20
+30
+40
+50
+60
+70
+A011  Final Finishing
+A010  Painting
+A009  Flooring
+A008  Plastering
+A007  Brickwork
+A006  Slab
+A005  MEP Rough-in
+A004  Columns
+A003  Foundation
+A002  Excavation
+A001  Site Preparation
+Critical
+Non-critical
+Project day (early schedule)
+baseline 74 d
+
+
+Deterministic critical path
+
+Critical path: A001  A002  A003  A004  A006  A007  A008  A009  A011
+
+Project intelligence graph
+
+Dependency network with critical-path highlighting  the structural intelligence view of this project
+
+
+Validated
+
+DER Derived
+
+Existing dependency-layout view: graph calculations and semantics are unchanged by this page.
+
+3D project dependency graph
+
+Rotate, zoom and hover. Diamonds identify critical-path activities; edges are project dependencies.
+
+
+DER Derived
+
+Deterministic CPM output  provenance DER.
+
+Dependencies
+Activities
+
+Material & resource intelligence
+
+Quantity demand from the loaded project and the current feasibility context
+
+
+DER Derived
+
+Demand is aggregated from activity-material links by the existing quantity engine; feasibility needs availability inputs supplied on Materials & Resources.
+
+Material demand summary
+
+Total required quantity per material type
+
+
+DER Derived
+
+9 material types aggregated from activity-material links.
+
+Resource feasibility not evaluated
+Resource feasibility needs availability quantities, which are user inputs collected on Materials & Resources  not values this page can derive. Material demand, supplier registrations, schedule and evidence context above remain available.
+Open Materials & Resources, set availability, and the feasibility engine reports shortage states there.
+
+Optional - not available
+
+Decision & analytical pipeline
+
+Route from project data to decision intelligence in this application
+
+Shows the pipeline shape, not completion: research workspaces RO1RO3 are planned (Phases 10A.710A.9) and are not presented as complete.
+
+CMIDO analytical pipeline
+
+Project Data
+Validation
+Quantity / Demand
+CPM Schedule
+Resource / Procurement Feasibility
+Scenario / Impact Analysis
+Research Evidence
+Decision Intelligence
+
+Evidence & data status
+
+What evidence this application can actually show right now
+
+Artifact counts come from the cached 10A.2-B snapshot; planned workspaces are read from the 10A.4 page registry.
+
+Evidence readiness
+
+
+Partial evidence
+
+43 of 45 registered artifacts available  0 missing  0 invalid.
+
+Project data
+Validated
+Dashboard snapshot
+Validated
+Research evidence artifacts (43 of 45 available)
+Partial evidence
+Real-world data workspace
+Validated
+RO1/RO2/RO3 workspaces
+Validated
+
+Project status
+
+Deterministic state, evidence availability and research-stage availability reported separately
+
+These three layers are never collapsed into one verdict.
+
+
+
+Deterministic project state
+
+Baseline analyzed: 74 d project duration  9 of 11 activities on the critical path. Resource feasibility is reported separately and is not evaluated on Overview.
+
+Status board
+
+
+Partial evidence
+
+Rows report each layer separately; planned or input-dependent layers are labelled, not scored.
+
+Deterministic schedule analysis
+Validated
+Resource feasibility (availability inputs)
+Optional - not available
+Research evidence artifacts
+Partial evidence
+RO1/RO2/RO3 research workspaces
+Optional - not available
+CMIDO - Construction Material Intelligence & Decision Optimization. Schedule, resource, procurement, uncertainty and research-evidence analysis.

@@ -1,8 +1,8 @@
 {
   "stage": "EXTERNAL_DATA_E2E",
   "status": "PASS",
-  "checks_passed": 9,
-  "checks_total": 9,
+  "checks_passed": 18,
+  "checks_total": 18,
   "checks": [
     {
       "check": "navigates_to_external_data_page",
@@ -37,7 +37,7 @@
     {
       "check": "run_persisted_and_matches_dom",
       "passed": true,
-      "detail": "run_20261014T191732Z_23407758 coverage=0.995"
+      "detail": "run_20261019T192256Z_27d6a3ab coverage=0.995"
     },
     {
       "check": "unavailable_stages_stay_unavailable",
@@ -48,6 +48,51 @@
       "check": "no_fatal_console_errors",
       "passed": true,
       "detail": ""
+    },
+    {
+      "check": "first_dom_file_input_is_the_json_only_sidebar_loader",
+      "passed": true,
+      "detail": "application/streamlit,.json"
+    },
+    {
+      "check": "sidebar_json_loader_rejects_csv_with_observed_message",
+      "passed": true,
+      "detail": "Error: text/csv files are not allowed."
+    },
+    {
+      "check": "external_uploader_is_distinct_and_declares_csv_and_json",
+      "passed": true,
+      "detail": "application/streamlit,.csv,.json"
+    },
+    {
+      "check": "csv_accepted_by_external_uploader",
+      "passed": true,
+      "detail": "forecast_intervals_fixture.csv"
+    },
+    {
+      "check": "csv_parses_and_profiles",
+      "passed": true,
+      "detail": "rows=200"
+    },
+    {
+      "check": "json_parses_and_profiles",
+      "passed": true,
+      "detail": "rows=201"
+    },
+    {
+      "check": "unsupported_extension_rejected_honestly",
+      "passed": true,
+      "detail": "not_a_supported_table.txt"
+    },
+    {
+      "check": "malformed_json_rejected_honestly",
+      "passed": true,
+      "detail": "malformed_input.json"
+    },
+    {
+      "check": "empty_csv_rejected_honestly",
+      "passed": true,
+      "detail": "empty_input.csv"
     }
   ],
   "screenshots": [
@@ -55,6 +100,11 @@
     "e2e_02_preview_profile.png",
     "e2e_03_mapping_validated.png",
     "e2e_04_results_lineage_export.png",
-    "e2e_05_unavailable_stages.png"
+    "e2e_05_unavailable_stages.png",
+    "e2e_06_regression_sidebar_rejects_csv.png",
+    "e2e_07_regression_external_accepts_csv.png",
+    "e2e_08_json_upload_profile.png",
+    "e2e_09_unsupported_type_rejected.png",
+    "e2e_10_malformed_json_rejected.png"
   ]
 }

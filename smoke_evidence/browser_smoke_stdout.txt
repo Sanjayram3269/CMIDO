@@ -1,0 +1,8 @@
+[PASS] launch: dashboard reachable; title='CMIDO | Construction Decision Intelligence'; url='http://127.0.0.1:8502/'
+[PASS] navigation_scan: found 18 candidate nav targets
+[PASS] navigation_choice: selected 0 targets matching known dashboard labels
+[FAIL] provenance_wording: wording checks: {'has_provenance_title': True, 'has_integrity_title': True, 'reported_not_redone_present': False, 'no_sha256_recomputed_present': False, 'performed_at_load_present': False, 'not_performed_by_dashboard_present': False}
+[PASS] external_data_inspect: external data checks: {'has_external_title': True, 'has_upload_control': True, 'supported_analyses_listed': True, 'unavailable_analyses_listed': True}
+[PASS] external_upload: uploaded safe_external_forecast_coverage_input.csv
+[PASS] external_export: export affordance hint: True
+WROTE smoke_evidence\browser_smoke_run.json

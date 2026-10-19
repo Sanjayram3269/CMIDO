@@ -1,0 +1,43 @@
+{
+ "started_utc": "2026-10-19T05:42:20.445275+00:00",
+ "url": "http://127.0.0.1:8502/",
+ "steps": [
+  {
+   "step": "launch",
+   "status": "PASS",
+   "detail": "title='CMIDO | Construction Decision Intelligence' url='http://127.0.0.1:8502/'"
+  },
+  {
+   "step": "navigation_scan",
+   "status": "PASS",
+   "detail": "found 18 candidates"
+  },
+  {
+   "step": "navigation_choice",
+   "status": "PASS",
+   "detail": "selected 14/15 from 18 candidates; clean_keys=['3D Project Graph', 'Ablation & Robustness', 'Deploy', 'Experiments', 'External Data', 'Materials & Resources', 'Overview', 'Procurement Decisions', 'Provenance & Integrity', 'RO1 \u00b7 Forecasting', 'RO2 \u00b7 Uncertainty', 'RO3 \u00b7 Optimization', 'Real-World Data', 'Research Evidence', 'Resilience & Stress', 'Schedule & Critical Path', 'upload\\n\\nUpload', '\ufe0f Scenario Lab']"
+  },
+  {
+   "step": "navigation_choice",
+   "status": "FAIL",
+   "detail": "selected 0/15 from 18 candidates; clean_keys=['']"
+  },
+  {
+   "step": "navigation_coverage",
+   "status": "PASS",
+   "detail": "visited 0/0; failed/no-click: []"
+  },
+  {
+   "step": "provenance_nav",
+   "status": "BLOCKED",
+   "detail": "Provenance & Integrity not in nav candidates"
+  },
+  {
+   "step": "external_nav",
+   "status": "BLOCKED",
+   "detail": "External Data not in nav candidates"
+  }
+ ],
+ "nav_ok": [],
+ "nav_fail": []
+}

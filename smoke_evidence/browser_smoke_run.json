@@ -1,0 +1,145 @@
+{
+  "started_utc": "2026-10-18T22:52:32.575198+00:00",
+  "dashboard_url": "http://127.0.0.1:8502/",
+  "steps": [
+    {
+      "step": "launch",
+      "status": "PASS",
+      "detail": "dashboard reachable; title='CMIDO | Construction Decision Intelligence'; url='http://127.0.0.1:8502/'"
+    },
+    {
+      "step": "navigation_scan",
+      "status": "PASS",
+      "detail": "found 18 candidate nav targets"
+    },
+    {
+      "step": "navigation_choice",
+      "status": "PASS",
+      "detail": "selected 0 targets matching known dashboard labels"
+    },
+    {
+      "step": "provenance_wording",
+      "status": "FAIL",
+      "detail": "wording checks: {'has_provenance_title': True, 'has_integrity_title': True, 'reported_not_redone_present': False, 'no_sha256_recomputed_present': False, 'performed_at_load_present': False, 'not_performed_by_dashboard_present': False}"
+    },
+    {
+      "step": "external_data_inspect",
+      "status": "PASS",
+      "detail": "external data checks: {'has_external_title': True, 'has_upload_control': True, 'supported_analyses_listed': True, 'unavailable_analyses_listed': True}"
+    },
+    {
+      "step": "external_upload",
+      "status": "PASS",
+      "detail": "uploaded safe_external_forecast_coverage_input.csv"
+    },
+    {
+      "step": "external_export",
+      "status": "PASS",
+      "detail": "export affordance hint: True"
+    }
+  ],
+  "browser": {
+    "name": "chromium",
+    "headless": true,
+    "page_url_after_load": "http://127.0.0.1:8502/",
+    "title": "CMIDO | Construction Decision Intelligence"
+  },
+  "navigation_candidates": [
+    {
+      "text": "upload\n\nUpload",
+      "href": ""
+    },
+    {
+      "text": "🏗 Overview",
+      "href": ""
+    },
+    {
+      "text": "🌐 3D Project Graph",
+      "href": ""
+    },
+    {
+      "text": "📅 Schedule & Critical Path",
+      "href": ""
+    },
+    {
+      "text": "🧱 Materials & Resources",
+      "href": ""
+    },
+    {
+      "text": "📊 RO1 · Forecasting",
+      "href": ""
+    },
+    {
+      "text": "📊 RO2 · Uncertainty",
+      "href": ""
+    },
+    {
+      "text": "📊 RO3 · Optimization",
+      "href": ""
+    },
+    {
+      "text": "⚠️ Scenario Lab",
+      "href": ""
+    },
+    {
+      "text": "📊 Procurement Decisions",
+      "href": ""
+    },
+    {
+      "text": "📊 Resilience & Stress",
+      "href": ""
+    },
+    {
+      "text": "📊 Research Evidence",
+      "href": ""
+    },
+    {
+      "text": "🧪 Experiments",
+      "href": ""
+    },
+    {
+      "text": "📊 Real-World Data",
+      "href": ""
+    },
+    {
+      "text": "📊 Ablation & Robustness",
+      "href": ""
+    },
+    {
+      "text": "📊 Provenance & Integrity",
+      "href": ""
+    },
+    {
+      "text": "📦 External Data",
+      "href": ""
+    },
+    {
+      "text": "Deploy",
+      "href": ""
+    }
+  ],
+  "chosen_nav_targets": [],
+  "provenance_wording_checks": {
+    "has_provenance_title": true,
+    "has_integrity_title": true,
+    "reported_not_redone_present": false,
+    "no_sha256_recomputed_present": false,
+    "performed_at_load_present": false,
+    "not_performed_by_dashboard_present": false
+  },
+  "provenance_page_text_preview": "🎛️ Control Center\nCMIDO\n/\nControl Center\n\nLoad project JSON\n\nupload\n\nUpload\n\n200MB per file • JSON\nCORE\nProject orientation and structure\n\n🏗 Overview\n\n🌐 3D Project Graph\n\n📅 Schedule & Critical Path\n\n🧱 Materials & Resources\n\nRESEARCH\nControlled scenarios and evidence\n\n📊 RO1 · Forecasting\n\n📊 RO2 · Uncertainty\n\n📊 RO3 · Optimization\n\nDECISION\nDeterministic decision support\n\n⚠️ Scenario Lab\n\n📊 Procurement Decisions\n\n📊 Resilience & Stress\n\nEVIDENCE\nValidated repository research artifacts\n\n📊 Research Evidence\n\n🧪 Experiments\n\n📊 Real-World Data\n\n📊 Ablation & Robustness\n\n📊 Provenance & Integrity\n\n📦 External Data\n\n◆\nDER Derived\n\nThe UI calls the existing deterministic CMIDO engines. It visualizes results and executes controlled scenarios; it does not replace the research logic.\n\nDeploy\n\nCMIDO\n\nConstruction Material Intelligence & Decision Optimization\n\nCMIDO SHELL\nCore\nProject orientation and structure\nResearch\nControlled scenarios and evidence\nDecision\nDeterministic decision support\nEvidence\nValidated repository research artifacts\nCMIDO\n/\nCore\n/\nOverview\n\nOverview\n\nProject intelligence and decision context for the loaded project.\n\n◆\nDER Derived\n✓\n\nLoaded project\n\nResidential Building Demo\n\nCMIDO-DEMO-001 · Residential · Bengaluru · status planned · cmido_demo_project.json — bundled project file\n\nProject snapshot\n\nOrientation metrics computed by the existing CMIDO engines from the loaded project\n\n✓\nValidated\n◆\nDER Derived\n\nAbsent source values are omitted rather than shown as zero; input facts are marked OBS.\n\nPROJECT DURATION\n\n74 d\n\n✓\nValidated\n◆\nDER Derived\n\nBaseline CPM duration (deterministic)\n\nACTIVITIES\n\n11\n\n✓\nValidated\n◆\nDER Derived\n\n9 critical · 2 non-critical\n\nCRITICAL ACTIVITIES\n\n9\n\n✓\nValidated\n◆\nDER Derived\n\n9 of 11 activities on the critical path\n\nMATERIAL TYPES\n\n9\n\n✓\nValidated\n◆\nDER Derived\n\ntracked in quantity demand\n\nSUPPLIERS\n\n6\n\n✓\nValidated\n◉\nOBS Observed\n\nregistered in project inputs\n\nPROJECT STATUS\n\nplanned\n\n✓\nValidated\n◉\nOBS Observed\n\ndeclared in project in",
+  "provenance_page_text_full": "🎛️ Control Center\nCMIDO\n/\nControl Center\n\nLoad project JSON\n\nupload\n\nUpload\n\n200MB per file • JSON\nCORE\nProject orientation and structure\n\n🏗 Overview\n\n🌐 3D Project Graph\n\n📅 Schedule & Critical Path\n\n🧱 Materials & Resources\n\nRESEARCH\nControlled scenarios and evidence\n\n📊 RO1 · Forecasting\n\n📊 RO2 · Uncertainty\n\n📊 RO3 · Optimization\n\nDECISION\nDeterministic decision support\n\n⚠️ Scenario Lab\n\n📊 Procurement Decisions\n\n📊 Resilience & Stress\n\nEVIDENCE\nValidated repository research artifacts\n\n📊 Research Evidence\n\n🧪 Experiments\n\n📊 Real-World Data\n\n📊 Ablation & Robustness\n\n📊 Provenance & Integrity\n\n📦 External Data\n\n◆\nDER Derived\n\nThe UI calls the existing deterministic CMIDO engines. It visualizes results and executes controlled scenarios; it does not replace the research logic.\n\nDeploy\n\nCMIDO\n\nConstruction Material Intelligence & Decision Optimization\n\nCMIDO SHELL\nCore\nProject orientation and structure\nResearch\nControlled scenarios and evidence\nDecision\nDeterministic decision support\nEvidence\nValidated repository research artifacts\nCMIDO\n/\nCore\n/\nOverview\n\nOverview\n\nProject intelligence and decision context for the loaded project.\n\n◆\nDER Derived\n✓\n\nLoaded project\n\nResidential Building Demo\n\nCMIDO-DEMO-001 · Residential · Bengaluru · status planned · cmido_demo_project.json — bundled project file\n\nProject snapshot\n\nOrientation metrics computed by the existing CMIDO engines from the loaded project\n\n✓\nValidated\n◆\nDER Derived\n\nAbsent source values are omitted rather than shown as zero; input facts are marked OBS.\n\nPROJECT DURATION\n\n74 d\n\n✓\nValidated\n◆\nDER Derived\n\nBaseline CPM duration (deterministic)\n\nACTIVITIES\n\n11\n\n✓\nValidated\n◆\nDER Derived\n\n9 critical · 2 non-critical\n\nCRITICAL ACTIVITIES\n\n9\n\n✓\nValidated\n◆\nDER Derived\n\n9 of 11 activities on the critical path\n\nMATERIAL TYPES\n\n9\n\n✓\nValidated\n◆\nDER Derived\n\ntracked in quantity demand\n\nSUPPLIERS\n\n6\n\n✓\nValidated\n◉\nOBS Observed\n\nregistered in project inputs\n\nPROJECT STATUS\n\nplanned\n\n✓\nValidated\n◉\nOBS Observed\n\ndeclared in project inputs\n\nProject context\n\nDeclared inputs, provenance and horizon of the project being analysed\n\n◉\nOBS Observed\n\nInput facts are read from the project JSON; the planned horizon is derived from the declared dates.\n\nProject input context\n\nWhat is being analysed right now\n\n◉\nOBS Observed\n\nDeclared project inputs (OBS) plus one derived horizon (DER).\n\nSchedule intelligence\n\nCritical path method output for the loaded project\n\n✓\nValidated\n◆\nDER Derived\n\nDeterministic CPM from the existing scheduling engine: early start/finish and total float are engine outputs, never recomputed in the UI.\n\nActivity schedule structure\n\nDuration, early timing, total float and criticality\n\n◆\nDER Derived\n\n11 activities · critical path length 9\n\nSchedule progression & critical path\n\nHorizontal bars show when each activity is scheduled. Bars span early start to early finish; the dashed line marks the baseline duration.\n\n◆\nDER Derived\n\nDeterministic CPM output — provenance DER.\n\n0\n10\n20\n30\n40\n50\n60\n70\nA011 · Final Finishing\nA010 · Painting\nA009 · Flooring\nA008 · Plastering\nA007 · Brickwork\nA006 · Slab\nA005 · MEP Rough-in\nA004 · Columns\nA003 · Foundation\nA002 · Excavation\nA001 · Site Preparation\nCritical\nNon-critical\nProject day (early schedule)\nbaseline 74 d\n✓\n\nDeterministic critical path\n\nCritical path: A001 → A002 → A003 → A004 → A006 → A007 → A008 → A009 → A011\n\nProject intelligence graph\n\nDependency network with critical-path highlighting — the structural intelligence view of this project\n\n✓\nValidated\n◆\nDER Derived\n\nExisting dependency-layout view: graph calculations and semantics are unchanged by this page.\n\n3D project dependency graph\n\nRotate, zoom and hover. Diamonds identify critical-path activities; edges are project dependencies.\n\n◆\nDER Derived\n\nDeterministic CPM output — provenance DER.\n\nDependencies\nActivities\n\nMaterial & resource intelligence\n\nQuantity demand from the loaded project and the current feasibility context\n\n◆\nDER Derived\n\nDemand is aggregated from activity-material links by the existing quantity engine; feasibility needs availability inputs supplied on Materials & Resources.\n\nMaterial demand summary\n\nTotal required quantity per material type\n\n◆\nDER Derived\n\n9 material types aggregated from activity-material links.\n\nResource feasibility not evaluated\nResource feasibility needs availability quantities, which are user inputs collected on Materials & Resources — not values this page can derive. Material demand, supplier registrations, schedule and evidence context above remain available.\nOpen Materials & Resources, set availability, and the feasibility engine reports shortage states there.\n○\nOptional - not available\n\nDecision & analytical pipeline\n\nRoute from project data to decision intelligence in this application\n\nShows the pipeline shape, not completion: research workspaces RO1–RO3 are planned (Phases 10A.7–10A.9) and are not presented as complete.\n\nCMIDO analytical pipeline\n\nProject Data\nValidation\nQuantity / Demand\nCPM Schedule\nResource / Procurement Feasibility\nScenario / Impact Analysis\nResearch Evidence\nDecision Intelligence\n\nEvidence & data status\n\nWhat evidence this application can actually show right now\n\nArtifact counts come from the cached 10A.2-B snapshot; planned workspaces are read from the 10A.4 page registry.\n\nEvidence readiness\n\n⚠\nPartial evidence\n\n43 of 45 registered artifacts available · 0 missing · 0 invalid.\n\nProject data\nValidated\nDashboard snapshot\nValidated\nResearch evidence artifacts (43 of 45 available)\nPartial evidence\nReal-world data workspace\nValidated\nRO1/RO2/RO3 workspaces\nValidated\n\nProject status\n\nDeterministic state, evidence availability and research-stage availability reported separately\n\nThese three layers are never collapsed into one verdict.\n\n✓\n\nDeterministic project state\n\nBaseline analyzed: 74 d project duration · 9 of 11 activities on the critical path. Resource feasibility is reported separately and is not evaluated on Overview.\n\nStatus board\n\n⚠\nPartial evidence\n\nRows report each layer separately; planned or input-dependent layers are labelled, not scored.\n\nDeterministic schedule analysis\nValidated\nResource feasibility (availability inputs)\nOptional - not available\nResearch evidence artifacts\nPartial evidence\nRO1/RO2/RO3 research workspaces\nOptional - not available\nCMIDO - Construction Material Intelligence & Decision Optimization. Schedule, resource, procurement, uncertainty and research-evidence analysis.",
+  "external_data_checks": {
+    "has_external_title": true,
+    "has_upload_control": true,
+    "supported_analyses_listed": true,
+    "unavailable_analyses_listed": true
+  },
+  "external_data_text_preview": "🎛️ Control Center\nCMIDO\n/\nControl Center\n\nLoad project JSON\n\nupload\n\nUpload\n\n200MB per file • JSON\nCORE\nProject orientation and structure\n\n🏗 Overview\n\n🌐 3D Project Graph\n\n📅 Schedule & Critical Path\n\n🧱 Materials & Resources\n\nRESEARCH\nControlled scenarios and evidence\n\n📊 RO1 · Forecasting\n\n📊 RO2 · Uncertainty\n\n📊 RO3 · Optimization\n\nDECISION\nDeterministic decision support\n\n⚠️ Scenario Lab\n\n📊 Procurement Decisions\n\n📊 Resilience & Stress\n\nEVIDENCE\nValidated repository research artifacts\n\n📊 Research Evidence\n\n🧪 Experiments\n\n📊 Real-World Data\n\n📊 Ablation & Robustness\n\n📊 Provenance & Integrity\n\n📦 External Data\n\n◆\nDER Derived\n\nThe UI calls the existing deterministic CMIDO engines. It visualizes results and executes controlled scenarios; it does not replace the research logic.\n\nDeploy\n\nCMIDO\n\nConstruction Material Intelligence & Decision Optimization\n\nCMIDO SHELL\nCore\nProject orientation and structure\nResearch\nControlled scenarios and evidence\nDecision\nDeterministic decision support\nEvidence\nValidated repository research artifacts\nCMIDO\n/\nCore\n/\nOverview\n\nOverview\n\nProject intelligence and decision context for the loaded project.\n\n◆\nDER Derived\n✓\n\nLoaded project\n\nResidential Building Demo\n\nCMIDO-DEMO-001 · Residential · Bengaluru · status planned · cmido_demo_project.json — bundled project file\n\nProject snapshot\n\nOrientation metrics computed by the existing CMIDO engines from the loaded project\n\n✓\nValidated\n◆\nDER Derived\n\nAbsent source values are omitted rather than shown as zero; input facts are marked OBS.\n\nPROJECT DURATION\n\n74 d\n\n✓\nValidated\n◆\nDER Derived\n\nBaseline CPM duration (deterministic)\n\nACTIVITIES\n\n11\n\n✓\nValidated\n◆\nDER Derived\n\n9 critical · 2 non-critical\n\nCRITICAL ACTIVITIES\n\n9\n\n✓\nValidated\n◆\nDER Derived\n\n9 of 11 activities on the critical path\n\nMATERIAL TYPES\n\n9\n\n✓\nValidated\n◆\nDER Derived\n\ntracked in quantity demand\n\nSUPPLIERS\n\n6\n\n✓\nValidated\n◉\nOBS Observed\n\nregistered in project inputs\n\nPROJECT STATUS\n\nplanned\n\n✓\nValidated\n◉\nOBS Observed\n\ndeclared in project in",
+  "external_upload_done": true,
+  "external_uploaded_file": "safe_external_forecast_coverage_input.csv",
+  "external_run_done": false,
+  "external_post_text_preview": "🎛️ Control Center\nCMIDO\n/\nControl Center\n\nLoad project JSON\n\nsafe_ex..._input.csv\n182.0B\nError: text/csv files are not allowed.\nadd\nCORE\nProject orientation and structure\n\n🏗 Overview\n\n🌐 3D Project Graph\n\n📅 Schedule & Critical Path\n\n🧱 Materials & Resources\n\nRESEARCH\nControlled scenarios and evidence\n\n📊 RO1 · Forecasting\n\n📊 RO2 · Uncertainty\n\n📊 RO3 · Optimization\n\nDECISION\nDeterministic decision support\n\n⚠️ Scenario Lab\n\n📊 Procurement Decisions\n\n📊 Resilience & Stress\n\nEVIDENCE\nValidated repository research artifacts\n\n📊 Research Evidence\n\n🧪 Experiments\n\n📊 Real-World Data\n\n📊 Ablation & Robustness\n\n📊 Provenance & Integrity\n\n📦 External Data\n\n◆\nDER Derived\n\nThe UI calls the existing deterministic CMIDO engines. It visualizes results and executes controlled scenarios; it does not replace the research logic.\n\nDeploy\n\nCMIDO\n\nConstruction Material Intelligence & Decision Optimization\n\nCMIDO SHELL\nCore\nProject orientation and structure\nResearch\nControlled scenarios and evidence\nDecision\nDeterministic decision support\nEvidence\nValidated repository research artifacts\nCMIDO\n/\nCore\n/\nOverview\n\nOverview\n\nProject intelligence and decision context for the loaded project.\n\n◆\nDER Derived\n✓\n\nLoaded project\n\nResidential Building Demo\n\nCMIDO-DEMO-001 · Residential · Bengaluru · status planned · cmido_demo_project.json — bundled project file\n\nProject snapshot\n\nOrientation metrics computed by the existing CMIDO engines from the loaded project\n\n✓\nValidated\n◆\nDER Derived\n\nAbsent source values are omitted rather than shown as zero; input facts are marked OBS.\n\nPROJECT DURATION\n\n74 d\n\n✓\nValidated\n◆\nDER Derived\n\nBaseline CPM duration (deterministic)\n\nACTIVITIES\n\n11\n\n✓\nValidated\n◆\nDER Derived\n\n9 critical · 2 non-critical\n\nCRITICAL ACTIVITIES\n\n9\n\n✓\nValidated\n◆\nDER Derived\n\n9 of 11 activities on the critical path\n\nMATERIAL TYPES\n\n9\n\n✓\nValidated\n◆\nDER Derived\n\ntracked in quantity demand\n\nSUPPLIERS\n\n6\n\n✓\nValidated\n◉\nOBS Observed\n\nregistered in project inputs\n\nPROJECT STATUS\n\nplanned\n\n✓\nValidated\n◉\nOBS",
+  "external_export_hint": true,
+  "finished_utc": "2026-10-18T22:52:41.199711+00:00"
+}

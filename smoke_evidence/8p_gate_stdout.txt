@@ -1,0 +1,28 @@
+==============================================================================
+CMIDO 8P — REAL-DATA DASHBOARD E2E GATE
+==============================================================================
+[PASS] dashboard_exists — D:\CMIDO\apps\cmido_dashboard.py
+[PASS] dashboard_guide_exists — D:\CMIDO\docs\dashboard_8L.md
+[PASS] ro1_source_exists — D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_validation_forecasts.csv
+[PASS] ro2_source_exists — D:\CMIDO\results\RO2\data_audit\RO2_step27b4_admissible_modelling_view.csv
+[PASS] ro3_source_exists — D:\CMIDO\results\RO3\scenario_generation\RO3_step32_scenarios_2500.csv
+[PASS] ablation_source_exists — D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_origin_level_results.csv
+[PASS] dashboard_contains_file_uploader
+[PASS] dashboard_contains_run_real_dataset_experiment
+[PASS] dashboard_contains_experimentconfig(
+[PASS] dashboard_contains_experiment_id=cmido_dashboard_run
+[PASS] dashboard_contains_name=cmido_dashboard_experiment
+[PASS] dashboard_contains_deterministic_cmido_scenarios
+[PASS] dashboard_contains_execute_experiment
+[PASS] dashboard_contains_research_evidence
+[PASS] dashboard_contains_mean_project_delay_confidence_interval
+[PASS] dashboard_contains_95%_bootstrap_ci
+[PASS] ro1_forecast_contract
+[PASS] ro2_modelling_contract
+[PASS] ro3_scenario_contract
+[PASS] ablation_controller_contract
+==============================================================================
+STATUS: PASS (20/20)
+INTERACTIVE SMOKE: required
+OUTPUT: D:\CMIDO\results\8P_dashboard_e2e
+==============================================================================

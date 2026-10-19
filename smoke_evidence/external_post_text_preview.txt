@@ -1,0 +1,169 @@
+ Control Center
+CMIDO
+/
+Control Center
+
+Load project JSON
+
+safe_ex..._input.csv
+182.0B
+Error: text/csv files are not allowed.
+add
+CORE
+Project orientation and structure
+
+ Overview
+
+ 3D Project Graph
+
+ Schedule & Critical Path
+
+ Materials & Resources
+
+RESEARCH
+Controlled scenarios and evidence
+
+ RO1  Forecasting
+
+ RO2  Uncertainty
+
+ RO3  Optimization
+
+DECISION
+Deterministic decision support
+
+ Scenario Lab
+
+ Procurement Decisions
+
+ Resilience & Stress
+
+EVIDENCE
+Validated repository research artifacts
+
+ Research Evidence
+
+ Experiments
+
+ Real-World Data
+
+ Ablation & Robustness
+
+ Provenance & Integrity
+
+ External Data
+
+
+DER Derived
+
+The UI calls the existing deterministic CMIDO engines. It visualizes results and executes controlled scenarios; it does not replace the research logic.
+
+Deploy
+
+CMIDO
+
+Construction Material Intelligence & Decision Optimization
+
+CMIDO SHELL
+Core
+Project orientation and structure
+Research
+Controlled scenarios and evidence
+Decision
+Deterministic decision support
+Evidence
+Validated repository research artifacts
+CMIDO
+/
+Core
+/
+Overview
+
+Overview
+
+Project intelligence and decision context for the loaded project.
+
+
+DER Derived
+
+
+Loaded project
+
+Residential Building Demo
+
+CMIDO-DEMO-001  Residential  Bengaluru  status planned  cmido_demo_project.json  bundled project file
+
+Project snapshot
+
+Orientation metrics computed by the existing CMIDO engines from the loaded project
+
+
+Validated
+
+DER Derived
+
+Absent source values are omitted rather than shown as zero; input facts are marked OBS.
+
+PROJECT DURATION
+
+74 d
+
+
+Validated
+
+DER Derived
+
+Baseline CPM duration (deterministic)
+
+ACTIVITIES
+
+11
+
+
+Validated
+
+DER Derived
+
+9 critical  2 non-critical
+
+CRITICAL ACTIVITIES
+
+9
+
+
+Validated
+
+DER Derived
+
+9 of 11 activities on the critical path
+
+MATERIAL TYPES
+
+9
+
+
+Validated
+
+DER Derived
+
+tracked in quantity demand
+
+SUPPLIERS
+
+6
+
+
+Validated
+
+OBS Observed
+
+registered in project inputs
+
+PROJECT STATUS
+
+planned
+
+
+Validated
+
+OBS

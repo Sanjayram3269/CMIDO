@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-10-18T22:44:35.442750+00:00",
+  "dashboard_url": "http://127.0.0.1:8502/",
+  "python": "3.12.10",
+  "streamlit": "1.65.0",
+  "browser_automation": "playwright chromium (headless)",
+  "fixture_used": "smoke_evidence\\safe_external_demo_deterministic_input.csv",
+  "fixture_desc": "small synthetic External Data CSV used only to exercise upload + one supported deterministic analysis; not evidence, not canonical.",
+  "actions": [
+    "open landing/overview",
+    "navigate to each available destination via UI",
+    "verify RO1/RO2/RO3 page labels and sections",
+    "open Provenance & Integrity and read corrected wording",
+    "open External Data, inspect upload + supported/unavailable analyses",
+    "upload safe_external_demo_deterministic_input.csv",
+    "run one supported analysis",
+    "verify result corresponds to the persisted run record",
+    "verify export affordance present",
+    "capture screenshots for key paths and any failure"
+  ],
+  "note": "This manifest records intent and preconditions only. Actual observed HTTP state, screenshots and errors are recorded separately."
+}

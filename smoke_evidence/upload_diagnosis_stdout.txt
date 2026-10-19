@@ -1,0 +1,160 @@
+[INFO] wait_file_input: no file input appeared: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("input[type=\"file\"]") to be visible
+    42 × locator resolved to hidden <input type="file" tabindex="-1" aria-label="file upload" accept="application/streamlit,.json" data-testid="stFileUploaderDropzoneInput"/>
+
+[PASS] launch: url='http://127.0.0.1:8502/' title='CMIDO | Construction Decision Intelligence'
+[PASS] inventory_initial: [
+ {
+  "index": 0,
+  "label": "Load project JSON",
+  "accept": "application/streamlit,.json",
+  "in_sidebar": true,
+  "in_main": false,
+  "chain": [
+   {
+    "tag": "input",
+    "tid": "stFileUploaderDropzoneInput",
+    "role": ""
+   },
+   {
+    "tag": "section",
+    "tid": "stFileUploaderDropzone",
+    "role": "presentation"
+   },
+   {
+    "tag": "div",
+    "tid": "stFileUploader",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stElementContainer",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stVerticalBlock",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stSidebarUserContent",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stSidebarContent",
+    "role": ""
+   }
+  ]
+ }
+]
+[INFO] sidebar_csv_upload: {
+ "file": "safe_external_demo_deterministic_input.csv",
+ "body_contains_not_allowed": true,
+ "error_excerpt": "\ud83c\udf9b\ufe0f Control Center\nCMIDO\n/\nControl Center\n\nLoad project JSON\n\nsafe_ex..._input.csv\n133.0B\nError: text/csv files are not allowed.\nadd\nCORE\nProject orientation and structure\n",
+ "has_first_rows": false,
+ "has_column_profile": false,
+ "has_preview_rows_heading": false
+}
+[PASS] navigate_external: url='http://127.0.0.1:8502/'
+[PASS] inventory_external: [
+ {
+  "index": 0,
+  "label": "Load project JSON",
+  "accept": "application/streamlit,.json",
+  "in_sidebar": true,
+  "in_main": false,
+  "chain": [
+   {
+    "tag": "input",
+    "tid": "stFileUploaderDropzoneInput",
+    "role": ""
+   },
+   {
+    "tag": "section",
+    "tid": "stFileUploaderDropzone",
+    "role": "presentation"
+   },
+   {
+    "tag": "div",
+    "tid": "stFileUploader",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stElementContainer",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stVerticalBlock",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stSidebarUserContent",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stSidebarContent",
+    "role": ""
+   }
+  ]
+ },
+ {
+  "index": 1,
+  "label": "Choose a CSV or JSON file",
+  "accept": "application/streamlit,.csv,.json",
+  "in_sidebar": false,
+  "in_main": true,
+  "chain": [
+   {
+    "tag": "input",
+    "tid": "stFileUploaderDropzoneInput",
+    "role": ""
+   },
+   {
+    "tag": "section",
+    "tid": "stFileUploaderDropzone",
+    "role": "presentation"
+   },
+   {
+    "tag": "div",
+    "tid": "stFileUploader",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stElementContainer",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stVerticalBlock",
+    "role": ""
+   },
+   {
+    "tag": "div",
+    "tid": "stMainBlockContainer",
+    "role": ""
+   },
+   {
+    "tag": "section",
+    "tid": "stMain",
+    "role": ""
+   }
+  ]
+ }
+]
+[INFO] external_region: regions matching label = 1
+[PASS] external_csv_upload: {
+ "file": "safe_external_demo_deterministic_input.csv",
+ "body_contains_not_allowed": false,
+ "error_excerpt": "",
+ "has_first_rows": true,
+ "has_column_profile": true,
+ "has_preview_rows_heading": true
+}

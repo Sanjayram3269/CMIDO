@@ -294,10 +294,10 @@ def _render_exports(result: WorkflowResult) -> None:
     analysis = result.analysis or {}
     rows = analysis.get("rows")
     if rows:
-        csv_text = pd.DataFrame(rows).to_csv(index=False)
+        csv_text = pd.DataFrame(rows).to_csv(index=False, lineterminator="\n")
     else:
         flat = {k: v for k, v in analysis.items() if not isinstance(v, (list, dict))}
-        csv_text = pd.DataFrame([flat]).to_csv(index=False)
+        csv_text = pd.DataFrame([flat]).to_csv(index=False, lineterminator="\n")
     cols[2].download_button(
         "Result table (CSV)", csv_text,
         file_name=f"{record.run_id}_result.csv", mime="text/csv",

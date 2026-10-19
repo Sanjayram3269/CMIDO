@@ -1,0 +1,4 @@
+month_index,material_code,forecast_demand_units,lead_time_months,unit_cost
+1,MAT-A,120,2,4.5
+2,MAT-A,140,2,4.6
+3,MAT-A,135,2,4.7

@@ -1,0 +1,454 @@
+CMIDO
+
+Construction Material Intelligence & Decision Optimization
+
+CMIDO SHELL
+Core
+Project orientation and structure
+Research
+Controlled scenarios and evidence
+Decision
+Deterministic decision support
+Evidence
+Validated repository research artifacts
+CMIDO
+/
+Evidence
+/
+Provenance & Integrity
+
+Provenance & Integrity
+
+Registered artifact provenance classes, recorded fingerprints and integrity checks, loading policies and known evidence gaps.
+
+E
+Evidence
+◉
+OBS Observed
+E
+Evidence
+
+Provenance and integrity evidence
+
+What every registered artifact is, which recorded fingerprints and integrity checks support it, and which gaps remain.
+
+⚠
+Partial evidence
+?
+Provenance n/a
+●
+Point estimate
+
+Registry-driven (10A.2-B). Rows come from provenance records the loader and validator produced, from metadata recorded inside registered artifacts, and from one disclosed existence-only check for known-unregistered files. Nothing is recomputed.
+
+REGISTERED ARTIFACTS
+
+45
+
+✓
+Validated
+
+Entries in the 10A.2-B artifact registry.
+
+AVAILABLE
+
+43
+
+✓
+Validated
+
+Present, parsed and schema-validated at load time.
+
+MISSING OR INVALID
+
+0
+
+✓
+Validated
+
+Recorded by the loader as missing or failing its schema contract.
+
+BLOCKED FROM LOADING
+
+2
+
+✓
+Validated
+
+Raw scenario ledgers refused by policy before any read.
+
+WHAT THIS PAGE ANSWERS
+
+['- Which evidence artifacts exist and which of them are registered in the', '  dashboard contract, with recorded status and schema outcomes.', '- Which provenance class each artifact carries — observed, derived,', '  estimated or scenario — exactly as the registry recorded it.', '- Which SHA-256 fingerprints and integrity checks are recorded, and what', '  each of them does and does not establish.', '- Which lineage is documented, which metadata is missing, and which files', '  are unregistered or otherwise unverifiable through this dashboard.', '- Which loading restrictions protect the dashboard from unsafe or', '  excessively large inputs.']
+
+PROVENANCE CLASSES, AS RECORDED
+
+- OBS — Observed — recorded directly from a source dataset or file.
+- DER — Derived — deterministic transformation of registered inputs.
+- EST — Estimated — statistical estimate computed from data.
+- SCN — Scenario — generated under controlled scenario assumptions.
+Classes are read from registry records only. No class is assigned here,
+and no artifact is reclassified to make the inventory look complete.
+
+FIVE DIFFERENT CONCEPTS, KEPT APART
+
+- File integrity: whether a file's bytes still match a recorded digest. Only a digest comparison establishes this, and this dashboard performs none.
+- Schema validity: whether content matches the registered column or key contract. The dashboard performs this check when it loads an artifact.
+- Reproducibility: whether the same result can be regenerated from documented inputs and steps. Recorded only where a source and generation script are documented; absent elsewhere.
+- Statistical significance: a property of a statistical test recorded by a research artifact. Reported only where an artifact recorded a test.
+- Scientific validity: whether method, data and conclusions are sound. Nothing on this page establishes it.
+
+E
+Evidence
+
+Registered artifact inventory
+
+Every registry entry with its recorded provenance class, loading policy, load status and schema outcome.
+
+⚠
+Partial evidence
+?
+Provenance n/a
+●
+Point estimate
+
+One row per registry entry, joined to the provenance record the loader produced. An artifact without a record reads MISSING.
+
+Registered artifacts and their recorded outcomes
+
+E
+Evidence
+
+Source: 10A.2-B artifact registry and provenance records
+
+⚠
+
+RO3_SCENARIOS_2500_RAW - Too large to display
+
+RAW scenario ledger ~161 MB. NEVER auto-load in dashboard.
+
+The loader refuses experiment-scale ledgers; use the published summaries instead.
+
+E
+Evidence
+◇
+SCN Scenario
+⚠
+
+RO3_SCENARIOS_5000_RAW - Too large to display
+
+RAW scenario ledger ~323 MB. NEVER auto-load in dashboard.
+
+The loader refuses experiment-scale ledgers; use the published summaries instead.
+
+E
+Evidence
+◇
+SCN Scenario
+
+RECORDED STATUS SUMMARY
+
+AVAILABLE 43, TOO LARGE 2
+
+E
+Evidence
+
+Recorded fingerprints
+
+SHA-256 digests recorded inside registered artifacts, shown as recorded — never recomputed here.
+
+✓
+Available
+?
+Provenance n/a
+●
+Point estimate
+
+Digests are read from the 8M gate manifest and the 9A and 9B audit artifacts. This page performs no hashing of its own.
+
+WHAT A FINGERPRINT ESTABLISHES, AND WHAT IT DOES NOT
+
+['- A recorded SHA-256 fingerprint establishes file identity relative to the', '  digest that was recorded at the time it was written.', '- It does not independently establish scientific validity, correct', '  methodology, reproducibility or authenticity, and it is not evidence', "  that the file's current bytes still match — this dashboard never", '  recomputes a digest to check.', '- A fingerprint recorded inside a manifest is also not registration: it', '  records that a source file was digested, not that the dashboard may', '  load or display it.', '- Recorded source paths behind these digests are suppressed; only the', '  digest and its coverage are shown.']
+
+Observed-source and ingestion fingerprints
+
+PSLIB and 9A fixture digests, recorded by their own audits.
+
+E
+Evidence
+
+Source: 9B PSLIB audit and 9A ingestion audit
+
+SUCCESS table fingerprints
+
+Per-table digests recorded by the SUCCESS logistics audit. This stream is presented separately from PSLIB and is never joined with it.
+
+E
+Evidence
+
+Source: 9B SUCCESS logistics audit
+
+8M gate source fingerprints
+
+Sources digested by the ablation evidence gate, with their live registration state computed against the registry.
+
+E
+Evidence
+
+Source: 8M ablation evidence gate manifest
+
+E
+Evidence
+
+Recorded integrity checks
+
+Outcomes written by research gates and audits, reported exactly as those artifacts recorded them.
+
+✓
+Available
+?
+Provenance n/a
+●
+Point estimate
+
+Each row reads recorded counters or recorded status values from a registered artifact. The dashboard does not re-run any of these checks.
+
+Integrity outcomes, as recorded
+
+E
+Evidence
+
+Source: Registered gate manifests and audit artifacts
+
+REPORTED, NOT REDONE,
+
+Every figure above was written by the artifact named in its row. This
+page copies those recorded outcomes; it does not re-execute a gate,
+re-verify a check or promote an unperformed check to passed.
+Artifacts that are missing or invalid in this snapshot would appear as
+unavailable above — never as zero and never as a pass.
+
+E
+Evidence
+
+Checks performed by this dashboard
+
+What the loading pipeline actually verifies itself, and what it deliberately does not.
+
+✓
+Available
+?
+Provenance n/a
+●
+Point estimate
+
+These checks run at snapshot build time over registered artifacts only. They are separate from the recorded checks reported above.
+
+PERFORMED AT LOAD TIME
+
+- File presence — every registered artifact path is checked against the repository when the snapshot is built.
+- Size cap — byte size is compared against the artifact's registered safety limit before any content is read.
+- Content parse — registered CSV, JSON and text content is parsed under the artifact's loading policy.
+- Column contract — expected columns are compared against the parsed table; a mismatch is recorded as invalid, never silently dropped.
+- Policy enforcement — artifacts registered as blocked are refused before any read is attempted.
+- Existence-only disclosure — for the unregistered files listed below, this page checks whether the file is present. It reads no content.
+
+NOT PERFORMED BY THIS DASHBOARD
+
+- No SHA-256 digest is recomputed. Recorded fingerprints are displayed as recorded, never re-derived and never compared against current file bytes.
+- No recorded gate, audit or reconciliation is redone. Their outcomes are reported as those artifacts recorded them.
+- No recorded statistical test is recomputed and no p-value, interval or effect size is recalculated.
+- No authorship, collection condition, software version or methodological claim is independently verified.
+- No research result is recomputed, rescored or replaced anywhere on this page.
+
+E
+Evidence
+
+Loading policy and size restrictions
+
+Which artifacts the dashboard may read, under which limits, and which files it refuses before any read.
+
+✓
+Available
+?
+Provenance n/a
+●
+Point estimate
+
+Policy is static registry metadata; the blocked states below come from the loader's recorded refusal.
+
+Loading policies in force
+
+E
+Evidence
+
+Source: 10A.2-B artifact registry
+
+⚠
+
+RO3_SCENARIOS_2500_RAW - Too large to display
+
+RAW scenario ledger ~161 MB. NEVER auto-load in dashboard.
+
+The loader refuses experiment-scale ledgers; use the published summaries instead.
+
+E
+Evidence
+◇
+SCN Scenario
+⚠
+
+RO3_SCENARIOS_5000_RAW - Too large to display
+
+RAW scenario ledger ~323 MB. NEVER auto-load in dashboard.
+
+The loader refuses experiment-scale ledgers; use the published summaries instead.
+
+E
+Evidence
+◇
+SCN Scenario
+
+HOW THE BLOCK IS ENFORCED
+
+['- Raw experiment-scale scenario ledgers are registered with the blocked', '  policy: the loader refuses them before opening the file, so their bytes', '  are never read into memory and their rows are never displayed.', '- The size cap is applied to every other artifact before content is read; a', '  file above its cap is recorded as too large rather than loaded.', '- No page, including this one, may weaken a policy to populate a panel.', '  A blocked artifact appears above as blocked, not as missing evidence.']
+
+E
+Evidence
+
+Documented lineage
+
+Where a source and a documented transformation are recorded, and where the chain stops.
+
+✓
+Available
+?
+Provenance n/a
+●
+Point estimate
+
+Lineage rows are read from the 8Q publication manifest and the 9A and 9B schema-version fields. No transformation is replayed.
+
+Publication table lineage (recorded by the 8Q manifest)
+
+Each publication table with its recorded source artifact, source digest and generation script. Script paths are not displayed.
+
+E
+Evidence
+
+Source: 8Q publication artifact manifest
+
+Recorded schema versions and citations
+
+E
+Evidence
+
+Source: 9A and 9B audit artifacts
+
+WHERE THE DOCUMENTED CHAIN STOPS
+
+['- Publication tables record a source artifact, a source digest and a', '  generation script — documented lineage for those tables only.', '- The step-36 execution-level sources are digested by the 8M gate manifest,', '  but those files are unregistered, so their contents and execution', '  context cannot be inspected through this dashboard.', '- No registered artifact records software versions, environment capture,', '  authorship or creation timestamps. Those fields are undocumented and', '  are shown as unavailable — never filled in.', '- Where a transformation chain is not recorded, this page claims no', '  lineage for it.']
+
+E
+Evidence
+
+Known evidence gaps
+
+Unregistered files, missing metadata and recorded limitations — surfaced rather than omitted.
+
+⚠
+Partial evidence
+?
+Provenance n/a
+●
+Point estimate
+
+Unregistered-file presence is an existence-only check performed by this page (no content is read); registration is computed against the live registry. Everything else is reported from recorded artifacts or recorded documentation.
+
+Present in the repository but not registered
+
+Files that exist on disk yet carry no registry entry, so no provenance record, schema check or size cap applies to them here.
+
+E
+Evidence
+
+Source: Registry comparison and existence-only check performed by this page
+
+WHAT THIS TABLE DOES AND DOES NOT SHOW
+
+['- Presence was verified by an existence check performed by this page; the', '  contents of these files were not opened, parsed or displayed.', '- Registration was computed against the current registry, not assumed from', '  documentation: a recorded fingerprint or a prior-phase inventory entry', '  does not register a file.', '- The Phase 10A.10 decision-level inventory names five decision-level', '  artifacts as registered; the current registry contains no entry for', '  them, so a live snapshot carries no provenance record for that content.', '- The 9A repository inventory and 9A audit table, the canonical PSLIB', '  project and the 9B experiment output remain outside the contract, as', '  recorded by the Phase 10A.11 documentation.']
+
+MISSING METADATA, PRESERVED AS MISSING
+
+- The PSLIB and SUCCESS audits record no collection or creation dates, so no
+  date is shown for either stream — the field reads undocumented.
+- No registered artifact records authorship, software versions, source URLs
+  or experimental conditions for the digests above.
+- Schema versions and dataset citations appear only where an audit
+  recorded them (see the recorded versions table).
+- Nothing in this section is inferred, estimated or back-filled to make the
+  provenance record look complete.
+
+SEPARATION AND RECORDED LIMITS
+
+- PSLIB and SUCCESS remain separate observed streams: they are digested by
+  separate audits, rendered in separate tables and never joined. This page
+  asserts no cross-dataset relationship.
+- Observed travel times are never read as supplier-specific procurement
+  lead times anywhere in this evidence.
+- The recorded RO3 scenario-count convergence result below is reproduced as
+  recorded; no dashboard change resolves this research-side issue.
+
+RECORDED RO3 CONVERGENCE (REPORTED AS RECORDED)
+
+Scenario sizes evaluated: 100, 250, 500, 1000, 2500, 5000.
+Recorded primary transition: 500 to 1000.
+Primary transition passed its threshold: No.
+Failed comparisons at the primary transition: 142.
+Maximum relative change at the primary transition: 17.65%.
+Maximum relative change over the later transitions: 12.06%.
+Recorded decision: RO3 3 EVALUATE 2500.
+Optimisation-level convergence recorded as still required at a later stage: Yes.
+Reported exactly as recorded. The primary scenario-count transition did not clear its threshold; the recorded decision proceeded at the evaluated scenario count and the artifact records optimisation-level convergence as a later requirement. This constrains how strongly the optimisation results may be generalised beyond the evaluated count.
+
+E
+Evidence
+
+How to read this evidence
+
+The rules that keep recorded facts, dashboard checks and claims apart.
+
+✓
+Available
+?
+Provenance n/a
+●
+Point estimate
+
+Interpretation only; no artifact is read or recomputed in this section.
+
+READING RULES
+
+['- Recorded checks were written by research gates; dashboard checks were', '  performed by the loading pipeline. The two are never merged into one', '  notion of passed.', '- A fingerprint is file identity relative to a recorded digest. It is not', '  validity, not reproducibility and not authenticity, and this page never', '  presents it as such.', '- Schema validity means the column contract held. It says nothing about', '  whether the numbers are scientifically meaningful.', '- Missing, invalid, unregistered and undocumented states are shown as', '  exactly those states. No unavailable value becomes zero, and no', '  unperformed check is shown as passed.', '- Provenance classes describe origin of evidence, not quality: a scenario', '  result is not weakened or upgraded by being labelled, and an observed', '  record is not promoted by having a digest.', '- The recorded convergence failure, the descriptive-only stress and', '  holding-rate evidence, and the unregistered files above all continue to', '  constrain interpretation exactly as their source phases recorded.']
+
+E
+Evidence
+
+Handoff and open items
+
+What this page cannot settle, and where the remaining work lives.
+
+✓
+Available
+?
+Provenance n/a
+●
+Point estimate
+
+Scope statement for this presentation-only workspace.
+
+OPEN ITEMS
+
+['- Research side: the recorded RO3 scenario-count convergence failure and its', '  recorded decision remain open research work; surfacing them here does not', '  resolve them.', '- Registration side: the unregistered files above stay outside the dashboard', '  contract until a phase with an evidence audit decides otherwise. This', '  page reports the gap and does not register anything itself.', '- Documentation side: lineage beyond the recorded sources, scripts and', '  schema versions is undocumented; closing that gap requires research-side', '  documentation, not interface work.', '- Verification side: digest re-verification against current file bytes is', '  not performed anywhere in the dashboard and would need an explicit,', '  audited tool — never an implicit UI action.']
+
+CMIDO - Construction Material Intelligence & Decision Optimization. Schedule, resource, procurement, uncertainty and research-evidence analysis.

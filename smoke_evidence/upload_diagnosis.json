@@ -1,0 +1,210 @@
+{
+ "started_utc": "2026-10-19T18:24:11.633507+00:00",
+ "url": "http://127.0.0.1:8502/",
+ "streamlit": null,
+ "steps": [
+  {
+   "step": "wait_file_input",
+   "status": "INFO",
+   "detail": "no file input appeared: Page.wait_for_selector: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"input[type=\\\"file\\\"]\") to be visible\n    42 \u00d7 locator resolved to hidden <input type=\"file\" tabindex=\"-1\" aria-label=\"file upload\" accept=\"application/streamlit,.json\" data-testid=\"stFileUploaderDropzoneInput\"/>\n"
+  },
+  {
+   "step": "launch",
+   "status": "PASS",
+   "detail": "url='http://127.0.0.1:8502/' title='CMIDO | Construction Decision Intelligence'"
+  },
+  {
+   "step": "inventory_initial",
+   "status": "PASS",
+   "detail": "[\n {\n  \"index\": 0,\n  \"label\": \"Load project JSON\",\n  \"accept\": \"application/streamlit,.json\",\n  \"in_sidebar\": true,\n  \"in_main\": false,\n  \"chain\": [\n   {\n    \"tag\": \"input\",\n    \"tid\": \"stFileUploaderDropzoneInput\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"section\",\n    \"tid\": \"stFileUploaderDropzone\",\n    \"role\": \"presentation\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stFileUploader\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stElementContainer\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stVerticalBlock\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stSidebarUserContent\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stSidebarContent\",\n    \"role\": \"\"\n   }\n  ]\n }\n]"
+  },
+  {
+   "step": "sidebar_csv_upload",
+   "status": "INFO",
+   "detail": "{\n \"file\": \"safe_external_demo_deterministic_input.csv\",\n \"body_contains_not_allowed\": true,\n \"error_excerpt\": \"\\ud83c\\udf9b\\ufe0f Control Center\\nCMIDO\\n/\\nControl Center\\n\\nLoad project JSON\\n\\nsafe_ex..._input.csv\\n133.0B\\nError: text/csv files are not allowed.\\nadd\\nCORE\\nProject orientation and structure\\n\",\n \"has_first_rows\": false,\n \"has_column_profile\": false,\n \"has_preview_rows_heading\": false\n}"
+  },
+  {
+   "step": "navigate_external",
+   "status": "PASS",
+   "detail": "url='http://127.0.0.1:8502/'"
+  },
+  {
+   "step": "inventory_external",
+   "status": "PASS",
+   "detail": "[\n {\n  \"index\": 0,\n  \"label\": \"Load project JSON\",\n  \"accept\": \"application/streamlit,.json\",\n  \"in_sidebar\": true,\n  \"in_main\": false,\n  \"chain\": [\n   {\n    \"tag\": \"input\",\n    \"tid\": \"stFileUploaderDropzoneInput\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"section\",\n    \"tid\": \"stFileUploaderDropzone\",\n    \"role\": \"presentation\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stFileUploader\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stElementContainer\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stVerticalBlock\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stSidebarUserContent\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stSidebarContent\",\n    \"role\": \"\"\n   }\n  ]\n },\n {\n  \"index\": 1,\n  \"label\": \"Choose a CSV or JSON file\",\n  \"accept\": \"application/streamlit,.csv,.json\",\n  \"in_sidebar\": false,\n  \"in_main\": true,\n  \"chain\": [\n   {\n    \"tag\": \"input\",\n    \"tid\": \"stFileUploaderDropzoneInput\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"section\",\n    \"tid\": \"stFileUploaderDropzone\",\n    \"role\": \"presentation\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stFileUploader\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stElementContainer\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stVerticalBlock\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"div\",\n    \"tid\": \"stMainBlockContainer\",\n    \"role\": \"\"\n   },\n   {\n    \"tag\": \"section\",\n    \"tid\": \"stMain\",\n    \"role\": \"\"\n   }\n  ]\n }\n]"
+  },
+  {
+   "step": "external_region",
+   "status": "INFO",
+   "detail": "regions matching label = 1"
+  },
+  {
+   "step": "external_csv_upload",
+   "status": "PASS",
+   "detail": "{\n \"file\": \"safe_external_demo_deterministic_input.csv\",\n \"body_contains_not_allowed\": false,\n \"error_excerpt\": \"\",\n \"has_first_rows\": true,\n \"has_column_profile\": true,\n \"has_preview_rows_heading\": true\n}"
+  }
+ ],
+ "file_input_inventory_initial": [
+  {
+   "index": 0,
+   "label": "Load project JSON",
+   "accept": "application/streamlit,.json",
+   "in_sidebar": true,
+   "in_main": false,
+   "chain": [
+    {
+     "tag": "input",
+     "tid": "stFileUploaderDropzoneInput",
+     "role": ""
+    },
+    {
+     "tag": "section",
+     "tid": "stFileUploaderDropzone",
+     "role": "presentation"
+    },
+    {
+     "tag": "div",
+     "tid": "stFileUploader",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stElementContainer",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stVerticalBlock",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stSidebarUserContent",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stSidebarContent",
+     "role": ""
+    }
+   ]
+  }
+ ],
+ "sidebar_input_count": 1,
+ "sidebar_csv_upload": {
+  "file": "safe_external_demo_deterministic_input.csv",
+  "body_contains_not_allowed": true,
+  "error_excerpt": "\ud83c\udf9b\ufe0f Control Center\nCMIDO\n/\nControl Center\n\nLoad project JSON\n\nsafe_ex..._input.csv\n133.0B\nError: text/csv files are not allowed.\nadd\nCORE\nProject orientation and structure\n",
+  "has_first_rows": false,
+  "has_column_profile": false,
+  "has_preview_rows_heading": false
+ },
+ "external_nav_ok": true,
+ "file_input_inventory_external_page": [
+  {
+   "index": 0,
+   "label": "Load project JSON",
+   "accept": "application/streamlit,.json",
+   "in_sidebar": true,
+   "in_main": false,
+   "chain": [
+    {
+     "tag": "input",
+     "tid": "stFileUploaderDropzoneInput",
+     "role": ""
+    },
+    {
+     "tag": "section",
+     "tid": "stFileUploaderDropzone",
+     "role": "presentation"
+    },
+    {
+     "tag": "div",
+     "tid": "stFileUploader",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stElementContainer",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stVerticalBlock",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stSidebarUserContent",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stSidebarContent",
+     "role": ""
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "label": "Choose a CSV or JSON file",
+   "accept": "application/streamlit,.csv,.json",
+   "in_sidebar": false,
+   "in_main": true,
+   "chain": [
+    {
+     "tag": "input",
+     "tid": "stFileUploaderDropzoneInput",
+     "role": ""
+    },
+    {
+     "tag": "section",
+     "tid": "stFileUploaderDropzone",
+     "role": "presentation"
+    },
+    {
+     "tag": "div",
+     "tid": "stFileUploader",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stElementContainer",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stVerticalBlock",
+     "role": ""
+    },
+    {
+     "tag": "div",
+     "tid": "stMainBlockContainer",
+     "role": ""
+    },
+    {
+     "tag": "section",
+     "tid": "stMain",
+     "role": ""
+    }
+   ]
+  }
+ ],
+ "external_region_count": 1,
+ "external_csv_upload": {
+  "file": "safe_external_demo_deterministic_input.csv",
+  "body_contains_not_allowed": false,
+  "error_excerpt": "",
+  "has_first_rows": true,
+  "has_column_profile": true,
+  "has_preview_rows_heading": true
+ },
+ "console_tail": [
+  "warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently",
+  "warning: [.WebGL-0x411404f30c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+  "warning: [.WebGL-0x411404f30c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+  "warning: [.WebGL-0x411404f30c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+  "warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently",
+  "warning: [.WebGL-0x411403481c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+ ]
+}

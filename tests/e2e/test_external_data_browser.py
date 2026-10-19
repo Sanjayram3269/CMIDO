@@ -301,6 +301,37 @@ def test_external_data_upload_map_run_in_browser(dashboard_url, browser) -> None
     context.close()
 
     # 8. Persist the E2E manifest alongside the screenshots. ----------------
+    manifest = _finalize_manifest()
+    assert manifest["status"] == "PASS", manifest
+
+
+# ---------------------------------------------------------------------------
+# Helpers shared by the upload regression tests
+# ---------------------------------------------------------------------------
+
+
+def _ext_uploader_input(page: Page):
+    """The External Data page's own file input.
+
+    Scoped by the uploader's accessible label so the sidebar's JSON-only
+    ``Load project JSON`` loader can never receive the file.
+    """
+    region = page.get_by_role("region", name="Choose a CSV or JSON file").first
+    region.wait_for(state="attached", timeout=30_000)
+    return region.locator('input[type="file"]').first
+
+
+def _goto_external(page: Page) -> None:
+    page.get_by_role("button", name="External Data").first.click()
+    expect(page.locator("p.cmido-page-title", has_text="External Data").first).to_be_visible(
+        timeout=60_000
+    )
+    page.wait_for_timeout(500)
+
+
+def _finalize_manifest() -> dict:
+    """Write the E2E manifest from every check recorded so far."""
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     passed = sum(1 for c in CHECKS if c["passed"])
     manifest = {
         "stage": "EXTERNAL_DATA_E2E",
@@ -313,4 +344,150 @@ def test_external_data_upload_map_run_in_browser(dashboard_url, browser) -> None
     (OUT_DIR / "CMIDO_EXTERNAL_DATA_E2E_MANIFEST.json").write_text(
         json.dumps(manifest, indent=2), encoding="utf-8"
     )
+    return manifest
+
+
+# ---------------------------------------------------------------------------
+# Regression: CSV upload failure (Phase 2B)
+# ---------------------------------------------------------------------------
+
+
+def test_regression_csv_reaches_the_external_uploader_not_the_json_loader(
+    dashboard_url, browser
+) -> None:
+    """Reproduce the observed ``text/csv files are not allowed.`` failure.
+
+    The failure came from feeding the CSV to the *first* ``input[type=file]``
+    in the DOM — the sidebar ``Load project JSON`` loader declared with
+    ``type=["json"]`` — rather than from the External Data uploader, which is
+    declared with ``types=("csv", "json")``. This test pins both halves so the
+    mis-targeting cannot come back silently.
+    """
+    context = browser.new_context(viewport={"width": 1600, "height": 1000})
+    page = context.new_page()
+    page.set_default_timeout(30_000)
+    page.goto(dashboard_url, wait_until="domcontentloaded")
+    page.get_by_test_id("stSidebar").wait_for(state="visible")
+    page.locator('input[type="file"]').first.wait_for(state="attached", timeout=60_000)
+
+    # The sidebar loader is the page's first file input (the exact target the
+    # failed smoke run used) and accepts JSON only.
+    first = page.locator('input[type="file"]').first
+    assert first.evaluate("el => !!el.closest('[data-testid=\"stSidebar\"]')") is True
+    accept_first = first.get_attribute("accept") or ""
+    assert ".csv" not in accept_first and ".json" in accept_first, accept_first
+    _record("first_dom_file_input_is_the_json_only_sidebar_loader", True, accept_first)
+
+    # Feeding it a CSV reproduces the reported message exactly.
+    first.set_input_files(str(FIXTURE))
+    page.wait_for_timeout(3_000)
+    body = page.inner_text("body")
+    assert "Error: text/csv files are not allowed." in body, body[:1500]
+    _record("sidebar_json_loader_rejects_csv_with_observed_message", True,
+            "Error: text/csv files are not allowed.")
+    _shot(page, "e2e_06_regression_sidebar_rejects_csv.png")
+
+    # The External Data uploader is a distinct input that *does* accept CSV.
+    _goto_external(page)
+    ext = _ext_uploader_input(page)
+    assert ext.evaluate("el => !!el.closest('[data-testid=\"stMain\"]')") is True
+    accept_ext = ext.get_attribute("accept") or ""
+    assert ".csv" in accept_ext and ".json" in accept_ext, accept_ext
+    _record("external_uploader_is_distinct_and_declares_csv_and_json", True, accept_ext)
+
+    ext.set_input_files(str(FIXTURE))
+    expect(page.get_by_text("First rows").first).to_be_visible(timeout=60_000)
+    # Scoped to the main region: the sidebar's own rejection chip persists
+    # across navigation and must not be confused with this page's state.
+    main_text = page.get_by_test_id("stMain").inner_text()
+    assert "are not allowed" not in main_text, main_text[:1500]
+    _record("csv_accepted_by_external_uploader", True, FIXTURE.name)
+    _shot(page, "e2e_07_regression_external_accepts_csv.png")
+
+    context.close()
+    _finalize_manifest()
+
+
+def test_external_uploader_accepts_csv_and_json_and_rejects_bad_files(
+    dashboard_url, browser, tmp_path
+) -> None:
+    """CSV and JSON parse; unsupported and malformed uploads fail honestly."""
+    import csv as _csv
+
+    context = browser.new_context(viewport={"width": 1600, "height": 1000})
+    page = context.new_page()
+    page.set_default_timeout(30_000)
+    page.goto(dashboard_url, wait_until="domcontentloaded")
+    page.get_by_test_id("stSidebar").wait_for(state="visible")
+    _goto_external(page)
+
+    # --- CSV -------------------------------------------------------------
+    ext = _ext_uploader_input(page)
+    ext.set_input_files(str(FIXTURE))
+    expect(page.get_by_text("First rows").first).to_be_visible(timeout=60_000)
+    expect(page.get_by_text("Column profile").first).to_be_visible()
+    rows_metric = page.get_by_test_id("stMetric").filter(has_text="Rows").first
+    csv_rows = len(list(_csv.DictReader(FIXTURE.open(encoding="utf-8"))))
+    assert str(csv_rows) in rows_metric.inner_text(), rows_metric.inner_text()
+    _record("csv_parses_and_profiles", True, f"rows={csv_rows}")
+
+    # --- JSON (same data, one extra record, distinct row count) ----------
+    records = [
+        {k: (float(v) if "." in v else int(v)) if v.replace(".", "", 1).lstrip("-").isdigit() else v
+         for k, v in row.items()}
+        for row in _csv.DictReader(FIXTURE.open(encoding="utf-8"))
+    ]
+    records.append(dict(records[-1]))
+    json_fixture = tmp_path / "forecast_intervals_fixture.json"
+    json_fixture.write_text(json.dumps(records), encoding="utf-8")
+
+    _ext_uploader_input(page).set_input_files(str(json_fixture))
+    expect(page.get_by_text("First rows").first).to_be_visible(timeout=60_000)
+    expect(page.get_by_text("Column profile").first).to_be_visible()
+    json_rows = len(records)
+    page.wait_for_timeout(1_500)
+    assert str(json_rows) in rows_metric.inner_text(), rows_metric.inner_text()
+    assert ".json" in page.inner_text("body")
+    _record("json_parses_and_profiles", True, f"rows={json_rows}")
+    _shot(page, "e2e_08_json_upload_profile.png")
+
+    # --- Unsupported extension -------------------------------------------
+    txt = tmp_path / "not_a_supported_table.txt"
+    txt.write_text("month_index,observed_units\n1,120\n", encoding="utf-8")
+    _ext_uploader_input(page).set_input_files(str(txt))
+    page.wait_for_timeout(3_500)
+    main_text = page.get_by_test_id("stMain").inner_text()
+    rejected = "are not allowed" in main_text or "Unsupported file type" in main_text
+    assert rejected, main_text[:2000]
+    _record("unsupported_extension_rejected_honestly", True, txt.name)
+    _shot(page, "e2e_09_unsupported_type_rejected.png")
+
+    # --- Malformed JSON ---------------------------------------------------
+    bad_json = tmp_path / "malformed_input.json"
+    bad_json.write_text('{"observed": [120, 140', encoding="utf-8")
+    _ext_uploader_input(page).set_input_files(str(bad_json))
+    expect(page.get_by_text("Could not parse the JSON file", exact=False).first).to_be_visible(
+        timeout=30_000
+    )
+    _record("malformed_json_rejected_honestly", True, bad_json.name)
+    _shot(page, "e2e_10_malformed_json_rejected.png")
+
+    # --- Empty CSV --------------------------------------------------------
+    empty_csv = tmp_path / "empty_input.csv"
+    empty_csv.write_bytes(b"")
+    _ext_uploader_input(page).set_input_files(str(empty_csv))
+    expect(page.get_by_text("The uploaded file is empty.").first).to_be_visible(
+        timeout=30_000
+    )
+    assert "First rows" not in page.get_by_test_id("stMain").inner_text()
+    _record("empty_csv_rejected_honestly", True, empty_csv.name)
+
+    context.close()
+    _finalize_manifest()
+
+
+def test_e2e_manifest_records_every_check() -> None:
+    """The persisted manifest must account for every check that ran."""
+    manifest = _finalize_manifest()
+    assert manifest["checks_total"] == len(CHECKS), manifest
     assert manifest["status"] == "PASS", manifest

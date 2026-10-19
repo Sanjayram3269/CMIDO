@@ -452,3 +452,63 @@ def hashlib_sha256(payload: bytes) -> str:
     import hashlib
 
     return hashlib.sha256(payload).hexdigest()
+
+
+class TestExportByteFidelity:
+    """Persisted exports must equal the payload they were generated from.
+
+    Regression: on Windows the default text-mode translation rewrote every
+    newline while writing, turning the ``\r\n`` emitted by pandas into
+    ``\r\r\n``. The on-disk result table then no longer matched the table the
+    dashboard offers for download, so DOM-to-disk export concordance failed.
+    """
+
+    @pytest.mark.parametrize(
+        "analysis_key,mapping",
+        [
+            ("descriptive_statistics", {"measure": "observed"}),
+            (
+                "forecast_coverage",
+                {
+                    "observed": "observed",
+                    "interval_lower": "lower_80",
+                    "interval_upper": "upper_80",
+                },
+            ),
+        ],
+    )
+    def test_persisted_result_table_is_byte_identical_to_the_export(
+        self, tmp_path: pathlib.Path, analysis_key: str, mapping: dict
+    ) -> None:
+        store = _tmp_store(tmp_path / analysis_key)
+        r = run_workflow(
+            "f.csv", _fixture_payload(), analysis_key, mapping, store=store
+        )
+        assert r.error == ""
+
+        csv_path = pathlib.Path(r.exports["result_table"])
+        raw = csv_path.read_bytes()
+        assert b"\r\r\n" not in raw, "persisted CSV contains a mangled newline"
+
+        stored = json.loads(pathlib.Path(r.exports["result"]).read_text(encoding="utf-8"))
+        # The JSON export is serialised with sort_keys, so rebuild the table
+        # from the analysis payload itself — the same source the dashboard's
+        # download button renders.
+        analysis = r.analysis or {}
+        rows = analysis.get("rows")
+        if not rows:
+            rows = [
+                {k: v for k, v in analysis.items() if not isinstance(v, (list, dict))}
+            ]
+        expected = pd.DataFrame(rows).to_csv(index=False, lineterminator="\n").encode(
+            "utf-8"
+        )
+        assert raw == expected
+        assert stored is not None
+
+        # JSON exports must round-trip exactly as serialised, too.
+        for name in ("mapping", "validation", "profile", "result", "run_record"):
+            path = pathlib.Path(r.exports[name])
+            text = path.read_text(encoding="utf-8")
+            assert "\r" not in text, f"{name} was newline-mangled on disk"
+            assert json.loads(text) is not None

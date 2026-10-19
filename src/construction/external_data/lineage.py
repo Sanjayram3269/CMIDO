@@ -104,14 +104,18 @@ class RunStore:
         target = directory / safe_filename(name, fallback="artifact.json")
         text = json.dumps(payload, indent=2, sort_keys=True, default=str)
         _guard_size(text)
-        target.write_text(text, encoding="utf-8")
+        # newline="" writes the serialised text verbatim: on Windows the
+        # default text-mode translation would otherwise rewrite every "\n"
+        # into "\r\n" and turn a pandas "\r\n" into "\r\r\n", so the
+        # persisted bytes would no longer match the exported payload.
+        target.write_text(text, encoding="utf-8", newline="")
         return str(target)
 
     def write_text(self, run_id: str, name: str, text: str) -> str:
         directory = self.ensure(run_id)
         target = directory / safe_filename(name, fallback="artifact.txt")
         _guard_size(text)
-        target.write_text(text, encoding="utf-8")
+        target.write_text(text, encoding="utf-8", newline="")
         return str(target)
 
     def write_csv(self, run_id: str, name: str, rows: list[dict[str, Any]]) -> str:
@@ -120,9 +124,11 @@ class RunStore:
         directory = self.ensure(run_id)
         target = directory / safe_filename(name, fallback="artifact.csv")
         frame = pd.DataFrame(rows)
-        csv_text = frame.to_csv(index=False)
+        # lineterminator is pinned to "\n" so the persisted table is identical
+        # on every platform and byte-identical to the download the page offers.
+        csv_text = frame.to_csv(index=False, lineterminator="\n")
         _guard_size(csv_text)
-        target.write_text(csv_text, encoding="utf-8")
+        target.write_text(csv_text, encoding="utf-8", newline="")
         return str(target)
 
     def list_runs(self) -> list[str]:
