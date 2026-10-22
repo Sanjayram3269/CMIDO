@@ -165,9 +165,92 @@ def cached_snapshot(root: str) -> Any:
 
 
 def load_project(uploaded: Any) -> tuple[dict[str, Any], str, str]:
+    """Load a project JSON using the same function the dashboard uses.
+
+    Supported inputs:
+      - File-like object with .getvalue() (e.g., st.file_uploader, MockUploadedFile)
+      - dict (project data dict)
+      - JSON string (valid JSON)
+
+    Returns (project_data, name, source_path) where source_path is "uploaded"
+    when a new project is loaded, or the default project name/path when None.
+
+    Validates input type and project structure, raising ValueError with a clear
+    message for unsupported types, malformed JSON, or invalid project structures.
+    Preserves the dashboard's graceful error display and default-demo behavior when
+    no upload is provided.
+    """
     if uploaded is not None:
-        data = json.loads(uploaded.getvalue().decode("utf-8"))
-        return data, uploaded.name, "uploaded"
+        if hasattr(uploaded, 'getvalue'):
+            # File-like object (e.g., MockUploadedFile, st.file_uploader)
+            raw = uploaded.getvalue()
+            if not isinstance(raw, bytes):
+                raise ValueError(
+                    "Uploaded file getvalue() must return bytes, "
+                    f"got {type(raw).__name__}"
+                )
+            try:
+                data = json.loads(raw.decode("utf-8"))
+            except json.JSONDecodeError as e:
+                raise ValueError(
+                    f"Invalid JSON in uploaded file: {e}"
+                ) from e
+            # Validate project structure
+            if not isinstance(data, dict):
+                raise ValueError(
+                    "Project file must contain a JSON object, "
+                    f"got {type(data).__name__}"
+                )
+            if "project" not in data:
+                raise ValueError(
+                    "Project JSON missing required 'project' key"
+                )
+            return data, uploaded.name, "uploaded"
+        elif isinstance(uploaded, dict):
+            # Already a dict
+            data = uploaded
+            # Validate project structure
+            if not isinstance(data, dict):
+                raise ValueError(
+                    "Project data must be a dict, "
+                    f"got {type(data).__name__}"
+                )
+            if "project" not in data:
+                raise ValueError(
+                    "Project data missing required 'project' key"
+                )
+            return data, "uploaded_project", "uploaded"
+        elif isinstance(uploaded, str):
+            # JSON string
+            try:
+                data = json.loads(uploaded)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"Invalid JSON string: {e}") from e
+            # Validate project structure
+            if not isinstance(data, dict):
+                raise ValueError(
+                    "Project JSON must contain a JSON object, "
+                    f"got {type(data).__name__}"
+                )
+            if "project" not in data:
+                raise ValueError(
+                    "Project JSON missing required 'project' key"
+                )
+            return data, "uploaded_project", "uploaded"
+        else:
+            raise ValueError(
+                f"Unsupported uploaded type: {type(uploaded).__name__}. "
+                "Supported types: file-like object with .getvalue(), dict, JSON string. "
+                f"Got: {type(uploaded).__name__}"
+            )
+    # No upload: check session state for previously uploaded project data
+    if uploaded is None and "uploaded" in st.session_state:
+        uploaded = st.session_state["uploaded"]
+        # After loading from session state, validate and return the project data
+        if isinstance(uploaded, dict) and "project" in uploaded:
+            return uploaded, "uploaded_project", "uploaded"
+        # If session state data is not a valid dict, fall through to default demo
+    # No upload: return default demo project (graceful fallback)
     return json.loads(DEFAULT_PROJECT.read_text(encoding="utf-8")), DEFAULT_PROJECT.name, str(DEFAULT_PROJECT)
 
 
@@ -1420,6 +1503,12 @@ except Exception as exc:  # noqa: BLE001 - surfaced as a designed error state
         diagnostics=f"{type(exc).__name__}: {exc}",
     )
     st.stop()
+
+# When a new project is uploaded in this session, reset the navigation
+# session state so the dashboard re-routes to Overview with the new project data.
+# Without this, the previously-selected page persists and shows stale data.
+if source_path == "uploaded":
+    st.session_state["cmido_active_page"] = "overview"
 
 # Planned pages render an honest placeholder panel and stop inside the
 # helper; available pages fall through to the dispatch below.
