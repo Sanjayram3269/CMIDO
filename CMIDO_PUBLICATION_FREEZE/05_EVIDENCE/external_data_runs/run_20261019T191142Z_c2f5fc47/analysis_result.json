@@ -1,0 +1,12 @@
+{
+  "analysis": "forecast_coverage",
+  "computed_from": "uploaded rows only",
+  "coverage_rate": 1.0,
+  "engine": "CMIDO calibration/coverage discipline",
+  "interval_lower_column": "lower_p10",
+  "interval_upper_column": "upper_p90",
+  "mean_interval_width": 54.6,
+  "n_rows_total": 5,
+  "n_scored": 5,
+  "observed_column": "observed_units"
+}

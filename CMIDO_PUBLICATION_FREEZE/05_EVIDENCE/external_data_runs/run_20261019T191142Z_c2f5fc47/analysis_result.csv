@@ -1,0 +1,2 @@
+analysis,observed_column,interval_lower_column,interval_upper_column,n_scored,n_rows_total,coverage_rate,mean_interval_width,computed_from,engine
+forecast_coverage,observed_units,lower_p10,upper_p90,5,5,1.0,54.6,uploaded rows only,CMIDO calibration/coverage discipline

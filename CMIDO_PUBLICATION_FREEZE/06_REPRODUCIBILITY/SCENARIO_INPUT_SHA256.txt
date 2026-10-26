@@ -1,0 +1,74 @@
+CMIDO — FROZEN SCENARIO-LADDER INPUT MANIFEST
+
+Generated: 2026-10-26 (Phase 2 publication-package build).
+Source directory: results/RO3/scenario_generation/ (repository root D:\CMIDO, local-only checkout).
+Branch: feat/external-data-ingestion   HEAD at generation: 89f2e9121463583ce82c3c697d17092680f29459
+Generation contract: RO3 step 32 scenario generation, master_seed = 32027, 11 forecast origins
+(2022-07-01 .. 2023-05-01), 4 materials, horizons 1/3/6/12, duration_rows = 37.
+
+NONE of these six files is copied into this publication folder. They remain only at the
+source paths below and must be preserved. Full reproduction of the reported RO3 experiments
+requires access to these inputs, or an authorised regeneration from the frozen contract.
+
+----------------------------------------------------------------------------------------------------
+N = 100
+  source path   : results/RO3/scenario_generation/RO3_step32_scenarios_100.csv
+  bytes         : 6,618,115
+  SHA-256       : 8e9b93af2fcef2af914ec8624a9e5da1d697c303b7bb19f3e0f5dd9cfbf97ddc
+  git status    : TRACKED (committed in Git)
+  prior record  : NO prior authoritative hash found anywhere in the repository
+
+N = 250
+  source path   : results/RO3/scenario_generation/RO3_step32_scenarios_250.csv
+  bytes         : 16,630,931
+  SHA-256       : 985fce08c623020029a08727de464099e7a23a27ae3c850965a2ed1d7eb20f64
+  git status    : TRACKED (committed in Git)
+  prior record  : NO prior authoritative hash found anywhere in the repository
+
+N = 500
+  source path   : results/RO3/scenario_generation/RO3_step32_scenarios_500.csv
+  bytes         : 33,321,263
+  SHA-256       : c308a1cec6ea9d558231d3b9acc932cfed652c38033d7d787503fc8858c5b51b
+  git status    : TRACKED (committed in Git)
+  prior record  : NO prior authoritative hash found anywhere in the repository
+
+N = 1000
+  source path   : results/RO3/scenario_generation/RO3_step32_scenarios_1000.csv
+  bytes         : 67,227,295
+  SHA-256       : 43be2ea2f78a0e6ce59e3541f8ab8dc9555de5a39666d544dc586caf84ab2ca4
+  git status    : IGNORED (not in Git; .gitignore line 53: results/RO3/scenario_generation/*.csv)
+  prior record  : MATCHES prior authoritative record (SHA-256 43be2ea2f78a0e6ce59e3541f8ab8dc9555de5a39666d544dc586caf84ab2ca4)
+
+N = 2500
+  source path   : results/RO3/scenario_generation/RO3_step32_scenarios_2500.csv
+  bytes         : 168,946,676
+  SHA-256       : 5fc3b74e16cab7cfc29a37d278072a9629f48bd96e0208eacfe96e6607b7be70
+  git status    : IGNORED (not in Git; .gitignore line 53: results/RO3/scenario_generation/*.csv)
+  prior record  : MATCHES prior authoritative record (SHA-256 5fc3b74e16cab7cfc29a37d278072a9629f48bd96e0208eacfe96e6607b7be70)
+
+N = 5000
+  source path   : results/RO3/scenario_generation/RO3_step32_scenarios_5000.csv
+  bytes         : 338,474,450
+  SHA-256       : 3e153ce784ab957446e3d2e8289a3096f0500ded89323e92c4730d2001a2cfbf
+  git status    : IGNORED (not in Git; .gitignore line 53: results/RO3/scenario_generation/*.csv)
+  prior record  : NO prior authoritative hash found anywhere in the repository
+
+----------------------------------------------------------------------------------------------------
+VERIFICATION SUMMARY
+  N=1000 : VERIFIED  — computed hash equals the recorded hash in
+           results/RO3/scenario_convergence/_preflight_hashes/scenario_inputs_1000_2500.sha256
+           and in docs/CMIDO_RO3_3_CONVERGENCE_REPORT.md, section 2.
+  N=2500 : VERIFIED  — same two authoritative records; exact match.
+  N=5000 : UNRESOLVED against any prior authority — the hash in this file is NEWLY RECORDED on
+           2026-10-26. No prior authoritative hash for the 5000-scenario file exists anywhere in
+           the repository, so it could not be cross-checked. It is recorded here as a baseline
+           for future verification only. Do NOT treat it as previously verified.
+  N=100/250/500 : These three files ARE tracked in Git and were clean against HEAD 89f2e91 on
+           2026-10-26, so their integrity is guaranteed by the committed Git blobs. No separate
+           authoritative SHA-256 record exists for them; the hashes here are newly recorded on
+           2026-10-26 and are self-consistent only.
+
+NOT DONE IN THIS PHASE: no scenario CSV was regenerated, modified, moved or re-hashed by any
+experiment. The RO3.3 convergence ladder was NOT rerun. Regeneration would be an expensive
+research experiment and requires explicit authorisation.
+

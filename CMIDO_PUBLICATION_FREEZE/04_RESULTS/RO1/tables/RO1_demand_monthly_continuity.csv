@@ -1,0 +1,5 @@
+series,start,end,observed_months,expected_months,missing_months,missing_dates
+Cement,1999-01-01,2026-05-01,329,329,0,
+Granite,1999-01-01,2026-05-01,329,329,0,
+Ready-Mixed Concrete,1999-01-01,2026-05-01,329,329,0,
+Steel Reinforcement Bars,1999-01-01,2026-05-01,329,329,0,

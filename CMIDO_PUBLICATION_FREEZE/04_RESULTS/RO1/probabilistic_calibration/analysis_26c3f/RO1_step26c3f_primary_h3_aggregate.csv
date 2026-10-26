@@ -1,0 +1,2 @@
+horizon,metric,n_series,mean_of_series_raw,mean_of_series_cqr,mean_of_series_difference,median_series_difference,n_cqr_better,n_cqr_worse,n_equal,n_raw_p_lt_005,n_bh_p_lt_005
+3,winkler_80,9,337.09965541403017,319.9486015513927,-17.15105386263748,-4.698794410342264,6,1,2,2,2

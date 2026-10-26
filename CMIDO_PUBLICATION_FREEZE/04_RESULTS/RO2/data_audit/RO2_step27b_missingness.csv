@@ -1,0 +1,247 @@
+sheet,column,rows,nonmissing,missing,missing_pct,dtype
+Days Sesion,NO,76,76,0,0.0,object
+Days Sesion,TAHAPAN,76,10,66,86.8421052631579,str
+Days Sesion,PROSES PENGADAAN JASA,76,74,2,2.631578947368421,str
+Days Sesion,MEDIA,76,74,2,2.631578947368421,str
+Days Sesion,QT,76,74,2,2.631578947368421,float64
+Days Sesion,SATUAN,76,74,2,2.631578947368421,str
+Days Sesion,TAKE TIME (MENIT),76,76,0,0.0,float64
+Days Sesion,HARI,76,74,2,2.631578947368421,float64
+Days Sesion,JML ORANG,76,74,2,2.631578947368421,float64
+Days Sesion,TOTAL per Tahapan (Menit),76,12,64,84.21052631578947,float64
+Days Sesion,Satuan Hari,76,12,64,84.21052631578947,float64
+Days Sesion,Unnamed: 11,76,2,74,97.36842105263158,str
+Days Sesion,Keterangan,76,11,65,85.52631578947368,str
+Days Sesion,Menit,76,11,65,85.52631578947368,float64
+Days Sesion,Days,76,11,65,85.52631578947368,float64
+Days Sesion,Persentase setiap bagian,76,9,67,88.1578947368421,float64
+VANVA (Current),NO,81,76,5,6.172839506172839,object
+VANVA (Current),TAHAPAN,81,10,71,87.65432098765432,str
+VANVA (Current),PROSES PENGADAAN JASA,81,74,7,8.641975308641975,str
+VANVA (Current),MEDIA,81,74,7,8.641975308641975,str
+VANVA (Current),SINGLE PLATFORM,81,17,64,79.01234567901234,str
+VANVA (Current),VA/NVA,81,74,7,8.641975308641975,str
+VANVA (Current),QT,81,74,7,8.641975308641975,float64
+VANVA (Current),SATUAN,81,77,4,4.938271604938271,str
+VANVA (Current),TAKE TIME (MENIT),81,79,2,2.4691358024691357,float64
+VANVA (Current),HARI,81,74,7,8.641975308641975,float64
+VANVA (Current),JML ORANG,81,76,5,6.172839506172839,float64
+VANVA (Current),TOTAL per Tahapan (Menit),81,12,69,85.18518518518519,float64
+VANVA (Current),Satuan Hari,81,12,69,85.18518518518519,float64
+VANVA (Current),Unnamed: 15,81,2,79,97.53086419753086,str
+VANVA (Current),Keterangan,81,11,70,86.41975308641975,str
+VANVA (Current),Menit,81,11,70,86.41975308641975,float64
+VANVA (Current),Days,81,11,70,86.41975308641975,float64
+VANVA (Current),Persentase setiap bagian,81,9,72,88.88888888888889,float64
+VANVA (Future),NO,51,51,0,0.0,object
+VANVA (Future),TAHAPAN,51,10,41,80.3921568627451,str
+VANVA (Future),PROSES PENGADAAN JASA,51,49,2,3.9215686274509802,str
+VANVA (Future),MEDIA,51,49,2,3.9215686274509802,str
+VANVA (Future),SINGLE PLATFORM,51,17,34,66.66666666666666,str
+VANVA (Future),VA/NVA,51,49,2,3.9215686274509802,str
+VANVA (Future),QT,51,49,2,3.9215686274509802,float64
+VANVA (Future),SATUAN,51,49,2,3.9215686274509802,str
+VANVA (Future),TAKE TIME (MENIT),51,51,0,0.0,float64
+VANVA (Future),HARI,51,49,2,3.9215686274509802,float64
+VANVA (Future),JML ORANG,51,49,2,3.9215686274509802,float64
+VANVA (Future),TOTAL per Tahapan (Menit),51,12,39,76.47058823529412,float64
+VANVA (Future),Satuan Hari,51,12,39,76.47058823529412,float64
+VANVA (Future),Unnamed: 13,51,2,49,96.07843137254902,str
+VANVA (Future),Keterangan,51,11,40,78.43137254901961,str
+VANVA (Future),Menit,51,11,40,78.43137254901961,float64
+VANVA (Future),Days,51,11,40,78.43137254901961,float64
+VANVA (Future),Persentase setiap bagian,51,10,41,80.3921568627451,float64
+VANVA (Future) Versi 2,NO,48,44,4,8.333333333333332,object
+VANVA (Future) Versi 2,TAHAPAN,48,10,38,79.16666666666666,str
+VANVA (Future) Versi 2,PROSES PENGADAAN JASA,48,42,6,12.5,str
+VANVA (Future) Versi 2,MEDIA,48,41,7,14.583333333333334,str
+VANVA (Future) Versi 2,SINGLE PLATFORM,48,42,6,12.5,str
+VANVA (Future) Versi 2,VA/NVA,48,43,5,10.416666666666668,str
+VANVA (Future) Versi 2,QT,48,41,7,14.583333333333334,float64
+VANVA (Future) Versi 2,SATUAN,48,41,7,14.583333333333334,str
+VANVA (Future) Versi 2,TAKT TIME (MENIT),48,45,3,6.25,float64
+VANVA (Future) Versi 2,HARI,48,41,7,14.583333333333334,float64
+VANVA (Future) Versi 2,JML ORANG,48,41,7,14.583333333333334,float64
+VANVA (Future) Versi 2,TOTAL per Tahapan (Menit),48,12,36,75.0,float64
+VANVA (Future) Versi 2,Satuan Hari,48,12,36,75.0,float64
+VANVA (Future) Versi 2,Unnamed: 14,48,2,46,95.83333333333334,str
+VANVA (Future) Versi 2,Keterangan,48,10,38,79.16666666666666,str
+VANVA (Future) Versi 2,Menit,48,11,37,77.08333333333334,float64
+VANVA (Future) Versi 2,Days,48,11,37,77.08333333333334,float64
+VANVA (Future) Versi 2,Persentase setiap bagian,48,10,38,79.16666666666666,float64
+Rata-rata,Nik,66,56,10,15.151515151515152,float64
+Rata-rata,Nama,66,56,10,15.151515151515152,str
+Rata-rata,PR,66,56,10,15.151515151515152,float64
+Rata-rata,Item Of,66,56,10,15.151515151515152,float64
+Rata-rata,Status,66,56,10,15.151515151515152,str
+Rata-rata,Material Number,66,56,10,15.151515151515152,str
+Rata-rata,Short text,66,56,10,15.151515151515152,str
+Rata-rata,Purchasing Group,66,56,10,15.151515151515152,str
+Rata-rata,Requisition Date,66,56,10,15.151515151515152,object
+Rata-rata,Release Date,66,55,11,16.666666666666664,object
+Rata-rata,Tanggal Disposisi Buyer,66,56,10,15.151515151515152,object
+Rata-rata,Disposisi PR - Proposal Tender,66,58,8,12.121212121212121,float64
+Rata-rata,Proposal Tender - DUR & Approval,66,58,8,12.121212121212121,float64
+Rata-rata,DUR & Approval - Aanwijzing,66,59,7,10.606060606060606,float64
+Rata-rata,Aanwijzing - Penawaran Rekanan,66,58,8,12.121212121212121,float64
+Rata-rata,Penawaran Rekanan - Evaluasi Teknis,66,59,7,10.606060606060606,float64
+Rata-rata,Evaluasi Teknis - Negosiasi,66,60,6,9.090909090909092,object
+Rata-rata,Negosiasi - Usulan Pemenang,66,58,8,12.121212121212121,float64
+Rata-rata,Usulan Pemenang - PO,66,62,4,6.0606060606060606,object
+Rata-rata,Total SLA,66,61,5,7.575757575757576,float64
+Rata-rata,Total SLA - Realisasi days,66,56,10,15.151515151515152,float64
+Rata-rata,Tanggal PO,66,56,10,15.151515151515152,object
+Rata-rata,Requisitioner,66,56,10,15.151515151515152,str
+Rata-rata,PR-PO,66,56,10,15.151515151515152,str
+Rata-rata,Total SLA - Realisasi days.1,66,56,10,15.151515151515152,float64
+Rata-rata,No PO,66,56,10,15.151515151515152,float64
+Rata-rata,Prioritas,66,56,10,15.151515151515152,str
+Rata-rata,Outline Aggrement,66,1,65,98.48484848484848,float64
+Rata-rata,Kontrak/Non kontrak,66,56,10,15.151515151515152,str
+Rata-rata,Standard SLA,66,56,10,15.151515151515152,str
+Rata-rata,Realisasi SLA,66,56,10,15.151515151515152,str
+Rata-rata,Days SLA,66,56,10,15.151515151515152,float64
+Rata-rata,Nilai SLA,66,56,10,15.151515151515152,float64
+Rata-rata,Nomor MR/SR,66,56,10,15.151515151515152,str
+Rata-rata,Nilai MR/SR,66,56,10,15.151515151515152,str
+Rata-rata,OE PR,66,56,10,15.151515151515152,str
+Rata-rata,Nilai Item PO,66,56,10,15.151515151515152,str
+Rata-rata,Persentase PO/SR atau PO/MR,66,56,10,15.151515151515152,str
+Rata-rata,Nilai Persentase PO/SR atau PO/MR,66,56,10,15.151515151515152,object
+Rata-rata V1,Nik,66,56,10,15.151515151515152,float64
+Rata-rata V1,Nama,66,56,10,15.151515151515152,str
+Rata-rata V1,PR,66,56,10,15.151515151515152,float64
+Rata-rata V1,Item Of,66,56,10,15.151515151515152,float64
+Rata-rata V1,Status,66,56,10,15.151515151515152,str
+Rata-rata V1,Material Number,66,56,10,15.151515151515152,str
+Rata-rata V1,Short text,66,56,10,15.151515151515152,str
+Rata-rata V1,Purchasing Group,66,56,10,15.151515151515152,str
+Rata-rata V1,Requisition Date,66,56,10,15.151515151515152,object
+Rata-rata V1,Release Date,66,55,11,16.666666666666664,object
+Rata-rata V1,Tanggal Disposisi Buyer,66,56,10,15.151515151515152,object
+Rata-rata V1,Disposisi PR - Proposal Tender,66,57,9,13.636363636363635,float64
+Rata-rata V1,Proposal Tender - DUR & Approval,66,58,8,12.121212121212121,float64
+Rata-rata V1,DUR & Approval - Aanwijzing,66,59,7,10.606060606060606,float64
+Rata-rata V1,Aanwijzing - Penawaran Rekanan,66,58,8,12.121212121212121,float64
+Rata-rata V1,Penawaran Rekanan - Evaluasi Teknis,66,59,7,10.606060606060606,float64
+Rata-rata V1,Evaluasi Teknis - Negosiasi,66,60,6,9.090909090909092,object
+Rata-rata V1,Negosiasi - Usulan Pemenang,66,58,8,12.121212121212121,float64
+Rata-rata V1,Usulan Pemenang - PO,66,62,4,6.0606060606060606,object
+Rata-rata V1,Total SLA,66,61,5,7.575757575757576,float64
+Rata-rata V1,Total SLA - Realisasi days,66,56,10,15.151515151515152,float64
+Rata-rata V1,Tanggal PO,66,56,10,15.151515151515152,object
+Rata-rata V1,Requisitioner,66,56,10,15.151515151515152,str
+Rata-rata V1,PR-PO,66,56,10,15.151515151515152,str
+Rata-rata V1,Total SLA - Realisasi days.1,66,56,10,15.151515151515152,float64
+Rata-rata V1,No PO,66,56,10,15.151515151515152,float64
+Rata-rata V1,Prioritas,66,56,10,15.151515151515152,str
+Rata-rata V1,Outline Aggrement,66,1,65,98.48484848484848,float64
+Rata-rata V1,Kontrak/Non kontrak,66,56,10,15.151515151515152,str
+Rata-rata V1,Standard SLA,66,56,10,15.151515151515152,str
+Rata-rata V1,Realisasi SLA,66,56,10,15.151515151515152,str
+Rata-rata V1,Days SLA,66,56,10,15.151515151515152,float64
+Rata-rata V1,Nilai SLA,66,56,10,15.151515151515152,float64
+Rata-rata V1,Nomor MR/SR,66,56,10,15.151515151515152,str
+Rata-rata V1,Nilai MR/SR,66,56,10,15.151515151515152,str
+Rata-rata V1,OE PR,66,56,10,15.151515151515152,str
+Rata-rata V1,Nilai Item PO,66,56,10,15.151515151515152,str
+Rata-rata V1,Persentase PO/SR atau PO/MR,66,56,10,15.151515151515152,str
+Rata-rata V1,Nilai Persentase PO/SR atau PO/MR,66,56,10,15.151515151515152,object
+Rata-rataFuture V2,Nik,66,56,10,15.151515151515152,float64
+Rata-rataFuture V2,Nama,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,PR,66,56,10,15.151515151515152,float64
+Rata-rataFuture V2,Item Of,66,56,10,15.151515151515152,float64
+Rata-rataFuture V2,Status,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Material Number,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Short text,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Purchasing Group,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Requisition Date,66,56,10,15.151515151515152,object
+Rata-rataFuture V2,Release Date,66,55,11,16.666666666666664,object
+Rata-rataFuture V2,Tanggal Disposisi Buyer,66,56,10,15.151515151515152,object
+Rata-rataFuture V2,Disposisi PR - Proposal Tender,66,58,8,12.121212121212121,float64
+Rata-rataFuture V2,Proposal Tender - DUR & Approval,66,58,8,12.121212121212121,float64
+Rata-rataFuture V2,DUR & Approval - Aanwijzing,66,59,7,10.606060606060606,float64
+Rata-rataFuture V2,Aanwijzing - Penawaran Rekanan,66,58,8,12.121212121212121,float64
+Rata-rataFuture V2,Penawaran Rekanan - Evaluasi Teknis,66,59,7,10.606060606060606,float64
+Rata-rataFuture V2,Evaluasi Teknis - Negosiasi,66,60,6,9.090909090909092,object
+Rata-rataFuture V2,Negosiasi - Usulan Pemenang,66,58,8,12.121212121212121,float64
+Rata-rataFuture V2,Usulan Pemenang - PO,66,62,4,6.0606060606060606,object
+Rata-rataFuture V2,Total SLA,66,61,5,7.575757575757576,float64
+Rata-rataFuture V2,Total SLA - Realisasi days,66,56,10,15.151515151515152,float64
+Rata-rataFuture V2,Tanggal PO,66,56,10,15.151515151515152,object
+Rata-rataFuture V2,Requisitioner,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,PR-PO,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Total SLA - Realisasi days.1,66,56,10,15.151515151515152,float64
+Rata-rataFuture V2,No PO,66,56,10,15.151515151515152,float64
+Rata-rataFuture V2,Prioritas,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Outline Aggrement,66,1,65,98.48484848484848,float64
+Rata-rataFuture V2,Kontrak/Non kontrak,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Standard SLA,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Realisasi SLA,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Days SLA,66,56,10,15.151515151515152,float64
+Rata-rataFuture V2,Nilai SLA,66,56,10,15.151515151515152,float64
+Rata-rataFuture V2,Nomor MR/SR,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Nilai MR/SR,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,OE PR,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Nilai Item PO,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Persentase PO/SR atau PO/MR,66,56,10,15.151515151515152,str
+Rata-rataFuture V2,Nilai Persentase PO/SR atau PO/MR,66,56,10,15.151515151515152,object
+Conclusion,Unnamed: 0,4,1,3,75.0,str
+Conclusion,Unnamed: 1,4,3,1,25.0,str
+Conclusion,Unnamed: 2,4,4,0,0.0,object
+Conclusion,Unnamed: 3,4,4,0,0.0,object
+Conclusion,Unnamed: 4,4,4,0,0.0,object
+Raw data,Export Table PR,59,58,1,1.694915254237288,str
+Raw data,Unnamed: 1,59,58,1,1.694915254237288,object
+Raw data,Unnamed: 2,59,58,1,1.694915254237288,str
+Raw data,Unnamed: 3,59,58,1,1.694915254237288,object
+Raw data,Unnamed: 4,59,58,1,1.694915254237288,str
+Raw data,Unnamed: 5,59,58,1,1.694915254237288,str
+Raw data,Unnamed: 6,59,58,1,1.694915254237288,str
+Raw data,Unnamed: 7,59,58,1,1.694915254237288,str
+Raw data,Unnamed: 8,59,2,57,96.61016949152543,object
+Raw data,Unnamed: 9,59,58,1,1.694915254237288,str
+Raw data,Unnamed: 10,59,59,0,0.0,object
+Raw data,Unnamed: 11,59,59,0,0.0,object
+Raw data,Unnamed: 12,59,22,37,62.71186440677966,object
+Raw data,Unnamed: 13,59,59,0,0.0,object
+Raw data,Unnamed: 14,59,59,0,0.0,object
+Raw data,Unnamed: 15,59,59,0,0.0,object
+Raw data,Unnamed: 16,59,59,0,0.0,object
+Raw data,Unnamed: 17,59,59,0,0.0,object
+Raw data,Unnamed: 18,59,59,0,0.0,object
+Raw data,Unnamed: 19,59,59,0,0.0,object
+Raw data,Unnamed: 20,59,59,0,0.0,object
+Raw data,Unnamed: 21,59,59,0,0.0,object
+Raw data,Unnamed: 22,59,59,0,0.0,object
+Raw data,Unnamed: 23,59,59,0,0.0,object
+Raw data,Unnamed: 24,59,59,0,0.0,object
+Raw data,Unnamed: 25,59,59,0,0.0,object
+Raw data,Unnamed: 26,59,59,0,0.0,object
+Raw data,Unnamed: 27,59,59,0,0.0,object
+Raw data,Unnamed: 28,59,59,0,0.0,object
+Raw data,Unnamed: 29,59,59,0,0.0,object
+Raw data,Unnamed: 30,59,59,0,0.0,object
+Raw data,Unnamed: 31,59,59,0,0.0,object
+Raw data,Unnamed: 32,59,59,0,0.0,object
+Raw data,Unnamed: 33,59,59,0,0.0,object
+Raw data,Unnamed: 34,59,59,0,0.0,object
+Raw data,Unnamed: 35,59,59,0,0.0,object
+Raw data,Unnamed: 36,59,59,0,0.0,object
+Raw data,Unnamed: 37,59,59,0,0.0,object
+Sheet6,Unnamed: 1,7,7,0,0.0,str
+Sheet6,Unnamed: 2,7,6,1,14.285714285714285,str
+Sheet6,Unnamed: 3,7,7,0,0.0,str
+Std SLA,Unnamed: 0,6,1,5,83.33333333333334,str
+Std SLA,Unnamed: 1,6,6,0,0.0,object
+Std SLA,PR,6,6,0,0.0,object
+Std SLA,DUR,6,5,1,16.666666666666664,object
+Std SLA,Aanwijzing,6,5,1,16.666666666666664,object
+Std SLA,Klasifikasi,6,5,1,16.666666666666664,object
+Std SLA,Unnamed: 6,6,5,1,16.666666666666664,object
+Std SLA,Negosiasi,6,5,1,16.666666666666664,object
+Std SLA,Usulan Pemenang,6,5,1,16.666666666666664,object
+Std SLA,OK/SP,6,6,0,0.0,object
+Std SLA,Unnamed: 10,6,6,0,0.0,object
+Std SLA,Unnamed: 11,6,6,0,0.0,object
+Std SLA,Unnamed: 12,6,6,0,0.0,object

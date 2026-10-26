@@ -1,0 +1,14 @@
+check,pass
+four_materials_present,True
+both_duration_representations_present,True
+source_horizons_1_3_6_12,True
+interpolated_horizons_1_to_12,True
+duration_pair_n_37,True
+mc_n_10000,True
+all_primary_finite,True
+all_primary_nonnegative,True
+all_independent_finite,True
+all_independent_nonnegative,True
+primary_is_joint_duration,True
+procurement_process_duration_terminology,True
+test_data_declared_unused,True

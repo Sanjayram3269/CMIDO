@@ -1,0 +1,5 @@
+RO2 STEP 27C.1
+Primary candidate uncertainty representation: empirical/non-parametric.
+No distribution was fitted or selected at this stage.
+Sample sizes: total duration n=55; PO-GR/DN component n=37.
+The final representation must preserve positive support and right-tail behaviour without imposing Gaussian assumptions. Parametric candidates may be compared in 27C.2.

@@ -1,0 +1,13 @@
+check,passed
+forecast_file_exists,True
+required_columns_present,True
+11_origins_present,True
+four_materials_present,True
+four_required_horizons_present,True
+forecast_targets_after_origin,True
+q10_le_q25,True
+q25_le_q50,True
+q50_le_q75,True
+q75_le_q90,True
+all_quantiles_finite,True
+complete_four_horizon_blocks,True

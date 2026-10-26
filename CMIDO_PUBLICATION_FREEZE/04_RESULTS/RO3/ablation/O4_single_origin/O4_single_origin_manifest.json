@@ -1,0 +1,15 @@
+{
+  "origin": "2022-07-01",
+  "scenario_set_size": 2500,
+  "materials": [
+    "Cement",
+    "Granite",
+    "Ready Mixed Concrete",
+    "Steel Reinforcement Bars"
+  ],
+  "horizon_months": 12,
+  "holding_rate_monthly": 0.025,
+  "alpha_cvar": 0.95,
+  "epsilon_points": 5,
+  "selection": "normalized_distance_to_utopia_3_objectives"
+}

@@ -1,0 +1,478 @@
+{
+  "project": {
+    "project_id": "CMIDO-DEMO-001",
+    "project_name": "Residential Building Demo",
+    "location": "Bengaluru",
+    "project_type": "Residential",
+    "start_date": "2026-10-01",
+    "planned_end_date": "2027-06-30",
+    "calendar_id": "CAL-5D",
+    "status": "planned"
+  },
+
+  "calendar": {
+    "calendar_id": "CAL-5D",
+    "name": "Standard 5-Day Calendar",
+    "working_weekdays": [0, 1, 2, 3, 4],
+    "holidays": []
+  },
+
+  "activities": [
+    {
+      "activity_id": "A001",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A001",
+      "activity_name": "Site Preparation",
+      "duration_days": 5,
+      "quantity": 1,
+      "unit": "lot"
+    },
+    {
+      "activity_id": "A002",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A002",
+      "activity_name": "Excavation",
+      "duration_days": 8,
+      "quantity": 450,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A003",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A003",
+      "activity_name": "Foundation",
+      "duration_days": 12,
+      "quantity": 120,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A004",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A004",
+      "activity_name": "Columns",
+      "duration_days": 8,
+      "quantity": 60,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A005",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A005",
+      "activity_name": "MEP Rough-in",
+      "duration_days": 6,
+      "quantity": 1,
+      "unit": "lot"
+    },
+    {
+      "activity_id": "A006",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A006",
+      "activity_name": "Slab",
+      "duration_days": 10,
+      "quantity": 180,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A007",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A007",
+      "activity_name": "Brickwork",
+      "duration_days": 12,
+      "quantity": 850,
+      "unit": "m2"
+    },
+    {
+      "activity_id": "A008",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A008",
+      "activity_name": "Plastering",
+      "duration_days": 8,
+      "quantity": 1700,
+      "unit": "m2"
+    },
+    {
+      "activity_id": "A009",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A009",
+      "activity_name": "Flooring",
+      "duration_days": 7,
+      "quantity": 1200,
+      "unit": "m2"
+    },
+    {
+      "activity_id": "A010",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A010",
+      "activity_name": "Painting",
+      "duration_days": 6,
+      "quantity": 3400,
+      "unit": "m2"
+    },
+    {
+      "activity_id": "A011",
+      "project_id": "CMIDO-DEMO-001",
+      "activity_code": "A011",
+      "activity_name": "Final Finishing",
+      "duration_days": 4,
+      "quantity": 1,
+      "unit": "lot"
+    }
+  ],
+
+  "dependencies": [
+    {
+      "dependency_id": "D001",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A001",
+      "successor_id": "A002",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D002",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A002",
+      "successor_id": "A003",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D003",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A003",
+      "successor_id": "A004",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D004",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A003",
+      "successor_id": "A005",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D005",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A004",
+      "successor_id": "A006",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D006",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A005",
+      "successor_id": "A006",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D007",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A006",
+      "successor_id": "A007",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D008",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A007",
+      "successor_id": "A008",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D009",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A008",
+      "successor_id": "A009",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D010",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A008",
+      "successor_id": "A010",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D011",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A009",
+      "successor_id": "A011",
+      "relationship_type": "FS",
+      "lag_days": 0
+    },
+    {
+      "dependency_id": "D012",
+      "project_id": "CMIDO-DEMO-001",
+      "predecessor_id": "A010",
+      "successor_id": "A011",
+      "relationship_type": "FS",
+      "lag_days": 0
+    }
+  ],
+
+  "materials": [
+    {
+      "material_id": "M001",
+      "material_name": "Concrete",
+      "category": "Structural",
+      "unit": "m3"
+    },
+    {
+      "material_id": "M002",
+      "material_name": "Reinforcement Steel",
+      "category": "Structural",
+      "unit": "tonne"
+    },
+    {
+      "material_id": "M003",
+      "material_name": "Cement",
+      "category": "Building",
+      "unit": "tonne"
+    },
+    {
+      "material_id": "M004",
+      "material_name": "Sand",
+      "category": "Building",
+      "unit": "m3"
+    },
+    {
+      "material_id": "M005",
+      "material_name": "Bricks",
+      "category": "Masonry",
+      "unit": "unit"
+    },
+    {
+      "material_id": "M006",
+      "material_name": "Flooring Material",
+      "category": "Finishing",
+      "unit": "m2"
+    },
+    {
+      "material_id": "M007",
+      "material_name": "Paint",
+      "category": "Finishing",
+      "unit": "litre"
+    },
+    {
+      "material_id": "M008",
+      "material_name": "Electrical Materials",
+      "category": "MEP",
+      "unit": "lot"
+    },
+    {
+      "material_id": "M009",
+      "material_name": "Plumbing Materials",
+      "category": "MEP",
+      "unit": "lot"
+    }
+  ],
+
+  "activity_materials": [
+    {
+      "activity_id": "A003",
+      "material_id": "M001",
+      "quantity_required": 120,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A003",
+      "material_id": "M002",
+      "quantity_required": 18,
+      "unit": "tonne"
+    },
+    {
+      "activity_id": "A004",
+      "material_id": "M001",
+      "quantity_required": 60,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A004",
+      "material_id": "M002",
+      "quantity_required": 9,
+      "unit": "tonne"
+    },
+    {
+      "activity_id": "A005",
+      "material_id": "M008",
+      "quantity_required": 1,
+      "unit": "lot"
+    },
+    {
+      "activity_id": "A005",
+      "material_id": "M009",
+      "quantity_required": 1,
+      "unit": "lot"
+    },
+    {
+      "activity_id": "A006",
+      "material_id": "M001",
+      "quantity_required": 180,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A006",
+      "material_id": "M002",
+      "quantity_required": 27,
+      "unit": "tonne"
+    },
+    {
+      "activity_id": "A007",
+      "material_id": "M005",
+      "quantity_required": 8500,
+      "unit": "unit"
+    },
+    {
+      "activity_id": "A007",
+      "material_id": "M003",
+      "quantity_required": 20,
+      "unit": "tonne"
+    },
+    {
+      "activity_id": "A007",
+      "material_id": "M004",
+      "quantity_required": 35,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A008",
+      "material_id": "M003",
+      "quantity_required": 25,
+      "unit": "tonne"
+    },
+    {
+      "activity_id": "A008",
+      "material_id": "M004",
+      "quantity_required": 45,
+      "unit": "m3"
+    },
+    {
+      "activity_id": "A009",
+      "material_id": "M006",
+      "quantity_required": 1200,
+      "unit": "m2"
+    },
+    {
+      "activity_id": "A010",
+      "material_id": "M007",
+      "quantity_required": 850,
+      "unit": "litre"
+    }
+  ],
+
+  "suppliers": [
+    {
+      "supplier_id": "S001",
+      "supplier_name": "Concrete Supplier",
+      "location": "Bengaluru"
+    },
+    {
+      "supplier_id": "S002",
+      "supplier_name": "Steel Supplier",
+      "location": "Bengaluru"
+    },
+    {
+      "supplier_id": "S003",
+      "supplier_name": "Building Materials Supplier",
+      "location": "Bengaluru"
+    },
+    {
+      "supplier_id": "S004",
+      "supplier_name": "Electrical Supplier",
+      "location": "Bengaluru"
+    },
+    {
+      "supplier_id": "S005",
+      "supplier_name": "Plumbing Supplier",
+      "location": "Bengaluru"
+    },
+    {
+      "supplier_id": "S006",
+      "supplier_name": "Finishing Materials Supplier",
+      "location": "Bengaluru"
+    }
+  ],
+
+  "supplier_materials": [
+    {
+      "supplier_id": "S001",
+      "material_id": "M001",
+      "unit_price": 6500,
+      "capacity": 500,
+      "lead_time_days": 3,
+      "minimum_order_quantity": 10
+    },
+    {
+      "supplier_id": "S002",
+      "material_id": "M002",
+      "unit_price": 65000,
+      "capacity": 100,
+      "lead_time_days": 7,
+      "minimum_order_quantity": 1
+    },
+    {
+      "supplier_id": "S003",
+      "material_id": "M003",
+      "unit_price": 8000,
+      "capacity": 100,
+      "lead_time_days": 5,
+      "minimum_order_quantity": 1
+    },
+    {
+      "supplier_id": "S003",
+      "material_id": "M004",
+      "unit_price": 1800,
+      "capacity": 500,
+      "lead_time_days": 4,
+      "minimum_order_quantity": 5
+    },
+    {
+      "supplier_id": "S003",
+      "material_id": "M005",
+      "unit_price": 12,
+      "capacity": 20000,
+      "lead_time_days": 5,
+      "minimum_order_quantity": 500
+    },
+    {
+      "supplier_id": "S004",
+      "material_id": "M008",
+      "unit_price": 50000,
+      "capacity": 20,
+      "lead_time_days": 7,
+      "minimum_order_quantity": 1
+    },
+    {
+      "supplier_id": "S005",
+      "material_id": "M009",
+      "unit_price": 45000,
+      "capacity": 20,
+      "lead_time_days": 7,
+      "minimum_order_quantity": 1
+    },
+    {
+      "supplier_id": "S006",
+      "material_id": "M006",
+      "unit_price": 1200,
+      "capacity": 2000,
+      "lead_time_days": 10,
+      "minimum_order_quantity": 50
+    },
+    {
+      "supplier_id": "S006",
+      "material_id": "M007",
+      "unit_price": 350,
+      "capacity": 2000,
+      "lead_time_days": 5,
+      "minimum_order_quantity": 20
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+group,n,mean,std,min,p25,median,p75,max,mean_ci95_low,mean_ci95_high,bootstrap_resamples,seed
+(all rows),3,131.66666666666666,10.408329997330663,120.0,127.5,135.0,137.5,140.0,120.0,140.0,1000,42

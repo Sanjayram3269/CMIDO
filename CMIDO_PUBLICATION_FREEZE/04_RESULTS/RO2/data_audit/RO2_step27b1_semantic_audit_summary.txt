@@ -1,0 +1,31 @@
+CMIDO — RO2 STEP 27B.1 SEMANTIC AUDIT
+============================================================
+Source: D:\CMIDO\data\raw\RO2_Data LeadTime.xlsx
+
+Supplier/vendor identifier fields:
+[]
+
+Material identifier fields:
+['Material Number']
+
+Internal lead-time fields:
+[]
+
+Receipt/delivery date-like fields:
+[]
+
+Interpretation:
+- Supplier delivery lead time is admissible ONLY if an observed supplier-linked
+  order/receipt or delivery construct is established.
+- Internal procurement duration may be used as a separate uncertainty component.
+- SLA target values are not realized lead time.
+- Alternative Rata-rata/V1/Future sheets are not independent observations.
+
+Recommended status after this audit:
+INSUFFICIENT EVIDENCE FOR PRIMARY LEAD-TIME MODEL.
+
+Outputs:
+D:\CMIDO\results\RO2\data_audit\RO2_step27b1_semantic_detail.csv
+D:\CMIDO\results\RO2\data_audit\RO2_step27b1_leadtime_candidates.csv
+D:\CMIDO\results\RO2\data_audit\RO2_step27b1_date_semantics.csv
+D:\CMIDO\results\RO2\data_audit\RO2_step27b1_semantic_audit_summary.txt

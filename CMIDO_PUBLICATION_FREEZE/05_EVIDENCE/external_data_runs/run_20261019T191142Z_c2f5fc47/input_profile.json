@@ -1,0 +1,86 @@
+{
+  "column_count": 6,
+  "columns": [
+    {
+      "distinct_count": 5,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "month_index",
+      "numeric_summary": {
+        "max": 5,
+        "mean": 3.0,
+        "min": 1,
+        "std": 1.5811388300841898
+      }
+    },
+    {
+      "distinct_count": 5,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "observed_units",
+      "numeric_summary": {
+        "max": 150,
+        "mean": 137.4,
+        "min": 120,
+        "std": 11.1265448365609
+      }
+    },
+    {
+      "distinct_count": 5,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "lower_p10",
+      "numeric_summary": {
+        "max": 120,
+        "mean": 108.4,
+        "min": 95,
+        "std": 9.235799911215054
+      }
+    },
+    {
+      "distinct_count": 5,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "upper_p90",
+      "numeric_summary": {
+        "max": 180,
+        "mean": 163.0,
+        "min": 140,
+        "std": 15.231546211727817
+      }
+    },
+    {
+      "distinct_count": 5,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "lower_p25",
+      "numeric_summary": {
+        "max": 128,
+        "mean": 115.6,
+        "min": 100,
+        "std": 10.430723848324238
+      }
+    },
+    {
+      "distinct_count": 5,
+      "inferred_type": "numeric",
+      "missing_count": 0,
+      "missing_fraction": 0.0,
+      "name": "upper_p75",
+      "numeric_summary": {
+        "max": 170,
+        "mean": 155.0,
+        "min": 135,
+        "std": 13.30413469565007
+      }
+    }
+  ],
+  "duplicate_rows": 0,
+  "row_count": 5,
+  "warnings": []
+}

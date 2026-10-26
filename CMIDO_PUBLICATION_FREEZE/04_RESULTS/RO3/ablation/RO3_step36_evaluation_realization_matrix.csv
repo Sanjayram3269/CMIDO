@@ -1,0 +1,45 @@
+forecast_origin,material,eval_start,eval_end,expected_months,demand_months,price_months,demand_complete,price_complete,demand_finite,price_finite,strictly_after_origin,demand_duplicate_dates,price_duplicate_dates
+2022-07-01,Cement,2022-08-01,2023-07-01,12,12,12,True,True,True,True,True,0,0
+2022-07-01,Granite,2022-08-01,2023-07-01,12,12,12,True,True,True,True,True,0,0
+2022-07-01,Ready Mixed Concrete,2022-08-01,2023-07-01,12,12,12,True,True,True,True,True,0,0
+2022-07-01,Steel Reinforcement Bars,2022-08-01,2023-07-01,12,12,12,True,True,True,True,True,0,0
+2022-08-01,Cement,2022-09-01,2023-08-01,12,12,12,True,True,True,True,True,0,0
+2022-08-01,Granite,2022-09-01,2023-08-01,12,12,12,True,True,True,True,True,0,0
+2022-08-01,Ready Mixed Concrete,2022-09-01,2023-08-01,12,12,12,True,True,True,True,True,0,0
+2022-08-01,Steel Reinforcement Bars,2022-09-01,2023-08-01,12,12,12,True,True,True,True,True,0,0
+2022-09-01,Cement,2022-10-01,2023-09-01,12,12,12,True,True,True,True,True,0,0
+2022-09-01,Granite,2022-10-01,2023-09-01,12,12,12,True,True,True,True,True,0,0
+2022-09-01,Ready Mixed Concrete,2022-10-01,2023-09-01,12,12,12,True,True,True,True,True,0,0
+2022-09-01,Steel Reinforcement Bars,2022-10-01,2023-09-01,12,12,12,True,True,True,True,True,0,0
+2022-10-01,Cement,2022-11-01,2023-10-01,12,12,12,True,True,True,True,True,0,0
+2022-10-01,Granite,2022-11-01,2023-10-01,12,12,12,True,True,True,True,True,0,0
+2022-10-01,Ready Mixed Concrete,2022-11-01,2023-10-01,12,12,12,True,True,True,True,True,0,0
+2022-10-01,Steel Reinforcement Bars,2022-11-01,2023-10-01,12,12,12,True,True,True,True,True,0,0
+2022-11-01,Cement,2022-12-01,2023-11-01,12,12,12,True,True,True,True,True,0,0
+2022-11-01,Granite,2022-12-01,2023-11-01,12,12,12,True,True,True,True,True,0,0
+2022-11-01,Ready Mixed Concrete,2022-12-01,2023-11-01,12,12,12,True,True,True,True,True,0,0
+2022-11-01,Steel Reinforcement Bars,2022-12-01,2023-11-01,12,12,12,True,True,True,True,True,0,0
+2022-12-01,Cement,2023-01-01,2023-12-01,12,12,12,True,True,True,True,True,0,0
+2022-12-01,Granite,2023-01-01,2023-12-01,12,12,12,True,True,True,True,True,0,0
+2022-12-01,Ready Mixed Concrete,2023-01-01,2023-12-01,12,12,12,True,True,True,True,True,0,0
+2022-12-01,Steel Reinforcement Bars,2023-01-01,2023-12-01,12,12,12,True,True,True,True,True,0,0
+2023-01-01,Cement,2023-02-01,2024-01-01,12,12,12,True,True,True,True,True,0,0
+2023-01-01,Granite,2023-02-01,2024-01-01,12,12,12,True,True,True,True,True,0,0
+2023-01-01,Ready Mixed Concrete,2023-02-01,2024-01-01,12,12,12,True,True,True,True,True,0,0
+2023-01-01,Steel Reinforcement Bars,2023-02-01,2024-01-01,12,12,12,True,True,True,True,True,0,0
+2023-02-01,Cement,2023-03-01,2024-02-01,12,12,12,True,True,True,True,True,0,0
+2023-02-01,Granite,2023-03-01,2024-02-01,12,12,12,True,True,True,True,True,0,0
+2023-02-01,Ready Mixed Concrete,2023-03-01,2024-02-01,12,12,12,True,True,True,True,True,0,0
+2023-02-01,Steel Reinforcement Bars,2023-03-01,2024-02-01,12,12,12,True,True,True,True,True,0,0
+2023-03-01,Cement,2023-04-01,2024-03-01,12,12,12,True,True,True,True,True,0,0
+2023-03-01,Granite,2023-04-01,2024-03-01,12,12,12,True,True,True,True,True,0,0
+2023-03-01,Ready Mixed Concrete,2023-04-01,2024-03-01,12,12,12,True,True,True,True,True,0,0
+2023-03-01,Steel Reinforcement Bars,2023-04-01,2024-03-01,12,12,12,True,True,True,True,True,0,0
+2023-04-01,Cement,2023-05-01,2024-04-01,12,12,12,True,True,True,True,True,0,0
+2023-04-01,Granite,2023-05-01,2024-04-01,12,12,12,True,True,True,True,True,0,0
+2023-04-01,Ready Mixed Concrete,2023-05-01,2024-04-01,12,12,12,True,True,True,True,True,0,0
+2023-04-01,Steel Reinforcement Bars,2023-05-01,2024-04-01,12,12,12,True,True,True,True,True,0,0
+2023-05-01,Cement,2023-06-01,2024-05-01,12,12,12,True,True,True,True,True,0,0
+2023-05-01,Granite,2023-06-01,2024-05-01,12,12,12,True,True,True,True,True,0,0
+2023-05-01,Ready Mixed Concrete,2023-06-01,2024-05-01,12,12,12,True,True,True,True,True,0,0
+2023-05-01,Steel Reinforcement Bars,2023-06-01,2024-05-01,12,12,12,True,True,True,True,True,0,0

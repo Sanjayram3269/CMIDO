@@ -1,0 +1,13 @@
+CMIDO RO3.2 — SCENARIO GENERATION DECISION
+============================================================
+
+DECISION: RO3_2_AUDIT_PASS
+CHECKS: 10/10
+SCENARIOS: 100
+ORIGINS: 11
+
+IMPORTANT:
+- RO3.2 does not lock the final scenario count.
+- RO3.3 performs scenario-count convergence.
+- Duration remains procurement-process duration, not supplier-specific lead time.
+- RO1 supplies marginal horizon-wise predictive distributions.

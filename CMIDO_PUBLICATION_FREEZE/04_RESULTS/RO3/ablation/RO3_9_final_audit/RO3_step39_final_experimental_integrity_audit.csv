@@ -1,0 +1,30 @@
+check,passed,detail
+RO2 27B.4 file exists,True,D:\CMIDO\results\RO2\data_audit\RO2_step27b4_admissible_modelling_view.csv
+RO2 paired duration n=37,True,37
+RO2 paired P50=47,True,47.0
+N2500 scenario exists,True,D:\CMIDO\results\RO3\scenario_generation\RO3_step32_scenarios_2500.csv
+N2500 rows,True,1320000
+Scenario origins,True,
+Scenario materials,True,
+12 months/scenario,True,
+Scenario finite,True,
+RO3.5 audit exists,True,D:\CMIDO\results\RO3\multi_origin\RO3_step35_final_audit_N2500.csv
+RO3.5 audit passes,True,163/163
+RO3.6 output directory populated,True,
+RO3.6 statistical evidence,True,"['RO3_step36_controller_descriptive_statistics.csv', 'RO3_step36_statistical_analysis_audit.csv', 'RO3_step36_statistical_pairwise_comparisons.csv']"
+RO3.7 audit,True,
+RO3.7 summary,True,
+RO3.7 all pass,True,10/10
+RO3.7 cases,True,
+RO3.7 controllers,True,
+RO3.8 audit,True,
+RO3.8 summary,True,
+RO3.8 all pass,True,12/12
+RO3.8 rates,True,
+RO3.8 controllers,True,
+11 locked origins,True,
+4 common materials,True,
+Primary N=2500,True,
+Corrected P50=47,True,
+No unsupported disruption probability,True,
+Stress/sensitivity post-policy,True,

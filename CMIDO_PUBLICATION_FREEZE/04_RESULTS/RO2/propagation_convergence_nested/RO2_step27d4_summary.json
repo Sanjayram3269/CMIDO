@@ -1,0 +1,35 @@
+{
+  "step": "27D.4",
+  "decision": "LOCK_10000",
+  "recommended_mc_lock": 10000,
+  "n_cases": 48,
+  "stable_at_10000_n": 48,
+  "stable_at_10000_pct": 100.0,
+  "stable_at_25000_n": 48,
+  "stable_at_25000_pct": 100.0,
+  "max_5k_to_10k_relative_change_pct": 0.6688048960346645,
+  "max_10k_to_25k_relative_change_pct": 0.31245676236610004,
+  "previous_27d2_max_relative_change_pct": 13.414834238233713,
+  "master_seed": 27404,
+  "mc_sizes": [
+    1000,
+    2500,
+    5000,
+    10000,
+    25000
+  ],
+  "nested_prefix": true,
+  "ro1_test_forecasts_used": false,
+  "ro1_dataset_used": "RO1_DEMAND",
+  "ro1_source_horizons": [
+    1,
+    3,
+    6,
+    12
+  ],
+  "ro2_duration_rows": 37,
+  "ro2_duration_source": "RO2_step27b4_admissible_modelling_view.csv",
+  "ro2_duration_selection": "admissible_component == True",
+  "estimate_table_sha256": "77b30e70ca65bceff938548c9f5e525a29950ee2581f42eb62c46fbc88c10f4a",
+  "note": "Common-random-number nesting removes changing random-stream variation from sample-size comparisons; it does not itself prove statistical convergence."
+}

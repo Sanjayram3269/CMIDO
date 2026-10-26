@@ -1,0 +1,5 @@
+{
+  "interval_lower": "lower_p10",
+  "interval_upper": "upper_p90",
+  "observed": "observed_units"
+}

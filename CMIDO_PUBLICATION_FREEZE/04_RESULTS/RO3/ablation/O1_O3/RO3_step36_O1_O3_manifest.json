@@ -1,0 +1,13 @@
+{
+  "controllers": [
+    "O1",
+    "O3"
+  ],
+  "origins": 11,
+  "materials": 4,
+  "months_per_origin": 12,
+  "lead_time_days": 49,
+  "holding_rate_monthly": 0.025,
+  "forecast_source": "D:\\CMIDO\\results\\forecasting\\probabilistic_calibration\\RO1_step26c3_validation_forecasts.csv",
+  "status": "EXECUTION_COMPLETE"
+}

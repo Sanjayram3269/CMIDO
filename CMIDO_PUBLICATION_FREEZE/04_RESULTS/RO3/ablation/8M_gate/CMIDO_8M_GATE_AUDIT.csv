@@ -1,0 +1,21 @@
+check,passed,detail
+controller_freeze_manifest_exists,True,D:\CMIDO\results\RO3\ablation\RO3_step36_controller_freeze_manifest.json
+controller_contract_matches,True,
+origin_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_origin_level_results.csv
+material_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_material_level_results.csv
+descriptive_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_controller_descriptive_statistics.csv
+primary_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_primary_ablation_results.csv
+pairwise_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_statistical_pairwise_comparisons.csv
+audit_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_statistical_analysis_audit.csv
+four_controllers_present,True,"['O1', 'O2', 'O3', 'O4']"
+eleven_origins_per_controller,True,
+exact_locked_origin_intersection,True,
+origin_metrics_finite,True,
+four_materials_present,True,"['Cement', 'Granite', 'Ready Mixed Concrete', 'Steel Reinforcement Bars']"
+four_primary_metrics_per_contrast,True,20
+primary_bh_values_present,True,
+primary_bootstrap_bounds_present,True,
+statistical_audit_all_pass,True,8/8
+five_planned_contrasts_present,True,
+common_manifest_pass,True,
+common_evaluation_audit_all_pass,True,13/13

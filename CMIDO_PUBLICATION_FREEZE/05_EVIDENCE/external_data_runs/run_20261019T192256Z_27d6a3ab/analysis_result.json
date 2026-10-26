@@ -1,0 +1,18 @@
+{
+  "analysis": "forecast_coverage",
+  "computed_from": "uploaded rows only",
+  "coverage_rate": 0.995,
+  "engine": "CMIDO calibration/coverage discipline",
+  "interval_lower_column": "lower_80",
+  "interval_upper_column": "upper_80",
+  "mean_interval_width": 20.01379,
+  "n_rows_total": 200,
+  "n_scored": 200,
+  "n_scored_quantile": 200,
+  "observed_column": "observed",
+  "pinball_loss_ci95_high": 1.4913842500000003,
+  "pinball_loss_ci95_low": 1.2131144375000003,
+  "pinball_loss_mean": 1.3573750000000002,
+  "quantile_column": "q50",
+  "quantile_level": 0.5
+}

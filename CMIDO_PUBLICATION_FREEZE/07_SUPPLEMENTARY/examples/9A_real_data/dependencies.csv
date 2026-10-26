@@ -1,0 +1,4 @@
+predecessor,successor,dependency_type,lead_lag
+A001,A002,FS,0
+A002,A003,FS,0
+A003,A004,FS,0

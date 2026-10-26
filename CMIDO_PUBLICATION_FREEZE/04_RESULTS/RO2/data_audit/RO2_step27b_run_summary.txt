@@ -1,0 +1,32 @@
+CMIDO — RO2 STEP 27B DATA ADMISSIBILITY & LEAD-TIME AUDIT
+======================================================================
+Source: D:\CMIDO\data\raw\RO2_Data LeadTime.xlsx
+Sheets: 11
+Transaction-like sheets: ['Rata-rata', 'Rata-rata V1', 'Rata-rataFuture V2']
+Lead-time candidate sheets: ['Rata-rata', 'Rata-rata V1', 'Rata-rataFuture V2']
+Supplier fields found: False
+Material fields found: True
+Delivery/receipt-like fields found: False
+Numeric lead-time candidate available: True
+
+PRELIMINARY CLASSIFICATION
+--------------------------
+EMPIRICAL INTERNAL PROCUREMENT LEAD-TIME CANDIDATE; SUPPLIER DELIVERY LEAD-TIME NOT ESTABLISHED
+
+SCIENTIFIC CAUTION
+------------------
+Do NOT label 'Total Leadtime Internal', SLA, or internal process duration
+as supplier delivery lead time unless the workbook documentation and
+date semantics explicitly establish that meaning.
+
+The source workbook was not modified. No imputation, merging, modelling,
+or row deletion was performed.
+
+OUTPUTS
+-------
+D:\CMIDO\results\RO2\data_audit\RO2_step27b_data_audit.csv
+D:\CMIDO\results\RO2\data_audit\RO2_step27b_leadtime_distribution.csv
+D:\CMIDO\results\RO2\data_audit\RO2_step27b_missingness.csv
+D:\CMIDO\results\RO2\data_audit\RO2_step27b_duplicates.csv
+D:\CMIDO\results\RO2\data_audit\RO2_step27b_date_relationships.csv
+D:\CMIDO\results\RO2\data_audit\RO2_step27b_run_summary.txt

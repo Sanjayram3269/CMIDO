@@ -1,0 +1,24 @@
+{
+  "analysis": "descriptive_statistics",
+  "computed_from": "uploaded rows only",
+  "engine": "CMIDO summarize_numeric + bootstrap_mean_ci",
+  "group_column": null,
+  "measure_column": "forecast_demand_units",
+  "rows": [
+    {
+      "bootstrap_resamples": 1000,
+      "group": "(all rows)",
+      "max": 140.0,
+      "mean": 131.66666666666666,
+      "mean_ci95_high": 140.0,
+      "mean_ci95_low": 120.0,
+      "median": 135.0,
+      "min": 120.0,
+      "n": 3,
+      "p25": 127.5,
+      "p75": 137.5,
+      "seed": 42,
+      "std": 10.408329997330663
+    }
+  ]
+}

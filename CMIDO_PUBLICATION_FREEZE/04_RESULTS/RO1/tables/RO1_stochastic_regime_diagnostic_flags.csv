@@ -1,0 +1,10 @@
+dataset,series,covid_volatility_ratio,diagnostic_category
+demand,Cement,9.60213336515819,C
+demand,Granite,7.133700178454567,C
+demand,Ready-Mixed Concrete,9.529920559121395,C
+demand,Steel Reinforcement Bars,2.7397178654796353,C
+price,Cement In Bulk (Ordinary Portland Cement),0.244052406302008,A
+price,Concreting Sand,0.44128246550664185,A
+price,Granite (20mm Aggregate),0.13580429012482906,A
+price,Ready Mixed Concrete,0.06928781124225497,A
+price,Steel Reinforcement Bars (16-32mm High Tensile),0.6641833046959369,A

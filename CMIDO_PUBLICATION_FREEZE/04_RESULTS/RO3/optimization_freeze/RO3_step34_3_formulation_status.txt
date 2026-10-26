@@ -1,0 +1,4 @@
+STATUS: RO3_4_3_FORMULATION_AUDIT_PASS
+CHECKS: 29/29
+RISK OBJECTIVE: CVaR95(total shortage)
+DURATION EXPOSURE: diagnostic only, not primary objective

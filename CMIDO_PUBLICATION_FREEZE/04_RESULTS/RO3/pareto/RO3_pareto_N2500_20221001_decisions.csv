@@ -1,0 +1,289 @@
+pareto_id,material,month_ahead,q
+1,Cement,1,0.0
+1,Cement,2,0.0
+1,Cement,3,0.0
+1,Cement,4,0.0
+1,Cement,5,0.0
+1,Cement,6,0.0
+1,Cement,7,0.0
+1,Cement,8,0.0
+1,Cement,9,0.0
+1,Cement,10,0.0
+1,Cement,11,0.0
+1,Cement,12,0.0
+1,Granite,1,0.0
+1,Granite,2,0.0
+1,Granite,3,0.0
+1,Granite,4,0.0
+1,Granite,5,0.0
+1,Granite,6,0.0
+1,Granite,7,0.0
+1,Granite,8,0.0
+1,Granite,9,0.0
+1,Granite,10,0.0
+1,Granite,11,0.0
+1,Granite,12,0.0
+1,Ready Mixed Concrete,1,0.0
+1,Ready Mixed Concrete,2,0.0
+1,Ready Mixed Concrete,3,0.0
+1,Ready Mixed Concrete,4,0.0
+1,Ready Mixed Concrete,5,0.0
+1,Ready Mixed Concrete,6,0.0
+1,Ready Mixed Concrete,7,0.0
+1,Ready Mixed Concrete,8,0.0
+1,Ready Mixed Concrete,9,0.0
+1,Ready Mixed Concrete,10,0.0
+1,Ready Mixed Concrete,11,0.0
+1,Ready Mixed Concrete,12,0.0
+1,Steel Reinforcement Bars,1,0.0
+1,Steel Reinforcement Bars,2,0.0
+1,Steel Reinforcement Bars,3,0.0
+1,Steel Reinforcement Bars,4,0.0
+1,Steel Reinforcement Bars,5,0.0
+1,Steel Reinforcement Bars,6,0.0
+1,Steel Reinforcement Bars,7,0.0
+1,Steel Reinforcement Bars,8,0.0
+1,Steel Reinforcement Bars,9,0.0
+1,Steel Reinforcement Bars,10,0.0
+1,Steel Reinforcement Bars,11,0.0
+1,Steel Reinforcement Bars,12,0.0
+2,Cement,1,0.0
+2,Cement,2,0.0
+2,Cement,3,0.0
+2,Cement,4,0.0
+2,Cement,5,0.0
+2,Cement,6,0.0
+2,Cement,7,0.0
+2,Cement,8,0.0
+2,Cement,9,0.0
+2,Cement,10,0.0
+2,Cement,11,0.0
+2,Cement,12,0.0
+2,Granite,1,1740.337273157181
+2,Granite,2,1637.6671735333955
+2,Granite,3,1707.1914921873686
+2,Granite,4,1711.6722607329036
+2,Granite,5,1710.1902010403269
+2,Granite,6,1584.4024467769025
+2,Granite,7,1658.8508391805558
+2,Granite,8,1731.1513484960465
+2,Granite,9,1727.243553762302
+2,Granite,10,256.36548450569853
+2,Granite,11,0.0
+2,Granite,12,0.0
+2,Ready Mixed Concrete,1,0.0
+2,Ready Mixed Concrete,2,0.0
+2,Ready Mixed Concrete,3,0.0
+2,Ready Mixed Concrete,4,0.0
+2,Ready Mixed Concrete,5,0.0
+2,Ready Mixed Concrete,6,0.0
+2,Ready Mixed Concrete,7,0.0
+2,Ready Mixed Concrete,8,0.0
+2,Ready Mixed Concrete,9,0.0
+2,Ready Mixed Concrete,10,0.0
+2,Ready Mixed Concrete,11,0.0
+2,Ready Mixed Concrete,12,0.0
+2,Steel Reinforcement Bars,1,0.0
+2,Steel Reinforcement Bars,2,0.0
+2,Steel Reinforcement Bars,3,0.0
+2,Steel Reinforcement Bars,4,0.0
+2,Steel Reinforcement Bars,5,0.0
+2,Steel Reinforcement Bars,6,0.0
+2,Steel Reinforcement Bars,7,0.0
+2,Steel Reinforcement Bars,8,0.0
+2,Steel Reinforcement Bars,9,0.0
+2,Steel Reinforcement Bars,10,0.0
+2,Steel Reinforcement Bars,11,0.0
+2,Steel Reinforcement Bars,12,0.0
+3,Cement,1,0.0
+3,Cement,2,0.0
+3,Cement,3,0.0
+3,Cement,4,0.0
+3,Cement,5,0.0
+3,Cement,6,0.0
+3,Cement,7,0.0
+3,Cement,8,0.0
+3,Cement,9,0.0
+3,Cement,10,0.0
+3,Cement,11,0.0
+3,Cement,12,0.0
+3,Granite,1,1692.3838398372384
+3,Granite,2,1576.8403369164241
+3,Granite,3,1621.884155437146
+3,Granite,4,1652.814822934568
+3,Granite,5,1661.6577165643012
+3,Granite,6,1615.8394246617258
+3,Granite,7,1663.690368939549
+3,Granite,8,1649.149619494265
+3,Granite,9,1647.1597615587946
+3,Granite,10,1657.6749546775911
+3,Granite,11,101.40300675708339
+3,Granite,12,0.0
+3,Ready Mixed Concrete,1,0.0
+3,Ready Mixed Concrete,2,0.0
+3,Ready Mixed Concrete,3,0.0
+3,Ready Mixed Concrete,4,0.0
+3,Ready Mixed Concrete,5,0.0
+3,Ready Mixed Concrete,6,0.0
+3,Ready Mixed Concrete,7,0.0
+3,Ready Mixed Concrete,8,0.0
+3,Ready Mixed Concrete,9,0.0
+3,Ready Mixed Concrete,10,0.0
+3,Ready Mixed Concrete,11,0.0
+3,Ready Mixed Concrete,12,0.0
+3,Steel Reinforcement Bars,1,0.0
+3,Steel Reinforcement Bars,2,0.0
+3,Steel Reinforcement Bars,3,0.0
+3,Steel Reinforcement Bars,4,0.0
+3,Steel Reinforcement Bars,5,0.0
+3,Steel Reinforcement Bars,6,0.0
+3,Steel Reinforcement Bars,7,0.0
+3,Steel Reinforcement Bars,8,0.0
+3,Steel Reinforcement Bars,9,0.0
+3,Steel Reinforcement Bars,10,0.0
+3,Steel Reinforcement Bars,11,0.0
+3,Steel Reinforcement Bars,12,0.0
+4,Cement,1,0.0
+4,Cement,2,0.0
+4,Cement,3,0.0
+4,Cement,4,0.0
+4,Cement,5,0.0
+4,Cement,6,0.0
+4,Cement,7,0.0
+4,Cement,8,0.0
+4,Cement,9,0.0
+4,Cement,10,0.0
+4,Cement,11,0.0
+4,Cement,12,0.0
+4,Granite,1,1692.3838398372384
+4,Granite,2,1576.8403369164241
+4,Granite,3,1621.884155437146
+4,Granite,4,1652.814822934568
+4,Granite,5,1661.6577165643012
+4,Granite,6,1615.8394246617258
+4,Granite,7,1663.690368939549
+4,Granite,8,1649.149619494265
+4,Granite,9,1647.1597615587946
+4,Granite,10,1657.6749546775911
+4,Granite,11,101.40300675727282
+4,Granite,12,0.0
+4,Ready Mixed Concrete,1,0.0
+4,Ready Mixed Concrete,2,0.0
+4,Ready Mixed Concrete,3,0.0
+4,Ready Mixed Concrete,4,0.0
+4,Ready Mixed Concrete,5,0.0
+4,Ready Mixed Concrete,6,0.0
+4,Ready Mixed Concrete,7,0.0
+4,Ready Mixed Concrete,8,0.0
+4,Ready Mixed Concrete,9,0.0
+4,Ready Mixed Concrete,10,0.0
+4,Ready Mixed Concrete,11,0.0
+4,Ready Mixed Concrete,12,0.0
+4,Steel Reinforcement Bars,1,0.0
+4,Steel Reinforcement Bars,2,0.0
+4,Steel Reinforcement Bars,3,0.0
+4,Steel Reinforcement Bars,4,0.0
+4,Steel Reinforcement Bars,5,0.0
+4,Steel Reinforcement Bars,6,0.0
+4,Steel Reinforcement Bars,7,0.0
+4,Steel Reinforcement Bars,8,0.0
+4,Steel Reinforcement Bars,9,0.0
+4,Steel Reinforcement Bars,10,0.0
+4,Steel Reinforcement Bars,11,0.0
+4,Steel Reinforcement Bars,12,0.0
+5,Cement,1,415.9411911561395
+5,Cement,2,384.7242081067499
+5,Cement,3,379.3594006019838
+5,Cement,4,350.4655604331175
+5,Cement,5,367.54795236787515
+5,Cement,6,371.51122847862496
+5,Cement,7,383.99025774489155
+5,Cement,8,383.06438867681663
+5,Cement,9,422.6606012587639
+5,Cement,10,433.88733313886894
+5,Cement,11,284.23315079142884
+5,Cement,12,208.98790116599798
+5,Granite,1,1740.337273157181
+5,Granite,2,1766.5694975354725
+5,Granite,3,1722.285089255
+5,Granite,4,1691.4553873655784
+5,Granite,5,1720.7487067709726
+5,Granite,6,1676.6440203845423
+5,Granite,7,1726.3398368023545
+5,Granite,8,1829.0703660704817
+5,Granite,9,1726.0482789441226
+5,Granite,10,1445.494086549195
+5,Granite,11,558.9899142799593
+5,Granite,12,0.0
+5,Ready Mixed Concrete,1,1110.2524018336155
+5,Ready Mixed Concrete,2,1083.8233147189533
+5,Ready Mixed Concrete,3,1042.073082671464
+5,Ready Mixed Concrete,4,1074.0657514356553
+5,Ready Mixed Concrete,5,1150.909442008931
+5,Ready Mixed Concrete,6,963.3326664448964
+5,Ready Mixed Concrete,7,1120.9160726945556
+5,Ready Mixed Concrete,8,996.8550668228615
+5,Ready Mixed Concrete,9,1017.9766031518294
+5,Ready Mixed Concrete,10,1142.136136268134
+5,Ready Mixed Concrete,11,991.3855292737082
+5,Ready Mixed Concrete,12,142.9460927637149
+5,Steel Reinforcement Bars,1,150.34880917934515
+5,Steel Reinforcement Bars,2,146.78900200539883
+5,Steel Reinforcement Bars,3,92.57100040854732
+5,Steel Reinforcement Bars,4,110.95558196312085
+5,Steel Reinforcement Bars,5,136.80317612381776
+5,Steel Reinforcement Bars,6,148.38461028778897
+5,Steel Reinforcement Bars,7,91.2831273369898
+5,Steel Reinforcement Bars,8,131.12666213409406
+5,Steel Reinforcement Bars,9,116.76462670273288
+5,Steel Reinforcement Bars,10,137.94259743612463
+5,Steel Reinforcement Bars,11,86.5611088133089
+5,Steel Reinforcement Bars,12,17.900403249389683
+6,Cement,1,424.3414264952372
+6,Cement,2,418.5475789020882
+6,Cement,3,391.94942608849874
+6,Cement,4,363.8550940015186
+6,Cement,5,385.03680521826055
+6,Cement,6,360.1612010078903
+6,Cement,7,377.60489130628144
+6,Cement,8,381.3389407524996
+6,Cement,9,396.52642738938414
+6,Cement,10,393.79033080217306
+6,Cement,11,425.1335079686504
+6,Cement,12,272.50043711797514
+6,Granite,1,1791.3404207741453
+6,Granite,2,1738.409222045933
+6,Granite,3,1805.9784336945484
+6,Granite,4,1781.8988262112787
+6,Granite,5,1622.934558742576
+6,Granite,6,1742.6491111894504
+6,Granite,7,1790.5724171062366
+6,Granite,8,1773.8523048361185
+6,Granite,9,1580.7032949832917
+6,Granite,10,1529.1409210655404
+6,Granite,11,1677.122539998838
+6,Granite,12,1348.5122245445557
+6,Ready Mixed Concrete,1,1117.0282183797503
+6,Ready Mixed Concrete,2,1095.6553533454505
+6,Ready Mixed Concrete,3,1079.7144543776353
+6,Ready Mixed Concrete,4,1062.9906728039484
+6,Ready Mixed Concrete,5,1105.7352937618343
+6,Ready Mixed Concrete,6,1074.4084153884528
+6,Ready Mixed Concrete,7,1120.9160726945556
+6,Ready Mixed Concrete,8,1034.7257908181991
+6,Ready Mixed Concrete,9,1082.0472595982053
+6,Ready Mixed Concrete,10,1040.1947558264205
+6,Ready Mixed Concrete,11,1024.3722573829937
+6,Ready Mixed Concrete,12,769.8550574207658
+6,Steel Reinforcement Bars,1,151.00845741671537
+6,Steel Reinforcement Bars,2,146.1293537680286
+6,Steel Reinforcement Bars,3,128.6429488554823
+6,Steel Reinforcement Bars,4,127.57193325802902
+6,Steel Reinforcement Bars,5,135.80042796439727
+6,Steel Reinforcement Bars,6,138.7191161423402
+6,Steel Reinforcement Bars,7,131.39639023369293
+6,Steel Reinforcement Bars,8,125.19277162766689
+6,Steel Reinforcement Bars,9,137.79952855694648
+6,Steel Reinforcement Bars,10,136.8295646051612
+6,Steel Reinforcement Bars,11,83.71450923194723
+6,Steel Reinforcement Bars,12,0.0

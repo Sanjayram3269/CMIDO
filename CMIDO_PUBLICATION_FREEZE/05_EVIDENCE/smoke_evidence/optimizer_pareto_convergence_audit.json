@@ -1,0 +1,334 @@
+{
+ "stage": "OPTIMIZER_PARETO_CONVERGENCE",
+ "started_utc": "2026-10-19T19:37:54.412292+00:00",
+ "scope": "Optimizer/Pareto-frontier convergence \u2014 separate from RO3.3 scenario-count convergence, which is untouched by this audit.",
+ "checks": [
+  {
+   "check": "frozen_objectives_constraints_solver_identical_across_N",
+   "status": "PASS",
+   "detail": "{\"model_ids\": [\"CMIDO_RO3_4_4_v1.1_corrected_cvar_reporting\"], \"solvers\": [\"HiGHS\"], \"alpha\": [0.95], \"monthly_holding_rate\": [0.025], \"epsilon_levels\": [3], \"scenario_counts\": [1000, 2500, 5000], \"origin\": \"2022-07-01\"}"
+  },
+  {
+   "check": "epsilon_grid_fully_solved",
+   "status": "PASS",
+   "detail": "feasible epsilon solves per N (3x3 grid => 9): {1000: 9, 2500: 9, 5000: 9}"
+  },
+  {
+   "check": "frozen_normalization_matches_recorded_manifest",
+   "status": "PASS",
+   "detail": "recomputed min={'Z1': 0.0, 'Z2': 4000.292536, 'Z3': 7312.547041} max={'Z1': 3739407.388855, 'Z2': 37223.019047, 'Z3': 38441.510408}"
+  },
+  {
+   "check": "hypervolume_reconciles_with_recorded_RO3_3B",
+   "status": "PASS",
+   "detail": "recomputed={1000: 0.4212214223946116, 2500: 0.4122785867039152, 5000: 0.3905331811400325} recorded={1000: 0.4212214223946116, 2500: 0.4122785867039152, 5000: 0.3905331811400325} max|delta|=0.000e+00"
+  },
+  {
+   "check": "hypervolume_movement_across_scenario_counts",
+   "status": "REPORTED",
+   "detail": "{\"1000_to_2500_rel\": -0.021231, \"2500_to_5000_rel\": -0.052744, \"1000_to_5000_rel\": -0.072855} \u2014 no acceptance threshold for hypervolume movement is prescribed in the repository"
+  },
+  {
+   "check": "pareto_set_nonempty_at_every_N",
+   "status": "PASS",
+   "detail": "cardinality={1000: 5, 2500: 5, 5000: 5} (RO3.5 \u00a77 requires a non-empty Pareto set)"
+  },
+  {
+   "check": "pareto_cardinality_stability_across_N",
+   "status": "REPORTED",
+   "detail": "cardinality identical across N: True ({1000: 5, 2500: 5, 5000: 5}); RO3.3B prescribes reporting cardinality, not a stability threshold"
+  },
+  {
+   "check": "ro3_5_integrity_gates",
+   "status": "PASS",
+   "detail": "163/163 including 64/64 independent CVaR reconstructions (Z3 consistency)"
+  },
+  {
+   "check": "optimizer_feasibility_all_locked_origins",
+   "status": "PASS",
+   "detail": "11 execution records; return codes and feasible-solve counts: [[\"2022-07-01\", 0, 9, 5], [\"2022-08-01\", 0, 9, 6], [\"2022-09-01\", 0, 9, 5], [\"2022-10-01\", 0, 9, 6], [\"2022-11-01\", 0, 9, 6], [\"2022-12-01\", 0, 9, 7], [\"2023-01-01\", 0, 9, 5], [\"2023-02-01\", 0, 9, 6], [\"2023-03-01\", 0, 9, 6], [\"2023-04-01\", 0, 9, 6], [\"2023-05-01\", 0, 9, 6]]"
+  },
+  {
+   "check": "solver_termination_wording",
+   "status": "REPORTED",
+   "detail": "Frozen execution records report 'Feasible epsilon solves: 9' and return_code 0; they do not print the literal solver termination token, so the RO3.5 \u00a77 'optimal termination' gate is evidenced by solve counts + return codes + the Z3 reconstruction checks rather than by a stored termination string."
+  },
+  {
+   "check": "objective_movement_across_scenario_counts",
+   "status": "REPORTED",
+   "detail": "max |relative change| over min/median/max/mean for Z1/Z2/Z3 = 0.031726; no optimizer/Pareto objective-movement acceptance threshold is prescribed (decision-level materiality thresholds are recorded as NOT YET FROZEN in src/optimization/ro3_4_formulation_audit.py)"
+  },
+  {
+   "check": "decision_stability_measured",
+   "status": "REPORTED",
+   "detail": "[{\"pair\": \"1000_vs_2500\", \"matched_solutions\": 5, \"mean_objective_distance\": 0.0074935988082164, \"max_objective_distance\": 0.0272012792685112, \"primary_total_procurement_normalized_difference_mean\": 0.0203507044963762, \"primary_total_procurement_normalized_difference_max\": 0.0406711946956944}, {\"pair\": \"1000_vs_5000\", \"matched_solutions\": 5, \"mean_objective_distance\": 0.0106777057119823, \"max_objective_distance\": 0.0494596639631551, \"primary_total_procurement_normalized_difference_mean\": 0.025397318447042, \"primary_total_procurement_normalized_difference_max\": 0.0501924850627601}, {\"pair\": \"2500_vs_5000\", \"matched_solutions\": 5, \"mean_objective_distance\": 0.005472101718823, \"max_objective_distance\": 0.0304414905373341, \"primary_total_procurement_normalized_difference_mean\": 0.0134589266758516, \"primary_total_procurement_normalized_difference_max\": 0.029649064115417}]"
+  },
+  {
+   "check": "decision_level_materiality_threshold",
+   "status": "NOT PRESCRIBED",
+   "detail": "Frozen decision-level materiality thresholds do not exist (ro3_4_formulation_audit.py: 'Decision-level materiality thresholds: NOT YET FROZEN'; RO3.3B preflight lists 'freeze decision-level materiality thresholds' as still required), so decision stability is reported as a measurement and no pass is claimed."
+  },
+  {
+   "check": "uncorrected_relative_quantity_metric_unusable",
+   "status": "REPORTED",
+   "detail": "RO3_step33B_pairwise_sensitivity_*.csv reports mean_relative_quantity_difference \u2248 1.94e+08 for the 1000-vs pairs (near-zero denominators); the corrected zero-safe metric in RO3_step33B_corrected_summary_*.csv is the usable one."
+  },
+  {
+   "check": "ro3_3_scenario_count_verdict_untouched",
+   "status": "PASS",
+   "detail": "read-only confirmation: {\"RO3_step33_decision.txt\": \"RO3_3_EVALUATE_2500\", \"RO3_step33A_decision.txt\": \"RO3_3A_EVALUATE_2500\"}"
+  }
+ ],
+ "measurements": {
+  "frozen_configuration": {
+   "model_ids": [
+    "CMIDO_RO3_4_4_v1.1_corrected_cvar_reporting"
+   ],
+   "solvers": [
+    "HiGHS"
+   ],
+   "alpha": [
+    0.95
+   ],
+   "monthly_holding_rate": [
+    0.025
+   ],
+   "epsilon_levels": [
+    3
+   ],
+   "scenario_counts": [
+    1000,
+    2500,
+    5000
+   ],
+   "origin": "2022-07-01"
+  },
+  "feasible_epsilon_solves": {
+   "1000": 9,
+   "2500": 9,
+   "5000": 9
+  },
+  "pareto_cardinality": {
+   "1000": 5,
+   "2500": 5,
+   "5000": 5
+  },
+  "hypervolume_recomputed": {
+   "1000": 0.4212214223946116,
+   "2500": 0.4122785867039152,
+   "5000": 0.3905331811400325
+  },
+  "hypervolume_recorded": {
+   "1000": 0.4212214223946116,
+   "2500": 0.4122785867039152,
+   "5000": 0.3905331811400325
+  },
+  "hypervolume_abs_delta": {
+   "1000": 0.0,
+   "2500": 0.0,
+   "5000": 0.0
+  },
+  "hypervolume_relative_movement": {
+   "1000_to_2500_rel": -0.021230723831321383,
+   "2500_to_5000_rel": -0.05274444578296651,
+   "1000_to_5000_rel": -0.07285536685223364
+  },
+  "ro3_5_integrity_audit": {
+   "path": "results\\RO3\\multi_origin\\RO3_step35_final_audit_N2500.csv",
+   "checks_passed": 163,
+   "checks_total": 163,
+   "cvar_reconstruction_checks": 64,
+   "cvar_reconstruction_passed": 64,
+   "origins": [
+    "2022-07-01",
+    "2022-08-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-11-01",
+    "2022-12-01",
+    "2023-01-01",
+    "2023-02-01",
+    "2023-03-01",
+    "2023-04-01",
+    "2023-05-01"
+   ]
+  },
+  "execution_records": [
+   {
+    "origin": "2022-07-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 5
+   },
+   {
+    "origin": "2022-08-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 6
+   },
+   {
+    "origin": "2022-09-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 5
+   },
+   {
+    "origin": "2022-10-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 6
+   },
+   {
+    "origin": "2022-11-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 6
+   },
+   {
+    "origin": "2022-12-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 7
+   },
+   {
+    "origin": "2023-01-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 5
+   },
+   {
+    "origin": "2023-02-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 6
+   },
+   {
+    "origin": "2023-03-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 6
+   },
+   {
+    "origin": "2023-04-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 6
+   },
+   {
+    "origin": "2023-05-01",
+    "return_code": 0,
+    "scenario_count": 2500,
+    "feasible_epsilon_solves": 9,
+    "nondominated_solutions": 6
+   }
+  ],
+  "objective_relative_movement": {
+   "Z1": {
+    "1000_vs_2500": {
+     "min": null,
+     "median": 0.002606,
+     "max": 0.021793,
+     "mean": 0.015143
+    },
+    "2500_vs_5000": {
+     "min": null,
+     "median": 0.000576,
+     "max": 0.005574,
+     "mean": 0.016336
+    },
+    "1000_vs_5000": {
+     "min": null,
+     "median": 0.003184,
+     "max": 0.027488,
+     "mean": 0.031726
+    }
+   },
+   "Z2": {
+    "1000_vs_2500": {
+     "min": -0.004823,
+     "median": 0.000301,
+     "max": 0.000858,
+     "mean": 7e-05
+    },
+    "2500_vs_5000": {
+     "min": -0.005302,
+     "median": -0.000494,
+     "max": 2.5e-05,
+     "mean": -0.001628
+    },
+    "1000_vs_5000": {
+     "min": -0.0101,
+     "median": -0.000193,
+     "max": 0.000883,
+     "mean": -0.001557
+    }
+   },
+   "Z3": {
+    "1000_vs_2500": {
+     "min": 0.015014,
+     "median": 0.002319,
+     "max": -4.1e-05,
+     "mean": 0.003293
+    },
+    "2500_vs_5000": {
+     "min": -0.006707,
+     "median": 0.000341,
+     "max": -0.000113,
+     "mean": -0.001245
+    },
+    "1000_vs_5000": {
+     "min": 0.008207,
+     "median": 0.002661,
+     "max": -0.000154,
+     "mean": 0.002043
+    }
+   }
+  },
+  "decision_stability": [
+   {
+    "pair": "1000_vs_2500",
+    "matched_solutions": 5,
+    "mean_objective_distance": 0.0074935988082164,
+    "max_objective_distance": 0.0272012792685112,
+    "primary_total_procurement_normalized_difference_mean": 0.0203507044963762,
+    "primary_total_procurement_normalized_difference_max": 0.0406711946956944
+   },
+   {
+    "pair": "1000_vs_5000",
+    "matched_solutions": 5,
+    "mean_objective_distance": 0.0106777057119823,
+    "max_objective_distance": 0.0494596639631551,
+    "primary_total_procurement_normalized_difference_mean": 0.025397318447042,
+    "primary_total_procurement_normalized_difference_max": 0.0501924850627601
+   },
+   {
+    "pair": "2500_vs_5000",
+    "matched_solutions": 5,
+    "mean_objective_distance": 0.005472101718823,
+    "max_objective_distance": 0.0304414905373341,
+    "primary_total_procurement_normalized_difference_mean": 0.0134589266758516,
+    "primary_total_procurement_normalized_difference_max": 0.029649064115417
+   }
+  ],
+  "ro3_3_verdicts_read_only": {
+   "RO3_step33_decision.txt": "RO3_3_EVALUATE_2500",
+   "RO3_step33A_decision.txt": "RO3_3A_EVALUATE_2500"
+  }
+ },
+ "finished_utc": "2026-10-19T19:37:54.534515+00:00",
+ "summary": {
+  "PASS": 8,
+  "REPORTED": 6,
+  "NOT PRESCRIBED": 1
+ }
+}

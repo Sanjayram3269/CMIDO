@@ -1,0 +1,6 @@
+series,start,end,observed_months,expected_months,missing_months,missing_dates
+Cement In Bulk (Ordinary Portland Cement),1999-01-01,2026-06-01,330,330,0,
+Concreting Sand,1999-01-01,2026-06-01,330,330,0,
+Granite (20mm Aggregate),1999-01-01,2026-06-01,330,330,0,
+Ready Mixed Concrete,1999-01-01,2026-06-01,330,330,0,
+Steel Reinforcement Bars (16-32mm High Tensile),1999-01-01,2026-06-01,330,330,0,

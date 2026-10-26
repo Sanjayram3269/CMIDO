@@ -1,0 +1,14 @@
+check,passed,detail
+ro1_calibrated_forecasts_exist,True,D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_validation_forecasts.csv
+ro2_admissible_view_exists,True,D:\CMIDO\results\RO2\data_audit\RO2_step27b4_admissible_modelling_view.csv
+ro3_primary_scenario_set_exists,True,D:\CMIDO\results\RO3\scenario_generation\RO3_step32_scenarios_2500.csv
+ro3_multi_origin_directory_exists,True,D:\CMIDO\results\RO3\multi_origin
+ro3_ablation_directory_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison
+8m_gate_manifest_exists,True,D:\CMIDO\results\RO3\ablation\8M_gate\CMIDO_8M_GATE_MANIFEST.json
+ro1_required_fields_present,True,
+ro2_admissible_fields_present,True,
+8m_pairwise_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_statistical_pairwise_comparisons.csv
+8m_primary_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_primary_ablation_results.csv
+8m_descriptive_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_controller_descriptive_statistics.csv
+8m_origin_artifact_exists,True,D:\CMIDO\results\RO3\ablation\final_comparison\RO3_step36_origin_level_results.csv
+8m_gate_status_pass,True,PASS

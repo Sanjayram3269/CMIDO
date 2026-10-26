@@ -1,0 +1,50 @@
+{
+  "project": "CMIDO",
+  "stage": "RO2",
+  "decision": "RO2_FINAL_LOCK",
+  "all_audit_checks_pass": true,
+  "27B4": {
+    "rows": 57,
+    "paired_component_n": 37,
+    "exact_reconstruction": true
+  },
+  "27C3": {
+    "primary_representation": "joint empirical paired procurement-process duration"
+  },
+  "27D": {
+    "materials": [
+      "Cement",
+      "Granite",
+      "Ready Mixed Concrete",
+      "Steel Reinforcement Bars"
+    ],
+    "material_origin_cases": 48,
+    "source_horizons": [
+      1,
+      3,
+      6,
+      12
+    ],
+    "primary_representation": "CQR-calibrated RO1 demand + joint empirical procurement-process duration",
+    "calendar_overlap": true
+  },
+  "27D4": {
+    "mc_lock": 10000,
+    "stable_cases_at_10000": 48,
+    "stable_cases_at_25000": 48,
+    "max_5k_to_10k_change_pct": 0.6688048960346645,
+    "max_10k_to_25k_change_pct": 0.3124567623661
+  },
+  "caveats": [
+    "RO2 uses procurement-process duration / procurement-duration proxy, not supplier-specific material lead time.",
+    "The 37 paired observations preserve observed component pairing but do not prove statistical dependence.",
+    "RO2 does not establish supplier disruption probabilities.",
+    "RO2 does not establish historical shortage labels.",
+    "RO1 supplies marginal predictive quantiles rather than a fully joint future demand-path distribution.",
+    "27D is therefore a marginal-demand / joint-duration propagation model.",
+    "Service-risk curves are conditional exposure-risk curves and are not empirically calibrated operational service levels.",
+    "The 27D safety-stock quantity is a benchmark/interpretability quantity; RO3 will define safety stock as a decision variable.",
+    "10,000 Monte Carlo draws are locked based on nested common-random-number convergence."
+  ],
+  "next_stage": "RO3 procurement decision engine"
+}

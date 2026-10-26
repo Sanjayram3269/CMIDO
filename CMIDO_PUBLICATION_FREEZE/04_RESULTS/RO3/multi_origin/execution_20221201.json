@@ -1,0 +1,8 @@
+{
+  "scenario_count": 2500,
+  "forecast_origin": "2022-12-01",
+  "return_code": 0,
+  "runtime_sec": 5523.905852100001,
+  "stdout": "RO3 PRODUCTION PARETO RUN \u2014 CORRECTED CVaR REPORTING\nOrigin: 2022-12-01 | N=2500 | epsilon grid=3x3\nAnchor Z1=0.000000, Z2=35242.795161, Z3=36285.667136\nFeasible epsilon solves: 9\nComputed nondominated solutions: 7\nPareto file: D:\\CMIDO\\results\\RO3\\pareto\\RO3_pareto_N2500_20221201.csv\n",
+  "stderr": ""
+}

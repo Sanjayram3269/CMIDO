@@ -1,0 +1,21 @@
+{
+  "optimizer": "D:\\CMIDO\\src\\optimization\\ro3_epsilon_pareto_optimizer.py",
+  "scenario_file": "D:\\CMIDO\\results\\RO3\\scenario_generation\\RO3_step32_scenarios_2500.csv",
+  "scenario_set_size": 2500,
+  "levels": 5,
+  "origins": [
+    "2022-07-01",
+    "2022-08-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-11-01",
+    "2022-12-01",
+    "2023-01-01",
+    "2023-02-01",
+    "2023-03-01",
+    "2023-04-01",
+    "2023-05-01"
+  ],
+  "status": "STARTED",
+  "results": []
+}

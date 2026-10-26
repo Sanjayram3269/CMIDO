@@ -1,0 +1,36 @@
+{
+  "analysis_key": "forecast_coverage",
+  "column_count": 6,
+  "duration_seconds": 0.031,
+  "error": "",
+  "finished_utc": "2026-10-19T19:11:42.566422+00:00",
+  "input_filename": "safe_external_forecast_coverage_input.csv",
+  "input_sha256": "08bae3e7c7ddd2dfce050894d63967d06e7727adc111737345ed97f8a7b88da9",
+  "input_size_bytes": 182,
+  "mapping": {
+    "interval_lower": "lower_p10",
+    "interval_upper": "upper_p90",
+    "observed": "observed_units"
+  },
+  "output_dir": "D:\\CMIDO\\results\\external_data_runs\\run_20261019T191142Z_c2f5fc47",
+  "outputs": {
+    "mapping": "D:\\CMIDO\\results\\external_data_runs\\run_20261019T191142Z_c2f5fc47\\schema_mapping.json",
+    "profile": "D:\\CMIDO\\results\\external_data_runs\\run_20261019T191142Z_c2f5fc47\\input_profile.json",
+    "result": "D:\\CMIDO\\results\\external_data_runs\\run_20261019T191142Z_c2f5fc47\\analysis_result.json",
+    "result_table": "D:\\CMIDO\\results\\external_data_runs\\run_20261019T191142Z_c2f5fc47\\analysis_result.csv",
+    "validation": "D:\\CMIDO\\results\\external_data_runs\\run_20261019T191142Z_c2f5fc47\\validation_report.json"
+  },
+  "provenance_class": "DER",
+  "resamples": 1000,
+  "row_count": 5,
+  "run_id": "run_20261019T191142Z_c2f5fc47",
+  "seed": 42,
+  "started_utc": "2026-10-19T19:11:42.542988+00:00",
+  "status": "SUCCEEDED",
+  "validation": {
+    "analysis_key": "forecast_coverage",
+    "errors": [],
+    "ok": true,
+    "warnings": []
+  }
+}

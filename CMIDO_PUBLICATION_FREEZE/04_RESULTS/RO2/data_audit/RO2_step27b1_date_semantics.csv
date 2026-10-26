@@ -1,0 +1,13 @@
+sheet,column,n_parseable,min_date,max_date
+Rata-rata,Requisition Date,56,2024-02-12 00:00:00,2025-12-06 00:00:00
+Rata-rata,Release Date,55,2025-01-16 00:00:00,2026-10-29 00:00:00
+Rata-rata,Tanggal Disposisi Buyer,56,2025-01-02 00:00:00,2025-06-23 00:00:00
+Rata-rata,Tanggal PO,56,2025-01-15 00:00:00,2025-07-24 00:00:00
+Rata-rata V1,Requisition Date,56,2024-02-12 00:00:00,2025-12-06 00:00:00
+Rata-rata V1,Release Date,55,2025-01-16 00:00:00,2026-10-29 00:00:00
+Rata-rata V1,Tanggal Disposisi Buyer,56,2025-01-02 00:00:00,2025-06-23 00:00:00
+Rata-rata V1,Tanggal PO,56,2025-01-15 00:00:00,2025-07-24 00:00:00
+Rata-rataFuture V2,Requisition Date,56,2024-02-12 00:00:00,2025-12-06 00:00:00
+Rata-rataFuture V2,Release Date,55,2025-01-16 00:00:00,2026-10-29 00:00:00
+Rata-rataFuture V2,Tanggal Disposisi Buyer,56,2025-01-02 00:00:00,2025-06-23 00:00:00
+Rata-rataFuture V2,Tanggal PO,56,2025-01-15 00:00:00,2025-07-24 00:00:00

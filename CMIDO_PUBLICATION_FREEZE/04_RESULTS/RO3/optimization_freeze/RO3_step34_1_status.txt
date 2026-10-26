@@ -1,0 +1,5 @@
+RO3.4.1 structural parameter contract: PASS
+Risk-objective separation audit: PASS
+External evidence for EST parameters: REQUIRED
+Exact primary parameter values: NOT YET FROZEN
+OPTIMIZER STATUS: PARAMETER_EVIDENCE_INCOMPLETE

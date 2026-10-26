@@ -1,0 +1,41 @@
+{
+  "passed": 4,
+  "total": 7,
+  "checks": [
+    {
+      "name": "RO1 calibrated demand forecasts",
+      "passed": true,
+      "path": "D:\\CMIDO\\results\\forecasting\\probabilistic_calibration\\RO1_step26c3_validation_forecasts.csv"
+    },
+    {
+      "name": "RO1 demand long data",
+      "passed": false,
+      "path": "D:\\CMIDO\\results\\forecasting\\RO1_demand_long.csv"
+    },
+    {
+      "name": "RO1 price long data",
+      "passed": false,
+      "path": "D:\\CMIDO\\results\\forecasting\\RO1_price_long.csv"
+    },
+    {
+      "name": "RO3 primary scenario set",
+      "passed": true,
+      "path": "D:\\CMIDO\\results\\RO3\\scenario_generation\\RO3_step32_scenarios_2500.csv"
+    },
+    {
+      "name": "RO3.5 aggregate Pareto results",
+      "passed": true,
+      "path": "D:\\CMIDO\\results\\RO3\\multi_origin\\RO3_step35_pareto_all_origins_N2500.csv"
+    },
+    {
+      "name": "RO3.5 aggregate decisions",
+      "passed": true,
+      "path": "D:\\CMIDO\\results\\RO3\\multi_origin\\RO3_step35_decisions_all_origins_N2500.csv"
+    },
+    {
+      "name": "exact 11-origin common forecast intersection",
+      "passed": false,
+      "path": ""
+    }
+  ]
+}

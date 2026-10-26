@@ -1,0 +1,42 @@
+check,passed,detail
+file exists: RO3_step32_scenarios_2500.csv,True,
+file exists: O4_single_origin_pareto.csv,True,
+file exists: O4_single_origin_selected_decisions.csv,True,
+file exists: O4_single_origin_realized_evaluation_ledger.csv,True,
+file exists: O4_single_origin_realized_evaluation_summary.csv,True,
+scenario rows,True,120000
+scenario materials,True,
+scenario-month IDs unique,True,
+each scenario has exactly 12 monthly records,True,"min=12, max=12, scenarios=10000"
+month-ahead complete,True,
+scenario values finite,True,
+scenario nonnegative,True,
+duration positive,True,
+pareto materials complete,True,
+pareto count >=1,True,"{'Cement': 6, 'Granite': 7, 'Ready Mixed Concrete': 6, 'Steel Reinforcement Bars': 7}"
+exactly one selected/material,True,
+selected candidate exists in Pareto,True,
+decision rows,True,48
+decision periods complete,True,
+decision quantities finite/nonnegative,True,
+one selected candidate per material,True,
+objective reconstruction: Cement,True,"recomputed=(32089.540994,1711.270822,2284.761818)"
+objective reconstruction: Granite,True,"recomputed=(26264.885703,7741.759223,10180.748022)"
+objective reconstruction: Ready Mixed Concrete,True,"recomputed=(85839.021446,4685.682703,6194.746762)"
+objective reconstruction: Steel Reinforcement Bars,True,"recomputed=(71940.191555,384.921437,582.261783)"
+all selected stochastic objectives reconstruct,True,
+nondominated recorded Pareto: Cement,True,
+nondominated recorded Pareto: Granite,True,
+nondominated recorded Pareto: Ready Mixed Concrete,True,
+nondominated recorded Pareto: Steel Reinforcement Bars,True,
+all recorded Pareto sets nondominated,True,
+realized ledger rows: Cement,True,
+realized summary reconciliation: Cement,True,
+realized ledger rows: Granite,True,
+realized summary reconciliation: Granite,True,
+realized ledger rows: Ready Mixed Concrete,True,
+realized summary reconciliation: Ready Mixed Concrete,True,
+realized ledger rows: Steel Reinforcement Bars,True,
+realized summary reconciliation: Steel Reinforcement Bars,True,
+all realized ledgers reconcile to summary,True,
+"realized service within [0,1]",True,

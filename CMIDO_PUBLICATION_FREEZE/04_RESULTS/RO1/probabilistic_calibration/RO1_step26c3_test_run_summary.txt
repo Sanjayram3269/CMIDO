@@ -1,0 +1,35 @@
+CMIDO — RO1 STEP 26C.3-D
+Frozen CQR Application + Untouched Test Evaluation
+
+STATUS: PASS
+
+Calibration method: CQR
+Calibration mode: PREQUENTIAL_TIME_AWARE
+Primary horizon: h=3
+Horizons: [1, 3, 6, 12]
+
+Models: FROZEN
+CQR parameters: FROZEN FROM VALIDATION
+Test recalibration: DISABLED
+Test-data parameter estimation: DISABLED
+Random split: DISABLED
+Synthetic calibration: DISABLED
+
+Test forecasts evaluated: 666
+Metric cells: 36
+
+Calibration source: VALIDATION ONLY
+Test observations used for calibration: NO
+
+26C.3-A specification SHA256: df15acc96093fb0c09b7db708682aa05e8b7e23e3f4f9009aa10badb0bc924c4
+26C.2 test forecast SHA256: cbb62889d76136b1c8964dec1d17528e980fdfdd96952d93fb71f8b5199d2995
+26C.3 calibration parameter SHA256: 2bf965565711c06a09c2d9970dd2c71c28604a4ba3544346dabfd72f8d87e2db
+
+Output files:
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_test_forecasts.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_test_metrics.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_primary_h3_summary.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_test_audit.csv
+D:\CMIDO\results\forecasting\probabilistic_calibration\RO1_step26c3_test_run_summary.txt
+
+ALL STEP 26C.3-D ASSERTIONS: PASS

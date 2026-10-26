@@ -1,0 +1,18 @@
+{
+  "scenario_sizes": [
+    100,
+    250,
+    500,
+    1000,
+    2500,
+    5000
+  ],
+  "material_origin_cases": 44,
+  "primary_transition": "500_to_1000",
+  "primary_pass": false,
+  "primary_failed_comparisons": 142,
+  "primary_max_relative_change": 0.17647058823529413,
+  "later_max_relative_change": 0.12062706937689793,
+  "decision": "RO3_3_EVALUATE_2500",
+  "optimization_level_convergence_required_later": true
+}

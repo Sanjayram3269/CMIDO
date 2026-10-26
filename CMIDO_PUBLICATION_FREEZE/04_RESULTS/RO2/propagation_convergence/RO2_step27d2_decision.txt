@@ -1,0 +1,18 @@
+DECISION: HOLD_FOR_REVIEW
+RECOMMENDED_MC_LOCK: None
+
+Criteria for 5,000 -> 10,000:
+- mean <= 1%
+- q90 <= 2%
+- q95 <= 2%
+- q99 <= 5%
+
+All primary material/origin cases stable at 10,000: False
+Maximum 10,000 -> 25,000 relative change observed: 8.339420%
+
+Interpretation:
+- This is numerical Monte Carlo stability only.
+- It does not establish supplier-specific lead time.
+- It does not establish disruption probabilities.
+- Joint duration sampling preserves observed pairing; it does not prove dependence.
+- No RO1 test forecasts were used.

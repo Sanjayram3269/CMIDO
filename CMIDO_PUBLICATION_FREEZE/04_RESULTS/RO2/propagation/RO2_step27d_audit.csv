@@ -1,0 +1,49 @@
+material,forecast_origin,source_horizons_present,duration_pair_n,mc_n,all_primary_finite,all_primary_nonnegative,all_independent_finite,all_independent_nonnegative
+Cement,2022-06-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2022-07-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2022-08-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2022-09-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2022-10-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2022-11-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2022-12-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2023-01-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2023-02-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2023-03-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2023-04-01,"1,3,6,12",37,10000,True,True,True,True
+Cement,2023-05-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2022-06-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2022-07-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2022-08-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2022-09-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2022-10-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2022-11-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2022-12-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2023-01-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2023-02-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2023-03-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2023-04-01,"1,3,6,12",37,10000,True,True,True,True
+Granite,2023-05-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2022-06-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2022-07-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2022-08-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2022-09-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2022-10-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2022-11-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2022-12-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2023-01-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2023-02-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2023-03-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2023-04-01,"1,3,6,12",37,10000,True,True,True,True
+Ready Mixed Concrete,2023-05-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2022-06-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2022-07-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2022-08-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2022-09-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2022-10-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2022-11-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2022-12-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2023-01-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2023-02-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2023-03-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2023-04-01,"1,3,6,12",37,10000,True,True,True,True
+Steel Reinforcement Bars,2023-05-01,"1,3,6,12",37,10000,True,True,True,True

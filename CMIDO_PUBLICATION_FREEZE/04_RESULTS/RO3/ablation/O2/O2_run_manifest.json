@@ -1,0 +1,30 @@
+{
+  "controller": "O2",
+  "status": "EXECUTION_COMPLETE",
+  "origins": [
+    "2022-07-01",
+    "2022-08-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-11-01",
+    "2022-12-01",
+    "2023-01-01",
+    "2023-02-01",
+    "2023-03-01",
+    "2023-04-01",
+    "2023-05-01"
+  ],
+  "materials": [
+    "Cement",
+    "Granite",
+    "Ready Mixed Concrete",
+    "Steel Reinforcement Bars"
+  ],
+  "horizon_months": 12,
+  "epsilon_points": 9,
+  "holding_rate_monthly": 0.025,
+  "deterministic_duration_days": 49,
+  "policy_selection": "normalized_distance_to_utopia",
+  "q_upper_bound": "total_forecast_demand",
+  "late_horizon_orders_fixed_zero": true
+}

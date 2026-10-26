@@ -1,0 +1,48 @@
+{
+  "stage": "RO3.3B",
+  "status": "DESIGN_READY_OPTIMIZER_FREEZE_REQUIRED",
+  "scenario_sizes": [
+    1000,
+    2500,
+    5000
+  ],
+  "forecast_origins": [
+    "2022-07-01",
+    "2022-08-01",
+    "2022-09-01",
+    "2022-10-01",
+    "2022-11-01",
+    "2022-12-01",
+    "2023-01-01",
+    "2023-02-01",
+    "2023-03-01",
+    "2023-04-01",
+    "2023-05-01"
+  ],
+  "materials": [
+    "Cement",
+    "Granite",
+    "Ready Mixed Concrete",
+    "Steel Reinforcement Bars"
+  ],
+  "primary_comparisons": [
+    "1000_vs_2500",
+    "2500_vs_5000"
+  ],
+  "secondary_comparison": "1000_vs_5000",
+  "scenario_nesting_verified": true,
+  "optimizer_run": false,
+  "optimization_parameters_invented": false,
+  "required_before_optimizer_run": [
+    "freeze decision variables",
+    "freeze feasible-region constraints",
+    "freeze objective definitions",
+    "freeze cost parameters",
+    "freeze service/risk parameters",
+    "freeze supplier/duration representation",
+    "freeze safety-stock formulation",
+    "freeze solver and settings",
+    "freeze Pareto-generation procedure",
+    "freeze decision-level materiality thresholds"
+  ]
+}

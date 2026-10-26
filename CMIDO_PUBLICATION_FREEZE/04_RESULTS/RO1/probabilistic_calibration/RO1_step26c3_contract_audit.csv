@@ -1,0 +1,7 @@
+step,audit,interval,lower_quantile,upper_quantile,nominal_coverage,alpha,status,horizon,validation_origins,test_origins
+26C.3-B,interval_contract,50,0.25,0.75,0.5,0.5,PASS,,,
+26C.3-B,interval_contract,80,0.1,0.9,0.8,0.2,PASS,,,
+26C.3-B,horizon_contract,,,,,,PASS,1.0,23.0,23.0
+26C.3-B,horizon_contract,,,,,,PASS,3.0,21.0,21.0
+26C.3-B,horizon_contract,,,,,,PASS,6.0,18.0,18.0
+26C.3-B,horizon_contract,,,,,,PASS,12.0,12.0,12.0

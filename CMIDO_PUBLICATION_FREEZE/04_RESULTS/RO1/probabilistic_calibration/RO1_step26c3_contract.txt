@@ -1,0 +1,26 @@
+CMIDO — RO1 Step 26C.3-B
+Probabilistic Calibration & Conformal Prediction
+Executable Contract Report
+
+Status: PASS
+Specification: RO1_26C3A_v1.0
+Calibration method: CQR
+Calibration mode: PREQUENTIAL_TIME_AWARE
+Minimum calibration n: 10
+Primary horizon: h=3
+Series count: 9
+Calibration cells: 72
+
+Expected validation origins:
+{1: 23, 3: 21, 6: 18, 12: 12}
+
+Expected test origins:
+{1: 23, 3: 21, 6: 18, 12: 12}
+
+Random split allowed: False
+Test calibration allowed: False
+Model retraining allowed: False
+Model reselection allowed: False
+Synthetic calibration allowed: False
+
+ALL STEP 26C.3-B ASSERTIONS: PASS

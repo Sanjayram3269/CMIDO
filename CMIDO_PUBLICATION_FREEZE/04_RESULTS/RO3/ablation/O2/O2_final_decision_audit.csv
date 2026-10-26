@@ -1,0 +1,33 @@
+check,passed,detail
+A1 origin set,True,
+A2 material set,True,
+A3 exactly 44 cases,True,44 cases
+A4 12 ledger months per case,True,min=12 max=12
+A5 no duplicate ledger case-period,True,
+A6 528 ledger rows,True,528
+A7 12 decision rows per case,True,min=12 max=12
+A8 Pareto objective columns finite,True,
+B1 exactly one selected Pareto point per case,True,selected rows=44
+B2 no retained Pareto point dominated,True,failures=0
+B3 selected point matches normalized utopia rule,True,failures=0
+B4 selected Pareto objectives nonnegative,True,
+C1 order quantities finite/nonnegative,True,
+C2 late-horizon orders zero,True,rows=88
+C3 selected optimization objectives finite/nonnegative,True,
+C4 decision ledger has unique case-period rows,True,
+D1 realized numeric fields finite,True,
+D2 realized demand/price nonnegative,True,
+D3 inventory/shortage/arrival nonnegative,True,
+D4 inventory/shortage balance identity,True,failures=0
+D5 service calculation reconciliation,True,failures=0
+D6 procurement quantity reconciliation,True,failures=0
+D7 realized cost reconciliation,True,failures=0
+D8 evaluation dates after origin,True,failures=0
+D9 summary has exactly 44 cases,True,
+E1 selection metadata contains optimization objectives,True,
+E2 no realized evaluation outcome columns used in selection ledger,True,
+M1 manifest origins = 11,True,
+M2 manifest materials = 4,True,
+M3 manifest horizon = 12,True,
+M4 manifest duration = 49,True,
+M5 manifest selection = normalized_distance_to_utopia,True,

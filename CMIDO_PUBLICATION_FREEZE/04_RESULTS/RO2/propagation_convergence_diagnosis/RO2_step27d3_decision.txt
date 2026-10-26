@@ -1,0 +1,21 @@
+DECISION: DIAGNOSTIC_COMPLETE_HOLD_FOR_MC_LOCK
+
+Material-origin cases: 48
+Stable at 10,000: 24
+Failed at 10,000: 24
+Stable rate: 50.00%
+
+Failure counts by statistic:
+- mean: 10/48
+- q90: 7/48
+- q95: 17/48
+- q99: 0/48
+
+Dominant failure statistic: q95
+Maximum 5k -> 10k relative change: 10.616478%
+Maximum 10k -> 25k relative change: 8.339420%
+
+No MC lock is made by 27D.3.
+27D.3 is diagnostic only.
+No RO1 test forecasts were used.
+Procurement-process duration terminology retained.

@@ -1,0 +1,90 @@
+[
+  {
+    "check": "holding_rate_has_external_construction_evidence",
+    "pass": true
+  },
+  {
+    "check": "holding_rate_primary_value_predeclared",
+    "pass": true
+  },
+  {
+    "check": "holding_rate_sensitivity_predeclared",
+    "pass": true
+  },
+  {
+    "check": "monthly_holding_rate_deterministically_derived",
+    "pass": true
+  },
+  {
+    "check": "shortage_penalty_not_falsely_claimed_observed",
+    "pass": true
+  },
+  {
+    "check": "shortage_penalty_excluded_from_primary_cost",
+    "pass": true
+  },
+  {
+    "check": "shortage_quantity_retained_as_primary_objective",
+    "pass": true
+  },
+  {
+    "check": "duration_exposure_retained_as_primary_objective",
+    "pass": true
+  },
+  {
+    "check": "procurement_cost_uses_scenario_price",
+    "pass": true
+  },
+  {
+    "check": "holding_cost_uses_scenario_price",
+    "pass": true
+  },
+  {
+    "check": "terminal_salvage_credit_excluded",
+    "pass": true
+  },
+  {
+    "check": "initial_inventory_explicit_scn",
+    "pass": true
+  },
+  {
+    "check": "open_orders_explicit_scn",
+    "pass": true
+  },
+  {
+    "check": "supplier_disruption_probability_excluded",
+    "pass": true
+  },
+  {
+    "check": "fixed_order_cost_excluded",
+    "pass": true
+  },
+  {
+    "check": "budget_excluded",
+    "pass": true
+  },
+  {
+    "check": "storage_capacity_excluded",
+    "pass": true
+  },
+  {
+    "check": "moq_excluded",
+    "pass": true
+  },
+  {
+    "check": "delay_cost_excluded",
+    "pass": true
+  },
+  {
+    "check": "primary_objectives_remain_distinct",
+    "pass": true
+  },
+  {
+    "check": "no_hidden_weighted_sum",
+    "pass": true
+  },
+  {
+    "check": "pareto_frontier_remains_primary_output",
+    "pass": true
+  }
+]

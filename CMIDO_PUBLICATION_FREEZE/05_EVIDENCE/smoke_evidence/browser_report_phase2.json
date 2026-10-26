@@ -1,0 +1,814 @@
+{
+ "started_utc": "2026-10-19T19:10:42.937172+00:00",
+ "url": "http://127.0.0.1:8502/",
+ "environment": {
+  "python": "3.12.10",
+  "streamlit": "1.65.0",
+  "playwright": "unknown",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "node_platform": "Sanjayram-Vivobook",
+  "git_branch": "feat/external-data-ingestion",
+  "git_head": "4ba1ac9"
+ },
+ "registry": {
+  "total": 16,
+  "available": 15,
+  "planned": 1,
+  "pages": [
+   {
+    "id": "overview",
+    "title": "Overview",
+    "group": "CORE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "graph_3d",
+    "title": "3D Project Graph",
+    "group": "CORE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "schedule",
+    "title": "Schedule & Critical Path",
+    "group": "CORE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "materials",
+    "title": "Materials & Resources",
+    "group": "CORE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "ro1_forecasting",
+    "title": "RO1 · Forecasting",
+    "group": "RESEARCH",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "ro2_uncertainty",
+    "title": "RO2 · Uncertainty",
+    "group": "RESEARCH",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "ro3_optimization",
+    "title": "RO3 · Optimization",
+    "group": "RESEARCH",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "scenarios",
+    "title": "Scenario Lab",
+    "group": "DECISION",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "procurement_decisions",
+    "title": "Procurement Decisions",
+    "group": "DECISION",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "resilience_stress",
+    "title": "Resilience & Stress",
+    "group": "DECISION",
+    "available": false,
+    "planned": true
+   },
+   {
+    "id": "evidence",
+    "title": "Research Evidence",
+    "group": "EVIDENCE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "experiment_lab",
+    "title": "Experiments",
+    "group": "EVIDENCE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "real_world_data",
+    "title": "Real-World Data",
+    "group": "EVIDENCE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "ablation_robustness",
+    "title": "Ablation & Robustness",
+    "group": "EVIDENCE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "provenance_integrity",
+    "title": "Provenance & Integrity",
+    "group": "EVIDENCE",
+    "available": true,
+    "planned": false
+   },
+   {
+    "id": "external_data",
+    "title": "External Data",
+    "group": "EVIDENCE",
+    "available": true,
+    "planned": false
+   }
+  ]
+ },
+ "steps": [
+  {
+   "step": "environment",
+   "status": "PASS",
+   "detail": "{\"python\": \"3.12.10\", \"streamlit\": \"1.65.0\", \"playwright\": \"unknown\", \"platform\": \"Windows-11-10.0.26300-SP0\", \"node_platform\": \"Sanjayram-Vivobook\", \"git_branch\": \"feat/external-data-ingestion\", \"git_head\": \"4ba1ac9\"}"
+  },
+  {
+   "step": "launch",
+   "status": "PASS",
+   "detail": "title='CMIDO | Construction Decision Intelligence' url='http://127.0.0.1:8502/'"
+  },
+  {
+   "step": "nav_inventory",
+   "status": "PASS",
+   "detail": "[\"upload\\n\\nUpload\", \"Overview\", \"Overview\", \"3D Project Graph\", \"3D Project Graph\", \"Schedule & Critical Path\", \"Schedule & Critical Path\", \"Materials & Resources\", \"Materials & Resources\", \"RO1 · Forecasting\", \"RO1 · Forecasting\", \"RO2 · Uncertainty\", \"RO2 · Uncertainty\", \"RO3 · Optimization\", \"RO3 · Optimization\", \"Scenario Lab\", \"Scenario Lab\", \"Procurement Decisions\", \"Procurement Decisions\", \"Resilience & Stress\", \"Resilience & Stress\", \"Research Evidence\", \"Research Evidence\", \"Experiments\", \"Experiments\", \"Real-World Data\", \"Real-World Data\", \"Ablation & Robustness\", \"Ablation & Robustness\", \"Provenance & Integrity\", \"Provenance & Integrity\", \"External Data\", \"External Data\"]"
+  },
+  {
+   "step": "registry",
+   "status": "PASS",
+   "detail": "{\"total\": 16, \"available\": 15, \"planned\": 1, \"pages\": [{\"id\": \"overview\", \"title\": \"Overview\", \"group\": \"CORE\", \"available\": true, \"planned\": false}, {\"id\": \"graph_3d\", \"title\": \"3D Project Graph\", \"group\": \"CORE\", \"available\": true, \"planned\": false}, {\"id\": \"schedule\", \"title\": \"Schedule & Critical Path\", \"group\": \"CORE\", \"available\": true, \"planned\": false}, {\"id\": \"materials\", \"title\": \"Materials & Resources\", \"group\": \"CORE\", \"available\": true, \"planned\": false}, {\"id\": \"ro1_forecasting\", \"title\": \"RO1 · Forecasting\", \"group\": \"RESEARCH\", \"available\": true, \"planned\": false}, {\"id\": \"ro2_uncertainty\", \"title\": \"RO2 · Uncertainty\", \"group\": \"RESEARCH\", \"available\": true, \"planned\": false}, {\"id\": \"ro3_optimization\", \"title\": \"RO3 · Optimization\", \"group\": \"RESEARCH\", \"available\": true, \"planned\": false}, {\"id\": \"scenarios\", \"title\": \"Scenario Lab\", \"group\": \"DECISION\", \"available\": true, \"planned\": false}, {\"id\": \"procurement_decisions\", \"title\": \"Procurement Decisions\", \"group\": \"DECISION\", \"available\": true, \"planned\": false}, {\"id\": \"resilience_stress\", \"title\": \"Resilience & Stress\", \"group\": \"DECISION\", \"available\": false, \"planned\": true}, {\"id\": \"evidence\", \"title\": \"Research Evidence\", \"group\": \"EVIDENCE\", \"available\": true, \"planned\": false}, {\"id\": \"experiment_lab\", \"title\": \"Experiments\", \"group\": \"EVIDENCE\", \"available\": true, \"planned\": false}, {\"id\": \"real_world_data\", \"title\": \"Real-World Data\", \"group\": \"EVIDENCE\", \"available\": true, \"planned\": false}, {\"id\": \"ablation_robustness\", \"title\": \"Ablation & Robustness\", \"group\": \"EVIDENCE\", \"available\": true, \"planned\": false}, {\"id\": \"provenance_integrity\", \"title\": \"Provenance & Integrity\", \"group\": \"EVIDENCE\", \"available\": true, \"planned\": false}, {\"id\": \"external_data\", \"title\": \"External Data\", \"group\": \"EVIDENCE\", \"available\": true, \"planned\": false}]}"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Overview' -> rendered_title='Overview' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'3D Project Graph' -> rendered_title='3D Project Graph' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Schedule & Critical Path' -> rendered_title='Schedule & Critical Path' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Materials & Resources' -> rendered_title='Materials & Resources' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'RO1 · Forecasting' -> rendered_title='RO1 · Forecasting' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'RO2 · Uncertainty' -> rendered_title='RO2 · Uncertainty' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'RO3 · Optimization' -> rendered_title='RO3 · Optimization' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Scenario Lab' -> rendered_title='Scenario Lab' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Procurement Decisions' -> rendered_title='Procurement Decisions' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Resilience & Stress' -> rendered_title='Resilience & Stress' url=http://127.0.0.1:8502/ planned_panel=True"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Research Evidence' -> rendered_title='Research Evidence' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Experiments' -> rendered_title='Experiments' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Real-World Data' -> rendered_title='Real-World Data' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Ablation & Robustness' -> rendered_title='Ablation & Robustness' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'Provenance & Integrity' -> rendered_title='Provenance & Integrity' url=http://127.0.0.1:8502/"
+  },
+  {
+   "step": "navigate",
+   "status": "PASS",
+   "detail": "'External Data' -> rendered_title='External Data' url=http://127.0.0.1:8502/"
+  }
+ ],
+ "checks": [
+  {
+   "check": "nav_targets_match_registry",
+   "status": "PASS",
+   "detail": "missing=[] extra=[]"
+  },
+  {
+   "check": "navigate::overview",
+   "status": "PASS",
+   "detail": "rendered_title='Overview' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::graph_3d",
+   "status": "PASS",
+   "detail": "rendered_title='3D Project Graph' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::schedule",
+   "status": "PASS",
+   "detail": "rendered_title='Schedule & Critical Path' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::materials",
+   "status": "PASS",
+   "detail": "rendered_title='Materials & Resources' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::ro1_forecasting",
+   "status": "PASS",
+   "detail": "rendered_title='RO1 · Forecasting' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::ro2_uncertainty",
+   "status": "PASS",
+   "detail": "rendered_title='RO2 · Uncertainty' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::ro3_optimization",
+   "status": "PASS",
+   "detail": "rendered_title='RO3 · Optimization' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::scenarios",
+   "status": "PASS",
+   "detail": "rendered_title='Scenario Lab' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::procurement_decisions",
+   "status": "PASS",
+   "detail": "rendered_title='Procurement Decisions' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::resilience_stress",
+   "status": "PASS",
+   "detail": "rendered_title='Resilience & Stress' url=http://127.0.0.1:8502/ planned_panel=True"
+  },
+  {
+   "check": "navigate::evidence",
+   "status": "PASS",
+   "detail": "rendered_title='Research Evidence' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::experiment_lab",
+   "status": "PASS",
+   "detail": "rendered_title='Experiments' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::real_world_data",
+   "status": "PASS",
+   "detail": "rendered_title='Real-World Data' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::ablation_robustness",
+   "status": "PASS",
+   "detail": "rendered_title='Ablation & Robustness' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::provenance_integrity",
+   "status": "PASS",
+   "detail": "rendered_title='Provenance & Integrity' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigate::external_data",
+   "status": "PASS",
+   "detail": "rendered_title='External Data' url=http://127.0.0.1:8502/"
+  },
+  {
+   "check": "navigation_coverage",
+   "status": "PASS",
+   "detail": "reached 16/16; unreached=[]"
+  },
+  {
+   "check": "provenance_navigation",
+   "status": "PASS",
+   "detail": "rendered title='Provenance & Integrity'"
+  },
+  {
+   "check": "provenance_clauses",
+   "status": "PASS",
+   "detail": "missing=[]"
+  },
+  {
+   "check": "provenance_body_title",
+   "status": "PASS",
+   "detail": "body contains provenance title: True"
+  },
+  {
+   "check": "external_landing",
+   "status": "PASS",
+   "detail": "missing=[]"
+  },
+  {
+   "check": "descriptive_upload",
+   "status": "PASS",
+   "detail": "safe_external_demo_deterministic_input.csv"
+  },
+  {
+   "check": "supported_analyses_listed",
+   "status": "PASS",
+   "detail": "options=['Descriptive statistics + bootstrap interval', 'Forecast interval coverage'] missing=[]"
+  },
+  {
+   "check": "unavailable_analyses_not_offered",
+   "status": "PASS",
+   "detail": "offered=[]"
+  },
+  {
+   "check": "descriptive_validation",
+   "status": "PASS",
+   "detail": "measure=forecast_demand_units"
+  },
+  {
+   "check": "descriptive_run",
+   "status": "PASS",
+   "detail": "results section rendered"
+  },
+  {
+   "check": "descriptive_lineage",
+   "status": "PASS",
+   "detail": "Run lineage heading"
+  },
+  {
+   "check": "descriptive_exports",
+   "status": "PASS",
+   "detail": "{\"Schema mapping (JSON)\": true, \"Run summary (JSON)\": true, \"Result table (CSV)\": true}"
+  },
+  {
+   "check": "descriptive_run_summary_export_matches_disk",
+   "status": "PASS",
+   "detail": "mismatches=[] extra=[]"
+  },
+  {
+   "check": "descriptive_result_table_export_matches_disk",
+   "status": "PASS",
+   "detail": "byte-identical"
+  },
+  {
+   "check": "descriptive_dom_to_disk",
+   "status": "PASS",
+   "detail": "{\"run_dir\": \"run_20261019T191131Z_03523108\", \"input_sha256_computed\": \"9d4f9ec297852dc2ed282738350bb1041be66df45e4048dd703f93a7e43ff7d5\", \"input_sha256_record\": \"9d4f9ec297852dc2ed282738350bb1041be66df45e4048dd703f93a7e43ff7d5\", \"input_hash_matches\": true, \"input_filename_matches\": true, \"analysis_matches\": true, \"status\": \"SUCCEEDED\", \"provenance_class\": \"DER\", \"mapping\": {\"measure\": \"forecast_demand_units\"}, \"disk_row_count\": 1, \"run_summary_download_matches_disk\": true, \"result_table_download_matches_disk_csv\": true, \"run_summary_error\": \"\", \"result_table_error\": \"\", \"run_summary_field_mism"
+  },
+  {
+   "check": "coverage_upload",
+   "status": "PASS",
+   "detail": "safe_external_forecast_coverage_input.csv"
+  },
+  {
+   "check": "malformed_mapping_rejected",
+   "status": "PASS",
+   "detail": "error_shown=True run_enabled=False"
+  },
+  {
+   "check": "coverage_validation",
+   "status": "PASS",
+   "detail": "observed=observed_units lower=lower_p10 upper=upper_p90"
+  },
+  {
+   "check": "coverage_run",
+   "status": "PASS",
+   "detail": "results section rendered"
+  },
+  {
+   "check": "coverage_metrics_render",
+   "status": "PASS",
+   "detail": "{\"Rows scored\": \"Rows scored\\n\\n5\", \"Coverage rate\": \"Coverage rate\\n\\n1.000\", \"Mean interval width\": \"Mean interval width\\n\\n54.600\"}"
+  },
+  {
+   "check": "coverage_lineage",
+   "status": "PASS",
+   "detail": "Run lineage heading"
+  },
+  {
+   "check": "coverage_exports",
+   "status": "PASS",
+   "detail": "{\"Schema mapping (JSON)\": true, \"Run summary (JSON)\": true, \"Result table (CSV)\": true}"
+  },
+  {
+   "check": "coverage_run_summary_export_matches_disk",
+   "status": "PASS",
+   "detail": "mismatches=[] extra=[]"
+  },
+  {
+   "check": "coverage_result_table_export_matches_disk",
+   "status": "PASS",
+   "detail": "byte-identical"
+  },
+  {
+   "check": "coverage_dom_to_disk",
+   "status": "PASS",
+   "detail": "{\"run_dir\": \"run_20261019T191142Z_c2f5fc47\", \"dom_metrics\": {\"Rows scored\": \"Rows scored\\n\\n5\", \"Coverage rate\": \"Coverage rate\\n\\n1.000\", \"Mean interval width\": \"Mean interval width\\n\\n54.600\"}, \"disk_analysis_result\": {\"n_scored\": 5, \"coverage_rate\": 1.0, \"mean_interval_width\": 54.6, \"pinball_loss_mean\": null}, \"rows_scored_matches\": true, \"coverage_rate_matches_rounded\": true, \"mean_interval_width_matches_rounded\": true, \"input_sha256_computed\": \"08bae3e7c7ddd2dfce050894d63967d06e7727adc111737345ed97f8a7b88da9\", \"input_sha256_record\": \"08bae3e7c7ddd2dfce050894d63967d06e7727adc111737345ed97f"
+  },
+  {
+   "check": "unavailable_stages",
+   "status": "PASS",
+   "detail": "missing=[]"
+  },
+  {
+   "check": "unsupported_file_rejected",
+   "status": "PASS",
+   "detail": "rejected=True"
+  },
+  {
+   "check": "no_fatal_console_errors",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "harness_completed",
+   "status": "PASS",
+   "detail": "all steps executed"
+  }
+ ],
+ "nav_results": [
+  {
+   "id": "overview",
+   "title": "Overview",
+   "group": "CORE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Overview",
+   "detail": "rendered_title='Overview' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "graph_3d",
+   "title": "3D Project Graph",
+   "group": "CORE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "3D Project Graph",
+   "detail": "rendered_title='3D Project Graph' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "schedule",
+   "title": "Schedule & Critical Path",
+   "group": "CORE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Schedule & Critical Path",
+   "detail": "rendered_title='Schedule & Critical Path' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "materials",
+   "title": "Materials & Resources",
+   "group": "CORE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Materials & Resources",
+   "detail": "rendered_title='Materials & Resources' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "ro1_forecasting",
+   "title": "RO1 · Forecasting",
+   "group": "RESEARCH",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "RO1 · Forecasting",
+   "detail": "rendered_title='RO1 · Forecasting' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "ro2_uncertainty",
+   "title": "RO2 · Uncertainty",
+   "group": "RESEARCH",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "RO2 · Uncertainty",
+   "detail": "rendered_title='RO2 · Uncertainty' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "ro3_optimization",
+   "title": "RO3 · Optimization",
+   "group": "RESEARCH",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "RO3 · Optimization",
+   "detail": "rendered_title='RO3 · Optimization' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "scenarios",
+   "title": "Scenario Lab",
+   "group": "DECISION",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Scenario Lab",
+   "detail": "rendered_title='Scenario Lab' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "procurement_decisions",
+   "title": "Procurement Decisions",
+   "group": "DECISION",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Procurement Decisions",
+   "detail": "rendered_title='Procurement Decisions' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "resilience_stress",
+   "title": "Resilience & Stress",
+   "group": "DECISION",
+   "available": false,
+   "planned": true,
+   "status": "PASS",
+   "rendered_title": "Resilience & Stress",
+   "detail": "rendered_title='Resilience & Stress' url=http://127.0.0.1:8502/ planned_panel=True"
+  },
+  {
+   "id": "evidence",
+   "title": "Research Evidence",
+   "group": "EVIDENCE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Research Evidence",
+   "detail": "rendered_title='Research Evidence' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "experiment_lab",
+   "title": "Experiments",
+   "group": "EVIDENCE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Experiments",
+   "detail": "rendered_title='Experiments' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "real_world_data",
+   "title": "Real-World Data",
+   "group": "EVIDENCE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Real-World Data",
+   "detail": "rendered_title='Real-World Data' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "ablation_robustness",
+   "title": "Ablation & Robustness",
+   "group": "EVIDENCE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Ablation & Robustness",
+   "detail": "rendered_title='Ablation & Robustness' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "provenance_integrity",
+   "title": "Provenance & Integrity",
+   "group": "EVIDENCE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "Provenance & Integrity",
+   "detail": "rendered_title='Provenance & Integrity' url=http://127.0.0.1:8502/"
+  },
+  {
+   "id": "external_data",
+   "title": "External Data",
+   "group": "EVIDENCE",
+   "available": true,
+   "planned": false,
+   "status": "PASS",
+   "rendered_title": "External Data",
+   "detail": "rendered_title='External Data' url=http://127.0.0.1:8502/"
+  }
+ ],
+ "nav_inventory": [
+  "upload\n\nUpload",
+  "🏗 Overview",
+  "🏗 Overview",
+  "🌐 3D Project Graph",
+  "🌐 3D Project Graph",
+  "📅 Schedule & Critical Path",
+  "📅 Schedule & Critical Path",
+  "🧱 Materials & Resources",
+  "🧱 Materials & Resources",
+  "📊 RO1 · Forecasting",
+  "📊 RO1 · Forecasting",
+  "📊 RO2 · Uncertainty",
+  "📊 RO2 · Uncertainty",
+  "📊 RO3 · Optimization",
+  "📊 RO3 · Optimization",
+  "⚠️ Scenario Lab",
+  "⚠️ Scenario Lab",
+  "📊 Procurement Decisions",
+  "📊 Procurement Decisions",
+  "📊 Resilience & Stress",
+  "📊 Resilience & Stress",
+  "📊 Research Evidence",
+  "📊 Research Evidence",
+  "🧪 Experiments",
+  "🧪 Experiments",
+  "📊 Real-World Data",
+  "📊 Real-World Data",
+  "📊 Ablation & Robustness",
+  "📊 Ablation & Robustness",
+  "📊 Provenance & Integrity",
+  "📊 Provenance & Integrity",
+  "📦 External Data",
+  "📦 External Data"
+ ],
+ "nav_inventory_cleaned": [
+  "upload\n\nUpload",
+  "Overview",
+  "Overview",
+  "3D Project Graph",
+  "3D Project Graph",
+  "Schedule & Critical Path",
+  "Schedule & Critical Path",
+  "Materials & Resources",
+  "Materials & Resources",
+  "RO1 · Forecasting",
+  "RO1 · Forecasting",
+  "RO2 · Uncertainty",
+  "RO2 · Uncertainty",
+  "RO3 · Optimization",
+  "RO3 · Optimization",
+  "Scenario Lab",
+  "Scenario Lab",
+  "Procurement Decisions",
+  "Procurement Decisions",
+  "Resilience & Stress",
+  "Resilience & Stress",
+  "Research Evidence",
+  "Research Evidence",
+  "Experiments",
+  "Experiments",
+  "Real-World Data",
+  "Real-World Data",
+  "Ablation & Robustness",
+  "Ablation & Robustness",
+  "Provenance & Integrity",
+  "Provenance & Integrity",
+  "External Data",
+  "External Data"
+ ],
+ "nav_labels_unique": [
+  "upload\n\nUpload",
+  "Overview",
+  "3D Project Graph",
+  "Schedule & Critical Path",
+  "Materials & Resources",
+  "RO1 · Forecasting",
+  "RO2 · Uncertainty",
+  "RO3 · Optimization",
+  "Scenario Lab",
+  "Procurement Decisions",
+  "Resilience & Stress",
+  "Research Evidence",
+  "Experiments",
+  "Real-World Data",
+  "Ablation & Robustness",
+  "Provenance & Integrity",
+  "External Data"
+ ],
+ "provenance_clauses": {
+  "page_identity": true,
+  "section_performed_by_dashboard": true,
+  "label_performed_at_load_time": true,
+  "label_not_performed_by_dashboard": true,
+  "no_sha256_recomputed": true,
+  "no_gate_redone": true,
+  "reported_not_redone_label": true,
+  "records_displayed_as_recorded": true,
+  "not_overview_page": true
+ },
+ "provenance_text_chars": 16578,
+ "external_landing": {
+  "empty_state": true,
+  "accepted_caption": true,
+  "size_caption": true,
+  "supported_analyses_caption": true,
+  "stages_not_run_section": true,
+  "ro1_unavailable": true,
+  "ro2_unavailable": true,
+  "ro3_unavailable": true,
+  "no_run_button": true
+ },
+ "supported_analysis_options": [
+  "Descriptive statistics + bootstrap interval",
+  "Forecast interval coverage"
+ ],
+ "external_descriptive": {
+  "analysis": "descriptive_statistics",
+  "fixture": "safe_external_demo_deterministic_input.csv",
+  "download_run_summary_error": "",
+  "download_result_table_error": "",
+  "run_dir": "run_20261019T191131Z_03523108",
+  "input_sha256_computed": "9d4f9ec297852dc2ed282738350bb1041be66df45e4048dd703f93a7e43ff7d5",
+  "input_sha256_record": "9d4f9ec297852dc2ed282738350bb1041be66df45e4048dd703f93a7e43ff7d5",
+  "input_hash_matches": true,
+  "input_filename_matches": true,
+  "analysis_matches": true,
+  "status": "SUCCEEDED",
+  "provenance_class": "DER",
+  "mapping": {
+   "measure": "forecast_demand_units"
+  },
+  "disk_row_count": 1,
+  "run_summary_download_matches_disk": true,
+  "result_table_download_matches_disk_csv": true,
+  "run_summary_error": "",
+  "result_table_error": "",
+  "run_summary_field_mismatches": [],
+  "run_summary_extra_keys": [],
+  "download_result_table_head": "group,n,mean,std,min,p25,median,p75,max,mean_ci95_low,mean_ci95_high,bootstrap_resamples,seed\n(all rows),3,131.66666666666666,10.408329997330663,120.0,127.5,135.0,137.5,140.0,120.0,140.0,1000,42\n"
+ },
+ "external_coverage": {
+  "analysis": "forecast_coverage",
+  "fixture": "safe_external_forecast_coverage_input.csv",
+  "download_run_summary_error": "",
+  "download_result_table_error": "",
+  "run_dir": "run_20261019T191142Z_c2f5fc47",
+  "dom_metrics": {
+   "Rows scored": "Rows scored\n\n5",
+   "Coverage rate": "Coverage rate\n\n1.000",
+   "Mean interval width": "Mean interval width\n\n54.600"
+  },
+  "disk_analysis_result": {
+   "n_scored": 5,
+   "coverage_rate": 1.0,
+   "mean_interval_width": 54.6,
+   "pinball_loss_mean": null
+  },
+  "rows_scored_matches": true,
+  "coverage_rate_matches_rounded": true,
+  "mean_interval_width_matches_rounded": true,
+  "input_sha256_computed": "08bae3e7c7ddd2dfce050894d63967d06e7727adc111737345ed97f8a7b88da9",
+  "input_sha256_record": "08bae3e7c7ddd2dfce050894d63967d06e7727adc111737345ed97f8a7b88da9",
+  "input_hash_matches": true,
+  "input_filename_matches": true,
+  "analysis_matches": true,
+  "status": "SUCCEEDED",
+  "provenance_class": "DER",
+  "mapping": {
+   "interval_lower": "lower_p10",
+   "interval_upper": "upper_p90",
+   "observed": "observed_units"
+  },
+  "run_summary_download_matches_disk": true,
+  "result_table_download_matches_disk_csv": true,
+  "run_summary_error": "",
+  "result_table_error": "",
+  "run_summary_field_mismatches": [],
+  "run_summary_extra_keys": [],
+  "download_result_table_head": "analysis,observed_column,interval_lower_column,interval_upper_column,n_scored,n_rows_total,coverage_rate,mean_interval_width,computed_from,engine\nforecast_coverage,observed_units,lower_p10,upper_p90,5,5,1.0,54.6,uploaded rows only,CMIDO calibration/coverage discipline\n"
+ },
+ "console_errors": [],
+ "finished_utc": "2026-10-19T19:11:49.190299+00:00",
+ "summary": {
+  "PASS": 46
+ }
+}

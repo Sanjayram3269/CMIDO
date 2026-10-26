@@ -1,0 +1,80 @@
+{
+  "spec_version": "v1.0",
+  "checks": [
+    {
+      "check": "evaluation_realization_gate_required",
+      "passed": true
+    },
+    {
+      "check": "controller_input_gate_required",
+      "passed": true
+    },
+    {
+      "check": "primary_statistical_unit_is_forecast_origin",
+      "passed": true
+    },
+    {
+      "check": "eleven_paired_origins",
+      "passed": true
+    },
+    {
+      "check": "four_materials_per_origin",
+      "passed": true
+    },
+    {
+      "check": "twelve_realized_months_per_origin",
+      "passed": true
+    },
+    {
+      "check": "same_realization_for_all_controllers",
+      "passed": true
+    },
+    {
+      "check": "o1_single_policy",
+      "passed": true
+    },
+    {
+      "check": "o3_single_policy",
+      "passed": true
+    },
+    {
+      "check": "o2_primary_policy_min_cost_anchor",
+      "passed": true
+    },
+    {
+      "check": "o4_primary_policy_min_expected_cost_anchor",
+      "passed": true
+    },
+    {
+      "check": "no_evaluation_outcome_used_for_policy_selection",
+      "passed": true
+    },
+    {
+      "check": "complete_pareto_sets_retained_for_secondary_analysis",
+      "passed": true
+    },
+    {
+      "check": "primary_realized_metrics_cost_shortage_service",
+      "passed": true
+    },
+    {
+      "check": "origin_level_inference_not_pooled_monthly",
+      "passed": true
+    },
+    {
+      "check": "paired_bootstrap_primary_uncertainty",
+      "passed": true
+    },
+    {
+      "check": "multiplicity_correction_planned",
+      "passed": true
+    },
+    {
+      "check": "no_posthoc_origin_removal",
+      "passed": true
+    }
+  ],
+  "checks_passed": 18,
+  "checks_total": 18,
+  "decision": "PASS"
+}

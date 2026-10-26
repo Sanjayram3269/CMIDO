@@ -1,0 +1,16 @@
+check,passed
+11_locked_origins,True
+four_common_materials,True
+all_12_demand_months_available,True
+all_12_price_months_available,True
+all_demand_values_finite,True
+all_price_values_finite,True
+evaluation_strictly_after_origin,True
+no_demand_duplicate_dates,True
+no_price_duplicate_dates,True
+price_material_mapping_exact,True
+demand_material_mapping_exact,True
+raw_demand_covers_latest_evaluation,True
+raw_price_covers_latest_evaluation,True
+forecast_actual_column_present,True
+forecast_targets_after_origin,True
